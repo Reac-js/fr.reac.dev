@@ -137,7 +137,7 @@ export function HomeContent() {
               Apprenez Réac
             </ButtonLink>
             <ButtonLink
-              href={'/reference/react'}
+              href={'/reference/reac'}
               type="secondary"
               size="lg"
               className="w-full sm:w-auto justify-center"
