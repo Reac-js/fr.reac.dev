@@ -300,11 +300,11 @@ export function Footer() {
           <FooterLink href="/learn/escape-hatches">Échappatoires</FooterLink>
         </div>
         <div className="flex flex-col">
-          <FooterLink href="/reference/react" isHeader={true}>
+          <FooterLink href="/reference/reac" isHeader={true}>
             Référence de l’API
           </FooterLink>
-          <FooterLink href="/reference/react">API Réac</FooterLink>
-          <FooterLink href="/reference/react-dom">API Réac DOM</FooterLink>
+          <FooterLink href="/reference/reac">API Réac</FooterLink>
+          <FooterLink href="/reference/reacjs-mod">API Réac DOM</FooterLink>
         </div>
         <div className="md:col-start-2 xl:col-start-4 flex flex-col">
           <FooterLink href="/community" isHeader={true}>

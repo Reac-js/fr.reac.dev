@@ -6,7 +6,7 @@
   "redirects": [
     {
       "source": "/reference",
-      "destination": "/reference/react",
+      "destination": "/reference/reac",
       "permanent": true
     },
     {
@@ -27,7 +27,7 @@
     },
     {
       "source": "/link/hooks-data-fetching",
-      "destination": "/reference/react/utiliserEffet#fetching-data-with-effects",
+      "destination": "/reference/reac/utiliserEffet#fetching-data-with-effects",
       "permanent": false
     },
     {
@@ -37,12 +37,12 @@
     },
     {
       "source": "/link/dangerously-set-inner-html",
-      "destination": "/reference/react-dom/components/common#dangerously-setting-the-inner-html",
+      "destination": "/reference/reacjs-mod/components/common#dangerously-setting-the-inner-html",
       "permanent": false
     },
     {
       "source": "/link/controlled-components",
-      "destination": "/reference/react-dom/components/input#controlling-an-input-with-a-state-variable",
+      "destination": "/reference/reacjs-mod/components/input#controlling-an-input-with-a-state-variable",
       "permanent": false
     },
     {
@@ -57,7 +57,7 @@
     },
     {
       "source": "/link/hydration-mismatch",
-      "destination": "/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html",
+      "destination": "/reference/reacjs-mod/client/hydrateRoot#hydrating-server-rendered-html",
       "permanent": false
     },
     {
@@ -67,12 +67,12 @@
     },
     {
       "source": "/link/error-boundaries",
-      "destination": "/reference/react/Component#catching-rendering-errors-with-an-error-boundary",
+      "destination": "/reference/reac/Component#catching-rendering-errors-with-an-error-boundary",
       "permanent": false
     },
     {
       "source": "/link/strict-mode-find-node",
-      "destination": "/reference/react-dom/findDOMNode#alternatives",
+      "destination": "/reference/reacjs-mod/findDOMNode#alternatives",
       "permanent": false
     },
     {

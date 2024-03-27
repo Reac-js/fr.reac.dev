@@ -55,8 +55,8 @@ export const Seo = withRouter(
     // Twitter's meta parser is not very good.
     const twitterTitle = pageTitle.replace(/[<>]/g, '');
     let description = isHomePage
-      ? 'Réac est une bibliothèque pour des interfaces utilisateurs web et natives. Construisez des interfaces utilisateurs à partir de briques individuelles appelées composants, écrites en JavaScript. Réac est conçu pour vous permettre de combiner sans effort des composants produits par des acteurs distincts, qu’il s’agisse de personnes, d’équipes ou d’organisations entières.'
-      : 'La bibliothèque pour des interfaces utilisateurs web et natives';
+      ? 'Réac est une bibliothèque pour des interfaces utilisateurs web et natives bien de chez nous. Construisez des interfaces utilisateurs à partir de briques individuelles appelées composants, écrites en JavaScript. Réac est conçu pour vous permettre de combiner sans effort des composants produits par des acteurs distincts, qu’il s’agisse de personnes, d’équipes ou d’organisations entières.'
+      : 'La bibliothèque pour des interfaces utilisateurs web et natives bien de chez nous';
     return (
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -40,19 +40,19 @@
     },
     {
       "title": "Crochets",
-      "path": "/reference/react"
+      "path": "/reference/reac"
     },
     {
       "title": "Composants",
-      "path": "/reference/react/components"
+      "path": "/reference/reac/components"
     },
     {
       "title": "Fonctions",
-      "path": "/reference/react/apis"
+      "path": "/reference/reac/apis"
     },
     {
       "title": "API Réac historique",
-      "path": "/reference/react/legacy"
+      "path": "/reference/reac/legacy"
     },
     {
       "hasSectionHeader": true,
@@ -60,19 +60,19 @@
     },
     {
       "title": "Composants",
-      "path": "/reference/react-dom/components"
+      "path": "/reference/reacjs-mod/components"
     },
     {
       "title": "Fonctions",
-      "path": "/reference/react-dom"
+      "path": "/reference/reacjs-mod"
     },
     {
       "title": "Fonctions côté client",
-      "path": "/reference/react-dom/client"
+      "path": "/reference/reacjs-mod/client"
     },
     {
       "title": "Fonctions côté serveur",
-      "path": "/reference/react-dom/server"
+      "path": "/reference/reacjs-mod/server"
     },
     {
       "hasSectionHeader": true,

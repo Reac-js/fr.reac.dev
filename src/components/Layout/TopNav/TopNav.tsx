@@ -286,7 +286,7 @@ export default function TopNav({
                 </NavItem>
                 <NavItem
                   isActive={section === 'reference'}
-                  url="/reference/react">
+                  url="/reference/reac">
                   Référence
                 </NavItem>
                 <NavItem isActive={section === 'community'} url="/community">
@@ -365,7 +365,7 @@ export default function TopNav({
                     </NavItem>
                     <NavItem
                       isActive={section === 'reference'}
-                      url="/reference/react">
+                      url="/reference/reac">
                       Référence
                     </NavItem>
                     <NavItem

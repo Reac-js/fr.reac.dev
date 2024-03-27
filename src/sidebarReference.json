@@ -1,310 +1,310 @@
 {
   "title": "Référence de l’API",
-  "path": "/reference/react",
+  "path": "/reference/reac",
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "react@18.2.0"
+      "sectionHeader": "reacjs@1.0.2"
     },
     {
       "title": "Survol",
-      "path": "/reference/react"
+      "path": "/reference/reac"
     },
     {
       "title": "Crochets",
-      "path": "/reference/react/crochets",
+      "path": "/reference/reac/crochets",
       "routes": [
         {
           "title": "utiliserRappel",
-          "path": "/reference/react/utiliserRappel"
+          "path": "/reference/reac/utiliserRappel"
         },
         {
           "title": "utiliserContexte",
-          "path": "/reference/react/utiliserContexte"
+          "path": "/reference/reac/utiliserContexte"
         },
         {
           "title": "utiliserValeurDebogage",
-          "path": "/reference/react/utiliserValeurDebogage"
+          "path": "/reference/reac/utiliserValeurDebogage"
         },
         {
           "title": "utiliserValeurRetardee",
-          "path": "/reference/react/utiliserValeurRetardee"
+          "path": "/reference/reac/utiliserValeurRetardee"
         },
         {
           "title": "utiliserEffet",
-          "path": "/reference/react/utiliserEffet"
+          "path": "/reference/reac/utiliserEffet"
         },
         {
           "title": "utiliserId",
-          "path": "/reference/react/utiliserId"
+          "path": "/reference/reac/utiliserId"
         },
         {
           "title": "utiliserPoigneeImperative",
-          "path": "/reference/react/utiliserPoigneeImperative"
+          "path": "/reference/reac/utiliserPoigneeImperative"
         },
         {
           "title": "utiliserEffetInsertion",
-          "path": "/reference/react/utiliserEffetInsertion"
+          "path": "/reference/reac/utiliserEffetInsertion"
         },
         {
           "title": "utiliserEffetMiseEnPage",
-          "path": "/reference/react/utiliserEffetMiseEnPage"
+          "path": "/reference/reac/utiliserEffetMiseEnPage"
         },
         {
           "title": "utiliserMemoire",
-          "path": "/reference/react/utiliserMemoire"
+          "path": "/reference/reac/utiliserMemoire"
         },
         {
           "title": "utiliserReducteur",
-          "path": "/reference/react/utiliserReducteur"
+          "path": "/reference/reac/utiliserReducteur"
         },
         {
           "title": "utiliserReference",
-          "path": "/reference/react/utiliserReference"
+          "path": "/reference/reac/utiliserReference"
         },
         {
           "title": "utiliserEtat",
-          "path": "/reference/react/utiliserEtat"
+          "path": "/reference/reac/utiliserEtat"
         },
         {
           "title": "utiliserSynchroniserStockageExterne",
-          "path": "/reference/react/utiliserSynchroniserStockageExterne"
+          "path": "/reference/reac/utiliserSynchroniserStockageExterne"
         },
         {
           "title": "utiliserTransition",
-          "path": "/reference/react/utiliserTransition"
+          "path": "/reference/reac/utiliserTransition"
         }
       ]
     },
     {
       "title": "Composants",
-      "path": "/reference/react/components",
+      "path": "/reference/reac/components",
       "routes": [
         {
           "title": "<Fragment> (<>)",
-          "path": "/reference/react/Fragment"
+          "path": "/reference/reac/Fragment"
         },
         {
-          "title": "<Profiler>",
-          "path": "/reference/react/Profiler"
+          "title": "<Profileur>",
+          "path": "/reference/reac/Profileur"
         },
         {
-          "title": "<StrictMode>",
-          "path": "/reference/react/StrictMode"
+          "title": "<ModeStrict>",
+          "path": "/reference/reac/ModeStrict"
         },
         {
           "title": "<Suspense>",
-          "path": "/reference/react/Suspense"
+          "path": "/reference/reac/Suspense"
         }
       ]
     },
     {
       "title": "Fonctions",
-      "path": "/reference/react/apis",
+      "path": "/reference/reac/apis",
       "routes": [
         {
           "title": "creerContexte",
-          "path": "/reference/react/creerContexte"
+          "path": "/reference/reac/creerContexte"
         },
         {
           "title": "avancerReference",
-          "path": "/reference/react/avancerReference"
+          "path": "/reference/reac/avancerReference"
         },
         {
           "title": "paresseux",
-          "path": "/reference/react/paresseux"
+          "path": "/reference/reac/paresseux"
         },
         {
           "title": "memoire",
-          "path": "/reference/react/memoire"
+          "path": "/reference/reac/memoire"
         },
         {
           "title": "demarrerTransition",
-          "path": "/reference/react/demarrerTransition"
+          "path": "/reference/reac/demarrerTransition"
         }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "react-dom@18.2.0"
+      "sectionHeader": "reacjs-mod@1.0.2"
     },
     {
       "title": "Crochets",
-      "path": "/reference/react-dom/hooks",
+      "path": "/reference/reacjs-mod/hooks",
       "routes": [
         {
           "title": "useFormState",
-          "path": "/reference/react-dom/hooks/useFormState",
+          "path": "/reference/reacjs-mod/hooks/useFormState",
           "canary": true
         },
         {
           "title": "useFormStatus",
-          "path": "/reference/react-dom/hooks/useFormStatus",
+          "path": "/reference/reacjs-mod/hooks/useFormStatus",
           "canary": true
         }
       ]
     },
     {
       "title": "Composants",
-      "path": "/reference/react-dom/components",
+      "path": "/reference/reacjs-mod/components",
       "routes": [
         {
           "title": "Communs (ex. <div>)",
-          "path": "/reference/react-dom/components/common"
+          "path": "/reference/reacjs-mod/components/common"
         },
         {
           "title": "<form>",
-          "path": "/reference/react-dom/components/form",
+          "path": "/reference/reacjs-mod/components/form",
           "canary": true
         },
         {
           "title": "<input>",
-          "path": "/reference/react-dom/components/input"
+          "path": "/reference/reacjs-mod/components/input"
         },
         {
           "title": "<option>",
-          "path": "/reference/react-dom/components/option"
+          "path": "/reference/reacjs-mod/components/option"
         },
         {
           "title": "<progress>",
-          "path": "/reference/react-dom/components/progress"
+          "path": "/reference/reacjs-mod/components/progress"
         },
         {
           "title": "<select>",
-          "path": "/reference/react-dom/components/select"
+          "path": "/reference/reacjs-mod/components/select"
         },
         {
           "title": "<textarea>",
-          "path": "/reference/react-dom/components/textarea"
+          "path": "/reference/reacjs-mod/components/textarea"
         },
         {
           "title": "<link>",
-          "path": "/reference/react-dom/components/link",
+          "path": "/reference/reacjs-mod/components/link",
           "canary": true
         },
         {
           "title": "<meta>",
-          "path": "/reference/react-dom/components/meta",
+          "path": "/reference/reacjs-mod/components/meta",
           "canary": true
         },
         {
           "title": "<script>",
-          "path": "/reference/react-dom/components/script",
+          "path": "/reference/reacjs-mod/components/script",
           "canary": true
         },
         {
           "title": "<style>",
-          "path": "/reference/react-dom/components/style",
+          "path": "/reference/reacjs-mod/components/style",
           "canary": true
         },
         {
           "title": "<title>",
-          "path": "/reference/react-dom/components/title",
+          "path": "/reference/reacjs-mod/components/title",
           "canary": true
         }
       ]
     },
     {
       "title": "Fonctions",
-      "path": "/reference/react-dom",
+      "path": "/reference/reacjs-mod",
       "routes": [
         {
           "title": "createPortal",
-          "path": "/reference/react-dom/createPortal"
+          "path": "/reference/reacjs-mod/createPortal"
         },
         {
           "title": "flushSync",
-          "path": "/reference/react-dom/flushSync"
+          "path": "/reference/reacjs-mod/flushSync"
         },
         {
           "title": "findDOMNode",
-          "path": "/reference/react-dom/findDOMNode"
+          "path": "/reference/reacjs-mod/findDOMNode"
         },
         {
           "title": "hydrate",
-          "path": "/reference/react-dom/hydrate"
+          "path": "/reference/reacjs-mod/hydrate"
         },
         {
           "title": "preconnect",
-          "path": "/reference/react-dom/preconnect",
+          "path": "/reference/reacjs-mod/preconnect",
           "canary": true
         },
         {
           "title": "prefetchDNS",
-          "path": "/reference/react-dom/prefetchDNS",
+          "path": "/reference/reacjs-mod/prefetchDNS",
           "canary": true
         },
         {
           "title": "preinit",
-          "path": "/reference/react-dom/preinit",
+          "path": "/reference/reacjs-mod/preinit",
           "canary": true
         },
         {
           "title": "preinitModule",
-          "path": "/reference/react-dom/preinitModule",
+          "path": "/reference/reacjs-mod/preinitModule",
           "canary": true
         },
         {
           "title": "preload",
-          "path": "/reference/react-dom/preload",
+          "path": "/reference/reacjs-mod/preload",
           "canary": true
         },
         {
           "title": "preloadModule",
-          "path": "/reference/react-dom/preloadModule",
+          "path": "/reference/reacjs-mod/preloadModule",
           "canary": true
         },
         {
           "title": "render",
-          "path": "/reference/react-dom/render"
+          "path": "/reference/reacjs-mod/render"
         },
         {
           "title": "unmountComponentAtNode",
-          "path": "/reference/react-dom/unmountComponentAtNode"
+          "path": "/reference/reacjs-mod/unmountComponentAtNode"
         }
       ]
     },
     {
       "title": "Fonctions côté client",
-      "path": "/reference/react-dom/client",
+      "path": "/reference/reacjs-mod/client",
       "routes": [
         {
           "title": "createRoot",
-          "path": "/reference/react-dom/client/createRoot"
+          "path": "/reference/reacjs-mod/client/createRoot"
         },
         {
           "title": "hydrateRoot",
-          "path": "/reference/react-dom/client/hydrateRoot"
+          "path": "/reference/reacjs-mod/client/hydrateRoot"
         }
       ]
     },
     {
       "title": "Fonctions côté serveur",
-      "path": "/reference/react-dom/server",
+      "path": "/reference/reacjs-mod/server",
       "routes": [
         {
           "title": "renderToNodeStream",
-          "path": "/reference/react-dom/server/renderToNodeStream"
+          "path": "/reference/reacjs-mod/server/renderToNodeStream"
         },
         {
           "title": "renderToPipeableStream",
-          "path": "/reference/react-dom/server/renderToPipeableStream"
+          "path": "/reference/reacjs-mod/server/renderToPipeableStream"
         },
         {
           "title": "renderToReadableStream",
-          "path": "/reference/react-dom/server/renderToReadableStream"
+          "path": "/reference/reacjs-mod/server/renderToReadableStream"
         },
         {
           "title": "renderToStaticMarkup",
-          "path": "/reference/react-dom/server/renderToStaticMarkup"
+          "path": "/reference/reacjs-mod/server/renderToStaticMarkup"
         },
         {
           "title": "renderToStaticNodeStream",
-          "path": "/reference/react-dom/server/renderToStaticNodeStream"
+          "path": "/reference/reacjs-mod/server/renderToStaticNodeStream"
         },
         {
           "title": "renderToString",
-          "path": "/reference/react-dom/server/renderToString"
+          "path": "/reference/reacjs-mod/server/renderToString"
         }
       ]
     },
@@ -314,39 +314,39 @@
     },
     {
       "title": "API Réac historique",
-      "path": "/reference/react/legacy",
+      "path": "/reference/reac/legacy",
       "routes": [
         {
           "title": "Children",
-          "path": "/reference/react/Children"
+          "path": "/reference/reac/Children"
         },
         {
           "title": "clonerElement",
-          "path": "/reference/react/clonerElement"
+          "path": "/reference/reac/clonerElement"
         },
         {
           "title": "Component",
-          "path": "/reference/react/Component"
+          "path": "/reference/reac/Component"
         },
         {
           "title": "creerElement",
-          "path": "/reference/react/creerElement"
+          "path": "/reference/reac/creerElement"
         },
         {
           "title": "creerUsine",
-          "path": "/reference/react/creerUsine"
+          "path": "/reference/reac/creerUsine"
         },
         {
           "title": "creerReference",
-          "path": "/reference/react/creerReference"
+          "path": "/reference/reac/creerReference"
         },
         {
           "title": "estUnElementValide",
-          "path": "/reference/react/estUnElementValide"
+          "path": "/reference/reac/estUnElementValide"
         },
         {
           "title": "PureComponent",
-          "path": "/reference/react/PureComponent"
+          "path": "/reference/reac/PureComponent"
         }
       ]
     }
