@@ -9,8 +9,8 @@ exports.siteConfig = {
   hasLegacySite: true,
   isRTL: false,
   // --------------------------------------
-  copyright: `Copyright © ${new Date().getFullYear()} Facebook Inc. All Rights Reserved.`,
-  repoUrl: 'https://github.com/facebook/react',
+  copyright: `Copyleft des idiots un mercredi soir.`,
+  repoUrl: 'https://github.com/Reac-js/reac',
   twitterUrl: 'https://twitter.com/reactjs',
   algolia: {
     appId: '1FCF9AYYAT',
