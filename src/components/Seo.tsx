@@ -51,11 +51,11 @@ export const Seo = withRouter(
     }`;
     // Allow setting a different title for Google results
     const pageTitle =
-      (titleForTitleTag ?? title) + (isHomePage ? '' : ' – React');
+      (titleForTitleTag ?? title) + (isHomePage ? '' : ' – Réac');
     // Twitter's meta parser is not very good.
     const twitterTitle = pageTitle.replace(/[<>]/g, '');
     let description = isHomePage
-      ? 'React est une bibliothèque pour des interfaces utilisateurs web et natives. Construisez des interfaces utilisateurs à partir de briques individuelles appelées composants, écrites en JavaScript. React est conçu pour vous permettre de combiner sans effort des composants produits par des acteurs distincts, qu’il s’agisse de personnes, d’équipes ou d’organisations entières.'
+      ? 'Réac est une bibliothèque pour des interfaces utilisateurs web et natives. Construisez des interfaces utilisateurs à partir de briques individuelles appelées composants, écrites en JavaScript. Réac est conçu pour vous permettre de combiner sans effort des composants produits par des acteurs distincts, qu’il s’agisse de personnes, d’équipes ou d’organisations entières.'
       : 'La bibliothèque pour des interfaces utilisateurs web et natives';
     return (
       <Head>

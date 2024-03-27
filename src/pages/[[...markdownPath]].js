@@ -63,10 +63,10 @@ function useActiveSection() {
   }
 }
 
-// Deserialize a client React tree from JSON.
+// Deserialize a client Réac tree from JSON.
 function reviveNodeOnClient(key, val) {
   if (Array.isArray(val) && val[0] == '$r') {
-    // Assume it's a React element.
+    // Assume it's a Réac element.
     let type = val[1];
     let key = val[2];
     let props = val[3];

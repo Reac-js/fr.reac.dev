@@ -4,7 +4,7 @@ title: Contributeurs aux docs
 
 <Intro>
 
-La documentation de React est écrite et maintenue par [l'équipe React](/community/team) et des [contributeurs externes](https://github.com/reactjs/react.dev/graphs/contributors). Sur cette page, nous aimerions remercier les personnes qui ont significativement contribué à ce site.
+La documentation de Réac est écrite et maintenue par [l'équipe Réac](/community/team) et des [contributeurs externes](https://github.com/Réacjs/Réac.dev/graphs/contributors). Sur cette page, nous aimerions remercier les personnes qui ont significativement contribué à ce site.
 
 </Intro>
 
@@ -43,6 +43,6 @@ Nous aimerions aussi remercier les innombrables testeurs de la première heure e
 
 ## Traduction {/*translation*/}
 
-Si vous bénéficiez d’une traduction française de qualité et à jour de la documentation officielle React, c’est grâce au travail bénévole d’un nombre significatif de traducteur·rice·s, qui dans certains cas ont fait là leur premier travail de traduction, voire leur première contribution sur GitHub.
+Si vous bénéficiez d’une traduction française de qualité et à jour de la documentation officielle Réac, c’est grâce au travail bénévole d’un nombre significatif de traducteur·rice·s, qui dans certains cas ont fait là leur premier travail de traduction, voire leur première contribution sur GitHub.
 
-[Christophe Porteneuve](https://twitter.com/porteneuve) pilote l’effort de traduction française ; vous pourrez trouver tout le détail des personnes ayant contribué à la traduction et de leurs travaux respectifs dans [ce document](https://github.com/reactjs/fr.react.dev/blob/main/TRANSLATORS.md). Mille merci à elles !
+[Christophe Porteneuve](https://twitter.com/porteneuve) pilote l’effort de traduction française ; vous pourrez trouver tout le détail des personnes ayant contribué à la traduction et de leurs travaux respectifs dans [ce document](https://github.com/Réacjs/fr.Réac.dev/blob/main/TRANSLATORS.md). Mille merci à elles !

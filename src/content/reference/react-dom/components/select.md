@@ -36,7 +36,7 @@ Pour afficher une liste de sélection, utilisez le [composant natif `<select>` d
 
 #### Props {/*props*/}
 
-`<select>` prend en charge toutes les [props communes aux éléments](/reference/react-dom/components/common#props).
+`<select>` prend en charge toutes les [props communes aux éléments](/reference/Réac-dom/Composants/common#props).
 
 Une liste de sélection peut devenir un [champ contrôlé](#controlling-a-select-box-with-a-state-variable) en lui passant une prop `value` :
 
@@ -51,17 +51,17 @@ Si votre `<select>` n'est pas contrôlée, passez plutôt la prop `defaultValue`
 Ces props de `<select>` sont compatibles avec les listes de sélection contrôlées et non contrôlées :
 
 * [`autoComplete`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/select#autocomplete) : une chaîne de caractères. Spécifie un des [comportements de l'autocomplétion](https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/autocomplete#valeurs).
-* [`autoFocus`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/select#autofocus) : un booléen. Si `true`, React va activer l'élément après le montage _(l'apparition initiale dans le DOM, NdT)_.
-* `children` : `<select>` accepte comme enfants des composants [`<option>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/option), [`<optgroup>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/optgroup) et [`<datalist>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/datalist). Vous pouvez aussi passer vos propres composants à condition qu'ils finissent par produire un des composants natifs autorisés.  Si vous passez vos propres composants et que ceux-ci produisent au final des balises `<option>`, chaque `<option>` que vous affichez doit avoir une `value`.
+* [`autoFocus`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/select#autofocus) : un booléen. Si `true`, Réac va activer l'élément après le montage _(l'apparition initiale dans le DOM, NdT)_.
+* `Enfants` : `<select>` accepte comme enfants des composants [`<option>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/option), [`<optgroup>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/optgroup) et [`<datalist>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/datalist). Vous pouvez aussi passer vos propres composants à condition qu'ils finissent par produire un des composants natifs autorisés.  Si vous passez vos propres composants et que ceux-ci produisent au final des balises `<option>`, chaque `<option>` que vous affichez doit avoir une `value`.
 * [`disabled`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/select#disabled) : un booléen. Si `true`, la liste de sélection ne sera pas interactive et sera grisée.
 * [`form`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/select#form) : une chaîne de caractères. Spécifie l'`id` du `<form>` auquel appartient cette liste de sélection. S'il est absent, la zone de saisie sera associée au formulaire parent le plus proche.
 * [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#multiple) : un booléen. Si `true`, le navigateur autorisera la [sélection multiple](#enabling-multiple-selection).
 * [`name`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/select#name) : une chaîne de caractères. Spécifie le nom de cette liste de sélection au sein de [l'envoi du formulaire](#reading-the-select-box-when-submitting-a-form).
-* `onChange` : une fonction [gestionnaire d'événement](/reference/react-dom/components/common#event-handler). Requis pour [les listes de sélection contrôlées](#controlling-a-select-box-with-a-state-variable). Se déclenche immédiatement lorsque l'utilisateur sélectionne une option différente. Se comporte comme [l'événement `input`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event) du navigateur.
+* `onChange` : une fonction [gestionnaire d'événement](/reference/Réac-dom/Composants/common#event-handler). Requis pour [les listes de sélection contrôlées](#controlling-a-select-box-with-a-state-variable). Se déclenche immédiatement lorsque l'utilisateur sélectionne une option différente. Se comporte comme [l'événement `input`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event) du navigateur.
 * `onChangeCapture` : une version de `onChange` qui se déclenche lors de la [phase de capture](/learn/responding-to-events#capture-phase-events).
-* [`onInput`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event) : une fonction [gestionnaire d'événement](/reference/react-dom/components/common#event-handler). Se déclenche immédiatement lorsque la valeur de la liste de sélection est modifiée par l'utilisateur. Pour des raisons historiques, en React l'usage consiste à plutôt utiliser `onChange`, qui fonctionne de manière similaire.
+* [`onInput`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event) : une fonction [gestionnaire d'événement](/reference/Réac-dom/Composants/common#event-handler). Se déclenche immédiatement lorsque la valeur de la liste de sélection est modifiée par l'utilisateur. Pour des raisons historiques, en Réac l'usage consiste à plutôt utiliser `onChange`, qui fonctionne de manière similaire.
 * `onInputCapture` : une version de `onInput` qui se déclenche lors de la [phase de capture](/learn/responding-to-events#capture-phase-events).
-* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event) : une fonction [gestionnaire d'événement](/reference/react-dom/components/common#event-handler). Se déclenche si une liste de sélection échoue à la validation lors de la soumission du formulaire. Contrairement à l'événement natif `invalid`, l'événement React `onInvalid` se propage.
+* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event) : une fonction [gestionnaire d'événement](/reference/Réac-dom/Composants/common#event-handler). Se déclenche si une liste de sélection échoue à la validation lors de la soumission du formulaire. Contrairement à l'événement natif `invalid`, l'événement Réac `onInvalid` se propage.
 * `onInvalidCapture` : une version de `onInvalid` qui se déclenche lors de la [phase de capture](/learn/responding-to-events#capture-phase-events).
 * [`required`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/select#required) : un booléen. Si `true`, la valeur doit être fournie pour que le formulaire puisse être soumis.
 * [`size`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#size) : un nombre. Pour les listes de sélection avec `multiple={true}`, spécifie le nombre souhaitable d'éléments initialement visibles.
@@ -111,15 +111,15 @@ select { margin: 5px; }
 
 Vous placerez généralement chaque `<select>` à l'intérieur d'une balise [`<label>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/label). Ça indique au navigateur que cette légende est associée à cette liste de sélection. Lorsque l'utilisateur cliquera sur la légende, le navigateur activera la liste de sélection. C'est également essentiel pour l'accessibilité : un lecteur d'écran annoncera la légende lorsque l'utilisateur activera la liste de sélection.
 
-Si vous ne pouvez pas imbriquer votre `<select>` dans un `<label>`, associez-les en passant le même `id` à `<select id>` et [`<label htmlFor>`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor). Pour éviter les conflits entre les instances d'un composant, générez un `id` avec [`useId`](/reference/react/useId).
+Si vous ne pouvez pas imbriquer votre `<select>` dans un `<label>`, associez-les en passant le même `id` à `<select id>` et [`<label htmlFor>`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor). Pour éviter les conflits entre les instances d'un composant, générez un `id` avec [`utiliserId`](/reference/Réac/utiliserId).
 
 <Sandpack>
 
 ```js
-import { useId } from 'react';
+import { utiliserId } from 'Réac';
 
 export default function Form() {
-  const vegetableSelectId = useId();
+  const vegetableSelectId = utiliserId();
   return (
     <>
       <label>
@@ -303,7 +303,7 @@ Si vous utilisez `<select multiple={true}>`, le [`FormData`](https://developer.m
 
 <Pitfall>
 
-Par défaut, *n'importe quel* `<button>` à l'intérieur d'un `<form>` va le soumettre. Ça peut surprendre ! Si vous avez votre propre composant React `Button`, envisagez de renvoyer [`<button type="button">`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/input/button) au lieu de `<button>`. Ensuite, pour être explicite, utilisez `<button type="submit">` pour les boutons qui *sont* censés soumettre le formulaire.
+Par défaut, *n'importe quel* `<button>` à l'intérieur d'un `<form>` va le soumettre. Ça peut surprendre ! Si vous avez votre propre composant Réac `Button`, envisagez de renvoyer [`<button type="button">`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/input/button) au lieu de `<button>`. Ensuite, pour être explicite, utilisez `<button type="submit">` pour les boutons qui *sont* censés soumettre le formulaire.
 
 </Pitfall>
 
@@ -313,11 +313,11 @@ Par défaut, *n'importe quel* `<button>` à l'intérieur d'un `<form>` va le sou
 
 Une liste de sélection comme `<select />` est *non contrôlée*. Même si vous [passez une valeur initiale](#providing-an-initially-selected-option) comme `<select defaultValue="orange" />`, votre JSX ne spécifie que la ou les valeurs initiales, il ne contrôle pas la ou les valeurs actuelles.
 
-**Pour afficher une liste de sélection _contrôlée_, passez une prop `value` à `<select />`.** React forcera la liste de sélection à toujours avoir la valeur que vous avez passée. Généralement, vous contrôlerez une liste de sélection en déclarant une [variable d'état](/reference/react/useState) :
+**Pour afficher une liste de sélection _contrôlée_, passez une prop `value` à `<select />`.** Réac forcera la liste de sélection à toujours avoir la valeur que vous avez passée. Généralement, vous contrôlerez une liste de sélection en déclarant une [variable d'état](/reference/Réac/utiliserEtat) :
 
 ```js {2,6,7}
 function FruitPicker() {
-  const [selectedFruit, setSelectedFruit] = useState('orange'); // Déclare une variable d’état...
+  const [selectedFruit, setSelectedFruit] = utiliserEtat('orange'); // Déclare une variable d’état...
   // ...
   return (
     <select
@@ -337,11 +337,11 @@ C'est utile lorsque vous voulez rafraîchir une partie de l'interface utilisateu
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function FruitPicker() {
-  const [selectedFruit, setSelectedFruit] = useState('orange');
-  const [selectedVegs, setSelectedVegs] = useState(['corn', 'tomato']);
+  const [selectedFruit, setSelectedFruit] = utiliserEtat('orange');
+  const [selectedVegs, setSelectedVegs] = utiliserEtat(['corn', 'tomato']);
   return (
     <>
       <label>
@@ -388,7 +388,7 @@ select { margin-bottom: 10px; display: block; }
 
 <Pitfall>
 
-**Si vous passez `value` sans `onChange`, il sera impossible de sélectionner une option.** Lorsque vous contrôlez une liste de sélection en passant une `value`, vous *forcez* la liste de sélection à toujours avoir la valeur que vous avez passée. Donc, si vous passez une variable d'état comme `value` mais oubliez de mettre à jour cette variable d'état de manière synchrone au sein du gestionnaire d'événement `onChange`, React réinitialisera la liste de sélection, après tentative de changement, à la `value` que vous avez spécifiée.
+**Si vous passez `value` sans `onChange`, il sera impossible de sélectionner une option.** Lorsque vous contrôlez une liste de sélection en passant une `value`, vous *forcez* la liste de sélection à toujours avoir la valeur que vous avez passée. Donc, si vous passez une variable d'état comme `value` mais oubliez de mettre à jour cette variable d'état de manière synchrone au sein du gestionnaire d'événement `onChange`, Réac réinitialisera la liste de sélection, après tentative de changement, à la `value` que vous avez spécifiée.
 
 Contrairement à HTML, passer un attribut `selected` aux composants `<option>` n'est pas autorisé.
 

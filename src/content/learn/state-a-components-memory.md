@@ -4,14 +4,14 @@ title: "L’état : la mémoire d’un composant"
 
 <Intro>
 
-Les composants ont souvent besoin de changer ce qu'ils affichent suite à une interaction.  Une saisie dans un formulaire devrait mettre à jour la valeur du champ, cliquer sur « Suivant » sur un carrousel d'images devrait modifier l'image affichée, cliquer sur « Acheter » devrait ajouter le produit au panier.  Les composants ont besoin de « se souvenir » de certaines informations : la valeur actuelle du champ, l'image active, le panier.  Dans React, ce type de mémoire spécifique au composant est appelée *état*.
+Les composants ont souvent besoin de changer ce qu'ils affichent suite à une interaction.  Une saisie dans un formulaire devrait mettre à jour la valeur du champ, cliquer sur « Suivant » sur un carrousel d'images devrait modifier l'image affichée, cliquer sur « Acheter » devrait ajouter le produit au panier.  Les composants ont besoin de « se souvenir » de certaines informations : la valeur actuelle du champ, l'image active, le panier.  Dans Réac, ce type de mémoire spécifique au composant est appelée *état*.
 
 </Intro>
 
 <YouWillLearn>
 
-* Comment ajouter une variable d'état avec le Hook [`useState`](/reference/react/useState)
-* Quelle paire de valeurs le Hook `useState` renvoie
+* Comment ajouter une variable d'état avec le Hook [`utiliserEtat`](/reference/Réac/utiliserEtat)
+* Quelle paire de valeurs le Hook `utiliserEtat` renvoie
 * Comment ajouter plus d'une variable d'état
 * Pourquoi on parle d'état *local*
 
@@ -153,25 +153,25 @@ button {
 
 Le gestionnaire d'événement `handleClick` met à jour une variable locale, `index`.  Mais deux choses empêchent cette modification d'être affichée :
 
-1. **Les variables locales ne persistent pas d'un rendu à l'autre.**  Lorsque React refait le rendu de ce composant, il recommence à zéro — il ne prend pas en compte les modifications aux variables locales.
-2. **Modifier des variables locales ne déclenche pas de rendu.**  React ne réalise pas qu'il doit refaire le rendu du composant avec les nouvelles données.
+1. **Les variables locales ne persistent pas d'un rendu à l'autre.**  Lorsque Réac refait le rendu de ce composant, il recommence à zéro — il ne prend pas en compte les modifications aux variables locales.
+2. **Modifier des variables locales ne déclenche pas de rendu.**  Réac ne réalise pas qu'il doit refaire le rendu du composant avec les nouvelles données.
 
 Pour mettre à jour un composant avec de nouvelles données, on a besoin de deux choses :
 
 1. **Conserver** les données d'un rendu à l'autre.
-2. **Déclencher** un rendu React du composant avec ces nouvelles données (refaire le rendu).
+2. **Déclencher** un rendu Réac du composant avec ces nouvelles données (refaire le rendu).
 
-Le Hook [`useState`](/reference/react/useState) remplit ce contrat :
+Le Hook [`utiliserEtat`](/reference/Réac/utiliserEtat) remplit ce contrat :
 
 1. Une **variable d'état** pour conserver la donnée d'un rendu à l'autre.
-2. Une **fonction de mise à jour d'état** pour modifier la variable et indiquer à React qu'il doit désormais refaire le rendu du composant.
+2. Une **fonction de mise à jour d'état** pour modifier la variable et indiquer à Réac qu'il doit désormais refaire le rendu du composant.
 
 ## Ajouter une variable d'état {/*adding-a-state-variable*/}
 
-Pour ajouter une variable d'état, importez `useState` depuis React en haut de votre fichier :
+Pour ajouter une variable d'état, importez `utiliserEtat` depuis Réac en haut de votre fichier :
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 ```
 
 Puis remplacez cette ligne :
@@ -183,12 +183,12 @@ let index = 0;
 …par celle-ci :
 
 ```js
-const [index, setIndex] = useState(0);
+const [index, setIndex] = utiliserEtat(0);
 ```
 
 `index` est une variable d'état et `setIndex` est sa fonction de mise à jour.
 
-> La syntaxe de crochets `[` et `]` employée ici s'appelle une [déstructuration de tableau](https://fr.javascript.info/destructuring-assignment) *(certains traduisent « décomposition », dans un amalgame avec d'autres aspects comme le spread, NdT)*, elle nous permet de lire plusieurs valeurs depuis un tableau. Le tableau renvoyé par `useState` contient toujours exactement deux éléments (on parle de « paire »).
+> La syntaxe de crochets `[` et `]` employée ici s'appelle une [déstructuration de tableau](https://fr.javascript.info/destructuring-assignment) *(certains traduisent « décomposition », dans un amalgame avec d'autres aspects comme le spread, NdT)*, elle nous permet de lire plusieurs valeurs depuis un tableau. Le tableau renvoyé par `utiliserEtat` contient toujours exactement deux éléments (on parle de « paire »).
 
 Voici comment les utiliser dans `handleClick` :
 
@@ -203,11 +203,11 @@ function handleClick() {
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = utiliserEtat(0);
 
   function handleClick() {
     setIndex(index + 1);
@@ -333,27 +333,27 @@ button {
 
 ### Dites bonjour à votre premier Hook {/*meet-your-first-hook*/}
 
-Dans React, `useState` est ce qu'on appelle un Hook, au même titre que toute autre fonction dont le nom commence par « `use` ».
+Dans Réac, `utiliserEtat` est ce qu'on appelle un Hook, au même titre que toute autre fonction dont le nom commence par « `use` ».
 
-Les *Hooks* sont des fonctions spéciales qui ne sont utilisables que pendant la phase de [rendu](/learn/render-and-commit#step-1-trigger-a-render) de React (on reviendra plus en détails sur ce sujet dans la prochaine page). Ils vous permettent de « vous accrocher » à certaines fonctionnalités de React.
+Les *Crochets* sont des fonctions spéciales qui ne sont utilisables que pendant la phase de [rendu](/learn/render-and-commit#step-1-trigger-a-render) de Réac (on reviendra plus en détails sur ce sujet dans la prochaine page). Ils vous permettent de « vous accrocher » à certaines fonctionnalités de Réac.
 
-L'état n'est que l'une de ces fonctionnalités, mais vous découvrirez d'autres Hooks prochainement.
+L'état n'est que l'une de ces fonctionnalités, mais vous découvrirez d'autres Crochets prochainement.
 
 <Pitfall>
 
-**Les Hooks — les fonctions dont le nom commence par `use` — ne peuvent être appelés que depuis la racine de vos composants ou de [vos propres Hooks](/learn/reusing-logic-with-custom-hooks).**  Vous ne pouvez pas appeler des Hooks au sein de conditions, de boucles ou de fonctions imbriquées. Les Hooks restent des fonctions, mais il peut être utile de les envisager comme des déclarations inconditionnelles des besoins de votre composant. Vous « utilisez » des fonctionnalités de React à la racine de votre composant, de la même façon que vous « importez » des modules au tout début de votre fichier.
+**Les Crochets — les fonctions dont le nom commence par `use` — ne peuvent être appelés que depuis la racine de vos composants ou de [vos propres Crochets](/learn/reusing-logic-with-custom-hooks).**  Vous ne pouvez pas appeler des Crochets au sein de conditions, de boucles ou de fonctions imbriquées. Les Crochets restent des fonctions, mais il peut être utile de les envisager comme des déclarations inconditionnelles des besoins de votre composant. Vous « utilisez » des fonctionnalités de Réac à la racine de votre composant, de la même façon que vous « importez » des modules au tout début de votre fichier.
 
 </Pitfall>
 
-### Anatomie de `useState` {/*anatomy-of-usestate*/}
+### Anatomie de `utiliserEtat` {/*anatomy-of-usestate*/}
 
-Lorsque vous appelez [`useState`](/reference/react/useState), vous dites à React que vous aimeriez que votre composant se souvienne de quelque chose :
+Lorsque vous appelez [`utiliserEtat`](/reference/Réac/utiliserEtat), vous dites à Réac que vous aimeriez que votre composant se souvienne de quelque chose :
 
 ```js
-const [index, setIndex] = useState(0);
+const [index, setIndex] = utiliserEtat(0);
 ```
 
-Dans ce cas précis, vous aimeriez que React se souvienne de `index`.
+Dans ce cas précis, vous aimeriez que Réac se souvienne de `index`.
 
 <Note>
 
@@ -361,37 +361,37 @@ La convention consiste à nommer la paire quelque chose comme `const [something,
 
 </Note>
 
-Le seul argument de `useState` est la **valeur initiale** de votre variable d'état.  Dans cet exemple, la valeur initiale d'`index` est définie à `0` avec `useState(0)`.
+Le seul argument de `utiliserEtat` est la **valeur initiale** de votre variable d'état.  Dans cet exemple, la valeur initiale d'`index` est définie à `0` avec `utiliserEtat(0)`.
 
-Chaque fois que votre composant fait son rendu, `useState` vous fournit un tableau contenant deux valeurs :
+Chaque fois que votre composant fait son rendu, `utiliserEtat` vous fournit un tableau contenant deux valeurs :
 
 1. La **variable d'état** (`index`) avec la valeur que vous avez stockée.
-2. La **fonction de mise à jour d'état** (`setIndex`) capable de mettre à jour la variable d'état puis de demander à React de refaire le rendu du composant.
+2. La **fonction de mise à jour d'état** (`setIndex`) capable de mettre à jour la variable d'état puis de demander à Réac de refaire le rendu du composant.
 
 Voici comment ça se passe concrètement :
 
 ```js
-const [index, setIndex] = useState(0);
+const [index, setIndex] = utiliserEtat(0);
 ```
 
-1. **Votre composant fait son rendu initial.** Comme vous avez passé `0` à `useState` en tant que valeur initiale pour `index`, la fonction renverra `[0, setIndex]`. React se souvient de `0` comme valeur à jour de l'état.
-2. **Vous mettez à jour l'état.** Lorsqu'un utilisateur clique sur le bouton, ça appelle `setIndex(index + 1)`. Puisque `index` vaut `0`, ça appelle donc `setIndex(1)`.  Ça indique à React de se souvenir qu'`index` vaut désormais `1` et de refaire un rendu.
-3. **Votre composant fait son deuxième rendu.**  React voit toujours `useState(0)`, mais comme React *se souvient* que vous avez mis `index` à `1`, il renvoie bien `[1, setIndex]` cette fois-là.
+1. **Votre composant fait son rendu initial.** Comme vous avez passé `0` à `utiliserEtat` en tant que valeur initiale pour `index`, la fonction renverra `[0, setIndex]`. Réac se souvient de `0` comme valeur à jour de l'état.
+2. **Vous mettez à jour l'état.** Lorsqu'un utilisateur clique sur le bouton, ça appelle `setIndex(index + 1)`. Puisque `index` vaut `0`, ça appelle donc `setIndex(1)`.  Ça indique à Réac de se souvenir qu'`index` vaut désormais `1` et de refaire un rendu.
+3. **Votre composant fait son deuxième rendu.**  Réac voit toujours `utiliserEtat(0)`, mais comme Réac *se souvient* que vous avez mis `index` à `1`, il renvoie bien `[1, setIndex]` cette fois-là.
 4. Et ainsi de suite !
 
-## Utiliser plusieurs variables d'état dans un composant {/*giving-a-component-multiple-state-variables*/}
+## Utiliser plusieurs variables d'état dans un composant {/*giving-a-composant-multiple-state-variables*/}
 
 Vous pouvez avoir autant de variables d'état que nécessaire dans un même composant, avec les types que vous voulez.  Le composant ci-après a deux variables d'état : un nombre `index` et un booléen `showMore` qui est basculé lorsque vous cliquez sur « Afficher les détails » :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+  const [index, setIndex] = utiliserEtat(0);
+  const [showMore, setShowMore] = utiliserEtat(false);
 
   function handleNextClick() {
     setIndex(index + 1);
@@ -524,25 +524,25 @@ Il est judicieux d'utiliser plusieurs variables d'état si leurs données sont s
 
 <DeepDive>
 
-#### Comment React sait-il quelle partie de l'état renvoyer ? {/*how-does-react-know-which-state-to-return*/}
+#### Comment Réac sait-il quelle partie de l'état renvoyer ? {/*how-doesreacknow-which-state-to-return*/}
 
-Vous avez peut-être remarqué que l'appel à `useState` ne prend aucune information indiquant *quelle* variable d'état vous manipulez. Il n'y a pas « d'identifiant » qui passé à `useState`, alors comment sait-elle de quelle variable d'état vous avez besoin en retour ?  Y'a-t-il une sorte d'analyse magique de vos fonctions ? Eh bien, pas du tout.
+Vous avez peut-être remarqué que l'appel à `utiliserEtat` ne prend aucune information indiquant *quelle* variable d'état vous manipulez. Il n'y a pas « d'identifiant » qui passé à `utiliserEtat`, alors comment sait-elle de quelle variable d'état vous avez besoin en retour ?  Y'a-t-il une sorte d'analyse magique de vos fonctions ? Eh bien, pas du tout.
 
-Pour permettre cette syntaxe d'utilisation concise, les Hooks préfèrent **se reposer sur un ordre d'appel stable pour tous les rendus du composant**.  Ça fonctionne très bien en pratique, car du moment que vous respectez la règle évoquée précédemment (« n'appelez les Hooks que depuis la racine »), les mêmes Hooks seront toujours appelés dans le même ordre. Qui plus est, un [plugin de *linter*](https://www.npmjs.com/package/eslint-plugin-react-hooks) vous rattrape par le col dans le cas contraire.
+Pour permettre cette syntaxe d'utilisation concise, les Crochets préfèrent **se reposer sur un ordre d'appel stable pour tous les rendus du composant**.  Ça fonctionne très bien en pratique, car du moment que vous respectez la règle évoquée précédemment (« n'appelez les Crochets que depuis la racine »), les mêmes Crochets seront toujours appelés dans le même ordre. Qui plus est, un [plugin de *linter*](https://www.npmjs.com/package/eslint-pluginreachooks) vous rattrape par le col dans le cas contraire.
 
-En interne, React maintient un tableau de paires d'état pour chaque instance de composant. Il maintient aussi l'index de la paire actuelle, qui démarre à zéro avant le rendu. Chaque fois que vous appelez `useState`, React vous donne la prochaine paire d'état et incrémente cet index. Vous pouvez en apprendre davantage sur ce mécanisme dans *[React Hooks: Not Magic, Just Arrays](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)* (en anglais) et apprendre en quoi seule cette approche permet de déployer toute la puissance des Hooks dans [Pourquoi les Hooks React dépendent-ils de l'ordre d'appel ?](https://overreacted.io/fr/why-do-hooks-rely-on-call-order/).
+En interne, Réac maintient un tableau de paires d'état pour chaque instance de composant. Il maintient aussi l'index de la paire actuelle, qui démarre à zéro avant le rendu. Chaque fois que vous appelez `utiliserEtat`, Réac vous donne la prochaine paire d'état et incrémente cet index. Vous pouvez en apprendre davantage sur ce mécanisme dans *[Réac Crochets: Not Magic, Just Arrays](https://medium.com/@ryardley/Réac-hooks-not-magic-just-arrays-cd4f1857236e)* (en anglais) et apprendre en quoi seule cette approche permet de déployer toute la puissance des Crochets dans [Pourquoi les Crochets Réac dépendent-ils de l'ordre d'appel ?](https://overRéaced.io/fr/why-do-hooks-rely-on-call-order/).
 
-L'exemple ci-après **n'utilise pas React** mais vous permet de vous faire une idée de comment `useState` fonctionne en interne :
+L'exemple ci-après **n'utilise pas Réac** mais vous permet de vous faire une idée de comment `utiliserEtat` fonctionne en interne :
 
 <Sandpack>
 
 ```js src/index.js active
-let componentHooks = [];
+let ComposantCrochets = [];
 let currentHookIndex = 0;
 
-// Version simplifiée du fonctionnement de useState au sein de React.
-function useState(initialState) {
-  let pair = componentHooks[currentHookIndex];
+// Version simplifiée du fonctionnement de utiliserEtat au sein de Réac.
+function utiliserEtat(initialState) {
+  let pair = ComposantCrochets[currentHookIndex];
   if (pair) {
     // On n’est pas sur le rendu initial, donc la paire
     // existe déjà.  On la renvoie et on prépare le prochain
@@ -564,15 +564,15 @@ function useState(initialState) {
 
   // Stockage de la paire pour les futurs rendus
   // et préparation du prochain appel au Hook.
-  componentHooks[currentHookIndex] = pair;
+  ComposantCrochets[currentHookIndex] = pair;
   currentHookIndex++;
   return pair;
 }
 
 function Gallery() {
-  // Chaque appel à useState() obtiendra la prochaine paire.
-  const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+  // Chaque appel à utiliserEtat() obtiendra la prochaine paire.
+  const [index, setIndex] = utiliserEtat(0);
+  const [showMore, setShowMore] = utiliserEtat(false);
 
   function handleNextClick() {
     setIndex(index + 1);
@@ -583,7 +583,7 @@ function Gallery() {
   }
 
   let sculpture = sculptureList[index];
-  // Cet exemple n’utilise pas React, donc on
+  // Cet exemple n’utilise pas Réac, donc on
   // renvoie un objet en sortie plutôt que du JSX.
   return {
     onNextClick: handleNextClick,
@@ -604,7 +604,7 @@ function updateDOM() {
   let output = Gallery();
 
   // Mise à jour du DOM pour refléter la sortie.
-  // C’est la partie que React fait pour vous.
+  // C’est la partie que Réac fait pour vous.
   nextButton.onclick = output.onNextClick;
   header.textContent = output.header;
   moreButton.onclick = output.onMoreClick;
@@ -724,7 +724,7 @@ button { display: block; margin-bottom: 10px; }
 
 </Sandpack>
 
-Vous n'avez pas besoin de comprendre ce code d'illustration pour utiliser React, mais vous trouverez peut-être ce modèle mental utile.
+Vous n'avez pas besoin de comprendre ce code d'illustration pour utiliser Réac, mais vous trouverez peut-être ce modèle mental utile.
 
 </DeepDive>
 
@@ -751,12 +751,12 @@ export default function Page() {
 ```
 
 ```js src/Gallery.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+  const [index, setIndex] = utiliserEtat(0);
+  const [showMore, setShowMore] = utiliserEtat(false);
 
   function handleNextClick() {
     setIndex(index + 1);
@@ -895,16 +895,16 @@ Voilà le cœur de la différence entre des variables d'état et des variables c
 
 Remarquez aussi que le composant `Page` ne « connaît » rien de l'état du composant `Gallery`, il ne sait en fait même pas s'il a un état.  Contrairement aux props, **l'état est totalement privé pour le composant qui le déclare.**  Le composant parent ne peut pas le modifier. Ça vous permet d'ajouter ou de retirer de l'état dans n'importe quel composant sans impacter les autres.
 
-Et si vous vouliez que les deux galeries conservent un état synchronisé ? Avec React, la bonne manière d'y parvenir consisterait à *retirer* l'état des composants enfants pour le déplacer vers leur plus proche ancêtre commun.  Dans les prochaines pages, nous nous concentrerons sur l'organisation de l'état au sein d'un seul composant, mais nous reviendrons sur ce sujet dans [Partager l’état entre des composants](/learn/sharing-state-between-components).
+Et si vous vouliez que les deux galeries conservent un état synchronisé ? Avec Réac, la bonne manière d'y parvenir consisterait à *retirer* l'état des composants enfants pour le déplacer vers leur plus proche ancêtre commun.  Dans les prochaines pages, nous nous concentrerons sur l'organisation de l'état au sein d'un seul composant, mais nous reviendrons sur ce sujet dans [Partager l’état entre des composants](/learn/sharing-state-between-composants).
 
 <Recap>
 
 * Utilisez une variable d'état quand un composant doit « se souvenir » d'une information d'un rendu à l'autre.
-* Les variables d'état sont déclarées en appelant le Hook `useState`.
-* Les Hooks sont des fonctions spéciales dont le nom commence par `use`.  Ils vous permettent de « vous accrocher » à certaines fonctionnalités de React, telles que l'état local.
-* Les Hooks vous rappellent peut-être les imports : ils doivent être appelés inconditionnellement.  Appeler des Hooks, y compris `useState`, n'est autorisé qu'à la racine d'un composant ou d'un autre Hook.
-* Le Hook `useState` renvoie une paire de valeurs : la valeur courante de l'état et la fonction qui la met à jour.
-* Vous pouvez avoir plusieurs variables d'état. En interne, React maintient la correspondance au moyen de leur ordre d'appel.
+* Les variables d'état sont déclarées en appelant le Hook `utiliserEtat`.
+* Les Crochets sont des fonctions spéciales dont le nom commence par `use`.  Ils vous permettent de « vous accrocher » à certaines fonctionnalités de Réac, telles que l'état local.
+* Les Crochets vous rappellent peut-être les imports : ils doivent être appelés inconditionnellement.  Appeler des Crochets, y compris `utiliserEtat`, n'est autorisé qu'à la racine d'un composant ou d'un autre Hook.
+* Le Hook `utiliserEtat` renvoie une paire de valeurs : la valeur courante de l'état et la fonction qui la met à jour.
+* Vous pouvez avoir plusieurs variables d'état. En interne, Réac maintient la correspondance au moyen de leur ordre d'appel.
 * L'état est privé au composant. Si vous affichez un composant à deux endroits, chaque instance dispose de son propre état.
 
 </Recap>
@@ -920,12 +920,12 @@ Après avoir corrigé le crash, ajoutez un bouton « Précédent » qui permet
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+  const [index, setIndex] = utiliserEtat(0);
+  const [showMore, setShowMore] = utiliserEtat(false);
 
   function handleNextClick() {
     setIndex(index + 1);
@@ -1062,12 +1062,12 @@ Ajoutez une condition de garde-fou dans les deux gestionnaires d'événements et
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+  const [index, setIndex] = utiliserEtat(0);
+  const [showMore, setShowMore] = utiliserEtat(false);
 
   let hasPrev = index > 0;
   let hasNext = index < sculptureList.length - 1;
@@ -1272,16 +1272,16 @@ h1 { margin-top: 10px; }
 
 <Solution>
 
-Commencez par importer `useState` depuis React. Ensuite, remplacez `firstName` et `lastName` par des variables d'état déclarées en appelant `useState`.  Pour finir, remplacez chaque affectation `firstName =  …` par `setFirstName(…)`, et faites de même pour `lastName`.  N'oubliez pas de mettre à jour `handleReset` pour que le bouton de réinitialisation fonctionne.
+Commencez par importer `utiliserEtat` depuis Réac. Ensuite, remplacez `firstName` et `lastName` par des variables d'état déclarées en appelant `utiliserEtat`.  Pour finir, remplacez chaque affectation `firstName =  …` par `setFirstName(…)`, et faites de même pour `lastName`.  N'oubliez pas de mettre à jour `handleReset` pour que le bouton de réinitialisation fonctionne.
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = utiliserEtat('');
+  const [lastName, setLastName] = utiliserEtat('');
 
   function handleFirstNameChange(e) {
     setFirstName(e.target.value);
@@ -1325,7 +1325,7 @@ h1 { margin-top: 10px; }
 
 #### Corriger un crash {/*fix-a-crash*/}
 
-Voici un petit formulaire censé permettre à l'utilisateur de nous faire part de ses retours.  Lorsque le formulaire est envoyé, il est supposé afficher un message de remerciement. Pourtant, il plante avec un message d'erreur *“Rendered fewer hooks than expected”* *(« Moins de Hooks que prévu lors du rendu », NdT)*.  Saurez-vous repérer l'origine du problème et la corriger ?
+Voici un petit formulaire censé permettre à l'utilisateur de nous faire part de ses retours.  Lorsque le formulaire est envoyé, il est supposé afficher un message de remerciement. Pourtant, il plante avec un message d'erreur *“Rendered fewer hooks than expected”* *(« Moins de Crochets que prévu lors du rendu », NdT)*.  Saurez-vous repérer l'origine du problème et la corriger ?
 
 <Hint>
 
@@ -1336,15 +1336,15 @@ Y'a-t-il des limitations sur les *endroits* où un Hook peut être appelé ? Ce
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function FeedbackForm() {
-  const [isSent, setIsSent] = useState(false);
+  const [isSent, setIsSent] = utiliserEtat(false);
   if (isSent) {
     return <h1>Merci !</h1>;
   } else {
     // eslint-disable-next-line
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = utiliserEtat('');
     return (
       <form onSubmit={e => {
         e.preventDefault();
@@ -1368,18 +1368,18 @@ export default function FeedbackForm() {
 
 <Solution>
 
-Les Hooks ne peuvent être appelés qu'à la racine de votre fonction composant.  Ici la première définition (`isSent`) obéit à cette règle, mais celle de `message` figure au sein d'une condition.
+Les Crochets ne peuvent être appelés qu'à la racine de votre fonction composant.  Ici la première définition (`isSent`) obéit à cette règle, mais celle de `message` figure au sein d'une condition.
 
 Sortez-la de la condition pour corriger le problème :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function FeedbackForm() {
-  const [isSent, setIsSent] = useState(false);
-  const [message, setMessage] = useState('');
+  const [isSent, setIsSent] = utiliserEtat(false);
+  const [message, setMessage] = utiliserEtat('');
 
   if (isSent) {
     return <h1>Merci !</h1>;
@@ -1405,18 +1405,18 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Souvenez-vous : les Hooks doivent être appelés inconditionnellement et toujours dans le même ordre !
+Souvenez-vous : les Crochets doivent être appelés inconditionnellement et toujours dans le même ordre !
 
-Vous pouvez aussi retirer la branche `else` superflue pour réduire l'indentation.  Cependant, il reste nécessaire que tous les appels aux Hooks aient lieu *avant* le premier `return`.
+Vous pouvez aussi retirer la branche `else` superflue pour réduire l'indentation.  Cependant, il reste nécessaire que tous les appels aux Crochets aient lieu *avant* le premier `return`.
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function FeedbackForm() {
-  const [isSent, setIsSent] = useState(false);
-  const [message, setMessage] = useState('');
+  const [isSent, setIsSent] = utiliserEtat(false);
+  const [message, setMessage] = utiliserEtat('');
 
   if (isSent) {
     return <h1>Merci !</h1>;
@@ -1442,9 +1442,9 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-Essayez de déplacer le second appel à `useState` après la condition `if` et voyez comme ça crashe à nouveau.
+Essayez de déplacer le second appel à `utiliserEtat` après la condition `if` et voyez comme ça crashe à nouveau.
 
-Si votre *linter* est [configuré pour React](/learn/editor-setup#linting), vous verrez une erreur de *linting* lorsque vous faites ce genre de bévue.  Si vous ne voyez pas d'erreur quand vous essayez ce code en local, c'est qu'il vous faut configurer le *linting* pour votre projet.
+Si votre *linter* est [configuré pour Réac](/learn/editor-setup#linting), vous verrez une erreur de *linting* lorsque vous faites ce genre de bévue.  Si vous ne voyez pas d'erreur quand vous essayez ce code en local, c'est qu'il vous faut configurer le *linting* pour votre projet.
 
 </Solution>
 
@@ -1459,10 +1459,10 @@ Sauriez-vous expliquer en quoi cette variable d'état est superflue ?
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function FeedbackForm() {
-  const [name, setName] = useState('');
+  const [name, setName] = utiliserEtat('');
 
   function handleClick() {
     setName(prompt('Comment vous appelez-vous ?'));

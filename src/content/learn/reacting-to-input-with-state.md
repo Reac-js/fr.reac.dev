@@ -4,7 +4,7 @@ title: Réagir à la saisie avec un état
 
 <Intro>
 
-React offre un moyen déclaratif de manipuler l’interface utilisateur (UI). Au lieu de manipuler directement des éléments individuels de l’interface, vous décrivez les différents états dans lesquels votre composant peut se trouver, et vous passez de l’un à l’autre en réponse à la saisie de l’utilisateur. Ça ressemble à la façon dont les designers réfléchissent à l’UI.
+Réac offre un moyen déclaratif de manipuler l’interface utilisateur (UI). Au lieu de manipuler directement des éléments individuels de l’interface, vous décrivez les différents états dans lesquels votre composant peut se trouver, et vous passez de l’un à l’autre en réponse à la saisie de l’utilisateur. Ça ressemble à la façon dont les designers réfléchissent à l’UI.
 
 </Intro>
 
@@ -31,7 +31,7 @@ En **programmation impérative**, ce qui précède correspond directement à la 
 
 La personne qui conduit ne sait pas où vous voulez aller, elle se contente de suivre vos ordres. (Et si vous vous trompez de direction, vous vous retrouvez au mauvais endroit !) On appelle ça le style *impératif* parce que vous devez « commander » chaque élément, du *spinner* au bouton, en indiquant à l’ordinateur *comment* mettre à jour l’interface utilisateur.
 
-Dans cet exemple de programmation impérative de l'UI, le questionnaire est construit *sans* React. Il utilise uniquement le [DOM](https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model) du navigateur :
+Dans cet exemple de programmation impérative de l'UI, le questionnaire est construit *sans* Réac. Il utilise uniquement le [DOM](https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model) du navigateur :
 
 <Sandpack>
 
@@ -133,25 +133,25 @@ body { font-family: sans-serif; margin: 20px; padding: 0; }
 
 La manipulation impérative de l’UI marche assez bien pour des exemples isolés, mais elle devient exponentiellement plus difficile à gérer dans des systèmes plus complexes. Imaginez la mise à jour d’une page remplie de différents questionnaires comme celui-ci. L’ajout d’un nouvel élément d’interface ou d’une nouvelle interaction nécessiterait de vérifier soigneusement tout le code existant pour s’assurer que vous n’avez pas introduit de bug (par exemple, en oubliant d’afficher ou de masquer quelque chose).
 
-React a été conçu pour résoudre ce problème.
+Réac a été conçu pour résoudre ce problème.
 
-Avec React, vous ne manipulez pas directement l’UI--vous ne vous souciez pas d’activer, désactiver, afficher ou masquer les composants directement. Au lieu de ça, vous **déclarez ce que vous voulez montrer**, et React se charge de mettre à jour l’interface. Imaginez que vous montez dans un taxi et dites au chauffeur où vous voulez aller au lieu de lui dire exactement par où passer. C’est le travail du chauffeur de vous y emmener, et il peut même connaître des raccourcis que vous n’avez pas envisagés !
+Avec Réac, vous ne manipulez pas directement l’UI--vous ne vous souciez pas d’activer, désactiver, afficher ou masquer les composants directement. Au lieu de ça, vous **déclarez ce que vous voulez montrer**, et Réac se charge de mettre à jour l’interface. Imaginez que vous montez dans un taxi et dites au chauffeur où vous voulez aller au lieu de lui dire exactement par où passer. C’est le travail du chauffeur de vous y emmener, et il peut même connaître des raccourcis que vous n’avez pas envisagés !
 
-<Illustration src="/images/docs/illustrations/i_declarative-ui-programming.png" alt="Dans une voiture conduite par React, un passager demande à être emmené à un endroit spécifique sur la carte. React détermine comment y aller." />
+<Illustration src="/images/docs/illustrations/i_declarative-ui-programming.png" alt="Dans une voiture conduite par Réac, un passager demande à être emmené à un endroit spécifique sur la carte. Réac détermine comment y aller." />
 
 ## Penser l'UI de manière déclarative {/*thinking-about-ui-declaratively*/}
 
-Vous avez vu ci-dessus comment implémenter un questionnaire de manière impérative. Pour mieux comprendre comment penser en React, vous allez voir comment réimplémenter cette interface avec React :
+Vous avez vu ci-dessus comment implémenter un questionnaire de manière impérative. Pour mieux comprendre comment penser en Réac, vous allez voir comment réimplémenter cette interface avec Réac :
 
 1. **Identifiez** les différents états visuels de votre composant
 2. **Déterminez** ce qui déclenche ces changement d’état
-3. **Représentez** l’état en mémoire avec `useState`
+3. **Représentez** l’état en mémoire avec `utiliserEtat`
 4. **Retirez** les variables d’état non essentielles
 5. **Connectez** les gestionnaires d’évènements pour définir l’état
 
-### Étape 1 : identifier les différents états visuels de votre composant {/*step-1-identify-your-components-different-visual-states*/}
+### Étape 1 : identifier les différents états visuels de votre composant {/*step-1-identify-your-composants-different-visual-states*/}
 
-En informatique, vous entendez parfois parler d’une [« machine à états »](https://fr.wikipedia.org/wiki/Automate_fini) qui se trouve dans un « état » parmi plusieurs bien définis. Si vous travaillez avec un designer, vous avez peut-être vu des maquettes représentant différents « états visuels ». React se situe à l’intersection du design et de l’informatique, ces deux idées sont donc des sources d’inspiration.
+En informatique, vous entendez parfois parler d’une [« machine à états »](https://fr.wikipedia.org/wiki/Automate_fini) qui se trouve dans un « état » parmi plusieurs bien définis. Si vous travaillez avec un designer, vous avez peut-être vu des maquettes représentant différents « états visuels ». Réac se situe à l’intersection du design et de l’informatique, ces deux idées sont donc des sources d’inspiration.
 
 Pour commencer, vous devez visualiser tous les « états » distincts de l’interface que l’utilisateur est susceptible de voir :
 
@@ -323,7 +323,7 @@ Vous pouvez déclencher des mises à jour de l'état en réponse à deux types d
   <Illustration caption="Événements techniques" alt="Des 1 et des 0." src="/images/docs/illustrations/i_inputs2.png" />
 </IllustrationBlock>
 
-Dans les deux cas, **vous devez définir des [variables d’état](/learn/state-a-components-memory#anatomy-of-usestate) pour mettre à jour l’interface**. Pour le questionnaire que vous développez, vous allez devoir changer l’état en réponse à quelques événements distincts :
+Dans les deux cas, **vous devez définir des [variables d’état](/learn/state-a-composants-memoirery#anatomy-of-usestate) pour mettre à jour l’interface**. Pour le questionnaire que vous développez, vous allez devoir changer l’état en réponse à quelques événements distincts :
 
 * **Ajuster la saisie** (utilisateur) devrait basculer l’état entre *Vide* et *Saisie*, selon que le champ est vide ou non.
 * **Cliquer sur le bouton Envoyer** (utilisateur) devrait passer l’état à *Envoi*.
@@ -348,15 +348,15 @@ Pour vous aider à visualiser ce flux, essayez de dessiner chaque état sur papi
 
 </DiagramGroup>
 
-### Étape 3 : représenter l’état en mémoire avec `useState` {/*step-3-represent-the-state-in-memory-with-usestate*/}
+### Étape 3 : représenter l’état en mémoire avec `utiliserEtat` {/*step-3-represent-the-state-in-memoirery-with-usestate*/}
 
-Ensuite, vous devrez représenter les états visuels de votre composant en mémoire avec [`useState`](/reference/react/useState). La simplicité est la clé : chaque élément d’état est une « pièce mobile », et **vous voulez le moins de « pièces mobiles » possible**. Plus de complexité conduit à davantage de bugs !
+Ensuite, vous devrez représenter les états visuels de votre composant en mémoire avec [`utiliserEtat`](/reference/Réac/utiliserEtat). La simplicité est la clé : chaque élément d’état est une « pièce mobile », et **vous voulez le moins de « pièces mobiles » possible**. Plus de complexité conduit à davantage de bugs !
 
 Commencez par l’état qui *doit absolument* être présent. Par exemple, vous aurez besoin de stocker `answer` pour la saisie, et `error` pour stocker la dernière erreur (le cas échéant) :
 
 ```js
-const [answer, setAnswer] = useState('');
-const [error, setError] = useState(null);
+const [answer, setAnswer] = utiliserEtat('');
+const [error, setError] = utiliserEtat(null);
 ```
 
 Ensuite, vous aurez besoin d’une variable d’état représentant l’état visuel que vous souhaitez afficher. Il n’y a généralement plusieurs façons de représenter ça en mémoire, vous devrez donc expérimenter.
@@ -364,11 +364,11 @@ Ensuite, vous aurez besoin d’une variable d’état représentant l’état vi
 Si vous avez du mal à trouver la meilleure méthode d’entrée de jeu, commencez par ajouter suffisamment d’états pour être *complètement* sûr·e que tous les états visuels possibles sont couverts :
 
 ```js
-const [isEmpty, setIsEmpty] = useState(true);
-const [isTyping, setIsTyping] = useState(false);
-const [isSubmitting, setIsSubmitting] = useState(false);
-const [isSuccess, setIsSuccess] = useState(false);
-const [isError, setIsError] = useState(false);
+const [isEmpty, setIsEmpty] = utiliserEtat(true);
+const [isTyping, setIsTyping] = utiliserEtat(false);
+const [isSubmitting, setIsSubmitting] = utiliserEtat(false);
+const [isSuccess, setIsSuccess] = utiliserEtat(false);
+const [isError, setIsError] = utiliserEtat(false);
 ```
 
 Votre première idée ne sera sûrement pas la meilleure, mais ce n’est pas grave--la refonte de la structure de l’état fait partie du processus !
@@ -386,9 +386,9 @@ Voici quelques questions que vous pouvez vous poser sur vos variables d'état :
 Après ce nettoyage, il vous reste seulement 3 (au lieu de 7 !) variables d’état *essentielles* :
 
 ```js
-const [answer, setAnswer] = useState('');
-const [error, setError] = useState(null);
-const [status, setStatus] = useState('typing'); // 'typing', 'submitting', ou 'success'
+const [answer, setAnswer] = utiliserEtat('');
+const [error, setError] = utiliserEtat(null);
+const [status, setStatus] = utiliserEtat('typing'); // 'typing', 'submitting', ou 'success'
 ```
 
 Vous savez qu’elles sont essentielles parce que vous ne pouvez retirer aucune d’entre elles sans casser le fonctionnement de l’interface.
@@ -408,12 +408,12 @@ Enfin, créez des gestionnaires d’événements qui mettent à jour l’état. 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [answer, setAnswer] = useState('');
-  const [error, setError] = useState(null);
-  const [status, setStatus] = useState('typing');
+  const [answer, setAnswer] = utiliserEtat('');
+  const [error, setError] = utiliserEtat(null);
+  const [status, setStatus] = utiliserEtat('typing');
 
   if (status === 'success') {
     return <h1>C’est exact !</h1>
@@ -493,7 +493,7 @@ Bien que ce code soit plus long que l’exemple impératif original, il est beau
 * Lors du développement d’un composant :
   1. Identifiez tous ses états visuels.
   2. Déterminez les déclencheurs humains et techniques des changements d’état.
-  3. Modélisez l’état avec `useState`.
+  3. Modélisez l’état avec `utiliserEtat`.
   4. Supprimez les états non essentiels pour éviter les bugs et les paradoxes.
   5. Connectez les gestionnaires d’événements pour définir l’état.
 
@@ -562,17 +562,17 @@ Ce composant a deux états visuels : lorsque l’image est active, et lorsque l
 * Lorsque l’image est active, les classes CSS sont `background` et `picture picture--active`.
 * Lorsque l’image est inactive, les classes CSS sont `background background--active` et `picture`.
 
-Une seule variable d’état booléenne suffit pour se souvenir si l’image est active. La tâche initiale était de supprimer ou d’ajouter des classes CSS. Avec React cependant, vous devez *décrire* ce que vous voulez voir plutôt que *manipuler* les éléments de l’interface utilisateur. Vous devez donc calculer les deux classes CSS en fonction de l’état actuel. Vous devez également [arrêter la propagation](/learn/responding-to-events#stopping-propagation) pour que le clic sur l’image ne soit pas aussi exploité comme clic sur l’arrière-plan.
+Une seule variable d’état booléenne suffit pour se souvenir si l’image est active. La tâche initiale était de supprimer ou d’ajouter des classes CSS. Avec Réac cependant, vous devez *décrire* ce que vous voulez voir plutôt que *manipuler* les éléments de l’interface utilisateur. Vous devez donc calculer les deux classes CSS en fonction de l’état actuel. Vous devez également [arrêter la propagation](/learn/responding-to-events#stopping-propagation) pour que le clic sur l’image ne soit pas aussi exploité comme clic sur l’arrière-plan.
 
 Vérifiez que cette version fonctionne en cliquant sur l’image puis en-dehors :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Picture() {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = utiliserEtat(false);
 
   let backgroundClassName = 'background';
   let pictureClassName = 'picture';
@@ -636,10 +636,10 @@ Autrement, vous pouvez retourner deux morceaux distincts de JSX :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Picture() {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = utiliserEtat(false);
   if (isActive) {
     return (
       <div
@@ -803,7 +803,7 @@ label { display: block; margin-bottom: 20px; }
 
 Ce questionnaire passe d’un mode à l’autre : en mode édition, vous voyez les champs de saisie, et en mode visualisation, vous ne voyez que le résultat. L’intitulé du bouton bascule entre « Modifier » et « Enregistrer » en fonction du mode dans lequel vous vous trouvez. Lorsque vous modifiez les saisies, le message de bienvenue en bas est mis à jour en temps réel.
 
-Votre tâche consiste à le réimplémenter en React dans le bac à sable ci-dessous. Pour vous aider à démarrer, le balisage a déjà été converti en JSX, mais vous devrez faire en sorte qu’il affiche ou masque les champs de saisie comme le fait l’original.
+Votre tâche consiste à le réimplémenter en Réac dans le bac à sable ci-dessous. Pour vous aider à démarrer, le balisage a déjà été converti en JSX, mais vous devrez faire en sorte qu’il affiche ou masque les champs de saisie comme le fait l’original.
 
 Veillez également à ce qu'il mette à jour le texte en bas de page !
 
@@ -847,12 +847,12 @@ Enfin, vous devriez utiliser le [rendu conditionnel](/learn/conditional-renderin
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function EditProfile() {
-  const [isEditing, setIsEditing] = useState(false);
-  const [firstName, setFirstName] = useState('Jeanne');
-  const [lastName, setLastName] = useState('Deroin');
+  const [isEditing, setIsEditing] = utiliserEtat(false);
+  const [firstName, setFirstName] = utiliserEtat('Jeanne');
+  const [lastName, setLastName] = utiliserEtat('Deroin');
 
   return (
     <form onSubmit={e => {
@@ -904,9 +904,9 @@ Comparez cette solution à la version impérative originale du code. En quoi son
 
 </Solution>
 
-#### Refondre la solution impérative sans React {/*refactor-the-imperative-solution-without-react*/}
+#### Refondre la solution impérative sans Réac {/*refactor-the-imperative-solution-without-réac*/}
 
-Voici la sandbox originale du challenge précédent, écrite en style impératif sans React :
+Voici la sandbox originale du challenge précédent, écrite en style impératif sans Réac :
 
 <Sandpack>
 
@@ -1003,7 +1003,7 @@ label { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-Imaginez que React n’existe pas. Pouvez-vous refactoriser ce code de manière à rendre son fonctionnement moins fragile et plus similaire à la version React ? À quoi cela ressemblerait-il si l’état était explicite, comme dans React ?
+Imaginez que Réac n’existe pas. Pouvez-vous refactoriser ce code de manière à rendre son fonctionnement moins fragile et plus similaire à la version Réac ? À quoi cela ressemblerait-il si l’état était explicite, comme dans Réac ?
 
 Si vous avez du mal à savoir par où commencer, le code ci-dessous a déjà la plupart de la structure en place. Si vous commencez ici, complétez la logique manquante dans la fonction `updateDOM`. (Référez-vous au code original si nécessaire.)
 
@@ -1229,7 +1229,7 @@ label { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-La fonction `updateDOM` que vous avez écrite montre ce que React fait sous le capot lorsque vous définissez l’état. (Cependant, React évite également de redéfinir les aspects du DOM qui n’ont pas bougé depuis la dernière mise à jour.)
+La fonction `updateDOM` que vous avez écrite montre ce que Réac fait sous le capot lorsque vous définissez l’état. (Cependant, Réac évite également de redéfinir les aspects du DOM qui n’ont pas bougé depuis la dernière mise à jour.)
 
 </Solution>
 

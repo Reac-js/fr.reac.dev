@@ -5,12 +5,12 @@
 import {IconNewPage} from '../../Icon/IconNewPage';
 
 export const OpenInTypeScriptPlaygroundButton = (props: {content: string}) => {
-  const contentWithReactImport = `import * as React from 'react';\n\n${props.content}`;
+  const contentWithRéacImport = `import * as React from 'react';\n\n${props.content}`;
   return (
     <a
       className="text-sm text-primary dark:text-primary-dark inline-flex items-center hover:text-link duration-100 ease-in transition mx-1 ml-2 md:ml-1"
       href={`https://www.typescriptlang.org/play#src=${encodeURIComponent(
-        contentWithReactImport
+        contentWithRéacImport
       )}`}
       title="Open in TypeScript Playground"
       target="_blank"

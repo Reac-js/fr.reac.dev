@@ -30,7 +30,7 @@ Pour afficher une zone de texte, utilisez le [composant natif `<textarea>` du na
 
 #### Props {/*props*/}
 
-`<textarea>` prend en charge toutes les [props communes aux éléments](/reference/react-dom/components/common#props).
+`<textarea>` prend en charge toutes les [props communes aux éléments](/reference/Réac-dom/Composants/common#props).
 
 Une zone de texte peut devenir un [champ contrôlé](#controlling-a-text-area-with-a-state-variable) en lui passant une prop `value` :
 
@@ -45,21 +45,21 @@ Si votre `<textarea>` n'est pas contrôlée, passez plutôt la prop `defaultValu
 Ces props de `<textarea>` sont compatibles avec les zones de texte contrôlées et non contrôlées :
 
 * [`autoComplete`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#autocomplete) : soit `'on'` ou `'off'`. Spécifie le comportement de l'autocomplétion.
-* [`autoFocus`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#autofocus) : un booléen. Si `true`, React va activer l'élément après le montage _(l'apparition initiale dans le DOM, NdT)_.
-* `children` : `<textarea>` n'accepte pas d'enfants. Pour définir sa valeur initiale, utilisez `defaultValue`.
+* [`autoFocus`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#autofocus) : un booléen. Si `true`, Réac va activer l'élément après le montage _(l'apparition initiale dans le DOM, NdT)_.
+* `Enfants` : `<textarea>` n'accepte pas d'enfants. Pour définir sa valeur initiale, utilisez `defaultValue`.
 * [`cols`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#cols) : un nombre. Spécifie la largeur par défaut en prenant pour unité la largeur moyenne des caractères. Par défaut, `20`.
 * [`disabled`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#disabled) : un booléen. Si `true`, la zone de texte ne sera pas interactive et sera grisée.
 * [`form`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#form) : une chaîne de caractères. Spécifie l'`id` du `<form>` auquel appartient cette zone de texte. S'il est absent, la zone de saisie sera associée au formulaire parent le plus proche.
 * [`maxLength`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#maxlength) : un nombre. Spécifie la longueur maximale du texte.
 * [`minLength`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#minlength) : un nombre. Spécifie la longueur minimale du texte.
 * [`name`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#name) : une chaîne de caractères. Spécifie le nom de cette zone de texte au sein de [l'envoi du formulaire](#reading-the-textarea-value-when-submitting-a-form).
-* `onChange` : une fonction [gestionnaire d'événement](/reference/react-dom/components/common#event-handler). Requise pour [les zones de texte contrôlées](#controlling-a-text-area-with-a-state-variable). Se déclenche immédiatement lorsque la valeur de la zone de texte est modifiée par l'utilisateur (par exemple, elle se déclenche à chaque frappe). Se comporte comme [l'événement `input`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event) du navigateur.
+* `onChange` : une fonction [gestionnaire d'événement](/reference/Réac-dom/Composants/common#event-handler). Requise pour [les zones de texte contrôlées](#controlling-a-text-area-with-a-state-variable). Se déclenche immédiatement lorsque la valeur de la zone de texte est modifiée par l'utilisateur (par exemple, elle se déclenche à chaque frappe). Se comporte comme [l'événement `input`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event) du navigateur.
 * `onChangeCapture` : une version de `onChange` qui se déclenche lors de la [phase de capture](/learn/responding-to-events#capture-phase-events).
-* [`onInput`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event) : une fonction [gestionnaire d'événement](/reference/react-dom/components/common#event-handler). Se déclenche immédiatement lorsque la valeur de la zone de texte est modifiée par l'utilisateur. Pour des raisons historiques, en React, il est préférable d'utiliser `onChange` à la place, qui fonctionne de manière similaire.
+* [`onInput`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/input_event) : une fonction [gestionnaire d'événement](/reference/Réac-dom/Composants/common#event-handler). Se déclenche immédiatement lorsque la valeur de la zone de texte est modifiée par l'utilisateur. Pour des raisons historiques, en Réac, il est préférable d'utiliser `onChange` à la place, qui fonctionne de manière similaire.
 * `onInputCapture` : une version de `onInput` qui se déclenche lors de la [phase de capture](/learn/responding-to-events#capture-phase-events).
-* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event) : une fonction [gestionnaire d'événement](/reference/react-dom/components/common#event-handler). Se déclenche si une zone de texte échoue à la validation lors de la soumission du formulaire. Contrairement à l'événement natif `invalid`, l'événement React `onInvalid` se propage.
+* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event) : une fonction [gestionnaire d'événement](/reference/Réac-dom/Composants/common#event-handler). Se déclenche si une zone de texte échoue à la validation lors de la soumission du formulaire. Contrairement à l'événement natif `invalid`, l'événement Réac `onInvalid` se propage.
 * `onInvalidCapture` : une version de `onInvalid` qui se déclenche lors de la [phase de capture](/learn/responding-to-events#capture-phase-events).
-* [`onSelect`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/select_event) : une fonction [gestionnaire d'événement](/reference/react-dom/components/common#event-handler). Se déclenche après que la sélection à l'intérieur de la zone de texte a changé. React étend l'événement `onSelect` pour se déclencher également pour une sélection vide et sur les modifications de texte (qui peuvent affecter la sélection).
+* [`onSelect`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement/select_event) : une fonction [gestionnaire d'événement](/reference/Réac-dom/Composants/common#event-handler). Se déclenche après que la sélection à l'intérieur de la zone de texte a changé. Réac étend l'événement `onSelect` pour se déclencher également pour une sélection vide et sur les modifications de texte (qui peuvent affecter la sélection).
 * `onSelectCapture` : une version de `onSelect` qui se déclenche lors de la [phase de capture](/learn/responding-to-events#capture-phase-events).
 * [`placeholder`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#placeholder) : une chaîne de caractères. Affichée dans une couleur discrète lorsque la valeur de la zone de texte est vide.
 * [`readOnly`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea#readonly) : un booléen. Si `true`, la zone de texte n'est pas modifiable par l'utilisateur.
@@ -111,15 +111,15 @@ label, textarea { display: block; }
 
 Vous placerez généralement chaque `<textarea>` à l'intérieur d'une balise [`<label>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/label). Ça indique au navigateur que cette légende est associée à cette zone de texte. Lorsque l'utilisateur cliquera sur la légende, le navigateur activera la zone de texte. C'est également essentiel pour l'accessibilité : un lecteur d'écran annoncera la légende lorsque l'utilisateur activera la zone de texte.
 
-Si vous ne pouvez pas imbriquer votre `<textarea>` dans un `<label>`, associez-les en passant le même `id` à `<textarea id>` et [`<label htmlFor>`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor). Pour éviter les conflits entre les instances d'un composant, générez un `id` avec [`useId`](/reference/react/useId).
+Si vous ne pouvez pas imbriquer votre `<textarea>` dans un `<label>`, associez-les en passant le même `id` à `<textarea id>` et [`<label htmlFor>`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor). Pour éviter les conflits entre les instances d'un composant, générez un `id` avec [`utiliserId`](/reference/Réac/utiliserId).
 
 <Sandpack>
 
 ```js
-import { useId } from 'react';
+import { utiliserId } from 'Réac';
 
 export default function Form() {
-  const postTextAreaId = useId();
+  const postTextAreaId = utiliserId();
   return (
     <>
       <label htmlFor={postTextAreaId}>
@@ -246,7 +246,7 @@ Donnez un `name` à votre `<textarea>`, par exemple `<textarea name="postContent
 
 <Pitfall>
 
-Par défaut, *n'importe quel* `<button>` à l'intérieur d'un `<form>` va le soumettre. Cela peut être surprenant ! Si vous avez votre propre composant React `Button`, envisagez de renvoyer [`<button type="button">`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/input/button) au lieu de `<button>`. Ensuite, pour être explicite, utilisez `<button type="submit">` pour les boutons qui *sont* censés soumettre le formulaire.
+Par défaut, *n'importe quel* `<button>` à l'intérieur d'un `<form>` va le soumettre. Cela peut être surprenant ! Si vous avez votre propre composant Réac `Button`, envisagez de renvoyer [`<button type="button">`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/input/button) au lieu de `<button>`. Ensuite, pour être explicite, utilisez `<button type="submit">` pour les boutons qui *sont* censés soumettre le formulaire.
 
 </Pitfall>
 
@@ -256,11 +256,11 @@ Par défaut, *n'importe quel* `<button>` à l'intérieur d'un `<form>` va le sou
 
 Une zone de texte comme `<textarea />` est *non contrôlée*. Même si vous [passez une valeur initiale](#providing-an-initial-value-for-a-text-area) comme `<textarea defaultValue="Texte initial" />`, votre JSX ne spécifie que la valeur initiale, il ne contrôle pas la valeur actuelle.
 
-**Pour afficher une zone de texte _contrôlée_, passez une prop `value` à `<textarea />`.** React forcera la zone de texte à toujours avoir la valeur que vous avez passée. Généralement, vous contrôlerez une zone de texte en déclarant une [variable d'état](/reference/react/useState) :
+**Pour afficher une zone de texte _contrôlée_, passez une prop `value` à `<textarea />`.** Réac forcera la zone de texte à toujours avoir la valeur que vous avez passée. Généralement, vous contrôlerez une zone de texte en déclarant une [variable d'état](/reference/Réac/utiliserEtat) :
 
 ```js {2,6,7}
 function NewPost() {
-  const [postContent, setPostContent] = useState(''); // Déclare une variable d’état...
+  const [postContent, setPostContent] = utiliserEtat(''); // Déclare une variable d’état...
   // ...
   return (
     <textarea
@@ -276,11 +276,11 @@ C'est utile lorsque vous voulez rafraîchir une partie de l'interface utilisateu
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import MarkdownPreview from './MarkdownPreview.js';
 
 export default function MarkdownEditor() {
-  const [postContent, setPostContent] = useState('_Salut,_ **Markdown**!');
+  const [postContent, setPostContent] = utiliserEtat('_Salut,_ **Markdown**!');
   return (
     <>
       <label>
@@ -311,16 +311,16 @@ export default function MarkdownPreview({ markdown }) {
 ```json package.json
 {
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "remarkable": "2.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -333,7 +333,7 @@ textarea { display: block; margin-top: 5px; margin-bottom: 10px; }
 
 <Pitfall>
 
-**Si vous passez `value` sans `onChange`, il sera impossible de réaliser une saisie dans la zone de texte.** Lorsque vous contrôlez une zone de texte en passant une `value`, vous *forcez* la zone de texte à toujours avoir la valeur que vous avez passée. Donc, si vous passez une variable d'état comme `value` mais oubliez de mettre à jour cette variable d'état de manière synchrone au sein du gestionnaire d'événement `onChange`, React réinitialisera la zone de texte, après chaque frappe, à la `value` que vous avez spécifiée.
+**Si vous passez `value` sans `onChange`, il sera impossible de réaliser une saisie dans la zone de texte.** Lorsque vous contrôlez une zone de texte en passant une `value`, vous *forcez* la zone de texte à toujours avoir la valeur que vous avez passée. Donc, si vous passez une variable d'état comme `value` mais oubliez de mettre à jour cette variable d'état de manière synchrone au sein du gestionnaire d'événement `onChange`, Réac réinitialisera la zone de texte, après chaque frappe, à la `value` que vous avez spécifiée.
 
 </Pitfall>
 
@@ -414,16 +414,16 @@ function handleChange(e) {
 }
 ```
 
-Si ça ne corrige pas le problème, il est possible que la zone de texte soit supprimée et réinsérée dans le DOM à chaque frappe. Ça peut se produire si vous [réinitialisez accidentellement l'état](/learn/preserving-and-resetting-state) à chaque nouveau rendu. Par exemple, ça peut se produire si la zone de texte ou l'un de ses parents reçoit toujours un attribut `key` différent, ou si vous imbriquez des définitions de composants (ce qui n'est pas autorisé en React et provoque le remontage du composant « interne » à chaque rendu).
+Si ça ne corrige pas le problème, il est possible que la zone de texte soit supprimée et réinsérée dans le DOM à chaque frappe. Ça peut se produire si vous [réinitialisez accidentellement l'état](/learn/preserving-and-resetting-state) à chaque nouveau rendu. Par exemple, ça peut se produire si la zone de texte ou l'un de ses parents reçoit toujours un attribut `key` différent, ou si vous imbriquez des définitions de composants (ce qui n'est pas autorisé en Réac et provoque le remontage du composant « interne » à chaque rendu).
 
 ---
 
-### J'ai une erreur : "A component is changing an uncontrolled input to be controlled" {/*im-getting-an-error-a-component-is-changing-an-uncontrolled-input-to-be-controlled*/}
+### J'ai une erreur : "A Composant is changing an uncontrolled input to be controlled" {/*im-getting-an-error-a-composant-is-changing-an-uncontrolled-input-to-be-controlled*/}
 
 _(« Un composant passe un champ non contrôlé en mode contrôlé », NdT)_
 
 Si vous passez une `value` à un composant, cette valeur doit être une chaîne de caractères tout au long de son cycle de vie.
 
-Si vous passez `value={undefined}` à un composant, puis plus tard `value="quelqueChose"`, React ne saura pas si vous voulez que le composant soit contrôlé ou non. Un composant contrôlé doit toujours recevoir une chaîne de caractères en `value`, pas `null` ni `undefined`.
+Si vous passez `value={undefined}` à un composant, puis plus tard `value="quelqueChose"`, Réac ne saura pas si vous voulez que le composant soit contrôlé ou non. Un composant contrôlé doit toujours recevoir une chaîne de caractères en `value`, pas `null` ni `undefined`.
 
 Si votre `value` provient d'une API ou d'une variable d'état, elle peut être initialisée à `null` ou `undefined`. Dans ce cas, définissez-la avec une chaîne vide (`''`) initialement, ou passez `value={someValue ?? ''}` pour vous assurer que `value` est une chaîne de caractères.

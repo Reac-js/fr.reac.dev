@@ -5,7 +5,7 @@ canary: true
 
 <Canary>
 
-Les extensions de React à `<form>` ne sont actuellement disponibles que sur les canaux de livraison Canary et Expérimental de React. Dans les versions stables de React, `<form>` fonctionne comme [le composant HTML natif du navigateur](https://react.dev/reference/react-dom/components#all-html-components). Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+Les extensions de Réac à `<form>` ne sont actuellement disponibles que sur les canaux de livraison Canary et Expérimental de Réac. Dans les versions stables de Réac, `<form>` fonctionne comme [le composant HTML natif du navigateur](https://Réac.dev/reference/Réac-dom/Composants#all-html-composants). Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
@@ -43,7 +43,7 @@ Pour créer des formulaires interactifs, utilisez le [composant natif `<form>` d
 
 #### Props {/*props*/}
 
-`<form>` prend en charge toutes les [props communes aux éléments](/reference/react-dom/components/common#props).
+`<form>` prend en charge toutes les [props communes aux éléments](/reference/Réac-dom/Composants/common#props).
 
 [`action`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/form#action) : une URL ou une fonction. Lorsqu'une URL est passée à `action`, le formulaire se comporte comme un formulaire HTML classique. Mais si une fonction est passée à `action`, la fonction traitera l'envoi du formulaire. La fonction passée à `action` peut être asynchrone et sera appelée avec un unique argument contenant les [données envoyées par le formulaire](https://developer.mozilla.org/fr/docs/Web/API/FormData). La prop `action` peut céder la priorité à la prop `formAction` d'un composant `<button>`, `<input type="submit">`, ou `<input type="image">`.
 
@@ -79,9 +79,9 @@ export default function Search() {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "18.3.0-canary-6db7f4209-20231021",
-    "react-dom": "18.3.0-canary-6db7f4209-20231021",
-    "react-scripts": "^5.0.0"
+    "Réac": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-dom": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}
@@ -92,7 +92,7 @@ export default function Search() {
 
 ### Gérer l'envoi de formulaire dans une Action Serveur {/*handle-form-submission-with-a-server-action*/}
 
-Affichez un `<form>` avec un champ de saisie et un bouton d'envoi, puis passez-lui une Action Serveur (une fonction dotée de la directive [`'use server'`](/reference/react/use-server)) *via* sa prop `action` pour exécuter cette fonction quand le formulaire sera envoyé.
+Affichez un `<form>` avec un champ de saisie et un bouton d'envoi, puis passez-lui une Action Serveur (une fonction dotée de la directive [`'use server'`](/reference/Réac/use-server)) *via* sa prop `action` pour exécuter cette fonction quand le formulaire sera envoyé.
 
 Passer une Action Serveur à `<form action>` permet aux utilisateurs d'envoyer le formulaire même sans JavaScript activé, ou avant que le code JavaScript ne soit chargé et exécuté.  C'est bien pratique pour les utilisateurs ne disposant que d'une connexion ou d'un appareil lents, ou qui ont JavaScript désactivé.  C'est d'ailleurs un comportement similaire à celui des formulaires dont la prop `action` contient une URL.
 
@@ -136,7 +136,7 @@ function AddToCart({productId}) {
 }
 ```
 
-Lorsqu'un `<form>` fait son rendu au sein d'un [Composant Serveur](/reference/react/use-client), et qu'en prime une [Action Serveur](/reference/react/use-server) est passée à la prop `action` du `<form>`, le formulaire bénéficie d'une [amélioration progressive](https://developer.mozilla.org/fr/docs/Glossary/Progressive_Enhancement).
+Lorsqu'un `<form>` fait son rendu au sein d'un [Composant Serveur](/reference/Réac/use-client), et qu'en prime une [Action Serveur](/reference/Réac/use-server) est passée à la prop `action` du `<form>`, le formulaire bénéficie d'une [amélioration progressive](https://developer.mozilla.org/fr/docs/Glossary/Progressive_Enhancement).
 
 ### Afficher un état d'attente pendant l'envoi du formulaire {/*display-a-pending-state-during-form-submission*/}
 
@@ -147,7 +147,7 @@ Nous utilisons ci-dessous la propriété `pending` pour indiquer que le formulai
 <Sandpack>
 
 ```js src/App.js
-import { useFormStatus } from "react-dom";
+import { useFormStatus } from "Réac-dom";
 import { submitForm } from "./actions.js";
 
 function Submit() {
@@ -181,9 +181,9 @@ export async function submitForm(query) {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
-    "react-scripts": "^5.0.0"
+    "Réac": "canary",
+    "Réac-dom": "canary",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}
@@ -191,7 +191,7 @@ export async function submitForm(query) {
 ```
 </Sandpack>
 
-Pour en apprendre davantage, consultez la [documentation de référence du Hook `useFormStatus`](/reference/react-dom/hooks/useFormStatus).
+Pour en apprendre davantage, consultez la [documentation de référence du Hook `useFormStatus`](/reference/Réac-dom/hooks/useFormStatus).
 
 ### Mettre à jour les données de formulaire de façon optimiste {/*optimistically-updating-form-data*/}
 
@@ -202,11 +202,11 @@ Lorsqu'un utilisateur saisit par exemple un message dans un formulaire puis cliq
 <Sandpack>
 
 ```js src/App.js
-import { useOptimistic, useState, useRef } from "react";
+import { useOptimistic, utiliserEtat, utiliserReference } from "Réac";
 import { deliverMessage } from "./actions.js";
 
 function Thread({ messages, sendMessage }) {
-  const formRef = useRef();
+  const formRef = utiliserReference();
   async function formAction(formData) {
     addOptimisticMessage(formData.get("message"));
     formRef.current.reset();
@@ -240,7 +240,7 @@ function Thread({ messages, sendMessage }) {
 }
 
 export default function App() {
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = utiliserEtat([
     { text: "Coucou toi !", sending: false, key: 1 }
   ]);
   async function sendMessage(formData) {
@@ -262,9 +262,9 @@ export async function deliverMessage(message) {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "18.3.0-canary-6db7f4209-20231021",
-    "react-dom": "18.3.0-canary-6db7f4209-20231021",
-    "react-scripts": "^5.0.0"
+    "Réac": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-dom": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}
@@ -273,7 +273,7 @@ export async function deliverMessage(message) {
 
 </Sandpack>
 
-Pour en apprendre davantage, consultez la [documentation de référence du Hook `useOptimistic`](/reference/react/useOptimistic).
+Pour en apprendre davantage, consultez la [documentation de référence du Hook `useOptimistic`](/reference/Réac/useOptimistic).
 
 ### Gérer les erreurs d'envoi du formulaire {/*handling-form-submission-errors*/}
 
@@ -282,7 +282,7 @@ Il peut arriver que la fonction appelée par la prop `action` de `<form>` lève 
 <Sandpack>
 
 ```js src/App.js
-import { ErrorBoundary } from "react-error-boundary";
+import { ErrorBoundary } from "Réac-error-boundary";
 
 export default function Search() {
   function search() {
@@ -308,10 +308,10 @@ export default function Search() {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "18.3.0-canary-6db7f4209-20231021",
-    "react-dom": "18.3.0-canary-6db7f4209-20231021",
-    "react-scripts": "^5.0.0",
-    "react-error-boundary": "4.0.3"
+    "Réac": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-dom": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-scripts": "^5.0.0",
+    "Réac-error-boundary": "4.0.3"
   },
   "main": "/index.js",
   "devDependencies": {}
@@ -324,16 +324,16 @@ export default function Search() {
 
 Afin d'afficher un message d'erreur d'envoi de formulaire avant même que le *bundle* JavaScript soit chargé et exécuté (à des fins d'amélioration progressive), plusieurs choses sont nécessaires :
 
-1. le `<form>` doit figurer dans un [Composant Serveur](/reference/react/use-client)
-2. la fonction passée à la prop `action` du `<form>` doit être une [Action Serveur](/reference/react/use-server)
+1. le `<form>` doit figurer dans un [Composant Serveur](/reference/Réac/use-client)
+2. la fonction passée à la prop `action` du `<form>` doit être une [Action Serveur](/reference/Réac/use-server)
 3. le Hook `useFormState` doit être utilisé pour produire le message d'erreur
 
-`useFormState` accepte deux arguments : une [Action Serveur](/reference/react/use-server) et un état initial. `useFormState` renvoie deux valeurs : une variable d'état et une action. L'action ainsi renvoyée par `useFormState` doit être passée à la prop `action` du formulaire. La variable d'état renvoyée par `useFormState` peut être utilisée pour afficher le message d'erreur. La valeur renvoyée par [l'Action Serveur](/reference/react/use-server) passée à `useFormState` sera utilisée pour mettre à jour la variable d'état.
+`useFormState` accepte deux arguments : une [Action Serveur](/reference/Réac/use-server) et un état initial. `useFormState` renvoie deux valeurs : une variable d'état et une action. L'action ainsi renvoyée par `useFormState` doit être passée à la prop `action` du formulaire. La variable d'état renvoyée par `useFormState` peut être utilisée pour afficher le message d'erreur. La valeur renvoyée par [l'Action Serveur](/reference/Réac/use-server) passée à `useFormState` sera utilisée pour mettre à jour la variable d'état.
 
 <Sandpack>
 
 ```js src/App.js
-import { useFormState } from "react-dom";
+import { useFormState } from "Réac-dom";
 import { signUpNewUser } from "./api";
 
 export default function Page() {
@@ -354,7 +354,7 @@ export default function Page() {
       <p>L’utilisation d’un e-mail déjà inscrit produira une erreur</p>
       <form action={formAction} id="signup-form">
         <label htmlFor="email">E-mail : </label>
-        <input name="email" id="email" placeholder="(exemple : react@example.com)" />
+        <input name="email" id="email" placeholder="(exemple : Réac@example.com)" />
         <button>Inscription</button>
         {!!message && <p>{message}</p>}
       </form>
@@ -377,9 +377,9 @@ export async function signUpNewUser(newEmail) {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "18.3.0-canary-6db7f4209-20231021",
-    "react-dom": "18.3.0-canary-6db7f4209-20231021",
-    "react-scripts": "^5.0.0"
+    "Réac": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-dom": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}
@@ -388,7 +388,7 @@ export async function signUpNewUser(newEmail) {
 
 </Sandpack>
 
-Apprenez-en avantage sur la mise à jour de l'état depuis une action de formulaire dans la [documentation de référence du Hook `useFormState`](/reference/react-dom/hooks/useFormState).
+Apprenez-en avantage sur la mise à jour de l'état depuis une action de formulaire dans la [documentation de référence du Hook `useFormState`](/reference/Réac-dom/hooks/useFormState).
 
 ### Gérer plusieurs types d'envois {/*handling-multiple-submission-types*/}
 
@@ -425,9 +425,9 @@ export default function Search() {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "18.3.0-canary-6db7f4209-20231021",
-    "react-dom": "18.3.0-canary-6db7f4209-20231021",
-    "react-scripts": "^5.0.0"
+    "Réac": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-dom": "18.3.0-canary-6db7f4209-20231021",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}

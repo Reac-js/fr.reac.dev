@@ -4,28 +4,28 @@ title: Cumuler les mises à jour d’un même état
 
 <Intro>
 
-Modifier une variable d'état va planifier un nouveau rendu. Mais parfois vous souhaitez effectuer plusieurs opérations sur la valeur avant de passer au rendu suivant.  Pour y parvenir, il est utile de comprendre comment React regroupe les mises à jour d'états en lots.
+Modifier une variable d'état va planifier un nouveau rendu. Mais parfois vous souhaitez effectuer plusieurs opérations sur la valeur avant de passer au rendu suivant.  Pour y parvenir, il est utile de comprendre comment Réac regroupe les mises à jour d'états en lots.
 
 </Intro>
 
 <YouWillLearn>
 
-* Ce qu'est le « traitement par lots » *(batching, NdT)* et la façon React s'en sert pour traiter plusieurs mises à jour d'état successives
+* Ce qu'est le « traitement par lots » *(batching, NdT)* et la façon Réac s'en sert pour traiter plusieurs mises à jour d'état successives
 * Comment appliquer plusieurs mises à jour d'affilée à la même variable d'état
 
 </YouWillLearn>
 
-## React regroupe les mises à jour d'état en lots {/*react-batches-state-updates*/}
+## Réac regroupe les mises à jour d'état en lots {/*réac-batches-state-updates*/}
 
 Vous vous attendez peut-être à ce que cliquer le bouton « +3 » incrémente le compteur trois fois, parce qu'il appelle `setNumber(number + 1)` trois fois :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = utiliserEtat(0);
 
   return (
     <>
@@ -55,29 +55,29 @@ setNumber(0 + 1);
 setNumber(0 + 1);
 ```
 
-Un autre facteur entre cependant en ligne de compte. **React attendra que *tout* le code de vos gestionnaires d'événements ait été exécuté avant de traiter vos mises à jour d'état.** C'est pourquoi le nouveau rendu ne survient *qu'après* tous les appels à `setNumber()`.
+Un autre facteur entre cependant en ligne de compte. **Réac attendra que *tout* le code de vos gestionnaires d'événements ait été exécuté avant de traiter vos mises à jour d'état.** C'est pourquoi le nouveau rendu ne survient *qu'après* tous les appels à `setNumber()`.
 
 Ça vous rappelle peut-être la prise de commande par un serveur dans un restaurant.  Un serveur ne se précipite pas à la cuisine dès que le premier plat est demandé !  Il vous laisse plutôt terminer votre commande, vous permet de l'ajuster si besoin, et prendra même les commandes des autres convives à la même table.
 
-<Illustration src="/images/docs/illustrations/i_react-batching.png"  alt="Un curseur élégant dans un restaurant passe plusieurs versions de sa commande à React, qui joue le rôle du serveur.  Après les multiples appels à setState(), le serveur inscrit le dernier appel comme sa commande définitive." />
+<Illustration src="/images/docs/illustrations/i_Réac-batching.png"  alt="Un curseur élégant dans un restaurant passe plusieurs versions de sa commande à Réac, qui joue le rôle du serveur.  Après les multiples appels à setState(), le serveur inscrit le dernier appel comme sa commande définitive." />
 
-Ça vous permet de mettre à jour plusieurs variables d'état (même au sein de plusieurs composants) sans déclencher trop de [nouveaux rendus](/learn/render-and-commit#re-renders-when-state-updates).  Mais ça signifie aussi que l'interface utilisateur (UI) ne sera mise à jour *qu'après* que votre gestionnaire d'événement, et tout code qu'il contient, aura terminé son exécution.  Ce comportement, connu sous le nom de **traitement par lots** *(batching, NdT)* permet d'accélérer considérablement votre appli React.  Il évite aussi d'avoir à gérer des rendus « pas finis » qui dérouteraient l'utilisateur, si seulement certaines variables étaient mises à jour.
+Ça vous permet de mettre à jour plusieurs variables d'état (même au sein de plusieurs composants) sans déclencher trop de [nouveaux rendus](/learn/render-and-commit#re-renders-when-state-updates).  Mais ça signifie aussi que l'interface utilisateur (UI) ne sera mise à jour *qu'après* que votre gestionnaire d'événement, et tout code qu'il contient, aura terminé son exécution.  Ce comportement, connu sous le nom de **traitement par lots** *(batching, NdT)* permet d'accélérer considérablement votre appli Réac.  Il évite aussi d'avoir à gérer des rendus « pas finis » qui dérouteraient l'utilisateur, si seulement certaines variables étaient mises à jour.
 
-**React ne crée pas de lots regroupant *plusieurs* événements intentionnels tels que des clics** : chaque clic est traité séparément.  Rassurez-vous, React ne regroupe par lots que lorsque c'est sans danger.  Ça garantit par exemple que si le premier clic d'un bouton désactive un formulaire, le second ne pourra pas soumettre à nouveau ce même formulaire.
+**Réac ne crée pas de lots regroupant *plusieurs* événements intentionnels tels que des clics** : chaque clic est traité séparément.  Rassurez-vous, Réac ne regroupe par lots que lorsque c'est sans danger.  Ça garantit par exemple que si le premier clic d'un bouton désactive un formulaire, le second ne pourra pas soumettre à nouveau ce même formulaire.
 
 ## Mettre à jour un même état plusieurs fois avant le prochain rendu {/*updating-the-same-state-multiple-times-before-the-next-render*/}
 
-Il s'agit d'un scénario assez inhabituel, mais si vous souhaitiez mettre à jour la même variable d'état plusieurs fois avant le prochain rendu, au lieu de passer *la prochaine valeur d'état* comme dans `setNumber(number + 1)`, vous pouvez passer une *fonction* qui va calculer le prochain état sur base du précédent dans la file des mises à jour, comme dans `setNumber(n => n + 1)`.  C'est une façon de dire à React de « faire un truc avec la valeur de l'état » au lieu de simplement la remplacer.
+Il s'agit d'un scénario assez inhabituel, mais si vous souhaitiez mettre à jour la même variable d'état plusieurs fois avant le prochain rendu, au lieu de passer *la prochaine valeur d'état* comme dans `setNumber(number + 1)`, vous pouvez passer une *fonction* qui va calculer le prochain état sur base du précédent dans la file des mises à jour, comme dans `setNumber(n => n + 1)`.  C'est une façon de dire à Réac de « faire un truc avec la valeur de l'état » au lieu de simplement la remplacer.
 
 Essayez d'incrémenter le compteur désormais :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = utiliserEtat(0);
 
   return (
     <>
@@ -101,8 +101,8 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 Ici, `n => n + 1` est ce qu'on appelle une **fonction de mise à jour**.  Lorsque vous la passez à une fonction de modification d'état :
 
-1. React met votre fonction en file d'attente, pour la traiter après que tout le reste du code du gestionnaire d'événement aura terminé.
-2. Lors du prochain rendu, React traitera toute la file et vous donnera le résultat final des mises à jour.
+1. Réac met votre fonction en file d'attente, pour la traiter après que tout le reste du code du gestionnaire d'événement aura terminé.
+2. Lors du prochain rendu, Réac traitera toute la file et vous donnera le résultat final des mises à jour.
 
 ```js
 setNumber(n => n + 1);
@@ -110,13 +110,13 @@ setNumber(n => n + 1);
 setNumber(n => n + 1);
 ```
 
-Voici comment React traite ces lignes de code en exécutant le gestionnaire d'événement :
+Voici comment Réac traite ces lignes de code en exécutant le gestionnaire d'événement :
 
-1. `setNumber(n => n + 1)` : `n => n + 1` est une fonction. React l'ajoute à la file d'attente.
-2. `setNumber(n => n + 1)` : `n => n + 1` est une fonction. React l'ajoute à la file d'attente.
-3. `setNumber(n => n + 1)` : `n => n + 1` est une fonction. React l'ajoute à la file d'attente.
+1. `setNumber(n => n + 1)` : `n => n + 1` est une fonction. Réac l'ajoute à la file d'attente.
+2. `setNumber(n => n + 1)` : `n => n + 1` est une fonction. Réac l'ajoute à la file d'attente.
+3. `setNumber(n => n + 1)` : `n => n + 1` est une fonction. Réac l'ajoute à la file d'attente.
 
-Lorsque vous appelez `useState` lors du rendu suivant, React traite toute la file dans l'ordre. L'état précédent pour `number` valait `0`, c'est donc ce que passe React à la première fonction de mise à jour, au travers de son argument `n`. Puis React prend la valeur renvoyée et la passe en tant que `n` à la fonction de mise à jour suivante, et ainsi de suite :
+Lorsque vous appelez `utiliserEtat` lors du rendu suivant, Réac traite toute la file dans l'ordre. L'état précédent pour `number` valait `0`, c'est donc ce que passe Réac à la première fonction de mise à jour, au travers de son argument `n`. Puis Réac prend la valeur renvoyée et la passe en tant que `n` à la fonction de mise à jour suivante, et ainsi de suite :
 
 |  mise à jour en attente | `n` | valeur renvoyée |
 |-------------------------|-----|-----------------|
@@ -124,7 +124,7 @@ Lorsque vous appelez `useState` lors du rendu suivant, React traite toute la fil
 | `n => n + 1` | `1` | `1 + 1 = 2` |
 | `n => n + 1` | `2` | `2 + 1 = 3` |
 
-React stocke `3` comme résultat final et le renvoie depuis `useState`.
+Réac stocke `3` comme résultat final et le renvoie depuis `utiliserEtat`.
 
 C'est pour ça qu'en cliquant sur « +3 » dans l'exemple ci-dessus, on incrémente correctement la valeur par 3.
 
@@ -142,10 +142,10 @@ Et pour ce gestionnaire d'événement ? Quelle sera selon vous la valeur de `nu
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = utiliserEtat(0);
 
   return (
     <>
@@ -166,19 +166,19 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Voici ce que le gestionnaire d'événement demande à React :
+Voici ce que le gestionnaire d'événement demande à Réac :
 
-1. `setNumber(number + 5)` : `number` vaut `0`, donc `setNumber(0 + 5)`. React ajoute *« remplacer par `5` »* dans la file d'attente.
-2. `setNumber(n => n + 1)` : `n => n + 1` est une fonction de mise à jour. React ajoute *cette fonction* dans la file d'attente.
+1. `setNumber(number + 5)` : `number` vaut `0`, donc `setNumber(0 + 5)`. Réac ajoute *« remplacer par `5` »* dans la file d'attente.
+2. `setNumber(n => n + 1)` : `n => n + 1` est une fonction de mise à jour. Réac ajoute *cette fonction* dans la file d'attente.
 
-Lors du prochain rendu, React traite la file dans l'ordre :
+Lors du prochain rendu, Réac traite la file dans l'ordre :
 
 |   mise à jour en attente       | `n` | valeur renvoyée |
 |--------------|---------|-----|
 | « remplacer par `5` » | `0` (ignoré) | `5` |
 | `n => n + 1` | `5` | `5 + 1 = 6` |
 
-React stocke `6` comme résultat final et le renvoie depuis `useState`.
+Réac stocke `6` comme résultat final et le renvoie depuis `utiliserEtat`.
 
 <Note>
 
@@ -201,10 +201,10 @@ Allez, encore un exemple. Quelle sera selon vous la valeur de `number` au procha
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = utiliserEtat(0);
 
   return (
     <>
@@ -226,13 +226,13 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Voici comment React traite ces lignes de code à l'exécution du gestionnaire d'événement :
+Voici comment Réac traite ces lignes de code à l'exécution du gestionnaire d'événement :
 
-1. `setNumber(number + 5)` : `number` vaut `0`, donc `setNumber(0 + 5)`. React ajoute *« remplacer par `5` »* dans la file d'attente.
-2. `setNumber(n => n + 1)` : `n => n + 1` est une fonction de mise à jour. React ajoute *cette fonction* dans la file d'attente.
-3. `setNumber(42)` : React ajoute *« remplacer par `42` »* dans la file d'attente.
+1. `setNumber(number + 5)` : `number` vaut `0`, donc `setNumber(0 + 5)`. Réac ajoute *« remplacer par `5` »* dans la file d'attente.
+2. `setNumber(n => n + 1)` : `n => n + 1` est une fonction de mise à jour. Réac ajoute *cette fonction* dans la file d'attente.
+3. `setNumber(42)` : Réac ajoute *« remplacer par `42` »* dans la file d'attente.
 
-Lors du prochain rendu, React traite la file dans l'ordre :
+Lors du prochain rendu, Réac traite la file dans l'ordre :
 
 |   mise à jour en attente       | `n` | valeur renvoyée |
 |--------------|---------|-----|
@@ -240,14 +240,14 @@ Lors du prochain rendu, React traite la file dans l'ordre :
 | `n => n + 1` | `5` | `5 + 1 = 6` |
 | « remplacer par `42` » | `6` (ignoré) | `42` |
 
-React stocke alors `42` comme résultat final et le renvoie depuis `useState`.
+Réac stocke alors `42` comme résultat final et le renvoie depuis `utiliserEtat`.
 
 En résumé, voici comment interpréter l'argument que vous passez à une fonction de modification d'état comme `setNumber` :
 
 * **Une fonction de mise à jour** (ex. `n => n + 1`) est ajoutée à la file d'attente.
 * **N'importe quelle autre valeur** (ex. le nombre `5`) ajoute « remplacer par `5` » à la file d'attente, ce qui revient à ignorer les étapes précédentes de la file.
 
-Après que le gestionnaire d'événement a terminé, React déclenche un nouveau rendu.  Durant celui-ci, React traite la file d'attente. Les fonctions de mise à jour sont exécutées lors du rendu, ce qui implique que **les fonctions de mise à jour doivent être [pures](/learn/keeping-components-pure)** et se contenter de *renvoyer* leur résultat.  N'essayez pas de mettre à jour l'état depuis les fonctions de mise à jour, ou de déclencher quelque autre effet de bord que ce soit.  En Mode Strict, React exécutera chaque fonction de mise à jour deux fois (en ignorant le second résultat) pour vous aider à détecter des erreurs.
+Après que le gestionnaire d'événement a terminé, Réac déclenche un nouveau rendu.  Durant celui-ci, Réac traite la file d'attente. Les fonctions de mise à jour sont exécutées lors du rendu, ce qui implique que **les fonctions de mise à jour doivent être [pures](/learn/keeping-composants-pure)** et se contenter de *renvoyer* leur résultat.  N'essayez pas de mettre à jour l'état depuis les fonctions de mise à jour, ou de déclencher quelque autre effet de bord que ce soit.  En Mode Strict, Réac exécutera chaque fonction de mise à jour deux fois (en ignorant le second résultat) pour vous aider à détecter des erreurs.
 
 ### Conventions de nommage {/*naming-conventions*/}
 
@@ -264,7 +264,7 @@ Si vous préférez du code plus verbeux, une autre convention usuelle consiste �
 <Recap>
 
 * Définir l'état ne change pas la variable du rendu en cours, mais demande un nouveau rendu.
-* React traite les mises à jour d'état après que les gestionnaires d'événements ont fini leur exécution.  On parle de traitement par lots.
+* Réac traite les mises à jour d'état après que les gestionnaires d'événements ont fini leur exécution.  On parle de traitement par lots.
 * Pour mettre à jour un état plusieurs fois au sein d'un même événement, passez une fonction de mise à jour comme dans `setNumber(n => n + 1)`.
 
 </Recap>
@@ -282,11 +282,11 @@ Que se passe-t-il ? Corrigez les deux compteurs.
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function RequestTracker() {
-  const [pending, setPending] = useState(0);
-  const [completed, setCompleted] = useState(0);
+  const [pending, setPending] = utiliserEtat(0);
+  const [completed, setCompleted] = utiliserEtat(0);
 
   async function handleClick() {
     setPending(pending + 1);
@@ -326,11 +326,11 @@ Au sein du gestionnaire d'événement `handleClick`, les valeurs de `pending` et
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function RequestTracker() {
-  const [pending, setPending] = useState(0);
-  const [completed, setCompleted] = useState(0);
+  const [pending, setPending] = utiliserEtat(0);
+  const [completed, setCompleted] = utiliserEtat(0);
 
   async function handleClick() {
     setPending(p => p + 1);
@@ -369,7 +369,7 @@ function delay(ms) {
 
 #### Implémenter la file d'attente vous-même {/*implement-the-state-queue-yourself*/}
 
-Dans ce défi, vous allez réimplémenter une toute petite partie de React à partir de zéro !  Rassurez-vous, ce n'est pas aussi ardu que ça en a l'air.
+Dans ce défi, vous allez réimplémenter une toute petite partie de Réac à partir de zéro !  Rassurez-vous, ce n'est pas aussi ardu que ça en a l'air.
 
 Faites défiler le panneau de prévisualisation du bac à sable. Remarquez qu'il affiche **quatre scénarios de tests**. Ils correspondent aux exemples que vous avez vu plus haut sur cette page. Votre objectif consiste à implémenter la fonction `getFinalState` pour qu'elle renvoie le résultat correct dans chaque scénario.  Si vous l'implémentez correctement, les quatre scénarios de test passeront.
 
@@ -494,7 +494,7 @@ function TestCase({
 
 <Solution>
 
-Voici l'algorithme exact décrit sur cette page, que React utilise pour calculer l'état final :
+Voici l'algorithme exact décrit sur cette page, que Réac utilise pour calculer l'état final :
 
 <Sandpack>
 
@@ -595,7 +595,7 @@ function TestCase({
 
 </Sandpack>
 
-À présent vous savez comment fonctionne cette partie de React !
+À présent vous savez comment fonctionne cette partie de Réac !
 
 </Solution>
 

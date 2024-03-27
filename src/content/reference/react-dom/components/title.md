@@ -5,7 +5,7 @@ canary: true
 
 <Canary>
 
-Les extensions de React à `<title>` ne sont actuellement disponibles que sur les canaux de livraison Canary et Expérimental de React. Dans les versions stables de React, `<title>` fonctionne comme [le composant HTML natif du navigateur](/reference/react-dom/components#all-html-components). Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+Les extensions de Réac à `<title>` ne sont actuellement disponibles que sur les canaux de livraison Canary et Expérimental de Réac. Dans les versions stables de Réac, `<title>` fonctionne comme [le composant HTML natif du navigateur](/reference/Réac-dom/Composants#all-html-composants). Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
@@ -28,7 +28,7 @@ Le [composant natif `<title>` du navigateur](https://developer.mozilla.org/fr/do
 
 ### `<title>` {/*title*/}
 
-Pour définir le titre de votre document, utilisez le [composant natif `<title>` du navigateur](https://developer.mozilla.org/fr/docs/Web/HTML/Element/title). Vous pouvez utiliser `<title>` depuis n'importe quel composant et React placera toujours l'élément DOM correspondant dans l'en-tête (`head`) du document.
+Pour définir le titre de votre document, utilisez le [composant natif `<title>` du navigateur](https://developer.mozilla.org/fr/docs/Web/HTML/Element/title). Vous pouvez utiliser `<title>` depuis n'importe quel composant et Réac placera toujours l'élément DOM correspondant dans l'en-tête (`head`) du document.
 
 ```js
 <title>Mon blog</title>
@@ -38,13 +38,13 @@ Pour définir le titre de votre document, utilisez le [composant natif `<title>`
 
 #### Props {/*props*/}
 
-`<title>` prend en charge toutes les [props communes aux éléments](/reference/react-dom/components/common#props).
+`<title>` prend en charge toutes les [props communes aux éléments](/reference/Réac-dom/Composants/common#props).
 
-* `children` : `<title>` accepte uniquement du texte comme enfant. Ce texte devient le titre du document. Vous pouvez également passer vos propres composants, du moment que leur rendu aboutit à du texte.
+* `Enfants` : `<title>` accepte uniquement du texte comme enfant. Ce texte devient le titre du document. Vous pouvez également passer vos propres composants, du moment que leur rendu aboutit à du texte.
 
 #### Comportement spécifique de rendu {/*special-rendering-behavior*/}
 
-React placera toujours l'élément DOM correspondant au composant `<title>` dans le `<head>` du document, peu importe où il figure dans l'arborescence React. Le `<head>` est le seul endroit valide pour un `<title>` dans le DOM, mais il est plus confortable, et préférable en termes de composition, qu'un composant représentant une page donnée puisse produire les composants `<title>` lui-même.
+Réac placera toujours l'élément DOM correspondant au composant `<title>` dans le `<head>` du document, peu importe où il figure dans l'arborescence Réac. Le `<head>` est le seul endroit valide pour un `<title>` dans le DOM, mais il est plus confortable, et préférable en termes de composition, qu'un composant représentant une page donnée puisse produire les composants `<title>` lui-même.
 
 Il y a toutefois deux exceptions :
 
@@ -53,7 +53,7 @@ Il y a toutefois deux exceptions :
 
 <Pitfall>
 
-Ne produisez qu'un seul `<title>` à la fois au sein de votre rendu.  Si plus d'un composant utilise une balise `<title>` à la fois, React placera l'ensemble de ces titres dans l'en-tête du document.  Dans un tel cas, le comportement des navigateurs comme celui des moteurs de recherche n'est pas spécifié.
+Ne produisez qu'un seul `<title>` à la fois au sein de votre rendu.  Si plus d'un composant utilise une balise `<title>` à la fois, Réac placera l'ensemble de ces titres dans l'en-tête du document.  Dans un tel cas, le comportement des navigateurs comme celui des moteurs de recherche n'est pas spécifié.
 
 </Pitfall>
 
@@ -63,7 +63,7 @@ Ne produisez qu'un seul `<title>` à la fois au sein de votre rendu.  Si plus d'
 
 ### Définir le titre du document {/*set-the-document-title*/}
 
-Utilisez le composant `<title>` dans n'importe quel composant, avec du texte comme enfant.  React placera le nœud DOM `<title>` associé dans le `<head>` du document.
+Utilisez le composant `<title>` dans n'importe quel composant, avec du texte comme enfant.  Réac placera le nœud DOM `<title>` associé dans le `<head>` du document.
 
 <SandpackWithHTMLOutput>
 

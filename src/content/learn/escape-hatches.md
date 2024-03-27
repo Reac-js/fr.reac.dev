@@ -4,17 +4,17 @@ title: Échappatoires
 
 <Intro>
 
-Certains de vos composants pourraient avoir besoin de se synchroniser avec des systèmes extérieurs à React, voire de les contrôler.  Par exemple, vous pourriez avoir besoin de rendre un champ actif au moyen d’une API du navigateur, de démarrer ou mettre en pause un lecteur vidéo implémenté sans React, ou de vous connecter à un serveur distant pour en écouter les messages.  Dans ce chapitre, vous apprendrez quelles échappatoires React vous propose pour « sortir de React » et vous connecter à des systèmes extérieurs.  La majorité de votre logique applicative et de vos flux de données ne devraient pas avoir besoin de ces fonctionnalités.
+Certains de vos composants pourraient avoir besoin de se synchroniser avec des systèmes extérieurs à Réac, voire de les contrôler.  Par exemple, vous pourriez avoir besoin de rendre un champ actif au moyen d’une API du navigateur, de démarrer ou mettre en pause un lecteur vidéo implémenté sans Réac, ou de vous connecter à un serveur distant pour en écouter les messages.  Dans ce chapitre, vous apprendrez quelles échappatoires Réac vous propose pour « sortir de Réac » et vous connecter à des systèmes extérieurs.  La majorité de votre logique applicative et de vos flux de données ne devraient pas avoir besoin de ces fonctionnalités.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
 * [Comment « se souvenir » d’informations sans causer de nouveaux rendus](/learn/referencing-values-with-refs)
-* [Comment accéder aux éléments DOM gérés par React](/learn/manipulating-the-dom-with-refs)
+* [Comment accéder aux éléments DOM gérés par Réac](/learn/manipulating-the-dom-with-refs)
 * [Comment synchroniser vos composants avec des systèmes extérieurs](/learn/synchronizing-with-effects)
 * [Comment retirer les Effets superflus de vos composants](/learn/you-might-not-need-an-effect)
-* [En quoi le cycle de vie d’un Effet diffère de celui d’un composant](/learn/lifecycle-of-reactive-effects)
+* [En quoi le cycle de vie d’un Effet diffère de celui d’un composant](/learn/lifecycle-of-réactive-effects)
 * [Comment éviter que certaines valeurs redéclenchent un Effet](/learn/separating-events-from-effects)
 * [Comment réduire le nombre d’exécutions de votre Effet](/learn/removing-effect-dependencies)
 * [Comment partager de la logique entre composants](/learn/reusing-logic-with-custom-hooks)
@@ -26,18 +26,18 @@ Certains de vos composants pourraient avoir besoin de se synchroniser avec des s
 Lorsque vous souhaitez que votre composant « se souvienne » de quelque chose, mais que vous voulez éviter que l’évolution de ces données [déclenche de nouveaux rendus](/learn/render-and-commit), vous pouvez utiliser une *ref* :
 
 ```js
-const ref = useRef(0);
+const ref = utiliserReference(0);
 ```
 
-Comme l’état, les refs sont préservées par React d’un rendu à l’autre.  Cependant, modifier un état déclenche un nouveau rendu du composant, alors que ce n’est pas le cas lorsqu’on modifie une ref ! Vous pouvez accéder à la valeur actuelle d’une ref au travers de sa propriété `ref.current`.
+Comme l’état, les refs sont préservées par Réac d’un rendu à l’autre.  Cependant, modifier un état déclenche un nouveau rendu du composant, alors que ce n’est pas le cas lorsqu’on modifie une ref ! Vous pouvez accéder à la valeur actuelle d’une ref au travers de sa propriété `ref.current`.
 
 <Sandpack>
 
 ```js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 
 export default function Counter() {
-  let ref = useRef(0);
+  let ref = utiliserReference(0);
 
   function handleClick() {
     ref.current = ref.current + 1;
@@ -54,7 +54,7 @@ export default function Counter() {
 
 </Sandpack>
 
-Une ref est comme une poche secrète de votre composant que React ne peut pas surveiller.  Par exemple, vous pouvez utiliser les refs pour stocker [des ID de timers](https://developer.mozilla.org/fr/docs/Web/API/setTimeout#return_value), des [éléments du DOM](https://developer.mozilla.org/fr/docs/Web/API/Element), et d’autres objets qui n’impactent pas le résultat du rendu de votre composant.
+Une ref est comme une poche secrète de votre composant que Réac ne peut pas surveiller.  Par exemple, vous pouvez utiliser les refs pour stocker [des ID de timers](https://developer.mozilla.org/fr/docs/Web/API/setTimeout#return_value), des [éléments du DOM](https://developer.mozilla.org/fr/docs/Web/API/Element), et d’autres objets qui n’impactent pas le résultat du rendu de votre composant.
 
 <LearnMore path="/learn/referencing-values-with-refs">
 
@@ -64,15 +64,15 @@ Lisez **[Référencer des valeurs avec les refs](/learn/referencing-values-with-
 
 ## Manipuler le DOM avec des refs {/*manipulating-the-dom-with-refs*/}
 
-React met automatiquement le DOM à jour pour correspondre au résultat de votre rendu, de sorte que vos composants ont rarement besoin de le manipuler directement.  Ceci dit, il arrive parfois que vous ayez besoin d’accéder à des éléments du DOM gérés par React ; par exemple pour donner le focus à un élément, défiler jusqu’à celui-ci, ou mesurer ses dimensions ou sa position.  Il n’y a pas de solution intégrée à React pour de tels besoins, aussi devrez-vous utiliser une ref vers le nœud DOM en question.  Dans l’exemple ci-après, cliquer sur le bouton donnera le focus au champ grâce à une ref :
+Réac met automatiquement le DOM à jour pour correspondre au résultat de votre rendu, de sorte que vos composants ont rarement besoin de le manipuler directement.  Ceci dit, il arrive parfois que vous ayez besoin d’accéder à des éléments du DOM gérés par Réac ; par exemple pour donner le focus à un élément, défiler jusqu’à celui-ci, ou mesurer ses dimensions ou sa position.  Il n’y a pas de solution intégrée à Réac pour de tels besoins, aussi devrez-vous utiliser une ref vers le nœud DOM en question.  Dans l’exemple ci-après, cliquer sur le bouton donnera le focus au champ grâce à une ref :
 
 <Sandpack>
 
 ```js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 
 export default function Form() {
-  const inputRef = useRef(null);
+  const inputRef = utiliserReference(null);
 
   function handleClick() {
     inputRef.current.focus();
@@ -93,25 +93,25 @@ export default function Form() {
 
 <LearnMore path="/learn/manipulating-the-dom-with-refs">
 
-Lisez **[Manipuler le DOM avec des refs](/learn/manipulating-the-dom-with-refs)** pour découvrir comment accéder aux éléments du DOM qui sont gérés par React.
+Lisez **[Manipuler le DOM avec des refs](/learn/manipulating-the-dom-with-refs)** pour découvrir comment accéder aux éléments du DOM qui sont gérés par Réac.
 
 </LearnMore>
 
 ## Synchroniser grâce aux Effets {/*synchronizing-with-effects*/}
 
-Certains composants ont besoin de se synchroniser avec des systèmes extérieurs.  Par exemple, vous pourriez vouloir contrôler un composant non React sur la base d’un état React, mettre en place une connexion à un serveur, ou envoyer des événements analytiques lorsqu’un composant apparaît à l’écran.  Contrairement aux gestionnaires d’événements, qui vous permettent de réagir à des événements spécifiques, les *Effets* vous permettent d’exécuter du code à la suite du rendu.  Utilisez-les pour synchroniser votre composant avec un système extérieur à React.
+Certains composants ont besoin de se synchroniser avec des systèmes extérieurs.  Par exemple, vous pourriez vouloir contrôler un composant non Réac sur la base d’un état Réac, mettre en place une connexion à un serveur, ou envoyer des événements analytiques lorsqu’un composant apparaît à l’écran.  Contrairement aux gestionnaires d’événements, qui vous permettent de réagir à des événements spécifiques, les *Effets* vous permettent d’exécuter du code à la suite du rendu.  Utilisez-les pour synchroniser votre composant avec un système extérieur à Réac.
 
 Appuyez quelques fois sur Lecture / Pause et voyez comme le lecteur vidéo natif reste synchronisé avec la valeur de la prop `isPlaying` :
 
 <Sandpack>
 
 ```js
-import { useState, useRef, useEffect } from 'react';
+import { utiliserEtat, utiliserReference, utiliserEffet } from 'Réac';
 
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (isPlaying) {
       ref.current.play();
     } else {
@@ -123,7 +123,7 @@ function VideoPlayer({ src, isPlaying }) {
 }
 
 export default function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setIsPlaying(!isPlaying)}>
@@ -145,16 +145,16 @@ video { width: 250px; }
 
 </Sandpack>
 
-De nombreux Effets ont également besoin de « nettoyer derrière eux ».  Par exemple, si un Effet met en place une connexion à un serveur de discussion, il devrait renvoyer une *fonction de nettoyage* indiquant à React comment déconnecter le composant du serveur :
+De nombreux Effets ont également besoin de « nettoyer derrière eux ».  Par exemple, si un Effet met en place une connexion à un serveur de discussion, il devrait renvoyer une *fonction de nettoyage* indiquant à Réac comment déconnecter le composant du serveur :
 
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 export default function ChatRoom() {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
@@ -183,7 +183,7 @@ input { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-En développement, React exécutera et nettoiera votre Effet immédiatement une fois supplémentaire.  C’est pourquoi vous voyez deux fois `"✅ Connexion..."` dans la console. Ça garantit que vous n’oublierez pas d’implémenter la fonction de nettoyage.
+En développement, Réac exécutera et nettoiera votre Effet immédiatement une fois supplémentaire.  C’est pourquoi vous voyez deux fois `"✅ Connexion..."` dans la console. Ça garantit que vous n’oublierez pas d’implémenter la fonction de nettoyage.
 
 <LearnMore path="/learn/synchronizing-with-effects">
 
@@ -193,7 +193,7 @@ Lisez **[Synchroniser grâce aux Effets](/learn/synchronizing-with-effects)** po
 
 ## Vous n’avez pas forcément besoin d’un Effet {/*you-might-not-need-an-effect*/}
 
-Les Effets sont une façon d’échapper au paradigme de React. Ils vous permettent de « sortir » de React et de synchroniser vos composants avec un système extérieur quelconque. S’il n’y a pas de système extérieur dans l’histoire (par exemple, vous voulez juste mettre à jour l’état d’un composant lorsque ses props ou son état changent), vous ne devriez pas avoir besoin d’un Effet. Retirer des Effets superflus rendra votre code plus simple à comprendre, plus performant, et moins sujet aux erreurs.
+Les Effets sont une façon d’échapper au paradigme de Réac. Ils vous permettent de « sortir » de Réac et de synchroniser vos composants avec un système extérieur quelconque. S’il n’y a pas de système extérieur dans l’histoire (par exemple, vous voulez juste mettre à jour l’état d’un composant lorsque ses props ou son état changent), vous ne devriez pas avoir besoin d’un Effet. Retirer des Effets superflus rendra votre code plus simple à comprendre, plus performant, et moins sujet aux erreurs.
 
 Il y a deux scénarios principaux pour lesquels vous n’avez pas besoin d’Effets :
 
@@ -204,12 +204,12 @@ Par exemple, vous n’avez pas besoin d’un Effet pour ajuster un état sur la 
 
 ```js {5-9}
 function Form() {
-  const [firstName, setFirstName] = useState('Clara');
-  const [lastName, setLastName] = useState('Luciani');
+  const [firstName, setFirstName] = utiliserEtat('Clara');
+  const [lastName, setLastName] = utiliserEtat('Luciani');
 
   // 🔴 Évitez : état redondant et Effet superflu
-  const [fullName, setFullName] = useState('');
-  useEffect(() => {
+  const [fullName, setFullName] = utiliserEtat('');
+  utiliserEffet(() => {
     setFullName(firstName + ' ' + lastName);
   }, [firstName, lastName]);
   // ...
@@ -220,8 +220,8 @@ Calculez plutôt le maximum de choses au moment du rendu :
 
 ```js {4-5}
 function Form() {
-  const [firstName, setFirstName] = useState('Clara');
-  const [lastName, setLastName] = useState('Luciani');
+  const [firstName, setFirstName] = utiliserEtat('Clara');
+  const [lastName, setLastName] = utiliserEtat('Luciani');
   // ✅ Correct : valeur calculée lors du rendu
   const fullName = firstName + ' ' + lastName;
   // ...
@@ -236,7 +236,7 @@ Lisez **[Vous n’avez pas forcément besoin d’un Effet](/learn/you-might-not-
 
 </LearnMore>
 
-## Cycle de vie des Effets réactifs {/*lifecycle-of-reactive-effects*/}
+## Cycle de vie des Effets réactifs {/*lifecycle-of-réactive-effects*/}
 
 Les Effets ont un cycle de vie différent de celui des composants.  Les composants peuvent être montés, mis à jour ou démontés.  Un Effet ne peut faire que deux choses : commencer la synchronisation avec quelque chose, et plus tard cesser la synchronisation.  Ce cycle peut survenir de nombreuses fois si votre Effet dépend de props ou d’éléments d’état qui changent avec le temps.
 
@@ -245,13 +245,13 @@ L’Effet ci-après dépend de la valeur de la prop `roomId`.  Les props sont de
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -261,7 +261,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -303,11 +303,11 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-React fournit une règle de *linter* pour vérifier que vous fournissez des dépendances appropriées à vos Effets.  Si vous oubliez de préciser `roomId` dans la liste des dépendances de l’exemple ci-avant, le *linter* repèrera le problème automatiquement.
+Réac fournit une règle de *linter* pour vérifier que vous fournissez des dépendances appropriées à vos Effets.  Si vous oubliez de préciser `roomId` dans la liste des dépendances de l’exemple ci-avant, le *linter* repèrera le problème automatiquement.
 
-<LearnMore path="/learn/lifecycle-of-reactive-effects">
+<LearnMore path="/learn/lifecycle-of-réactive-effects">
 
-Lisez **[Cycle de vie des Effets réactifs](/learn/lifecycle-of-reactive-effects)** pour découvrir en quoi le cycle de vie d’un Effet est différent de celui d’un composant.
+Lisez **[Cycle de vie des Effets réactifs](/learn/lifecycle-of-réactive-effects)** pour découvrir en quoi le cycle de vie d’un Effet est différent de celui d’un composant.
 
 </LearnMore>
 
@@ -315,7 +315,7 @@ Lisez **[Cycle de vie des Effets réactifs](/learn/lifecycle-of-reactive-effects
 
 <Wip>
 
-Cette section décrit une **API expérimentale : elle n’a donc pas encore été livrée** dans une version stable de React.
+Cette section décrit une **API expérimentale : elle n’a donc pas encore été livrée** dans une version stable de Réac.
 
 </Wip>
 
@@ -328,29 +328,29 @@ Tout le code au sein d’un Effet est *réactif*. Il sera exécuté à nouveau s
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       showNotification('Connecté !', theme);
@@ -363,8 +363,8 @@ function ChatRoom({ roomId, theme }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
-  const [isDark, setIsDark] = useState(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isDark, setIsDark] = utiliserEtat(false);
   return (
     <>
       <label>
@@ -456,34 +456,34 @@ Ce n’est pas idéal.  Vous voulez vous reconnecter au serveur de discussion se
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
-  const onConnected = useEffectEvent(() => {
+  const onConnected = utiliserEffetEvent(() => {
     showNotification('Connecté !', theme);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       onConnected();
@@ -496,8 +496,8 @@ function ChatRoom({ roomId, theme }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
-  const [isDark, setIsDark] = useState(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isDark, setIsDark] = utiliserEtat(false);
   return (
     <>
       <label>
@@ -599,20 +599,20 @@ Par exemple, l’Effet que voici dépend de l’objet `options`, qui est recré�
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
   const options = {
     serverUrl: serverUrl,
     roomId: roomId
   };
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -627,7 +627,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -674,15 +674,15 @@ Vous ne souhaitez pas que votre composant se reconnecte chaque fois que vous com
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -701,7 +701,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -751,9 +751,9 @@ Lisez **[Alléger les dépendances des Effets](/learn/removing-effect-dependenci
 
 </LearnMore>
 
-## Réutiliser de la logique grâce aux Hooks personnalisés {/*reusing-logic-with-custom-hooks*/}
+## Réutiliser de la logique grâce aux Crochets personnalisés {/*reusing-logic-with-custom-hooks*/}
 
-React fournit des Hooks prédéfinis tels que `useState`, `useContext`, et `useEffect`. Vous souhaiterez parfois qu’un Hook existe pour un besoin plus ciblé : par exemple pour charger des données, surveiller l’état de connectivité du réseau, ou vous connecter à un salon de discussion. Pour de tels cas de figure, vous pouvez créer vos propres Hooks selon les besoins de votre application.
+Réac fournit des Crochets prédéfinis tels que `utiliserEtat`, `utiliserContexte`, et `utiliserEffet`. Vous souhaiterez parfois qu’un Hook existe pour un besoin plus ciblé : par exemple pour charger des données, surveiller l’état de connectivité du réseau, ou vous connecter à un salon de discussion. Pour de tels cas de figure, vous pouvez créer vos propres Crochets selon les besoins de votre application.
 
 Dans l’exemple ci-après, le Hook personnalisé `usePointerPosition` piste la position du curseur, tandis que le Hook personnalisé `useDelayedValue` renvoie une valeur qui est « en retard » sur celle que vous lui passez, à raison d’un délai précis en millisecondes.  Déplacez le curseur dans la zone de prévisualisation du bac à sable pour voir une file de points suivre son mouvement :
 
@@ -799,11 +799,11 @@ function Dot({ position, opacity }) {
 ```
 
 ```js src/usePointerPosition.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function usePointerPosition() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  useEffect(() => {
+  const [position, setPosition] = utiliserEtat({ x: 0, y: 0 });
+  utiliserEffet(() => {
     function handleMove(e) {
       setPosition({ x: e.clientX, y: e.clientY });
     }
@@ -815,12 +815,12 @@ export function usePointerPosition() {
 ```
 
 ```js src/useDelayedValue.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function useDelayedValue(value, delay) {
-  const [delayedValue, setDelayedValue] = useState(value);
+  const [delayedValue, setDelayedValue] = utiliserEtat(value);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     setTimeout(() => {
       setDelayedValue(value);
     }, delay);
@@ -836,11 +836,11 @@ body { min-height: 300px; }
 
 </Sandpack>
 
-Vous pouvez créer vos propres Hooks, les composer ensemble, passer des données de l’un à l’autre, et les réutiliser dans plusieurs composants.  Au fil de la croissance de votre appli, vous écrirez de moins en moins d’Effets directs car vous pourrez capitaliser sur vos Hooks personnalisés déjà écrits.  La communauté React maintient énormément d’excellents Hooks personnalisés.
+Vous pouvez créer vos propres Crochets, les composer ensemble, passer des données de l’un à l’autre, et les réutiliser dans plusieurs composants.  Au fil de la croissance de votre appli, vous écrirez de moins en moins d’Effets directs car vous pourrez capitaliser sur vos Crochets personnalisés déjà écrits.  La communauté Réac maintient énormément d’excellents Crochets personnalisés.
 
 <LearnMore path="/learn/reusing-logic-with-custom-hooks">
 
-Lisez **[Réutiliser de la logique grâce aux Hooks personnalisés](/learn/reusing-logic-with-custom-hooks)** pour découvrir comment partager de la logique applicative entre vos composants.
+Lisez **[Réutiliser de la logique grâce aux Crochets personnalisés](/learn/reusing-logic-with-custom-hooks)** pour découvrir comment partager de la logique applicative entre vos composants.
 
 </LearnMore>
 

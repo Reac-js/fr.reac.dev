@@ -37,14 +37,14 @@ Vous hésitez peut-être parfois entre utiliser une ou plusieurs variables d’�
 Devriez-vous faire ça ?
 
 ```js
-const [x, setX] = useState(0);
-const [y, setY] = useState(0);
+const [x, setX] = utiliserEtat(0);
+const [y, setY] = utiliserEtat(0);
 ```
 
 Ou ça ?
 
 ```js
-const [position, setPosition] = useState({ x: 0, y: 0 });
+const [position, setPosition] = utiliserEtat({ x: 0, y: 0 });
 ```
 
 Techniquement, les deux approches sont possibles. Mais **si deux variables d’état changent toujours ensemble, ce serait une bonne idée de les réunir en une seule variable d’état**. Vous n’oublierez ainsi pas ensuite de les garder synchronisées, comme dans cet exemple où les mouvements du curseur mettent à jour les deux coordonnées du point rouge.
@@ -52,10 +52,10 @@ Techniquement, les deux approches sont possibles. Mais **si deux variables d’�
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function MovingDot() {
-  const [position, setPosition] = useState({
+  const [position, setPosition] = utiliserEtat({
     x: 0,
     y: 0
   });
@@ -108,12 +108,12 @@ Voici un questionnaire de satisfaction d’hôtel avec les variables d’état `
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function FeedbackForm() {
-  const [text, setText] = useState('');
-  const [isSending, setIsSending] = useState(false);
-  const [isSent, setIsSent] = useState(false);
+  const [text, setText] = utiliserEtat('');
+  const [isSending, setIsSending] = utiliserEtat(false);
+  const [isSent, setIsSent] = utiliserEtat(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -164,11 +164,11 @@ Même si ce code marche, il laisse la place à des états « impossibles ». P
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function FeedbackForm() {
-  const [text, setText] = useState('');
-  const [status, setStatus] = useState('typing');
+  const [text, setText] = utiliserEtat('');
+  const [status, setStatus] = utiliserEtat('typing');
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -232,12 +232,12 @@ Par exemple, prenez ce formulaire. Il marche, mais pouvez-vous y trouver un éta
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [fullName, setFullName] = useState('');
+  const [firstName, setFirstName] = utiliserEtat('');
+  const [lastName, setLastName] = utiliserEtat('');
+  const [fullName, setFullName] = utiliserEtat('');
 
   function handleFirstNameChange(e) {
     setFirstName(e.target.value);
@@ -287,11 +287,11 @@ Voici comment vous pouvez faire :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = utiliserEtat('');
+  const [lastName, setLastName] = utiliserEtat('');
 
   const fullName = firstName + ' ' + lastName;
 
@@ -350,7 +350,7 @@ Un exemple commun d’état redondant recourt à ce genre de code :
 
 ```js
 function Message({ messageColor }) {
-  const [color, setColor] = useState(messageColor);
+  const [color, setColor] = utiliserEtat(messageColor);
 }
 ```
 
@@ -372,7 +372,7 @@ De cette manière, le composant ne sera pas désynchronisé avec la prop qui lui
 function Message({ initialColor }) {
   // La variable d’état `color` contient la *première* valeur de `initialColor`.
   // Les changements ultérieurs de la prop `initialColor` seront ignorés.
-  const [color, setColor] = useState(initialColor);
+  const [color, setColor] = utiliserEtat(initialColor);
 }
 ```
 
@@ -385,7 +385,7 @@ Ce composant de carte de menu vous permet de choisir un seul en-cas de voyage pa
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialItems = [
   { title: 'bretzels', id: 0 },
@@ -394,8 +394,8 @@ const initialItems = [
 ];
 
 export default function Menu() {
-  const [items, setItems] = useState(initialItems);
-  const [selectedItem, setSelectedItem] = useState(
+  const [items, setItems] = utiliserEtat(initialItems);
+  const [selectedItem, setSelectedItem] = utiliserEtat(
     items[0]
   );
 
@@ -432,7 +432,7 @@ Pourquoi est-ce un problème ? Rendons chaque objet modifiable :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialItems = [
   { title: 'bretzels', id: 0 },
@@ -441,8 +441,8 @@ const initialItems = [
 ];
 
 export default function Menu() {
-  const [items, setItems] = useState(initialItems);
-  const [selectedItem, setSelectedItem] = useState(
+  const [items, setItems] = utiliserEtat(initialItems);
+  const [selectedItem, setSelectedItem] = utiliserEtat(
     items[0]
   );
 
@@ -497,7 +497,7 @@ Même si vous pourriez également mettre à jour `selectedItem`, une solution pl
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialItems = [
   { title: 'bretzels', id: 0 },
@@ -506,8 +506,8 @@ const initialItems = [
 ];
 
 export default function Menu() {
-  const [items, setItems] = useState(initialItems);
-  const [selectedId, setSelectedId] = useState(0);
+  const [items, setItems] = utiliserEtat(initialItems);
+  const [selectedId, setSelectedId] = utiliserEtat(0);
 
   const selectedItem = items.find(item =>
     item.id === selectedId
@@ -579,7 +579,7 @@ Imaginez un plan de voyage composé de planètes, de continents et de pays. Vous
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { initialTravelPlan } from './places.js';
 
 function PlaceTree({ place }) {
@@ -599,7 +599,7 @@ function PlaceTree({ place }) {
 }
 
 export default function TravelPlan() {
-  const [plan, setPlan] = useState(initialTravelPlan);
+  const [plan, setPlan] = utiliserEtat(initialTravelPlan);
   const planets = plan.childPlaces;
   return (
     <>
@@ -824,7 +824,7 @@ Cette restructuration des données pourrait vous rappeler une table de base de d
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { initialTravelPlan } from './places.js';
 
 function PlaceTree({ id, placesById }) {
@@ -849,7 +849,7 @@ function PlaceTree({ id, placesById }) {
 }
 
 export default function TravelPlan() {
-  const [plan, setPlan] = useState(initialTravelPlan);
+  const [plan, setPlan] = utiliserEtat(initialTravelPlan);
   const root = plan[0];
   const planetIds = root.childIds;
   return (
@@ -1133,11 +1133,11 @@ Voici un exemple de comment vous pourriez procéder :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { initialTravelPlan } from './places.js';
 
 export default function TravelPlan() {
-  const [plan, setPlan] = useState(initialTravelPlan);
+  const [plan, setPlan] = utiliserEtat(initialTravelPlan);
 
   function handleComplete(parentId, childId) {
     const parent = plan[parentId];
@@ -1465,7 +1465,7 @@ Vous pouvez imbriquer des états autant que vous le souhaitez, mais les rendre �
 
 <DeepDive>
 
-#### Consommer moins de mémoire {/*improving-memory-usage*/}
+#### Consommer moins de mémoire {/*improving-memoirery-usage*/}
 
 Idéalement, vous devriez également enlever les éléments supprimés (et leurs enfants !) depuis l’objet « table » pour consommer moins de mémoire. C’est ce que fait cette version. Elle utilise également [Immer](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) pour rendre la logique de mise à jour plus concise.
 
@@ -1486,10 +1486,10 @@ export default function TravelPlan() {
         .filter(id => id !== childId);
 
       // Oublier cet endroit et tout ce qu'il contient.
-      deleteAllChildren(childId);
-      function deleteAllChildren(id) {
+      deleteAllEnfants(childId);
+      function deleteAllEnfants(id) {
         const place = draft[id];
-        place.childIds.forEach(deleteAllChildren);
+        place.childIds.forEach(deleteAllEnfants);
         delete draft[id];
       }
     });
@@ -1802,16 +1802,16 @@ button { margin: 10px; }
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -1836,17 +1836,17 @@ Parfois, vous pouvez aussi réduire l’imbrication des états en déplaçant un
 
 <Challenges>
 
-#### Réparer un composant qui ne s’actualise pas {/*fix-a-component-thats-not-updating*/}
+#### Réparer un composant qui ne s’actualise pas {/*fix-a-composant-thats-not-updating*/}
 
 Ce composant `Clock` reçoit deux props : `color` et `time`. Lorsque vous sélectionnez une couleur différente dans la boîte de sélection, le composant `Clock` reçoit une prop `color` différente depuis son composant parent. Cependant, la couleur affichée n’est pas mise à jour. Pourquoi ? Corrigez le problème.
 
 <Sandpack>
 
 ```js src/Clock.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Clock(props) {
-  const [color, setColor] = useState(props.color);
+  const [color, setColor] = utiliserEtat(props.color);
   return (
     <h1 style={{ color: color }}>
       {props.time}
@@ -1856,12 +1856,12 @@ export default function Clock(props) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import Clock from './Clock.js';
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -1872,7 +1872,7 @@ function useTime() {
 
 export default function App() {
   const time = useTime();
-  const [color, setColor] = useState('lightcoral');
+  const [color, setColor] = utiliserEtat('lightcoral');
   return (
     <div>
       <p>
@@ -1898,7 +1898,7 @@ Le problème, c'est que ce composant a un état `color` initialisé avec la vale
 <Sandpack>
 
 ```js src/Clock.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Clock(props) {
   return (
@@ -1910,12 +1910,12 @@ export default function Clock(props) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import Clock from './Clock.js';
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -1926,7 +1926,7 @@ function useTime() {
 
 export default function App() {
   const time = useTime();
-  const [color, setColor] = useState('lightcoral');
+  const [color, setColor] = utiliserEtat('lightcoral');
   return (
     <div>
       <p>
@@ -1950,7 +1950,7 @@ Ou en utilisant la syntaxe de déstructuration :
 <Sandpack>
 
 ```js src/Clock.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Clock({ color, time }) {
   return (
@@ -1962,12 +1962,12 @@ export default function Clock({ color, time }) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import Clock from './Clock.js';
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -1978,7 +1978,7 @@ function useTime() {
 
 export default function App() {
   const time = useTime();
-  const [color, setColor] = useState('lightcoral');
+  const [color, setColor] = utiliserEtat('lightcoral');
   return (
     <div>
       <p>
@@ -2012,7 +2012,7 @@ Y a-t-il un état redondant dans cet exemple ?
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import AddItem from './AddItem.js';
 import PackingList from './PackingList.js';
 
@@ -2024,9 +2024,9 @@ const initialItems = [
 ];
 
 export default function TravelPlan() {
-  const [items, setItems] = useState(initialItems);
-  const [total, setTotal] = useState(3);
-  const [packed, setPacked] = useState(1);
+  const [items, setItems] = utiliserEtat(initialItems);
+  const [total, setTotal] = utiliserEtat(3);
+  const [packed, setPacked] = utiliserEtat(1);
 
   function handleAddItem(title) {
     setTotal(total + 1);
@@ -2080,10 +2080,10 @@ export default function TravelPlan() {
 ```
 
 ```js src/AddItem.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddItem({ onAddItem }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = utiliserEtat('');
   return (
     <>
       <input
@@ -2101,7 +2101,7 @@ export default function AddItem({ onAddItem }) {
 ```
 
 ```js src/PackingList.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function PackingList({
   items,
@@ -2151,7 +2151,7 @@ Bien que vous puissiez modifier soigneusement chaque gestionnaire d'événement 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import AddItem from './AddItem.js';
 import PackingList from './PackingList.js';
 
@@ -2163,7 +2163,7 @@ const initialItems = [
 ];
 
 export default function TravelPlan() {
-  const [items, setItems] = useState(initialItems);
+  const [items, setItems] = utiliserEtat(initialItems);
 
   const total = items.length;
   const packed = items
@@ -2215,10 +2215,10 @@ export default function TravelPlan() {
 ```
 
 ```js src/AddItem.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddItem({ onAddItem }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = utiliserEtat('');
   return (
     <>
       <input
@@ -2236,7 +2236,7 @@ export default function AddItem({ onAddItem }) {
 ```
 
 ```js src/PackingList.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function PackingList({
   items,
@@ -2292,13 +2292,13 @@ Ce code fonctionne, mais il y a un bug mineur d’UI. Quand vous appuyez sur «�
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { initialLetters } from './data.js';
 import Letter from './Letter.js';
 
 export default function MailClient() {
-  const [letters, setLetters] = useState(initialLetters);
-  const [highlightedLetter, setHighlightedLetter] = useState(null);
+  const [letters, setLetters] = utiliserEtat(initialLetters);
+  const [highlightedLetter, setHighlightedLetter] = utiliserEtat(null);
 
   function handleHover(letter) {
     setHighlightedLetter(letter);
@@ -2401,13 +2401,13 @@ Pour résoudre ce problème, supprimez la duplication de l’état. Au lieu de s
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { initialLetters } from './data.js';
 import Letter from './Letter.js';
 
 export default function MailClient() {
-  const [letters, setLetters] = useState(initialLetters);
-  const [highlightedId, setHighlightedId ] = useState(null);
+  const [letters, setLetters] = utiliserEtat(initialLetters);
+  const [highlightedId, setHighlightedId ] = utiliserEtat(null);
 
   function handleHover(letterId) {
     setHighlightedId(letterId);
@@ -2518,12 +2518,12 @@ Au lieu d’un simple ID sélectionné, vous voulez plutôt enregistrer une list
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { letters } from './data.js';
 import Letter from './Letter.js';
 
 export default function MailClient() {
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = utiliserEtat(null);
 
   // TODO: autoriser la sélection multiple
   const selectedCount = 1;
@@ -2617,12 +2617,12 @@ Au lieu d’un simple `selectedId`, enregistrez une *liste* `selectedIds` dans l
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { letters } from './data.js';
 import Letter from './Letter.js';
 
 export default function MailClient() {
-  const [selectedIds, setSelectedIds] = useState([]);
+  const [selectedIds, setSelectedIds] = utiliserEtat([]);
 
   const selectedCount = selectedIds.length;
 
@@ -2725,12 +2725,12 @@ Pour résoudre ce problème, vous pouvez plutôt utiliser un [Set](https://devel
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { letters } from './data.js';
 import Letter from './Letter.js';
 
 export default function MailClient() {
-  const [selectedIds, setSelectedIds] = useState(
+  const [selectedIds, setSelectedIds] = utiliserEtat(
     new Set()
   );
 

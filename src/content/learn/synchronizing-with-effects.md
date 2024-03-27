@@ -4,7 +4,7 @@ title: 'Synchroniser grâce aux Effets'
 
 <Intro>
 
-Certains composants ont besoin de se synchroniser avec des systèmes tiers. Par exemple, vous pourriez vouloir contrôler un composant non-React sur la base d’un état React, mettre en place une connexion à un serveur, ou envoyer des données analytiques lorsqu’un composant apparaît à l’écran. Les *Effets* vous permettent d’exécuter du code après le rendu, de façon à synchroniser votre composant avec un système extérieur à React.
+Certains composants ont besoin de se synchroniser avec des systèmes tiers. Par exemple, vous pourriez vouloir contrôler un composant non-Réac sur la base d’un état Réac, mettre en place une connexion à un serveur, ou envoyer des données analytiques lorsqu’un composant apparaît à l’écran. Les *Effets* vous permettent d’exécuter du code après le rendu, de façon à synchroniser votre composant avec un système extérieur à Réac.
 
 </Intro>
 
@@ -20,25 +20,25 @@ Certains composants ont besoin de se synchroniser avec des systèmes tiers. Par 
 
 ## Qu’est-ce qu’un Effet, et en quoi ça diffère d’un événement ? {/*what-are-effects-and-how-are-they-different-from-events*/}
 
-Avant d’étudier les Effets, vous devez être à l’aise avec deux types de code dans les composants React :
+Avant d’étudier les Effets, vous devez être à l’aise avec deux types de code dans les composants Réac :
 
-- **Le code de rendu** (présenté dans [Décrire l’UI](/learn/describing-the-ui)) vit au niveau racine de votre composant.  C’est là que vous récupérez les props et l’état, les transformez et renvoyez du JSX décrivant ce que vous voulez voir à l’écran. [Le code de rendu doit être pur](/learn/keeping-components-pure).  Comme une formule mathématique, il doit se contenter de *calculer* le résultat, un point c’est tout.
+- **Le code de rendu** (présenté dans [Décrire l’UI](/learn/describing-the-ui)) vit au niveau racine de votre composant.  C’est là que vous récupérez les props et l’état, les transformez et renvoyez du JSX décrivant ce que vous voulez voir à l’écran. [Le code de rendu doit être pur](/learn/keeping-composants-pure).  Comme une formule mathématique, il doit se contenter de *calculer* le résultat, un point c’est tout.
 
 - **Les gestionnaires d’événements** (présentés dans [Ajouter de l’interactivité](/learn/adding-interactivity)) sont des fonctions locales à vos composants qui *font* des choses, plutôt que juste calculer des résultats. Un gestionnaire d’événement pourrait mettre à jour un champ de saisie, envoyer une requête HTTP POST pour acheter un produit, ou emmener l’utilisateur vers un nouvel écran. Les gestionnaires d’événements déclenchent des [« effets de bord »](https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)) (ils modifient l’état du programme) en réponse à une action utilisateur spécifique (par exemple un clic sur un bouton ou une saisie clavier).
 
 Mais parfois, ça ne suffit pas.  Imaginez un composant `ChatRoom` qui doit se connecter à un serveur de discussion dès qu’il devient visible à l’écran.  La connexion au serveur ne constitue pas un calcul pur (c’est un effet de bord), elle ne doit donc pas survenir pendant le rendu.  Et pourtant, il n’existe pas d’événement particulier (tel qu’un clic) pour signifier que `ChatRoom` devient visible.
 
-**Les *Effets* vous permettent de spécifier des effets de bord causés par le rendu lui-même, plutôt que par un événement particulier.**  Envoyer un message dans la discussion est un *événement*, parce que c’est directement lié au fait que l’utilisateur a cliqué sur un bouton précis.  En revanche, mettre en place la connexion au serveur est un *Effet* parce que ça doit se produire quelle que soit l’interaction qui a entraîné l’affichage du composant. Les Effets sont exécutés à la fin de la phase de [commit](/learn/render-and-commit), après que l’écran a été mis à jour.  C’est le bon moment pour synchroniser les composants React avec des systèmes extérieurs (comme par exemple le réseau ou une bibliothèque tierce).
+**Les *Effets* vous permettent de spécifier des effets de bord causés par le rendu lui-même, plutôt que par un événement particulier.**  Envoyer un message dans la discussion est un *événement*, parce que c’est directement lié au fait que l’utilisateur a cliqué sur un bouton précis.  En revanche, mettre en place la connexion au serveur est un *Effet* parce que ça doit se produire quelle que soit l’interaction qui a entraîné l’affichage du composant. Les Effets sont exécutés à la fin de la phase de [commit](/learn/render-and-commit), après que l’écran a été mis à jour.  C’est le bon moment pour synchroniser les composants Réac avec des systèmes extérieurs (comme par exemple le réseau ou une bibliothèque tierce).
 
 <Note>
 
-Dans cette page, le terme « Effet » avec une initiale majuscule fait référence à la définition ci-dessus, spécifique à React : un effet de bord déclenché par le rendu.  Pour parler du concept plus général de programmation, nous utilisons le terme « effet de bord ».
+Dans cette page, le terme « Effet » avec une initiale majuscule fait référence à la définition ci-dessus, spécifique à Réac : un effet de bord déclenché par le rendu.  Pour parler du concept plus général de programmation, nous utilisons le terme « effet de bord ».
 
 </Note>
 
 ## Vous n’avez pas forcément besoin d’un Effet {/*you-might-not-need-an-effect*/}
 
-**Ne vous précipitez pas pour ajouter des Effets à vos composants.**  Gardez à l’esprit que les Effets sont généralement utilisés pour « sortir » de votre code React et vous synchroniser avec un système *extérieur*.  Ça inclut les API du navigateur, des *widgets* tiers, le réseau, etc.  Si votre Effet se contente d’ajuster des variables d’état sur la base d’autres éléments d’état, [vous n’avez pas forcément besoin d’un Effet](/learn/you-might-not-need-an-effect).
+**Ne vous précipitez pas pour ajouter des Effets à vos composants.**  Gardez à l’esprit que les Effets sont généralement utilisés pour « sortir » de votre code Réac et vous synchroniser avec un système *extérieur*.  Ça inclut les API du navigateur, des *widgets* tiers, le réseau, etc.  Si votre Effet se contente d’ajuster des variables d’état sur la base d’autres éléments d’état, [vous n’avez pas forcément besoin d’un Effet](/learn/you-might-not-need-an-effect).
 
 ## Comment écrire un Effect {/*how-to-write-an-effect*/}
 
@@ -52,26 +52,26 @@ Explorons maintenant chaque étape en détail.
 
 ### Étape 1 : déclarez un Effet {/*step-1-declare-an-effect*/}
 
-Pour déclarer un Effet dans votre composant, importez le [Hook `useEffect`](/reference/react/useEffect) depuis React :
+Pour déclarer un Effet dans votre composant, importez le [Hook `utiliserEffet`](/reference/Réac/utiliserEffet) depuis Réac :
 
 ```js
-import { useEffect } from 'react';
+import { utiliserEffet } from 'Réac';
 ```
 
 Ensuite, appelez-le au niveau racine de votre composant et placez le code adéquat dans votre Effet :
 
 ```js {2-4}
-function MyComponent() {
-  useEffect(() => {
+function MyComposant() {
+  utiliserEffet(() => {
     // Du code ici qui s’exécutera après *chaque* rendu
   });
   return <div />;
 }
 ```
 
-Chaque fois que le composant calculera son rendu, React mettra l’affichage à jour *et ensuite* exécutera le code au sein du `useEffect`. En d’autres termes, **`useEffect` « retarde » l’exécution de ce bout de code jusqu’à ce que le résultat du rendu se reflète à l’écran.**
+Chaque fois que le composant calculera son rendu, Réac mettra l’affichage à jour *et ensuite* exécutera le code au sein du `utiliserEffet`. En d’autres termes, **`utiliserEffet` « retarde » l’exécution de ce bout de code jusqu’à ce que le résultat du rendu se reflète à l’écran.**
 
-Voyons comment vous pouvez utiliser un Effet pour vous synchroniser avec un système extérieur.  Prenons un composant React `<VideoPlayer>`.  Ce serait chouette de pouvoir contrôler son état de lecture (en cours ou en pause) en lui passant une prop `isPlaying` :
+Voyons comment vous pouvez utiliser un Effet pour vous synchroniser avec un système extérieur.  Prenons un composant Réac `<VideoPlayer>`.  Ce serait chouette de pouvoir contrôler son état de lecture (en cours ou en pause) en lui passant une prop `isPlaying` :
 
 ```js
 <VideoPlayer isPlaying={isPlaying} />
@@ -95,10 +95,10 @@ Vous pourriez être tenté·e d’appeler directement `play()` ou `pause()` au s
 <Sandpack>
 
 ```js
-import { useState, useRef, useEffect } from 'react';
+import { utiliserEtat, utiliserReference, utiliserEffet } from 'Réac';
 
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
   if (isPlaying) {
     // Ces appels sont interdits pendant le rendu.
@@ -112,7 +112,7 @@ function VideoPlayer({ src, isPlaying }) {
 }
 
 export default function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setIsPlaying(!isPlaying)}>
@@ -134,19 +134,19 @@ video { width: 250px; }
 
 </Sandpack>
 
-Ce code est incorrect parce qu’il essaie de manipuler le DOM pendant le rendu. Dans React, [le rendu doit être un calcul pur](/learn/keeping-components-pure) de JSX et ne devrait pas contenir d’effets de bord tels qu’une manipulation du DOM.
+Ce code est incorrect parce qu’il essaie de manipuler le DOM pendant le rendu. Dans Réac, [le rendu doit être un calcul pur](/learn/keeping-composants-pure) de JSX et ne devrait pas contenir d’effets de bord tels qu’une manipulation du DOM.
 
-Qui plus est, quand `VideoPlayer` est appelé pour la première fois, son DOM n’existe pas encore ! Il n’y a pas encore de nœud DOM sur lequel appeler `play()` ou `pause()`, parce que React ne saura quel DOM créer qu’une fois que vous aurez renvoyé le JSX.
+Qui plus est, quand `VideoPlayer` est appelé pour la première fois, son DOM n’existe pas encore ! Il n’y a pas encore de nœud DOM sur lequel appeler `play()` ou `pause()`, parce que Réac ne saura quel DOM créer qu’une fois que vous aurez renvoyé le JSX.
 
-La solution consiste à **enrober l’effet de bord avec un `useEffect` pour le sortir du calcul de rendu :**
+La solution consiste à **enrober l’effet de bord avec un `utiliserEffet` pour le sortir du calcul de rendu :**
 
 ```js {6,12}
-import { useEffect, useRef } from 'react';
+import { utiliserEffet, utiliserReference } from 'Réac';
 
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (isPlaying) {
       ref.current.play();
     } else {
@@ -158,21 +158,21 @@ function VideoPlayer({ src, isPlaying }) {
 }
 ```
 
-En enrobant la mise à jour du DOM avec un Effet, vous laissez React mettre à jour l’écran d’abord. Ensuite votre Effet s’exécute.
+En enrobant la mise à jour du DOM avec un Effet, vous laissez Réac mettre à jour l’écran d’abord. Ensuite votre Effet s’exécute.
 
-Quand votre composant `VideoPlayer` fait son rendu (que ce soit la première fois ou non), plusieurs choses se passent. Pour commencer, React va mettre l’écran à jour, garantissant ainsi une balise `<video>` dans le DOM avec les bons attributs. Ensuite, React va exécuter votre Effet. Pour finir, votre Effet va appeler `play()` ou `pause()` selon la valeur de `isPlaying`.
+Quand votre composant `VideoPlayer` fait son rendu (que ce soit la première fois ou non), plusieurs choses se passent. Pour commencer, Réac va mettre l’écran à jour, garantissant ainsi une balise `<video>` dans le DOM avec les bons attributs. Ensuite, Réac va exécuter votre Effet. Pour finir, votre Effet va appeler `play()` ou `pause()` selon la valeur de `isPlaying`.
 
 Appuyez sur Lecture / Pause plusieurs fois pour vérifier que le lecteur vidéo reste bien synchronisé avec la valeur de `isPlaying` :
 
 <Sandpack>
 
 ```js
-import { useState, useRef, useEffect } from 'react';
+import { utiliserEtat, utiliserReference, utiliserEffet } from 'Réac';
 
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (isPlaying) {
       ref.current.play();
     } else {
@@ -184,7 +184,7 @@ function VideoPlayer({ src, isPlaying }) {
 }
 
 export default function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setIsPlaying(!isPlaying)}>
@@ -206,7 +206,7 @@ video { width: 250px; }
 
 </Sandpack>
 
-Dans cet exemple, le « système extérieur » que vous avez synchronisé avec l’état React, c’est l’API média du navigateur.  Vous pouvez utiliser une approche similaire pour enrober du code historique non-React (tel que des plugins jQuery) pour en faire des composants React déclaratifs.
+Dans cet exemple, le « système extérieur » que vous avez synchronisé avec l’état Réac, c’est l’API média du navigateur.  Vous pouvez utiliser une approche similaire pour enrober du code historique non-Réac (tel que des plugins jQuery) pour en faire des composants Réac déclaratifs.
 
 Remarquez qu’en pratique le pilotage d’un lecteur vidéo est nettement plus complexe.  L’appel à `play()` pourrait échouer, l’utilisateur pourrait lancer ou stopper la lecture au moyen de contrôles natifs du navigateur, etc.  Cet exemple est très simplifié et incomplet.
 
@@ -215,8 +215,8 @@ Remarquez qu’en pratique le pilotage d’un lecteur vidéo est nettement plus 
 Par défaut, les Effets s’exécutent après *chaque* rendu.  C’est pourquoi le code suivant **produirait une boucle infinie :**
 
 ```js
-const [count, setCount] = useState(0);
-useEffect(() => {
+const [count, setCount] = utiliserEtat(0);
+utiliserEffet(() => {
   setCount(count + 1);
 });
 ```
@@ -239,12 +239,12 @@ Pour mettre ce problème en évidence, revoici l’exemple précédent avec quel
 <Sandpack>
 
 ```js
-import { useState, useRef, useEffect } from 'react';
+import { utiliserEtat, utiliserReference, utiliserEffet } from 'Réac';
 
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (isPlaying) {
       console.log('Appel à video.play()');
       ref.current.play();
@@ -258,8 +258,8 @@ function VideoPlayer({ src, isPlaying }) {
 }
 
 export default function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [text, setText] = useState('');
+  const [isPlaying, setIsPlaying] = utiliserEtat(false);
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input value={text} onChange={e => setText(e.target.value)} />
@@ -282,25 +282,25 @@ video { width: 250px; }
 
 </Sandpack>
 
-Vous pouvez dire à React de **sauter les ré-exécutions superflues de l’Effet** en fournissant un tableau de *dépendances* comme second argument lors de l’appel à `useEffect`.  Commencez par ajouter un tableau vide `[]` dans l’exemple précédent, à la ligne 14 :
+Vous pouvez dire à Réac de **sauter les ré-exécutions superflues de l’Effet** en fournissant un tableau de *dépendances* comme second argument lors de l’appel à `utiliserEffet`.  Commencez par ajouter un tableau vide `[]` dans l’exemple précédent, à la ligne 14 :
 
 ```js {3}
-  useEffect(() => {
+  utiliserEffet(() => {
     // ...
   }, []);
 ```
 
-Vous devriez voir une erreur qui dit `React Hook useEffect has a missing dependency: 'isPlaying'` :
+Vous devriez voir une erreur qui dit `Réac Hook utiliserEffet has a missing dependency: 'isPlaying'` :
 
 <Sandpack>
 
 ```js
-import { useState, useRef, useEffect } from 'react';
+import { utiliserEtat, utiliserReference, utiliserEffet } from 'Réac';
 
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (isPlaying) {
       console.log('Appel à video.play()');
       ref.current.play();
@@ -314,8 +314,8 @@ function VideoPlayer({ src, isPlaying }) {
 }
 
 export default function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [text, setText] = useState('');
+  const [isPlaying, setIsPlaying] = utiliserEtat(false);
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input value={text} onChange={e => setText(e.target.value)} />
@@ -341,7 +341,7 @@ video { width: 250px; }
 Le souci vient du fait que le code au sein de notre Effet *dépend* de la prop `isPlaying` pour décider quoi faire, mais cette dépendance n’est pas explicitement déclarée.  Pour corriger le problème, ajoutez `isPlaying` dans le tableau des dépendances :
 
 ```js {2,7}
-  useEffect(() => {
+  utiliserEffet(() => {
     if (isPlaying) { // On l’utilise ici...
       // ...
     } else {
@@ -350,17 +350,17 @@ Le souci vient du fait que le code au sein de notre Effet *dépend* de la prop `
   }, [isPlaying]); // ...donc on doit la déclarer ici !
 ```
 
-À présent que toutes les dépendances sont déclarées, il n’y a plus d’erreur. En spécifiant `[isPlaying]` comme tableau de dépendances, nous disons à React qu’il devrait éviter de ré-exécuter votre Effet si `isPlaying` n’a pas changé depuis le rendu précédent.  Grâce à cet ajustement, la saisie dans le champ n’entraîne plus la ré-exécution de l’Effet, mais activer Lecture / Pause si :
+À présent que toutes les dépendances sont déclarées, il n’y a plus d’erreur. En spécifiant `[isPlaying]` comme tableau de dépendances, nous disons à Réac qu’il devrait éviter de ré-exécuter votre Effet si `isPlaying` n’a pas changé depuis le rendu précédent.  Grâce à cet ajustement, la saisie dans le champ n’entraîne plus la ré-exécution de l’Effet, mais activer Lecture / Pause si :
 
 <Sandpack>
 
 ```js
-import { useState, useRef, useEffect } from 'react';
+import { utiliserEtat, utiliserReference, utiliserEffet } from 'Réac';
 
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (isPlaying) {
       console.log('Appel à video.play()');
       ref.current.play();
@@ -374,8 +374,8 @@ function VideoPlayer({ src, isPlaying }) {
 }
 
 export default function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [text, setText] = useState('');
+  const [isPlaying, setIsPlaying] = utiliserEtat(false);
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input value={text} onChange={e => setText(e.target.value)} />
@@ -398,24 +398,24 @@ video { width: 250px; }
 
 </Sandpack>
 
-Le tableau de dépendances peut contenir plusieurs dépendances.  React ne sautera la ré-exécution de l’Effet que si *toutes* les dépendances que vous avez spécifiées sont exactement identiques à leurs valeurs du rendu précédent.  React compare les valeurs des dépendances en utilisant le comparateur [`Object.is`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Consultez la [référence de `useEffect`](/reference/react/useEffect#reference) pour davantage de détails.
+Le tableau de dépendances peut contenir plusieurs dépendances.  Réac ne sautera la ré-exécution de l’Effet que si *toutes* les dépendances que vous avez spécifiées sont exactement identiques à leurs valeurs du rendu précédent.  Réac compare les valeurs des dépendances en utilisant le comparateur [`Object.is`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Consultez la [référence de `utiliserEffet`](/reference/Réac/utiliserEffet#reference) pour davantage de détails.
 
-**Remarquez que vous ne pouvez pas « choisir » vos dépendances.**  Vous aurez une erreur de *linting* si les dépendances que vous spécifiez ne correspondent pas à celles que React attend, sur base de l’analyse du code au sein de votre Effet.  Ça aide à repérer pas mal de bugs dans votre code.  Si vous voulez empêcher la ré-exécution d’un bout de code, [*modifiez le code de l’Effet lui-même* pour ne pas « nécessiter» cette dépendance](/learn/lifecycle-of-reactive-effects#what-to-do-when-you-dont-want-to-re-synchronize).
+**Remarquez que vous ne pouvez pas « choisir » vos dépendances.**  Vous aurez une erreur de *linting* si les dépendances que vous spécifiez ne correspondent pas à celles que Réac attend, sur base de l’analyse du code au sein de votre Effet.  Ça aide à repérer pas mal de bugs dans votre code.  Si vous voulez empêcher la ré-exécution d’un bout de code, [*modifiez le code de l’Effet lui-même* pour ne pas « nécessiter» cette dépendance](/learn/lifecycle-of-réactive-effects#what-to-do-when-you-dont-want-to-re-synchronize).
 
 <Pitfall>
 
 Le comportement n’est pas le même entre une absence du tableau de dépendances, et un tableau de dépendances *vide* `[]` :
 
 ```js {3,7,11}
-useEffect(() => {
+utiliserEffet(() => {
   // S’exécute après chaque rendu
 });
 
-useEffect(() => {
+utiliserEffet(() => {
   // S’exécute uniquement au montage (apparition du composant)
 }, []);
 
-useEffect(() => {
+utiliserEffet(() => {
   // S’exécute au montage *mais aussi* si a ou b changent depuis le rendu précédent
 }, [a, b]);
 ```
@@ -432,8 +432,8 @@ Cet Effet utilise `isPlaying` *mais aussi* `ref`, pourtant nous avons seulement 
 
 ```js {9}
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
-  useEffect(() => {
+  const ref = utiliserReference(null);
+  utiliserEffet(() => {
     if (isPlaying) {
       ref.current.play();
     } else {
@@ -442,12 +442,12 @@ function VideoPlayer({ src, isPlaying }) {
   }, [isPlaying]);
 ```
 
-C’est parce que l’objet `ref` a une *identité stable* : React garantit que [vous aurez toujours le même objet](/reference/react/useRef#returns) comme résultat du même appel `useRef` d’un rendu à l’autre. Il ne changera jamais, et donc n’entraînera jamais par lui-même la ré-exécution de l’Effet. Du coup, l’inclure ou pas ne changera rien.  Vous pouvez effectivement l’inclure :
+C’est parce que l’objet `ref` a une *identité stable* : Réac garantit que [vous aurez toujours le même objet](/reference/Réac/utiliserReference#returns) comme résultat du même appel `utiliserReference` d’un rendu à l’autre. Il ne changera jamais, et donc n’entraînera jamais par lui-même la ré-exécution de l’Effet. Du coup, l’inclure ou pas ne changera rien.  Vous pouvez effectivement l’inclure :
 
 ```js {9}
 function VideoPlayer({ src, isPlaying }) {
-  const ref = useRef(null);
-  useEffect(() => {
+  const ref = utiliserReference(null);
+  utiliserEffet(() => {
     if (isPlaying) {
       ref.current.play();
     } else {
@@ -456,7 +456,7 @@ function VideoPlayer({ src, isPlaying }) {
   }, [isPlaying, ref]);
 ```
 
-Les [fonctions `set`](/reference/react/useState#setstate) renvoyées par `useState` ont aussi une identité stable, et peuvent donc elles aussi être omises des dépendances.  Si le *linter* vous permet d’omettre une dépendance sans déclencher d’erreurs, c’est que cette omission est fiable.
+Les [fonctions `set`](/reference/Réac/utiliserEtat#setstate) renvoyées par `utiliserEtat` ont aussi une identité stable, et peuvent donc elles aussi être omises des dépendances.  Si le *linter* vous permet d’omettre une dépendance sans déclencher d’erreurs, c’est que cette omission est fiable.
 
 L’omission de dépendances à identité stable ne marche cependant que si le *linter* peut « voir » que celle-ci est stable.  Par exemple, si `ref` était passée depuis le composant parent, il vous faudrait l’ajouter au tableau de dépendances.  Ceci dit, ce serait une bonne chose parce que vous ne pouvez pas savoir si le composant parent vous passera toujours la même ref, ou basculera entre plusieurs refs selon une condition interne.  Du coup votre Effet *dépendrait bien* de la ref qui vous est passée.
 
@@ -469,7 +469,7 @@ Prenons un autre exemple. Vous écrivez un composant  `ChatRoom` qui a besoin de
 Commencez par écrire le code de l’Effet :
 
 ```js
-useEffect(() => {
+utiliserEffet(() => {
   const connection = createConnection();
   connection.connect();
 });
@@ -478,24 +478,24 @@ useEffect(() => {
 Ce serait toutefois beaucoup trop lent de vous (re)connecter après chaque rendu ; vous spécifiez donc un tableau de dépendances :
 
 ```js {4}
-useEffect(() => {
+utiliserEffet(() => {
   const connection = createConnection();
   connection.connect();
 }, []);
 ```
 
-**Le code dans l’Effet n’utilise ni props ni état, donc votre tableau de dépendances est vide `[]`.  Vous indiquez ici à React qu’il ne faut exécuter le code que lors du « montage » du composant, c’est-à-dire lorsque celui-ci apparaît à l’écran pour la première fois.**
+**Le code dans l’Effet n’utilise ni props ni état, donc votre tableau de dépendances est vide `[]`.  Vous indiquez ici à Réac qu’il ne faut exécuter le code que lors du « montage » du composant, c’est-à-dire lorsque celui-ci apparaît à l’écran pour la première fois.**
 
 Essayons d’exécuter ce code :
 
 <Sandpack>
 
 ```js
-import { useEffect } from 'react';
+import { utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 export default function ChatRoom() {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
   }, []);
@@ -527,14 +527,14 @@ Cet Effet n’est exécuté qu’au montage, vous vous attendez donc sans doute 
 
 Imaginez que le composant `ChatRoom` fasse partie d’une appli plus grande avec de nombreux écrans distincts. L’utilisateur démarre dans la page `ChatRoom`.  Le composant est monté puis appelle `connection.connect()`.  Supposez maintenant que l’utilisateur navigue vers un autre écran--par exemple, la page des Paramètres. Le composant `ChatRoom` est démonté.  Au final, l’utilisateur navigue en arrière et le composant `ChatRoom` est monté à nouveau.  Ça mettrait en place une deuxième connexion--sauf que la première n’a jamais été nettoyée !  Au fil de la navigation de l’utilisateur au sein de l’appli, les connexions s’accumuleraient.
 
-Des bugs de ce genre sont difficiles à repérer sans avoir recours à des tests manuels étendus.  Pour vous aider à les repérer plus vite, en mode développement React remonte chaque composant une fois immédiatement après leur montage initial.
+Des bugs de ce genre sont difficiles à repérer sans avoir recours à des tests manuels étendus.  Pour vous aider à les repérer plus vite, en mode développement Réac remonte chaque composant une fois immédiatement après leur montage initial.
 
 En voyant deux fois le message `"✅ Connexion..."`, ça vous aide à remarquer le vrai problème : votre code ne ferme pas la connexion au démontage du composant.
 
 Pour corriger ça, renvoyez une *fonction de nettoyage* depuis votre Effet :
 
 ```js {4-6}
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     return () => {
@@ -543,16 +543,16 @@ Pour corriger ça, renvoyez une *fonction de nettoyage* depuis votre Effet :
   }, []);
 ```
 
-React appellera cette fonction de nettoyage avant chaque ré-exécution de votre Effet, ainsi qu’une dernière fois lorsque le composant est démonté (lorqu’il est retiré).  Voyons ce qui se passe à présent que nous avons implémenté la fonction de nettoyage  :
+Réac appellera cette fonction de nettoyage avant chaque ré-exécution de votre Effet, ainsi qu’une dernière fois lorsque le composant est démonté (lorqu’il est retiré).  Voyons ce qui se passe à présent que nous avons implémenté la fonction de nettoyage  :
 
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 export default function ChatRoom() {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
@@ -587,35 +587,35 @@ Vous voyez maintenant trois logs dans la console en mode développement :
 2. `"❌ Déconnecté."`
 3. `"✅ Connexion..."`
 
-**C’est le comportement correct en développement.** En remontant votre composant, React vérifie que le quitter puis revenir ne crée pas de problèmes.  Se déconnecter puis se reconnecter est exactement ce qu’on souhaite !  Lorsque vous implémentez votre nettoyage correctement, il ne devrait y avoir aucune différence visible entre l’exécution unique de l’Effet et une séquence exécution-nettoyage-exécution.  Bien sûr, il y a une déconnexion / reconnexion supplémentaire parce que React titille votre code à la recherche de bugs pendant le développement.  Mais c’est normal--n’essayez pas d’éliminer ça !
+**C’est le comportement correct en développement.** En remontant votre composant, Réac vérifie que le quitter puis revenir ne crée pas de problèmes.  Se déconnecter puis se reconnecter est exactement ce qu’on souhaite !  Lorsque vous implémentez votre nettoyage correctement, il ne devrait y avoir aucune différence visible entre l’exécution unique de l’Effet et une séquence exécution-nettoyage-exécution.  Bien sûr, il y a une déconnexion / reconnexion supplémentaire parce que Réac titille votre code à la recherche de bugs pendant le développement.  Mais c’est normal--n’essayez pas d’éliminer ça !
 
-**En production, vous ne verriez `"✅ Connexion..."` qu’une fois.**  Le remontage des composants ne survient qu’en mode développement, pour vous aider à repérer les Effets qui nécessitent un nettoyage.  Vous pouvez désactiver le [Mode Strict](/reference/react/StrictMode) pour éviter ce comportement de développement, mais nous vous recommandons de le laisser actif.  Ça vous aidera à repérer de nombreux problèmes comme celui ci-avant.
+**En production, vous ne verriez `"✅ Connexion..."` qu’une fois.**  Le remontage des composants ne survient qu’en mode développement, pour vous aider à repérer les Effets qui nécessitent un nettoyage.  Vous pouvez désactiver le [Mode Strict](/reference/Réac/ModeStrict) pour éviter ce comportement de développement, mais nous vous recommandons de le laisser actif.  Ça vous aidera à repérer de nombreux problèmes comme celui ci-avant.
 
 ## Comment gérer le double déclenchement de l’Effet en développement ? {/*how-to-handle-the-effect-firing-twice-in-development*/}
 
-React remonte volontairement vos composants en développement pour trouver des bugs comme dans l’exemple précédent. **La bonne question n’est pas « comment exécuter un Effet une seule fois », mais « comment corriger mon Effet pour qu’il marche au remontage ».**
+Réac remonte volontairement vos composants en développement pour trouver des bugs comme dans l’exemple précédent. **La bonne question n’est pas « comment exécuter un Effet une seule fois », mais « comment corriger mon Effet pour qu’il marche au remontage ».**
 
 En général, la réponse consiste à implémenter une fonction de nettoyage. La fonction de nettoyage devrait arrêter ou défaire ce que l’Effet avait commencé. La règle générale veut que l’utilisateur ne puisse pas faire la distinction entre un Effet exécuté une seule fois (comme en production) et une séquence *mise en place → nettoyage → mise en place* (comme en développement).
 
 La plupart des Effets que vous aurez à écrire correspondront à un des scénarios courants ci-après.
 
-### Contrôler des widgets non-React {/*controlling-non-react-widgets*/}
+### Contrôler des widgets non-Réac {/*controlling-nonreacwidgets*/}
 
-Vous aurez parfois besoin d'ajouter des widgets d’UI qui ne sont pas écrits en React. Par exemple, imaginons que vous souhaitiez ajouter un composant carte à votre page.  Il dispose d’une méthode `setZoomLevel()` et vous aimeriez synchroniser son niveau de zoom avec une variable d’état `zoomLevel` dans votre code React. L’Effet pour y parvenir ressemblerait à ceci :
+Vous aurez parfois besoin d'ajouter des widgets d’UI qui ne sont pas écrits en Réac. Par exemple, imaginons que vous souhaitiez ajouter un composant carte à votre page.  Il dispose d’une méthode `setZoomLevel()` et vous aimeriez synchroniser son niveau de zoom avec une variable d’état `zoomLevel` dans votre code Réac. L’Effet pour y parvenir ressemblerait à ceci :
 
 ```js
-useEffect(() => {
+utiliserEffet(() => {
   const map = mapRef.current;
   map.setZoomLevel(zoomLevel);
 }, [zoomLevel]);
 ```
 
-Remarquez qu’ici on n’a pas besoin de nettoyage. En développement, React appellera cet Effet deux fois, mais ça n’est pas un problème parce qu’appeler `setZoomLevel()` deux fois avec la même valeur ne fera rien.  Ce sera peut-être un poil plus lent, mais ce n’est pas important puisque ce remontage n’aura pas lieu en production.
+Remarquez qu’ici on n’a pas besoin de nettoyage. En développement, Réac appellera cet Effet deux fois, mais ça n’est pas un problème parce qu’appeler `setZoomLevel()` deux fois avec la même valeur ne fera rien.  Ce sera peut-être un poil plus lent, mais ce n’est pas important puisque ce remontage n’aura pas lieu en production.
 
 Certaines API ne vous permettront peut-être pas de les appeler deux fois d’affilée. Par exemple, la méthode [`showModal`](https://developer.mozilla.org/fr/docs/Web/API/HTMLDialogElement/showModal) de l’élément natif [`<dialog>`](https://developer.mozilla.org/fr/docs/Web/API/HTMLDialogElement) lèvera une exception si vous l’appelez deux fois. Implémentez alors une fonction de nettoyage pour refermer la boîte de dialogue :
 
 ```js {4}
-useEffect(() => {
+utiliserEffet(() => {
   const dialog = dialogRef.current;
   dialog.showModal();
   return () => dialog.close();
@@ -629,7 +629,7 @@ En développement, votre Effet appellera `showModal()`, puis immédiatement `clo
 Si votre Effet s’abonne à quelque chose, sa fonction de nettoyage doit l’en désabonner :
 
 ```js {6}
-useEffect(() => {
+utiliserEffet(() => {
   function handleScroll(e) {
     console.log(window.scrollX, window.scrollY);
   }
@@ -645,7 +645,7 @@ En développement, votre Effet appellera `addEventListener()`, puis immédiateme
 Si votre Effet réalise une animation d’entrée, la fonction de nettoyage devrait s’assurer de revenir aux valeurs initiales de l’animation :
 
 ```js {4-6}
-useEffect(() => {
+utiliserEffet(() => {
   const node = ref.current;
   node.style.opacity = 1; // Déclencher l’animation
   return () => {
@@ -661,7 +661,7 @@ En développement, l’opacité sera mise à `1`, puis à `0`, puis encore à `1
 Si votre Effet charge quelque chose (par exemple *via* la réseau), la fonction de nettoyage devrait soit [abandonner le chargement](https://developer.mozilla.org/fr/docs/Web/API/AbortController) soit ignorer son résultat :
 
 ```js {2,6,13-15}
-useEffect(() => {
+utiliserEffet(() => {
   let ignore = false;
 
   async function startFetching() {
@@ -697,17 +697,17 @@ Non seulement ça améliorera l’expérience de développement (DX), mais l’a
 
 #### Que préférer au chargement de données dans les Effets ? {/*what-are-good-alternatives-to-data-fetching-in-effects*/}
 
-Écrire nos appels `fetch` dans les Effets constitue [une façon populaire de charger des données](https://www.robinwieruch.de/react-hooks-fetch-data/), en particulier pour des applications entièrement côté client.  Il s’agit toutefois d’une approche de bas niveau qui comporte plusieurs inconvénients significatifs :
+Écrire nos appels `fetch` dans les Effets constitue [une façon populaire de charger des données](https://www.robinwieruch.de/Réac-hooks-fetch-data/), en particulier pour des applications entièrement côté client.  Il s’agit toutefois d’une approche de bas niveau qui comporte plusieurs inconvénients significatifs :
 
-- **Les Effets ne fonctionnent pas côté serveur.**  Ça implique que le HTML rendu côté serveur avec React proposera un état initial sans données chargées. Le poste client devra télécharger tout le JavaScript et afficher l’appli pour découvrir seulement alors qu’il lui faut aussi charger des données. Ce n’est pas très efficace.
+- **Les Effets ne fonctionnent pas côté serveur.**  Ça implique que le HTML rendu côté serveur avec Réac proposera un état initial sans données chargées. Le poste client devra télécharger tout le JavaScript et afficher l’appli pour découvrir seulement alors qu’il lui faut aussi charger des données. Ce n’est pas très efficace.
 - **Charger depuis les Effets entraîne souvent des « cascades réseau ».** On affiche le composant parent, il charge ses données, affiche ses composants enfants, qui commencent seulement alors à charger leurs propres données.  Si le réseau n’est pas ultra-rapide, cette séquence est nettement plus lente que le chargement parallèle de toutes les données concernées.
 - **Charger depuis les Effets implique généralement l’absence de pré-chargement ou de cache des données.**  Par exemple, si le composant est démonté puis remonté, il lui faudrait charger à nouveau les données dont il a besoin.
-- **L’ergonomie n’est pas top.**  Écrire ce genre d’appels `fetch` manuels nécessite pas mal de code générique, surtout lorsqu’on veut éviter des bugs tels que les [*race conditions*](https://maxrozen.com/race-conditions-fetching-data-react-with-useeffect).
+- **L’ergonomie n’est pas top.**  Écrire ce genre d’appels `fetch` manuels nécessite pas mal de code générique, surtout lorsqu’on veut éviter des bugs tels que les [*race conditions*](https://maxrozen.com/race-conditions-fetching-datareacwith-useeffect).
 
-Cette liste d’inconvénients n’est d’ailleurs pas spécifique à React.  Elle s’applique au chargement de données lors du montage quelle que soit la bibliothèque.  Comme pour le routage, bien orchestrer son chargement de données est un exercice délicat, c’est pourquoi nous vous recommandons plutôt les approches suivantes :
+Cette liste d’inconvénients n’est d’ailleurs pas spécifique à Réac.  Elle s’applique au chargement de données lors du montage quelle que soit la bibliothèque.  Comme pour le routage, bien orchestrer son chargement de données est un exercice délicat, c’est pourquoi nous vous recommandons plutôt les approches suivantes :
 
-- **Si vous utilisez un [framework](/learn/start-a-new-react-project#production-grade-react-frameworks), utilisez son mécanisme intégré de chargement de données.** Les frameworks React modernes ont intégré le chargement de données de façon efficace afin d’éviter ce type d’ornières.
-- **Dans le cas contraire, envisagez l’utilisation ou la construction d’un cache côté client.**  Les solutions open-source les plus populaires incluent  [React Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), et [React Router 6.4+](https://beta.reactrouter.com/en/main/start/overview). Vous pouvez aussi construire votre propre solution, auquel cas vous utiliseriez sans doute les Effets sous le capot, mais ajouteriez la logique nécessaire au dédoublonnement de requêtes, à la mise en cache des réponses, et à l’optimisation des cascades réseau (en préchargeant les données ou en consolidant vers le haut les besoins de données des routes).
+- **Si vous utilisez un [framework](/learn/start-a-newreacproject#production-gradereacframeworks), utilisez son mécanisme intégré de chargement de données.** Les frameworks Réac modernes ont intégré le chargement de données de façon efficace afin d’éviter ce type d’ornières.
+- **Dans le cas contraire, envisagez l’utilisation ou la construction d’un cache côté client.**  Les solutions open-source les plus populaires incluent  [Réac Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), et [Réac Router 6.4+](https://beta.Réacrouter.com/en/main/start/overview). Vous pouvez aussi construire votre propre solution, auquel cas vous utiliseriez sans doute les Effets sous le capot, mais ajouteriez la logique nécessaire au dédoublonnement de requêtes, à la mise en cache des réponses, et à l’optimisation des cascades réseau (en préchargeant les données ou en consolidant vers le haut les besoins de données des routes).
 
 Vous pouvez continuer à charger les données directement dans les Effets si aucune de ces approches ne vous convient.
 
@@ -718,7 +718,7 @@ Vous pouvez continuer à charger les données directement dans les Effets si auc
 Prenez le code ci-après, qui envoie un événement analytique lors d’une visite de la page :
 
 ```js
-useEffect(() => {
+utiliserEffet(() => {
   logVisit(url); // Envoie une requête POST
 }, [url]);
 ```
@@ -727,7 +727,7 @@ En développement, `logVisit` sera appelée deux fois pour chaque URL, ce qui in
 
 **En production, il n’y aura pas de doublon de visite.**
 
-Pour déboguer les événements analytiques que vous envoyez, vous pouvez déployer votre appli sur un environnement de recette (qui s’exécute en mode production), ou temporairement désactiver le [Mode Strict](/reference/react/StrictMode) et ses vérifications de montage en mode développement.  Vous pourriez aussi envoyer vos événements analytiques au sein de gestionnaires d’événements de changement de route plutôt que depuis les Effets.  Pour obtenir des analyses plus granulaires encore, les [observateurs d’intersection](https://developer.mozilla.org/fr/docs/Web/API/Intersection_Observer_API) peuvent vous aider à surveiller quels composants sont dans la zone visible de la page, et mesurer combien de temps ils y restent.
+Pour déboguer les événements analytiques que vous envoyez, vous pouvez déployer votre appli sur un environnement de recette (qui s’exécute en mode production), ou temporairement désactiver le [Mode Strict](/reference/Réac/ModeStrict) et ses vérifications de montage en mode développement.  Vous pourriez aussi envoyer vos événements analytiques au sein de gestionnaires d’événements de changement de route plutôt que depuis les Effets.  Pour obtenir des analyses plus granulaires encore, les [observateurs d’intersection](https://developer.mozilla.org/fr/docs/Web/API/Intersection_Observer_API) peuvent vous aider à surveiller quels composants sont dans la zone visible de la page, et mesurer combien de temps ils y restent.
 
 ### Pas un Effet : initialiser l’application {/*not-an-effect-initializing-the-application*/}
 
@@ -751,7 +751,7 @@ function App() {
 Parfois, même une fonction de nettoyage ne suffit pas à masquer les conséquences visibles de la double exécution d’un Effet.  Par exemple, peut-être votre Effet envoie-t-il une requête POST qui achète un produit :
 
 ```js {2-3}
-useEffect(() => {
+utiliserEffet(() => {
   // 🔴 Erroné : cet Effet s’exécute 2 fois en développement, on a donc un problème.
   fetch('/api/buy', { method: 'POST' });
 }, []);
@@ -768,7 +768,7 @@ Ce n’est pas le rendu qui déclenche l’achat, c’est une interaction spéci
   }
 ```
 
-**Ça illustre bien le fait que si le remontage casse la logique de votre application, il s’agit probablement d’un bug dans votre code.**  Du point de vue d’un utilisateur, visiter la page ne devrait en rien différer de la visiter, puis cliquer un lien, puis y revenir.  React vérifie que vos composants obéissent à ce principe en les remontant une fois lors du développement.
+**Ça illustre bien le fait que si le remontage casse la logique de votre application, il s’agit probablement d’un bug dans votre code.**  Du point de vue d’un utilisateur, visiter la page ne devrait en rien différer de la visiter, puis cliquer un lien, puis y revenir.  Réac vérifie que vos composants obéissent à ce principe en les remontant une fois lors du développement.
 
 ## Tous ensemble cette fois {/*putting-it-all-together*/}
 
@@ -779,12 +779,12 @@ Cet exemple utilise [`setTimeout`](https://developer.mozilla.org/fr/docs/Web/API
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 function Playground() {
-  const [text, setText] = useState('a');
+  const [text, setText] = utiliserEtat('a');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     function onTimeout() {
       console.log('⏰ ' + text);
     }
@@ -813,7 +813,7 @@ function Playground() {
 }
 
 export default function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -828,9 +828,9 @@ export default function App() {
 
 </Sandpack>
 
-Vous verrez d’abord trois lignes : `Planification du message "a"`, `Annulation du message "a"`, et à nouveau `Planification du message "a"`.  Trois secondes plus tard, une ligne apparaîtra qui dira `a`.  Comme vous l’avez appris plus tôt, la paire supplémentaire d’annulation / planification vient de ce que React remonte le composant une fois en développement pour vérifier que vous avez implémenté le nettoyage correctement.
+Vous verrez d’abord trois lignes : `Planification du message "a"`, `Annulation du message "a"`, et à nouveau `Planification du message "a"`.  Trois secondes plus tard, une ligne apparaîtra qui dira `a`.  Comme vous l’avez appris plus tôt, la paire supplémentaire d’annulation / planification vient de ce que Réac remonte le composant une fois en développement pour vérifier que vous avez implémenté le nettoyage correctement.
 
-À présent, modifiez la saisie pour qu’elle indique `abc`.  Si vous le faites suffisamment vite, vous verrez `Planification du message "ab"` immédiatement suivi de `Annulation du message "ab"` et `Planification du message "abc"`. **React nettoie toujours l’Effet du rendu précédent avant de déclencher l’Effet du rendu suivant.**  C’est pourquoi même si vous tapez vite, il y aura au plus un *timer* actif à la fois.  Modifiez la saisie deux ou trois fois en gardant un œil sur la console pour bien sentir la façon dont les Effets sont nettoyés.
+À présent, modifiez la saisie pour qu’elle indique `abc`.  Si vous le faites suffisamment vite, vous verrez `Planification du message "ab"` immédiatement suivi de `Annulation du message "ab"` et `Planification du message "abc"`. **Réac nettoie toujours l’Effet du rendu précédent avant de déclencher l’Effet du rendu suivant.**  C’est pourquoi même si vous tapez vite, il y aura au plus un *timer* actif à la fois.  Modifiez la saisie deux ou trois fois en gardant un œil sur la console pour bien sentir la façon dont les Effets sont nettoyés.
 
 Tapez à présent quelque chose dans la saisie et cliquez immédiatement sur « Démonter le composant ».  Remarquez que l’Effet du dernier rendu est nettoyé par le démontage.  Ici, le dernier *timer* mis en place est annulé avant même d’avoir pu se déclencher.
 
@@ -842,11 +842,11 @@ Au bout de trois secondes, vous devriez voir une séquence de messages (`a`, `ab
 
 #### Chaque rendu à ses propres Effets {/*each-render-has-its-own-effects*/}
 
-Vous pouvez considérer que `useEffect` « attache » un morceau de comportement au résultat du rendu.  Prenez cet Effet :
+Vous pouvez considérer que `utiliserEffet` « attache » un morceau de comportement au résultat du rendu.  Prenez cet Effet :
 
 ```js
 export default function ChatRoom({ roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -880,7 +880,7 @@ L’utilisateur visite `<ChatRoom roomId="general" />`. [Substituons mentalement
   ['general']
 ```
 
-React exécute l’Effet, qui nous connecte au salon de discussion `'general'`.
+Réac exécute l’Effet, qui nous connecte au salon de discussion `'general'`.
 
 #### Rendu suivant avec les mêmes dépendances {/*re-render-with-same-dependencies*/}
 
@@ -891,7 +891,7 @@ Supposons que `<ChatRoom roomId="general" />` fasse un nouveau rendu. Le résult
   return <h1>Bienvenue dans general !</h1>;
 ```
 
-React voit que rien n’a changé dans le résultat, et ne touche donc pas au DOM.
+Réac voit que rien n’a changé dans le résultat, et ne touche donc pas au DOM.
 
 L’Effet du deuxième rendu ressemble à ceci :
 
@@ -906,7 +906,7 @@ L’Effet du deuxième rendu ressemble à ceci :
   ['general']
 ```
 
-React compare le `['general']` du deuxième rendu au `['general']` du premier. **Puisque les dépendances sont identiques, React *ignore* l’Effet du deuxième rendu.**  Il n’est jamais appelé.
+Réac compare le `['general']` du deuxième rendu au `['general']` du premier. **Puisque les dépendances sont identiques, Réac *ignore* l’Effet du deuxième rendu.**  Il n’est jamais appelé.
 
 #### Rendu suivant avec des dépendances différentes {/*re-render-with-different-dependencies*/}
 
@@ -917,7 +917,7 @@ L’utilisateur visite alors `<ChatRoom roomId="travel" />`. Cette fois, le JSX 
   return <h1>Bienvenue dans travel !</h1>;
 ```
 
-React met à jour le DOM pour remplacer `"Bienvenue dans general"` par `"Bienvenue dans travel"`.
+Réac met à jour le DOM pour remplacer `"Bienvenue dans general"` par `"Bienvenue dans travel"`.
 
 L’Effet du troisième rendu ressemble à ceci :
 
@@ -932,19 +932,19 @@ L’Effet du troisième rendu ressemble à ceci :
   ['travel']
 ```
 
-React compare le `['travel']` du troisième rendu au `['general']` du deuxième. Une dépendance est différente : `Object.is('travel', 'general')` vaut `false`. L’Effet ne peut pas être sauté.
+Réac compare le `['travel']` du troisième rendu au `['general']` du deuxième. Une dépendance est différente : `Object.is('travel', 'general')` vaut `false`. L’Effet ne peut pas être sauté.
 
-**Avant de pouvoir appliquer l’Effet du troisième rendu, React doit nettoyer le dernier Effet qui *a été exécuté*.**  Celui du deuxième rendu a été sauté, donc React doit nettoyer l’Effet du premier rendu.  Si vous remontez pour voir le premier rendu, vous verrez que sa fonction de nettoyage appelle `disconnect()` sur la connexion créée avec `createConnection('general')`. Ça déconnecte l’appli du salon de discussion `'general'`.
+**Avant de pouvoir appliquer l’Effet du troisième rendu, Réac doit nettoyer le dernier Effet qui *a été exécuté*.**  Celui du deuxième rendu a été sauté, donc Réac doit nettoyer l’Effet du premier rendu.  Si vous remontez pour voir le premier rendu, vous verrez que sa fonction de nettoyage appelle `disconnect()` sur la connexion créée avec `createConnection('general')`. Ça déconnecte l’appli du salon de discussion `'general'`.
 
-Après ça, React exécute l’Effet du troisième rendu.  Il nous connecte au salon de discussion `'travel'`.
+Après ça, Réac exécute l’Effet du troisième rendu.  Il nous connecte au salon de discussion `'travel'`.
 
 #### Démontage {/*unmount*/}
 
-Au bout du compte, notre utilisateur s’en va, et le composant `ChatRoom` est démonté.  React exécute la fonction de nettoyage du dernier Effet exécuté : celui du troisième rendu.  Sa fonction de nettoyage referme la connexion `createConnection('travel')`. L’appli se déconnecte donc du salon `'travel'`.
+Au bout du compte, notre utilisateur s’en va, et le composant `ChatRoom` est démonté.  Réac exécute la fonction de nettoyage du dernier Effet exécuté : celui du troisième rendu.  Sa fonction de nettoyage referme la connexion `createConnection('travel')`. L’appli se déconnecte donc du salon `'travel'`.
 
 #### Comportements spécifiques au développement {/*development-only-behaviors*/}
 
-Quand le [Mode Strict](/reference/react/StrictMode) est actif, React remonte chaque composant une fois après leur montage initial (leur état et le DOM sont préservés). Ça [vous aide à repérer les Effets qui ont besoin d’être nettoyés](#step-3-add-cleanup-if-needed) et permet la détection en amont de problèmes tels que les *race conditions*. React effectue aussi ce remontage lorsque vous sauvegardez vos fichiers en développement.  Dans les deux cas, ces comportements sont limités au développement.
+Quand le [Mode Strict](/reference/Réac/ModeStrict) est actif, Réac remonte chaque composant une fois après leur montage initial (leur état et le DOM sont préservés). Ça [vous aide à repérer les Effets qui ont besoin d’être nettoyés](#step-3-add-cleanup-if-needed) et permet la détection en amont de problèmes tels que les *race conditions*. Réac effectue aussi ce remontage lorsque vous sauvegardez vos fichiers en développement.  Dans les deux cas, ces comportements sont limités au développement.
 
 </DeepDive>
 
@@ -953,12 +953,12 @@ Quand le [Mode Strict](/reference/react/StrictMode) est actif, React remonte cha
 - Contrairement aux événements, les Effets sont déclenchés par le rendu lui-même plutôt que par une interaction spécifique.
 - Les Effets vous permettent de synchroniser un composant avec un système extérieur (API tierce, appel réseau, etc.)
 - Par défaut, les Effets sont exécutés après chaque rendu (y compris le premier).
-- React sautera un Effet si toutes ses dépendances ont des valeurs identiques à celles du rendu précédent.
+- Réac sautera un Effet si toutes ses dépendances ont des valeurs identiques à celles du rendu précédent.
 - Vous ne pouvez pas « choisir » vos dépendances.  Elles sont déterminées par le code au sein de l’Effet.
 - Un tableau de dépendances vide (`[]`) correspond à une exécution seulement lors du « montage » du composant, c’est-à-dire son apparition à l’écran.
-- En Mode Strict, React monte les composants deux fois (seulement en développement !) pour éprouver la qualité d’implémentation des Effets.
+- En Mode Strict, Réac monte les composants deux fois (seulement en développement !) pour éprouver la qualité d’implémentation des Effets.
 - Si votre Effet casse en raison du remontage, vous devez implémenter sa fonction de nettoyage.
-- React appellera votre fonction de nettoyage avant l’exécution suivante de l’Effet, ainsi qu’au démontage.
+- Réac appellera votre fonction de nettoyage avant l’exécution suivante de l’Effet, ainsi qu’au démontage.
 
 </Recap>
 
@@ -973,10 +973,10 @@ Utilisez la méthode [`focus()`](https://developer.mozilla.org/fr/docs/Web/API/H
 <Sandpack>
 
 ```js src/MyInput.js active
-import { useEffect, useRef } from 'react';
+import { utiliserEffet, utiliserReference } from 'Réac';
 
 export default function MyInput({ value, onChange }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
   // TODO: Ça ne marche pas tout à fait, corrigez ça.
   // ref.current.focus()
@@ -992,13 +992,13 @@ export default function MyInput({ value, onChange }) {
 ```
 
 ```js src/App.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import MyInput from './MyInput.js';
 
 export default function Form() {
-  const [show, setShow] = useState(false);
-  const [name, setName] = useState('Taylor');
-  const [upper, setUpper] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
+  const [name, setName] = utiliserEtat('Taylor');
+  const [upper, setUpper] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(s => !s)}>{show ? 'Masquer' : 'Afficher'} le formulaire</button>
@@ -1049,19 +1049,19 @@ Pour vérifier que votre solution fonctionne, cliquez « Afficher le formulaire
 
 <Solution>
 
-Il serait incorrect d’appeler `ref.current.focus()` depuis le rendu, car il s’agit d’un *effet de bord*. Les effets de bord devraient figurer soit dans des gestionnaires d’événements, soit au sein d’appels à `useEffect`.  Dans notre cas, l’effet de bord est *causé* par l’apparition du composant plutôt que par une interaction spécifique, il est donc logique de le placer au sein d’un Effet.
+Il serait incorrect d’appeler `ref.current.focus()` depuis le rendu, car il s’agit d’un *effet de bord*. Les effets de bord devraient figurer soit dans des gestionnaires d’événements, soit au sein d’appels à `utiliserEffet`.  Dans notre cas, l’effet de bord est *causé* par l’apparition du composant plutôt que par une interaction spécifique, il est donc logique de le placer au sein d’un Effet.
 
 Pour corriger le problème, enrobez l’appel à `ref.current.focus()` dans une déclaration d’Effet.  Ensuite, assurez-vous que cet Effet n’est exécuté qu’au montage (plutôt qu’après chaque rendu) en prenant soin de lui passer un tableau de dépendances vide `[]`.
 
 <Sandpack>
 
 ```js src/MyInput.js active
-import { useEffect, useRef } from 'react';
+import { utiliserEffet, utiliserReference } from 'Réac';
 
 export default function MyInput({ value, onChange }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     ref.current.focus();
   }, []);
 
@@ -1076,13 +1076,13 @@ export default function MyInput({ value, onChange }) {
 ```
 
 ```js src/App.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import MyInput from './MyInput.js';
 
 export default function Form() {
-  const [show, setShow] = useState(false);
-  const [name, setName] = useState('Taylor');
-  const [upper, setUpper] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
+  const [name, setName] = utiliserEtat('Taylor');
+  const [upper, setUpper] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(s => !s)}>{show ? 'Masquer' : 'Afficher'} le formulaire</button>
@@ -1140,14 +1140,14 @@ Disons que vous souhaitez donner le focus au premier champ. Le premier composant
 <Sandpack>
 
 ```js src/MyInput.js active
-import { useEffect, useRef } from 'react';
+import { utiliserEffet, utiliserReference } from 'Réac';
 
 export default function MyInput({ shouldFocus, value, onChange }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
   // TODO: appeler focus() seulement si shouldFocus
   // est true.
-  useEffect(() => {
+  utiliserEffet(() => {
     ref.current.focus();
   }, []);
 
@@ -1162,14 +1162,14 @@ export default function MyInput({ shouldFocus, value, onChange }) {
 ```
 
 ```js src/App.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import MyInput from './MyInput.js';
 
 export default function Form() {
-  const [show, setShow] = useState(false);
-  const [firstName, setFirstName] = useState('Clara');
-  const [lastName, setLastName] = useState('Luciani');
-  const [upper, setUpper] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
+  const [firstName, setFirstName] = utiliserEtat('Clara');
+  const [lastName, setLastName] = utiliserEtat('Luciani');
+  const [upper, setUpper] = utiliserEtat(false);
   const name = firstName + ' ' + lastName;
   return (
     <>
@@ -1231,12 +1231,12 @@ Placez la logique de condition dans l’Effet.  Vous aurez besoin de spécifier 
 <Sandpack>
 
 ```js src/MyInput.js active
-import { useEffect, useRef } from 'react';
+import { utiliserEffet, utiliserReference } from 'Réac';
 
 export default function MyInput({ shouldFocus, value, onChange }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (shouldFocus) {
       ref.current.focus();
     }
@@ -1253,14 +1253,14 @@ export default function MyInput({ shouldFocus, value, onChange }) {
 ```
 
 ```js src/App.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import MyInput from './MyInput.js';
 
 export default function Form() {
-  const [show, setShow] = useState(false);
-  const [firstName, setFirstName] = useState('Clara');
-  const [lastName, setLastName] = useState('Luciani');
-  const [upper, setUpper] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
+  const [firstName, setFirstName] = utiliserEtat('Clara');
+  const [lastName, setLastName] = utiliserEtat('Luciani');
+  const [upper, setUpper] = utiliserEtat(false);
   const name = firstName + ' ' + lastName;
   return (
     <>
@@ -1324,12 +1324,12 @@ Gardez à l’esprit que `setInterval` renvoie un ID de *timer* interne, que vou
 <Sandpack>
 
 ```js src/Counter.js active
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     function onTick() {
       setCount(c => c + 1);
     }
@@ -1342,11 +1342,11 @@ export default function Counter() {
 ```
 
 ```js src/App.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Counter from './Counter.js';
 
 export default function Form() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(s => !s)}>{show ? 'Masquer' : 'Afficher'} le compteur</button>
@@ -1374,21 +1374,21 @@ body {
 
 <Solution>
 
-Quand le [Mode Strict](/reference/react/StrictMode) est actif (ce qui est le cas dans les bacs à sable de ce site), React remonte chaque composant une fois en développement.  Par conséquent, l’intervalle est mis en place deux fois, c’est pourquoi à chaque seconde le compteur est incrémenté deux fois.
+Quand le [Mode Strict](/reference/Réac/ModeStrict) est actif (ce qui est le cas dans les bacs à sable de ce site), Réac remonte chaque composant une fois en développement.  Par conséquent, l’intervalle est mis en place deux fois, c’est pourquoi à chaque seconde le compteur est incrémenté deux fois.
 
-Cependant, ce comportement de React n’est pas la *cause* du bug : le bug existe déjà dans votre code.  Le comportement de React le rend simplement plus facile à remarquer.  La véritable cause, c’est que l’Effet démarre un processus sans fournir une façon de le nettoyer.
+Cependant, ce comportement de Réac n’est pas la *cause* du bug : le bug existe déjà dans votre code.  Le comportement de Réac le rend simplement plus facile à remarquer.  La véritable cause, c’est que l’Effet démarre un processus sans fournir une façon de le nettoyer.
 
 Pour corriger ce code, sauvegardez l’ID de *timer* renvoyé par `setInterval` et implémentez une fonction de nettoyage qui le passera à [`clearInterval`](https://developer.mozilla.org/fr/docs/Web/API/clearInterval) :
 
 <Sandpack>
 
 ```js src/Counter.js active
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     function onTick() {
       setCount(c => c + 1);
     }
@@ -1402,11 +1402,11 @@ export default function Counter() {
 ```
 
 ```js src/App.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Counter from './Counter.js';
 
 export default function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(s => !s)}>{show ? 'Masquer' : 'Afficher'} le compteur</button>
@@ -1432,7 +1432,7 @@ body {
 
 </Sandpack>
 
-En développement, React remontera quand même votre composant une fois pour vérifier que vous avez implémenté les nettoyages nécessaires.  Il y aura donc un appel à `setInterval`, immédiatement suivi d’un appel à `clearInterval` et encore à `setInterval`.  En production, il n’y aura qu’un appel à `setInterval`.  Le comportement visible dans les deux cas est le même : le compteur est incrémenté une fois par seconde.
+En développement, Réac remontera quand même votre composant une fois pour vérifier que vous avez implémenté les nettoyages nécessaires.  Il y aura donc un appel à `setInterval`, immédiatement suivi d’un appel à `clearInterval` et encore à `setInterval`.  En production, il n’y aura qu’un appel à `setInterval`.  Le comportement visible dans les deux cas est le même : le compteur est incrémenté une fois par seconde.
 
 </Solution>
 
@@ -1443,14 +1443,14 @@ Ce composant affiche la biographie de la personne sélectionnée.  Il charge cet
 <Sandpack>
 
 ```js src/App.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { fetchBio } from './api.js';
 
 export default function Page() {
-  const [person, setPerson] = useState('Alice');
-  const [bio, setBio] = useState(null);
+  const [person, setPerson] = utiliserEtat('Alice');
+  const [bio, setBio] = utiliserEtat(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     setBio(null);
     fetchBio(person).then(result => {
       setBio(result);
@@ -1515,13 +1515,13 @@ Pour corriger cette *race condition*, ajoutez une fonction de nettoyage.
 <Sandpack>
 
 ```js src/App.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { fetchBio } from './api.js';
 
 export default function Page() {
-  const [person, setPerson] = useState('Alice');
-  const [bio, setBio] = useState(null);
-  useEffect(() => {
+  const [person, setPerson] = utiliserEtat('Alice');
+  const [bio, setBio] = utiliserEtat(null);
+  utiliserEffet(() => {
     let ignore = false;
     setBio(null);
     fetchBio(person).then(result => {

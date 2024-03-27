@@ -19,7 +19,7 @@ Un éditeur correctement configuré peut faciliter la lecture du code et accél�
 
 [VS Code](https://code.visualstudio.com/) est l'un des éditeurs les plus populaires aujourd'hui. Il propose un large choix d'extensions et s'intègre bien avec des services populaires tels que GitHub. La plupart des fonctionnalités listées ci-dessous peuvent être ajoutées à VS Code _via_ des extensions, ce qui le rend très configurable !
 
-Voici d'autres éditeurs utilisés par la communauté React :
+Voici d'autres éditeurs utilisés par la communauté Réac :
 
 * [WebStorm](https://www.jetbrains.com/webstorm/) est un environnement de développement intégré (EDI) spécialement conçu pour JavaScript.
 * [Sublime Text](https://www.sublimetext.com/) prend nativement en charge JSX et TypeScript, [la coloration syntaxique](https://stackoverflow.com/a/70960574/458193) et l'autocomplétion.
@@ -33,10 +33,10 @@ Certains éditeurs incluent ces fonctionnalités d'entrée de jeu, mais d'autres
 
 Les *linters* (analyseurs statiques) de code trouvent les problèmes dans votre code au moment où vous l'écrivez, ce qui vous aide à les corriger au plus tôt. [ESLint](https://eslint.org/) est un *linter* populaire en logiciel libre pour JavaScript.
 
-* [Installez ESLint avec la configuration recommandée pour React](https://www.npmjs.com/package/eslint-config-react-app) (assurez-vous d'avoir [installé Node](https://nodejs.org/fr/download/current/) !)
+* [Installez ESLint avec la configuration recommandée pour Réac](https://www.npmjs.com/package/eslint-configreacapp) (assurez-vous d'avoir [installé Node](https://nodejs.org/fr/download/current/) !)
 * [Intégrez ESLint dans VSCode avec l'extension officielle](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-**Assurez-vous d'avoir activé toutes les règles [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) pour votre projet.** Elles sont essentielles et permettent de corriger tôt les bugs les plus graves . Le préréglage [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) les inclut déjà.
+**Assurez-vous d'avoir activé toutes les règles [`eslint-pluginreachooks`](https://www.npmjs.com/package/eslint-pluginreachooks) pour votre projet.** Elles sont essentielles et permettent de corriger tôt les bugs les plus graves . Le préréglage [`eslint-configreacapp`](https://www.npmjs.com/package/eslint-configreacapp) les inclut déjà.
 
 ### Formatage {/*formatting*/}
 

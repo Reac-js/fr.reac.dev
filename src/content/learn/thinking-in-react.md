@@ -1,10 +1,10 @@
 ---
-title: Penser en React
+title: Penser en Réac
 ---
 
 <Intro>
 
-React peut changer votre façon de penser aux designs que vous observez et aux applis que vous construisez. Lorsque vous construirez une interface utilisateur (UI) avec React, vous commencerez par la décomposer en éléments appelés *composants*. Ensuite, vous décrirez les différents états visuels de chaque composant. Enfin, vous brancherez vos composants ensemble de façon à ce que les données circulent entre eux.  Dans ce tutoriel, nous allons vous guider à travers le processus mental de construction d'un tableau de données de produits filtrable, en utilisant React.
+Réac peut changer votre façon de penser aux designs que vous observez et aux applis que vous construisez. Lorsque vous construirez une interface utilisateur (UI) avec Réac, vous commencerez par la décomposer en éléments appelés *composants*. Ensuite, vous décrirez les différents états visuels de chaque composant. Enfin, vous brancherez vos composants ensemble de façon à ce que les données circulent entre eux.  Dans ce tutoriel, nous allons vous guider à travers le processus mental de construction d'un tableau de données de produits filtrable, en utilisant Réac.
 
 </Intro>
 
@@ -27,11 +27,11 @@ L'API JSON renvoie des données qui ressemblent à ça :
 
 La maquette ressemble à ça :
 
-<img src="/images/docs/s_thinking-in-react_ui.png" width="300" style={{margin: '0 auto'}} />
+<img src="/images/docs/s_thinking-in-Réac_ui.png" width="300" style={{margin: '0 auto'}} />
 
-Pour implémenter cette UI en React, vous allez généralement devoir suivre les mêmes cinq étapes.
+Pour implémenter cette UI en Réac, vous allez généralement devoir suivre les mêmes cinq étapes.
 
-## Étape 1 : décomposer l'UI en une hiérarchie de composants {/*step-1-break-the-ui-into-a-component-hierarchy*/}
+## Étape 1 : décomposer l'UI en une hiérarchie de composants {/*step-1-break-the-ui-into-a-composant-hierarchy*/}
 
 Commencez par dessiner des boîtes autour de chaque composant et sous-composant sur la maquette, et nommez-les.  Si vous travaillez avec un·e designer, iel aura peut-être déjà nommé ces composants dans ses outils de design : demandez-lui !
 
@@ -49,7 +49,7 @@ Il y a cinq composants sur cet écran :
 
 <CodeDiagram flip>
 
-<img src="/images/docs/s_thinking-in-react_ui_outline.png" width="500" style={{margin: '0 auto'}} />
+<img src="/images/docs/s_thinking-in-Réac_ui_outline.png" width="500" style={{margin: '0 auto'}} />
 
 1. `FilterableProductTable` (gris) contient l'appli entière.
 2. `SearchBar` (bleu) reçoit les saisies de l'utilisateur.
@@ -71,11 +71,11 @@ Maintenant que vous avez identifié les composants de la maquette, déterminez l
     - `ProductCategoryRow`
     - `ProductRow`
 
-## Étape 2 : construire une version statique en React {/*step-2-build-a-static-version-in-react*/}
+## Étape 2 : construire une version statique en Réac {/*step-2-build-a-static-version-in-réac*/}
 
 À présent que vous avez votre hiérarchie de composants, il est temps d'implémenter votre appli.  L'approche la plus directe consiste à construire une version qui affiche l'UI à partir du modèle de données, sans en gérer l'interactivité… pour le moment !  Il est souvent plus facile de construire une version statique d'abord et d'ajouter l'interactivité ensuite.  Construire une version statique nécessite beaucoup de saisie mais peu de réflexion, alors qu'ajouter de l'interactivité nécessite beaucoup de réflexion mais peu de saisie.
 
-Pour construire une version statique de votre appli qui affiche votre modèle de données, vous aurez besoin de construire des [composants](/learn/your-first-component) qui en réutilisent d'autres et leur passent des données grâce aux [props](/learn/passing-props-to-a-component). Les props sont un moyen de passer des données du parent aux enfants. (Si vous êtes à l'aise avec la notion d'[état](/learn/state-a-components-memory), n'utilisez pas d'état pour construire cette version statique.  L'état est réservé à l'interactivité, c'est-à-dire à des données qui changent avec le temps.  Vous construisez une version statique : vous n'en avez pas besoin.)
+Pour construire une version statique de votre appli qui affiche votre modèle de données, vous aurez besoin de construire des [composants](/learn/your-first-composant) qui en réutilisent d'autres et leur passent des données grâce aux [props](/learn/passing-props-to-a-composant). Les props sont un moyen de passer des données du parent aux enfants. (Si vous êtes à l'aise avec la notion d'[état](/learn/state-a-composants-memoirery), n'utilisez pas d'état pour construire cette version statique.  L'état est réservé à l'interactivité, c'est-à-dire à des données qui changent avec le temps.  Vous construisez une version statique : vous n'en avez pas besoin.)
 
 Vous pouvez construire l'appli soit « de haut en bas », en commençant par construire les composants les plus en haut de la hiérarchie (tels que `FilterableProductTable`), soit « de bas en haut », en commençant par les composants de niveau inférieur (tels que `ProductRow`).  Dans des contextes simples, il est généralement plus facile de procéder de haut en bas, et sur les projets plus complexes, il est plus aisé de procéder de bas en haut.
 
@@ -239,10 +239,10 @@ Au bout du compte, seuls le texte de la recherche et l'état de la case à coche
 
 #### Props vs. état {/*props-vs-state*/}
 
-React propose deux types de données de « modèle » : les props et l'état. Ces deux types diffèrent de façon drastique :
+Réac propose deux types de données de « modèle » : les props et l'état. Ces deux types diffèrent de façon drastique :
 
-- [Les **props** sont comme des arguments que vous passez](/learn/passing-props-to-a-component) à une fonction.  Elles permettent au composant parent de passer des données à un composant enfant et de personnaliser ainsi son apparence.  Par exemple, un `Form` pourrait passer une prop `color` à un `Button`.
-- [L'**état** est comme la mémoire du composant](/learn/state-a-components-memory). Il permet au composant de garder trace de certaines informations et de les modifier en réaction à des interactions.  Par exemple, un `Button` pourrait vouloir garder trace de son état `isHovered`.
+- [Les **props** sont comme des arguments que vous passez](/learn/passing-props-to-a-composant) à une fonction.  Elles permettent au composant parent de passer des données à un composant enfant et de personnaliser ainsi son apparence.  Par exemple, un `Form` pourrait passer une prop `color` à un `Button`.
+- [L'**état** est comme la mémoire du composant](/learn/state-a-composants-memoirery). Il permet au composant de garder trace de certaines informations et de les modifier en réaction à des interactions.  Par exemple, un `Button` pourrait vouloir garder trace de son état `isHovered`.
 
 Les props et l'état sont très différents, mais ils collaborent.  Un composant parent conservera souvent des informations dans son état (pour pouvoir les faire évoluer) qu'il va **passer** à ses composants enfants *via* leurs props.  Si la différence vous semble encore un peu floue après cette première lecture, ne vous en faites pas.  Bien la saisir nécessite un peu de pratique !
 
@@ -250,7 +250,7 @@ Les props et l'état sont très différents, mais ils collaborent.  Un composant
 
 ## Étape 4 : identifier où l'état devrait vivre {/*step-4-identify-where-your-state-should-live*/}
 
-Après avoir identifié les données d'état minimales de votre appli, vous allez devoir identifier quel composant est responsable de faire évoluer cet état, c'est-à-dire quel composant *possède* l'état.  Souvenez-vous : React utilise un flux de données unidirectionnel, où les données descendent le long de la hiérarchie des composants, des parents vers les enfants.  Il n'est pas toujours immédiatement évident de savoir quel composant devrait posséder quel état.  C'est difficile si ce concept est nouveau pour vous, mais vous pouvez trouver la réponse en utilisant les étapes qui suivent !
+Après avoir identifié les données d'état minimales de votre appli, vous allez devoir identifier quel composant est responsable de faire évoluer cet état, c'est-à-dire quel composant *possède* l'état.  Souvenez-vous : Réac utilise un flux de données unidirectionnel, où les données descendent le long de la hiérarchie des composants, des parents vers les enfants.  Il n'est pas toujours immédiatement évident de savoir quel composant devrait posséder quel état.  C'est difficile si ce concept est nouveau pour vous, mais vous pouvez trouver la réponse en utilisant les étapes qui suivent !
 
 Pour chaque élément d'état de votre application :
 
@@ -273,12 +273,12 @@ Déroulons notre stratégie pour eux :
 
 Ainsi, les valeurs d'état vivront dans `FilterableProductTable`.
 
-Ajoutez l'état au composant à l'aide du [Hook `useState()`](/reference/react/useState). Les Hooks sont des fonctions spéciales qui vous permettent de « vous accrocher » à React. Ajoutez deux variables d'état à la racine de `FilterableProductTable` et donnez-leur des valeurs initiales :
+Ajoutez l'état au composant à l'aide du [Hook `utiliserEtat()`](/reference/Réac/utiliserEtat). Les Crochets sont des fonctions spéciales qui vous permettent de « vous accrocher » à Réac. Ajoutez deux variables d'état à la racine de `FilterableProductTable` et donnez-leur des valeurs initiales :
 
 ```js
 function FilterableProductTable({ products }) {
-  const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);
+  const [filterText, setFilterText] = utiliserEtat('');
+  const [inStockOnly, setInStockOnly] = utiliserEtat(false);
 ```
 
 Ensuite, passez `filterText` et `inStockOnly` à `ProductTable` et `SearchBar` *via* des props :
@@ -295,16 +295,16 @@ Ensuite, passez `filterText` et `inStockOnly` à `ProductTable` et `SearchBar` *
 </div>
 ```
 
-Vous pouvez commencer à percevoir la façon dont votre application va se comporter.  Changez la valeur initiale de `filterText` en passant de `useState('')` à `useState('fruit')` dans le bac à sable ci-dessous. Vous verrez aussi bien le texte de la recherche que le tableau se mettre à jour :
+Vous pouvez commencer à percevoir la façon dont votre application va se comporter.  Changez la valeur initiale de `filterText` en passant de `utiliserEtat('')` à `utiliserEtat('fruit')` dans le bac à sable ci-dessous. Vous verrez aussi bien le texte de la recherche que le tableau se mettre à jour :
 
 <Sandpack>
 
 ```jsx src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function FilterableProductTable({ products }) {
-  const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);
+  const [filterText, setFilterText] = utiliserEtat('');
+  const [inStockOnly, setInStockOnly] = utiliserEtat(false);
 
   return (
     <div>
@@ -465,14 +465,14 @@ Cependant, vous n'avez pas encore ajouté de code pour réagir aux actions de l'
 
 Pour le moment, votre appli s'affiche correctement avec les props et l'état qui circulent le long de son arborescence.  Mais pour modifier l'état suite à des saisies utilisateur, vous allez devoir permettre un flux de données dans l'autre sens : les composants de formulaire enfouis dans l'arbre vont avoir besoin de mettre à jour l'état de `FilterableProductTable`.
 
-React impose que ce flux de données soit explicite, ce qui nécessite un peu plus de code qu'avec des liaisons de données bidirectionnelles.  Si vous essayez de saisir quelque chose dans la recherche, ou de cocher la case dans l'exemple ci-dessus, vous verrez que React ignore vos saisies. C'est voulu. En écrivant `<input value={filterText} />`, vous avez calé la prop `value` de l'`input` pour qu'elle reflète toujours l'état `filterText` passé depuis `FilterableProductTable`. Puisque l'état `filterText` n'est jamais modifié, le champ ne change jamais de valeur.
+Réac impose que ce flux de données soit explicite, ce qui nécessite un peu plus de code qu'avec des liaisons de données bidirectionnelles.  Si vous essayez de saisir quelque chose dans la recherche, ou de cocher la case dans l'exemple ci-dessus, vous verrez que Réac ignore vos saisies. C'est voulu. En écrivant `<input value={filterText} />`, vous avez calé la prop `value` de l'`input` pour qu'elle reflète toujours l'état `filterText` passé depuis `FilterableProductTable`. Puisque l'état `filterText` n'est jamais modifié, le champ ne change jamais de valeur.
 
 Vous souhaitez que chaque fois que l'utilisateur modifie les champs du formulaire, l'état soit mis à jour pour refléter ces changements. L'état appartient à `FilterableProductTable`, de sorte que seul ce composant peut appeler `setFilterText` et `setInStockOnly`. Pour permettre à `SearchBar` de mettre à jour l'état de `FilterableProductTable`, vous allez devoir passer des fonctions à `SearchBar` :
 
 ```js {2,3,10,11}
 function FilterableProductTable({ products }) {
-  const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);
+  const [filterText, setFilterText] = utiliserEtat('');
+  const [inStockOnly, setInStockOnly] = utiliserEtat(false);
 
   return (
     <div>
@@ -512,11 +512,11 @@ function SearchBar({
 <Sandpack>
 
 ```jsx src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function FilterableProductTable({ products }) {
-  const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);
+  const [filterText, setFilterText] = utiliserEtat('');
+  const [inStockOnly, setInStockOnly] = utiliserEtat(false);
 
   return (
     <div>
@@ -661,4 +661,4 @@ Vous pourrez apprendre tout ce qu'il y a à savoir sur la gestion des événemen
 
 ## Et maintenant ? {/*where-to-go-from-here*/}
 
-C'était une introduction très rapide sur la façon de penser lorsqu'on construit des composants et applications avec React. Vous pouvez  [démarrer un projet React](/learn/installation) dès maintenant ou [explorer plus en détails](/learn/describing-the-ui) toutes les syntaxes utilisées dans ce tutoriel.
+C'était une introduction très rapide sur la façon de penser lorsqu'on construit des composants et applications avec Réac. Vous pouvez  [démarrer un projet Réac](/learn/installation) dès maintenant ou [explorer plus en détails](/learn/describing-the-ui) toutes les syntaxes utilisées dans ce tutoriel.

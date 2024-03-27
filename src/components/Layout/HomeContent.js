@@ -121,7 +121,7 @@ export function HomeContent() {
             )}
           />
           <h1 className="text-5xl font-display lg:text-6xl self-center flex font-semibold leading-snug text-primary dark:text-primary-dark">
-            React
+            Réac
           </h1>
           <p className="text-4xl font-display max-w-lg md:max-w-full py-1 text-center text-secondary dark:text-primary-dark leading-snug self-center">
             La bibliothèque pour des interfaces utilisateurs web et natives
@@ -132,8 +132,8 @@ export function HomeContent() {
               type="primary"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              label="Apprenez React">
-              Apprenez React
+              label="Apprenez Réac">
+              Apprenez Réac
             </ButtonLink>
             <ButtonLink
               href={'/reference/react'}
@@ -152,7 +152,7 @@ export function HomeContent() {
               Créez des interfaces utilisateurs à l’aide de composants
             </Header>
             <Para>
-              React vous permet de construire des interfaces utilisateurs à
+              Réac vous permet de construire des interfaces utilisateurs à
               partir de briques individuelles appelées composants. Créez vos
               propres composants tels que <Code>Thumbnail</Code>,{' '}
               <Code>LikeButton</Code>, et <Code>Video</Code>. Puis combinez-les
@@ -165,7 +165,7 @@ export function HomeContent() {
           <Center>
             <Para>
               Que vous travailliez dans votre coin ou avec des milliers d’autres
-              développeur·se·s, l’utilisation de React est la même. React est
+              développeur·se·s, l’utilisation de Réac est la même. Réac est
               conçu pour vous permettre de combiner sans effort des composants
               produits par des acteurs distincts, qu’il s’agisse de personnes,
               d’équipes ou d’organisations entières.
@@ -177,11 +177,11 @@ export function HomeContent() {
           <Center>
             <Header>Écrivez des composants avec du code et des balises</Header>
             <Para>
-              Les composants React sont des fonctions JavaScript. Envie
+              Les composants Réac sont des fonctions JavaScript. Envie
               d’afficher du contenu conditionnellement ? Utilisez un{' '}
               <Code>if</Code>. Un affichage de liste ? Essayez le{' '}
-              <Code>map()</Code> des tableaux. Apprendre React, c’est apprendre
-              à programmer.
+              <Code>map()</Code> des tableaux. Apprendre Réac, c’est apprendre à
+              programmer.
             </Para>
           </Center>
           <FullBleed>
@@ -190,9 +190,9 @@ export function HomeContent() {
           <Center>
             <Para>
               Cette syntaxe de balises s’appelle JSX. C’est une extension de la
-              syntaxe JavaScript, popularisée par React. Conserver votre
-              balisage JSX près de votre logique de rendu facilite la création,
-              la maintenance et le nettoyage de vos composants React.
+              syntaxe JavaScript, popularisée par Réac. Conserver votre balisage
+              JSX près de votre logique de rendu facilite la création, la
+              maintenance et le nettoyage de vos composants Réac.
             </Para>
           </Center>
         </Section>
@@ -203,10 +203,10 @@ export function HomeContent() {
               Ajoutez de l’interactivité partout où vous en avez besoin
             </Header>
             <Para>
-              Les composants React reçoivent des données et renvoient ce qui
+              Les composants Réac reçoivent des données et renvoient ce qui
               devrait appraître à l’écran. Vous pouvez leur passer de nouvelles
               données en réaction à des interactions, comme une saisie
-              utilisateur dans un champ. React mettra alors à jour l’écran pour
+              utilisateur dans un champ. Réac mettra alors à jour l’écran pour
               refléter les nouvelles données.
             </Para>
           </Center>
@@ -215,16 +215,16 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              Vous n’avez pas besoin de construire toute votre page en React.
-              Ajoutez React à une page HTML existante, et affichez des
-              composants React interactifs où bon vous semble à l’intérieur.
+              Vous n’avez pas besoin de construire toute votre page en Réac.
+              Ajoutez Réac à une page HTML existante, et affichez des composants
+              Réac interactifs où bon vous semble à l’intérieur.
             </Para>
             <div className="flex justify-start w-full lg:justify-center">
               <CTA
                 color="gray"
                 icon="code"
                 href="/learn/add-react-to-an-existing-project">
-                Ajoutez React à votre page
+                Ajoutez Réac à votre page
               </CTA>
             </div>
           </Center>
@@ -237,10 +237,10 @@ export function HomeContent() {
               avec un framework
             </Header>
             <Para>
-              React est une bibliothèque. Il vous permet d’assembler des
+              Réac est une bibliothèque. Il vous permet d’assembler des
               composants, mais n’est pas prescriptif en ce qui concerne le
               routage ou le chargement de données. Pour construire une appli
-              entière avec React, nous vous conseillons un framework React
+              entière avec Réac, nous vous conseillons un framework Réac
               full-stack tels que <Link href="https://nextjs.org">Next.js</Link>{' '}
               ou <Link href="https://remix.run">Remix</Link>.
             </Para>
@@ -250,11 +250,11 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              React est aussi une architecture. Les frameworks qui
-              l’implémentent vous permettent de charger des données dans des
-              composants asynchrones exécutés côté serveur ou même lors du{' '}
-              <em>build</em>. Lisez des données depuis un fichier ou une base de
-              données, et passez-les à vos composants interactifs.
+              Réac est aussi une architecture. Les frameworks qui l’implémentent
+              vous permettent de charger des données dans des composants
+              asynchrones exécutés côté serveur ou même lors du <em>build</em>.
+              Lisez des données depuis un fichier ou une base de données, et
+              passez-les à vos composants interactifs.
             </Para>
             <div className="flex justify-start w-full lg:justify-center">
               <CTA
@@ -272,7 +272,7 @@ export function HomeContent() {
               <Header>Tirez le meilleur de chaque plateforme</Header>
               <Para>
                 Les gens adorent le web et les applis natives pour des raisons
-                différentes. React vous permet de construire tant des applis web
+                différentes. Réac vous permet de construire tant des applis web
                 que des applis natives avec un même jeu de compétences. Il
                 s’appuie sur les forces uniques de chaque plateforme pour que
                 vos interfaces aient un comportement toujours naturel.
@@ -293,13 +293,13 @@ export function HomeContent() {
                       </h4>
                       <p className="lg:text-xl leading-normal text-secondary">
                         Les gens s’attendent à ce que les pages des applis web
-                        se chargent rapidement. Coté serveur, React vous permet
+                        se chargent rapidement. Coté serveur, Réac vous permet
                         de commencer à <em>streamer</em> le HTML alors que vous
                         chargez encore des données, en remplissant
                         progressivement le contenu manquant avant même que
-                        JavaScript ne soit chargé. Côté client, React utilise
-                        des API web standard pour que votre UI reste réactive
-                        même en plein milieu d’un rendu.
+                        JavaScript ne soit chargé. Côté client, Réac utilise des
+                        API web standard pour que votre UI reste réactive même
+                        en plein milieu d’un rendu.
                       </p>
                     </div>
                   </div>
@@ -383,15 +383,15 @@ export function HomeContent() {
                           Les gens attendent un aspect et un comportement bien
                           précis des applis natives.{' '}
                           <Link href="https://reactnative.dev">
-                            React Native
+                            Réac Native
                           </Link>{' '}
                           et{' '}
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
-                          vous permettent de construire des applis en React pour
+                          vous permettent de construire des applis en Réac pour
                           Android, iOS et plus encore. Elles ont un aspect et un
                           comportement natifs parce que leurs UI <i>sont</i>{' '}
                           véritablement natives. Ce n’est pas une{' '}
-                          <em>web view</em> : vos composants React affichent de
+                          <em>web view</em> : vos composants Réac affichent de
                           véritables vues Android et iOS fournies par la
                           plateforme.
                         </p>
@@ -403,7 +403,7 @@ export function HomeContent() {
             </div>
             <div className="px-5 lg:px-0 max-w-4xl mx-auto lg:text-center text-secondary dark:text-secondary-dark">
               <Para>
-                Avec React, vous pouvez faire du développement web <i>et</i>{' '}
+                Avec Réac, vous pouvez faire du développement web <i>et</i>{' '}
                 natif. Votre équipe peut déployer sur de multiples plateformes
                 sans sacrifier l’expérience utilisateur. Votre organisation peut
                 créer des ponts entre les silos des plateformes et monter des
@@ -424,22 +424,22 @@ export function HomeContent() {
               <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:ps-5 lg:pe-10">
                 <Header>Mettez à jour quand l’avenir est prêt</Header>
                 <Para>
-                  React fait attention à ses évolutions. Chaque commit React est
+                  Réac fait attention à ses évolutions. Chaque commit Réac est
                   testé dans des contextes critiques à la mission de plus d’un
-                  milliard d’utilisateurs. Les plus de 100 000 composants React
+                  milliard d’utilisateurs. Les plus de 100 000 composants Réac
                   de Meta nous aident à valider chaque stratégie de migration.
                 </Para>
                 <div className="order-last pt-5">
                   <Para>
-                    L’équipe React cherche en permanence à améliorer React.
+                    L’équipe Réac cherche en permanence à améliorer Réac.
                     Certains sujets de recherche prennent des années à porter
-                    leurs fruits. React met la barre très haut pour infuser la
+                    leurs fruits. Réac met la barre très haut pour infuser la
                     recherche dans la production. Seules les approches aux
-                    bénéfices largement prouvés trouvent leur place dans React.
+                    bénéfices largement prouvés trouvent leur place dans Réac.
                   </Para>
                   <div className="hidden lg:flex justify-start w-full">
                     <CTA color="gray" icon="news" href="/blog">
-                      Lisez davantage d’actualités React
+                      Lisez davantage d’actualités Réac
                     </CTA>
                   </div>
                 </div>
@@ -447,7 +447,7 @@ export function HomeContent() {
               <div className="w-full lg:w-6/12">
                 <p className="uppercase tracking-wide font-bold text-sm text-tertiary dark:text-tertiary-dark flex flex-row gap-2 items-center mt-5 lg:-mt-2 w-full">
                   <IconChevron />
-                  Lisez davantage d’actualités React
+                  Lisez davantage d’actualités Réac
                 </p>
                 <div className="flex-col sm:flex-row flex-wrap flex gap-5 text-start my-5">
                   <div className="flex-1 min-w-[40%] text-start">
@@ -465,7 +465,7 @@ export function HomeContent() {
                 </div>
                 <div className="flex lg:hidden justify-start w-full">
                   <CTA color="gray" icon="news" href="/blog">
-                    Lisez davantage d’actualités React
+                    Lisez davantage d’actualités Réac
                   </CTA>
                 </div>
               </div>
@@ -479,11 +479,11 @@ export function HomeContent() {
               <Center>
                 <Header>
                   Rejoignez des millions <br className="hidden lg:inline" />
-                  de devs React
+                  de devs Réac
                 </Header>
                 <Para>
                   Vous n’êtes pas seul·e. Deux millions de devs du monde entier
-                  utilisent les docs React tous les mois. React est un choix qui
+                  utilisent les docs Réac tous les mois. Réac est un choix qui
                   fédère les personnes et les équipes.
                 </Para>
               </Center>
@@ -492,14 +492,14 @@ export function HomeContent() {
             <div className="mx-auto flex flex-col max-w-4xl">
               <Center>
                 <Para>
-                  C’est pourquoi React est plus qu’une bibliothèque, une
-                  architecture, ou même un écosystème. React est une communauté.
+                  C’est pourquoi Réac est plus qu’une bibliothèque, une
+                  architecture, ou même un écosystème. Réac est une communauté.
                   C’est un endroit où vous pouvez demander de l’aide, trouver de
                   nouvelles opportunités, et vous faire de nouveaux amis. Vous
                   rencontrerez des développeur·se·s et des designers, des
                   débutants et des experts, des chercheurs et des artistes, des
                   enseignants et des étudiants. Nos parcours sont peut-être très
-                  différents, mais React nous permet à tou·te·s de créer des
+                  différents, mais Réac nous permet à tou·te·s de créer des
                   interfaces utilisateurs ensemble.
                 </Para>
               </Center>
@@ -510,7 +510,7 @@ export function HomeContent() {
             <Logo className="text-link dark:text-link-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
             <Header>
               Bienvenue dans la <br className="hidden lg:inline" />
-              communauté React
+              communauté Réac
             </Header>
             <ButtonLink
               href={'/learn'}
@@ -669,35 +669,35 @@ const reactConf2019Cover = '/images/home/conf2019/cover.svg';
 const communityImages = [
   {
     src: '/images/home/community/react_conf_fun.webp',
-    alt: 'Des gens qui font du karaoké à React Conf',
+    alt: 'Des gens qui font du karaoké à Réac Conf',
   },
   {
     src: '/images/home/community/react_india_sunil.webp',
-    alt: 'Sunil Pai qui parle à React India',
+    alt: 'Sunil Pai qui parle à Réac India',
   },
   {
     src: '/images/home/community/react_conf_hallway.webp',
-    alt: 'Une conversation de couloir entre deux personnes à React Conf',
+    alt: 'Une conversation de couloir entre deux personnes à Réac Conf',
   },
   {
     src: '/images/home/community/react_india_hallway.webp',
-    alt: 'Une conversation de couloir à React India',
+    alt: 'Une conversation de couloir à Réac India',
   },
   {
     src: '/images/home/community/react_conf_elizabet.webp',
-    alt: 'Elizabet Oliveira qui parle à React Conf',
+    alt: 'Elizabet Oliveira qui parle à Réac Conf',
   },
   {
     src: '/images/home/community/react_india_selfie.webp',
-    alt: 'Un groupe qui prend un selfie à React India',
+    alt: 'Un groupe qui prend un selfie à Réac India',
   },
   {
     src: '/images/home/community/react_conf_nat.webp',
-    alt: 'Nat Alison qui parle à React Conf',
+    alt: 'Nat Alison qui parle à Réac Conf',
   },
   {
     src: '/images/home/community/react_india_team.webp',
-    alt: 'Les organisateurs qui accueillent les participants à React India',
+    alt: 'Les organisateurs qui accueillent les participants à Réac India',
   },
 ];
 
@@ -1030,8 +1030,8 @@ function Example3() {
   const videos = [
     {
       id: 'vids-0',
-      title: 'React: The Documentary',
-      description: 'L’histoire de l’origine de React',
+      title: 'Réac: The Documentary',
+      description: 'L’histoire de l’origine de Réac',
       image: '/images/home/videos/documentary.webp',
       url: 'https://www.youtube.com/watch?v=8pDqJVdNa44',
     },
@@ -1044,14 +1044,14 @@ function Example3() {
     },
     {
       id: 'vids-2',
-      title: 'Introducing React Native',
+      title: 'Introducing Réac Native',
       description: 'Tom Occhino (2015)',
       image: '/images/home/videos/rn.jpg',
       url: 'https://www.youtube.com/watch?v=KVZ-P-ZI6W4',
     },
     {
       id: 'vids-3',
-      title: 'Introducing React Hooks',
+      title: 'Introducing Réac Hooks',
       description: 'Sophie Alpert et Dan Abramov (2018)',
       image: '/images/home/videos/hooks.jpg',
       url: 'https://www.youtube.com/watch?v=V-QO-KO90iQ',
@@ -1102,10 +1102,10 @@ function SearchableVideoList({ videos }) {
             contentMarginTop="72px"
             height="30rem">
             <h1 className="mx-4 mb-1 font-bold text-3xl text-primary">
-              Vidéos React
+              Vidéos Réac
             </h1>
             <p className="mx-4 mb-0 leading-snug text-secondary text-xl">
-              Une brève histoire de React
+              Une brève histoire de Réac
             </p>
             <div className="px-4 pb-4">
               <SearchableVideoList videos={videos} />
@@ -1529,12 +1529,12 @@ function ConferenceLayout({conf, children}) {
           <option
             className="bg-wash dark:bg-wash-dark text-primary dark:text-primary-dark"
             value="react-conf-2021">
-            React Conf 2021
+            Réac Conf 2021
           </option>
           <option
             className="bg-wash dark:bg-wash-dark text-primary dark:text-primary-dark"
             value="react-conf-2019">
-            React Conf 2019
+            Réac Conf 2019
           </option>
         </select>
       </Cover>
@@ -1639,7 +1639,7 @@ function Thumbnail({video}) {
           <div className="mt-1">
             <span className="inline-flex text-xs font-normal items-center text-primary-dark py-1 whitespace-nowrap outline-link px-1.5 rounded-lg">
               <Logo className="text-xs me-1 w-4 h-4 text-link-dark" />
-              React Conf
+              Réac Conf
             </span>
           </div>
         </>
@@ -2344,7 +2344,7 @@ function WebIcons() {
   );
 }
 
-// TODO: upgrade React and use the built-in version.
+// TODO: upgrade Réac and use the built-in version.
 function use(promise) {
   if (promise.status === 'fulfilled') {
     return promise.value;
@@ -2383,13 +2383,13 @@ function fetchConf(slug) {
         resolve({
           id: 0,
           cover: reactConf2021Cover,
-          name: 'React Conf 2021',
+          name: 'Réac Conf 2021',
         });
       } else if (slug === 'react-conf-2019') {
         resolve({
           id: 1,
           cover: reactConf2019Cover,
-          name: 'React Conf 2019',
+          name: 'Réac Conf 2019',
         });
       }
     }, loadConfDelay);
@@ -2408,8 +2408,8 @@ function fetchTalks(confId) {
         resolve([
           {
             id: 'conf-2021-0',
-            title: 'Keynote React 18',
-            description: 'L’équipe React',
+            title: 'Keynote Réac 18',
+            description: 'L’équipe Réac',
             url: 'https://www.youtube.com/watch?v=FZ0cG47msEk&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=1',
             image: {
               speakers: [
@@ -2422,7 +2422,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-1',
-            title: 'React 18 for App Developers',
+            title: 'Réac 18 for App Developers',
             description: 'Shruti Kapoor',
             url: 'https://www.youtube.com/watch?v=ytudH8je5ko&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=2',
             image: {
@@ -2440,7 +2440,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-3',
-            title: 'The First React Working Group',
+            title: 'The First Réac Working Group',
             description: 'Aakansha Doshi',
             url: 'https://www.youtube.com/watch?v=qn7gRClrC9U&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=4',
             image: {
@@ -2449,7 +2449,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-4',
-            title: 'React Developer Tooling',
+            title: 'Réac Developer Tooling',
             description: 'Brian Vaughn',
             url: 'https://www.youtube.com/watch?v=oxDfrke8rZg&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=5',
             image: {
@@ -2458,7 +2458,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-5',
-            title: 'React without memo',
+            title: 'Réac without memo',
             description: 'Xuan Huang (黄玄)',
             url: 'https://www.youtube.com/watch?v=lGEMwh32soc&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=6',
             image: {
@@ -2467,7 +2467,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-6',
-            title: 'React Docs Keynote',
+            title: 'Réac Docs Keynote',
             description: 'Rachel Nabors',
             url: 'https://www.youtube.com/watch?v=mneDaMYOKP8&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=7',
             image: {
@@ -2476,7 +2476,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-7',
-            title: 'Things I Learnt from the New React Docs',
+            title: 'Things I Learnt from the New Réac Docs',
             description: "Debbie O'Brien",
             url: 'https://www.youtube.com/watch?v=-7odLW_hG7s&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=8',
             image: {
@@ -2494,7 +2494,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-9',
-            title: 'The ROI of Designing with React',
+            title: 'The ROI of Designing with Réac',
             description: 'Linton Ye',
             url: 'https://www.youtube.com/watch?v=7cPWmID5XAk&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=10',
             image: {
@@ -2503,7 +2503,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-10',
-            title: 'Interactive Playgrounds with React',
+            title: 'Interactive Playgrounds with Réac',
             description: 'Delba de Oliveira',
             url: 'https://www.youtube.com/watch?v=zL8cz2W0z34&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=11',
             image: {
@@ -2521,7 +2521,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-12',
-            title: 'React Native Desktop',
+            title: 'Réac Native Desktop',
             description: 'Eric Rozell and Steven Moyes',
             url: 'https://www.youtube.com/watch?v=9L4FFrvwJwY&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=13',
             image: {
@@ -2533,7 +2533,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-13',
-            title: 'On-device Machine Learning for React Native',
+            title: 'On-device Machine Learning for Réac Native',
             description: 'Roman Rädle',
             url: 'https://www.youtube.com/watch?v=NLj73vrc2I8&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=14',
             image: {
@@ -2542,7 +2542,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-14',
-            title: 'React 18 for External Store Libraries',
+            title: 'Réac 18 for External Store Libraries',
             description: 'Daishi Kato',
             url: 'https://www.youtube.com/watch?v=oPfSC5bQPR8&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=15',
             image: {
@@ -2551,7 +2551,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-15',
-            title: 'Building Accessible Components with React 18',
+            title: 'Building Accessible Components with Réac 18',
             description: 'Diego Haz',
             url: 'https://www.youtube.com/watch?v=dcm8fjBfro8&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=16',
             image: {
@@ -2560,7 +2560,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-16',
-            title: 'Accessible Japanese Form Components with React',
+            title: 'Accessible Japanese Form Components with Réac',
             description: 'Tafu Nakazaki',
             url: 'https://www.youtube.com/watch?v=S4a0QlsH0pU&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=17',
             image: {
@@ -2578,7 +2578,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-18',
-            title: 'Hydrogen + React 18',
+            title: 'Hydrogen + Réac 18',
             description: 'Helen Lin',
             url: 'https://www.youtube.com/watch?v=HS6vIYkSNks&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=19',
             image: {
@@ -2608,7 +2608,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-2',
-            title: 'Building The New Facebook With React and Relay (Partie 1)',
+            title: 'Building The New Facebook With Réac and Relay (Partie 1)',
             description: 'Frank Yan',
             url: 'https://www.youtube.com/watch?v=9JZHodNR184&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=3',
             image: {
@@ -2617,7 +2617,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-3',
-            title: 'Building The New Facebook With React and Relay (Partie 2)',
+            title: 'Building The New Facebook With Réac and Relay (Partie 2)',
             description: 'Ashley Watkins',
             url: 'https://www.youtube.com/watch?v=KT3XKDBZW7M&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=4',
             image: {
@@ -2626,7 +2626,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-4',
-            title: 'How Our Team Is Using React Native to Save The World',
+            title: 'How Our Team Is Using Réac Native to Save The World',
             description: 'Tania Papazafeiropoulou',
             url: 'https://www.youtube.com/watch?v=zVHWugBPGBE&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=5',
             image: {
@@ -2645,7 +2645,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-6',
-            title: 'Building a Custom React Renderer',
+            title: 'Building a Custom Réac Renderer',
             description: 'Sophie Alpert',
             url: 'https://www.youtube.com/watch?v=CGpMlWVcHok&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=7',
             image: {
@@ -2654,7 +2654,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-7',
-            title: 'Is React Translated Yet?',
+            title: 'Is Réac Translated Yet?',
             description: 'Nat Alison',
             url: 'https://www.youtube.com/watch?v=lLE4Jqaek5k&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=12',
             image: {
@@ -2684,7 +2684,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-10',
-            title: 'The State of React State in 2019',
+            title: 'The State of Réac State in 2019',
             description: 'Becca Bailey',
             url: 'https://www.youtube.com/watch?v=wUMMUyQtMSg&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=15',
             image: {
@@ -2702,7 +2702,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-12',
-            title: 'React Developer Tooling',
+            title: 'Réac Developer Tooling',
             description: 'Brian Vaughn',
             url: 'https://www.youtube.com/watch?v=Mjrfb1r3XEM&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=17',
             image: {
@@ -2729,7 +2729,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-15',
-            title: 'React Is Fiction',
+            title: 'Réac Is Fiction',
             description: 'Jenn Creighton',
             url: 'https://www.youtube.com/watch?v=kqh4lz2Lkzs&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=20',
             image: {
@@ -2757,7 +2757,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-18',
-            title: 'Building React-Select',
+            title: 'Building Réac-Select',
             description: 'Jed Watson',
             url: 'https://www.youtube.com/watch?v=yS0jUnmBujE&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=25',
             image: {
@@ -2766,7 +2766,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-19',
-            title: 'Promoting Transparency in Government Spending with React',
+            title: 'Promoting Transparency in Government Spending with Réac',
             description: 'Lizzie Salita',
             url: 'https://www.youtube.com/watch?v=CVfXICcNfHE&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=26',
             image: {
@@ -2775,7 +2775,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-20',
-            title: 'Wonder-driven Development: Using React to Make a Spaceship',
+            title: 'Wonder-driven Development: Using Réac to Make a Spaceship',
             description: 'Alex Anderson',
             url: 'https://www.youtube.com/watch?v=aV0uOPWHKt4&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=27',
             image: {

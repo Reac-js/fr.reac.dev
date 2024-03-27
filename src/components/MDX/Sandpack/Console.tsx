@@ -119,7 +119,7 @@ export const SandpackConsole = ({visible}: {visible: boolean}) => {
                 typeof consoleData.data[0] === 'string' &&
                 consoleData.data[0].indexOf('The above error occurred') !== -1
               ) {
-                // Don't show React error addendum because
+                // Don't show Réac error addendum because
                 // we have a custom error overlay.
                 return false;
               }

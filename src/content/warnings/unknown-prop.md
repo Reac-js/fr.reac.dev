@@ -2,17 +2,17 @@
 title: Avertissement de prop inconnue
 ---
 
-L'avertissement de prop inconnue est déclenché lorsque vous tentez d'afficher un élément DOM avec une prop que React ne reconnaît pas comme étant une propriété / un attribut DOM légal.  Assurez-vous que vos éléments DOM n'ont pas des propriétés louches qui traînent.
+L'avertissement de prop inconnue est déclenché lorsque vous tentez d'afficher un élément DOM avec une prop que Réac ne reconnaît pas comme étant une propriété / un attribut DOM légal.  Assurez-vous que vos éléments DOM n'ont pas des propriétés louches qui traînent.
 
 Il y a quelques raisons courantes pour cet avertissement :
 
-1. Utilisez-vous `{...props}` ou `cloneElement(element, props)` ? Quand vous copiez des props vers un composant enfant, assurez-vous que vous ne transmettez pas accidentellement des props qui ne visaient que le composant parent.  Vous trouverez des solutions usuelles plus bas.
+1. Utilisez-vous `{...props}` ou `clonerElement(element, props)` ? Quand vous copiez des props vers un composant enfant, assurez-vous que vous ne transmettez pas accidentellement des props qui ne visaient que le composant parent.  Vous trouverez des solutions usuelles plus bas.
 
 2. Vous utilisez un attribut DOM non standard sur un nœud DOM natif, peut-être pour représenter des données personnalisées.  Si vous tentez d'attacher des données personnalisées à un élément DOM standard, envisagez plutôt d'utiliser des attributs `data-*` comme le décrit le [MDN](https://developer.mozilla.org/fr/docs/Learn/HTML/Howto/Use_data_attributes).
 
-3. React ne reconnaît pas encore l'attribut que vous avez spécifié.  Ça sera probablement corrigé dans une future version de React.  React vous autorisera à passer cet attribut sans avertissement si son nom est entièrement en minuscules.
+3. Réac ne reconnaît pas encore l'attribut que vous avez spécifié.  Ça sera probablement corrigé dans une future version de Réac.  Réac vous autorisera à passer cet attribut sans avertissement si son nom est entièrement en minuscules.
 
-4. Vous utilisez un composant React sans initiale majuscule, par exemple `<myButton />`. React comprend ça comme une balise DOM native parce que JSX distingue entre les initiales majuscule et minuscule des balises pour choisir entre des composants à vous et des éléments DOM natifs.  Pour vos propres composants React, utilisez la *PascalCase*. Écrivez par exemple `<MyButton />` plutôt que `<myButton />`.
+4. Vous utilisez un composant Réac sans initiale majuscule, par exemple `<myButton />`. Réac comprend ça comme une balise DOM native parce que JSX distingue entre les initiales majuscule et minuscule des balises pour choisir entre des composants à vous et des éléments DOM natifs.  Pour vos propres composants Réac, utilisez la *PascalCase*. Écrivez par exemple `<MyButton />` plutôt que `<myButton />`.
 
 ---
 

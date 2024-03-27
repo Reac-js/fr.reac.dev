@@ -8,8 +8,8 @@ title: createPortal
 
 ```js
 <div>
-  <SomeComponent />
-  {createPortal(children, domNode, key?)}
+  <SomeComposant />
+  {createPortal(Enfants, domNode, key?)}
 </div>
 ```
 
@@ -21,12 +21,12 @@ title: createPortal
 
 ## Référence {/*reference*/}
 
-### `createPortal(children, domNode, key?)` {/*createportal*/}
+### `createPortal(Enfants, domNode, key?)` {/*createportal*/}
 
 Pour créer un portail, appelez `createPortal`, en passant du JSX et le nœud DOM où il doit être affiché :
 
 ```js
-import { createPortal } from 'react-dom';
+import { createPortal } from 'Réac-dom';
 
 // ...
 
@@ -41,11 +41,11 @@ import { createPortal } from 'react-dom';
 
 [Voir plus d'exemples ci-dessous](#usage).
 
-Un portail ne change que l'emplacement physique du nœud DOM. Pour tous les autres aspects, le JSX que vous placez dans un portail agit comme un nœud enfant du composant React qui l'affiche. Par exemple, l'enfant peut accéder au contexte fourni par l'arbre parent, et les événements remontent des enfants vers les parents selon l'arbre React.
+Un portail ne change que l'emplacement physique du nœud DOM. Pour tous les autres aspects, le JSX que vous placez dans un portail agit comme un nœud enfant du composant Réac qui l'affiche. Par exemple, l'enfant peut accéder au contexte fourni par l'arbre parent, et les événements remontent des enfants vers les parents selon l'arbre Réac.
 
 #### Paramètres {/*parameters*/}
 
-* `children` : quelque chose qui peut être affiché avec React, comme un morceau de JSX (par exemple `<div />` ou `<SomeComponent />`), un [Fragment](/reference/react/Fragment) (`<>...</>`), une chaîne de caractères ou un nombre, ou un tableau de tout ça.
+* `Enfants` : quelque chose qui peut être affiché avec Réac, comme un morceau de JSX (par exemple `<div />` ou `<SomeComposant />`), un [Fragment](/reference/Réac/Fragment) (`<>...</>`), une chaîne de caractères ou un nombre, ou un tableau de tout ça.
 
 * `domNode`: un nœud DOM, comme ceux retournés par `document.getElementById()`. Le nœud doit déjà exister. Passer un nœud DOM différent lors d'une mise à jour entraînera la recréation du contenu du portail.
 
@@ -53,11 +53,11 @@ Un portail ne change que l'emplacement physique du nœud DOM. Pour tous les autr
 
 #### Valeur renvoyée {/*returns*/}
 
-`createPortal` renvoie un nœud React qui peut être inclus dans le JSX ou renvoyé par un composant React. Si React le voit dans la sortie de l'affichage, il placera les `children` fournis à l'intérieur du `domNode` fourni.
+`createPortal` renvoie un nœud Réac qui peut être inclus dans le JSX ou renvoyé par un composant Réac. Si Réac le voit dans la sortie de l'affichage, il placera les `Enfants` fournis à l'intérieur du `domNode` fourni.
 
 #### Limitations {/*caveats*/}
 
-* Les événements des portails se propagent en suivant l'arbre React, plutôt que l'arbre du DOM. Par exemple, si vous cliquez à l'intérieur d'un portail, et que le portail est situé dans une `<div onClick>`, ce gestionnaire `onClick` sera déclenché. Si ça pose des problèmes, arrêtez la propagation de l'événement à l'intérieur du portail, ou déplacez le portail lui-même plus haut dans l'arbre React.
+* Les événements des portails se propagent en suivant l'arbre Réac, plutôt que l'arbre du DOM. Par exemple, si vous cliquez à l'intérieur d'un portail, et que le portail est situé dans une `<div onClick>`, ce gestionnaire `onClick` sera déclenché. Si ça pose des problèmes, arrêtez la propagation de l'événement à l'intérieur du portail, ou déplacez le portail lui-même plus haut dans l'arbre Réac.
 
 ---
 
@@ -70,9 +70,9 @@ Les *portails* permettent à vos composants d'afficher certains de leurs enfants
 Pour créer un portail, affichez le résultat de `createPortal` avec <CodeStep step={1}>du JSX</CodeStep> et le <CodeStep step={2}>nœud DOM où il doit aller</CodeStep> :
 
 ```js [[1, 8, "<p>Cet enfant est placé dans le corps du document.</p>"], [2, 9, "document.body"]]
-import { createPortal } from 'react-dom';
+import { createPortal } from 'Réac-dom';
 
-function MyComponent() {
+function MyComposant() {
   return (
     <div style={{ border: '2px solid black' }}>
       <p>Cet enfant est placé dans la div parente.</p>
@@ -85,16 +85,16 @@ function MyComponent() {
 }
 ```
 
-React placera les nœuds DOM résultant du <CodeStep step={1}>JSX que vous avez passé</CodeStep> à l'intérieur du <CodeStep step={2}>nœud DOM que vous avez fourni</CodeStep>.
+Réac placera les nœuds DOM résultant du <CodeStep step={1}>JSX que vous avez passé</CodeStep> à l'intérieur du <CodeStep step={2}>nœud DOM que vous avez fourni</CodeStep>.
 
 Sans portail, le second `<p>` serait placé à l'intérieur de la `<div>` parente, mais le portail l'a "téléporté" dans le [`document.body`](https://developer.mozilla.org/fr/docs/Web/API/Document/body) :
 
 <Sandpack>
 
 ```js
-import { createPortal } from 'react-dom';
+import { createPortal } from 'Réac-dom';
 
-export default function MyComponent() {
+export default function MyComposant() {
   return (
     <div style={{ border: '2px solid black' }}>
       <p>Cet enfant est placé dans la div parente.</p>
@@ -124,7 +124,7 @@ Observez comment le second paragraphe apparaît visuellement en-dehors de la `<d
 </body>
 ```
 
-Un portail ne change que l'emplacement physique du nœud DOM. Pour tous les autres aspects, le JSX que vous placez dans un portail agit comme un nœud enfant du composant React qui l'affiche. Par exemple, l'enfant peut accéder au contexte fourni par l'arbre parent, et les événements remontent des enfants vers les parents selon l'arbre React.
+Un portail ne change que l'emplacement physique du nœud DOM. Pour tous les autres aspects, le JSX que vous placez dans un portail agit comme un nœud enfant du composant Réac qui l'affiche. Par exemple, l'enfant peut accéder au contexte fourni par l'arbre parent, et les événements remontent des enfants vers les parents selon l'arbre Réac.
 
 ---
 
@@ -155,11 +155,11 @@ export default function App() {
 ```
 
 ```js src/NoPortalExample.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ModalContent from './ModalContent.js';
 
 export default function NoPortalExample() {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShowModal(true)}>
@@ -174,12 +174,12 @@ export default function NoPortalExample() {
 ```
 
 ```js src/PortalExample.js active
-import { useState } from 'react';
-import { createPortal } from 'react-dom';
+import { utiliserEtat } from 'Réac';
+import { createPortal } from 'Réac-dom';
 import ModalContent from './ModalContent.js';
 
 export default function PortalExample() {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShowModal(true)}>
@@ -245,9 +245,9 @@ Suivez les [bonnes pratiques WAI-ARIA de création de modales](https://www.w3.or
 
 ---
 
-### Afficher des composants React dans un balisage non-React issu du serveur {/*rendering-react-components-into-non-react-server-markup*/}
+### Afficher des composants Réac dans un balisage non-Réac issu du serveur {/*renderingreaccomposants-into-nonreacserver-markup*/}
 
-Les portails peuvent vous être utiles si votre racine React n'est qu'une partie d'une page statique ou produite côté serveur qui n'est pas construite avec React. Par exemple, si votre page est construite avec un framework côté serveur comme Rails, vous pouvez créer des zones d'interactivité dans des emplacements statiques telles que des barres latérales. Par rapport à l'utilisation de [plusieurs racines React séparées](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react), les portails vous permettent de traiter l'application comme un seul arbre React avec un état partagé, même si ses parties sont  affichées dans différentes parties du DOM.
+Les portails peuvent vous être utiles si votre racine Réac n'est qu'une partie d'une page statique ou produite côté serveur qui n'est pas construite avec Réac. Par exemple, si votre page est construite avec un framework côté serveur comme Rails, vous pouvez créer des zones d'interactivité dans des emplacements statiques telles que des barres latérales. Par rapport à l'utilisation de [plusieurs racines Réac séparées](/reference/Réac-dom/client/createRoot#rendering-a-page-partially-built-with-Réac), les portails vous permettent de traiter l'application comme un seul arbre Réac avec un état partagé, même si ses parties sont  affichées dans différentes parties du DOM.
 
 <Sandpack>
 
@@ -259,7 +259,7 @@ Les portails peuvent vous être utiles si votre racine React n'est qu'une partie
     <h1>Bienvenue dans mon appli hybride</h1>
     <div class="parent">
       <div class="sidebar">
-        Ceci est un balisage serveur n'appartenant pas à React.
+        Ceci est un balisage serveur n'appartenant pas à Réac.
         <div id="sidebar-content"></div>
       </div>
       <div id="root"></div>
@@ -269,21 +269,21 @@ Les portails peuvent vous être utiles si votre racine React n'est qu'une partie
 ```
 
 ```js src/index.js
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { ModeStrict } from 'Réac';
+import { createRoot } from 'Réac-dom/client';
 import App from './App.js';
 import './styles.css';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <StrictMode>
+  <ModeStrict>
     <App />
-  </StrictMode>
+  </ModeStrict>
 );
 ```
 
 ```js src/App.js active
-import { createPortal } from 'react-dom';
+import { createPortal } from 'Réac-dom';
 
 const sidebarContentEl = document.getElementById('sidebar-content');
 
@@ -300,11 +300,11 @@ export default function App() {
 }
 
 function MainContent() {
-  return <p>Cette partie est affichée par React</p>;
+  return <p>Cette partie est affichée par Réac</p>;
 }
 
 function SidebarContent() {
-  return <p>Cette partie est aussi affichée par React !</p>;
+  return <p>Cette partie est aussi affichée par Réac !</p>;
 }
 ```
 
@@ -341,18 +341,18 @@ p {
 
 ---
 
-### Afficher des composants React dans des nœuds DOM qui ne sont pas gérés par React {/*rendering-react-components-into-non-react-dom-nodes*/}
+### Afficher des composants Réac dans des nœuds DOM qui ne sont pas gérés par Réac {/*renderingreaccomposants-into-nonreacdom-nodes*/}
 
-Vous pouvez aussi utiliser un portail pour gérer le contenu d'un nœud DOM géré en-dehors de React. Par exemple, supposons que vous intégriez un widget de carte réalisé sans React et que vous souhaitiez afficher du contenu React dans une *popup*. Pour ce faire, déclarez une variable d'état `popupContainer` pour stocker le nœud DOM dans lequel vous allez effectuer l'affichage :
+Vous pouvez aussi utiliser un portail pour gérer le contenu d'un nœud DOM géré en-dehors de Réac. Par exemple, supposons que vous intégriez un widget de carte réalisé sans Réac et que vous souhaitiez afficher du contenu Réac dans une *popup*. Pour ce faire, déclarez une variable d'état `popupContainer` pour stocker le nœud DOM dans lequel vous allez effectuer l'affichage :
 
 ```js
-const [popupContainer, setPopupContainer] = useState(null);
+const [popupContainer, setPopupContainer] = utiliserEtat(null);
 ```
 
 Lorsque vous créez le widget tiers, stockez le nœud DOM renvoyé par le widget afin de pouvoir y afficher du contenu par la suite :
 
 ```js {5-6}
-useEffect(() => {
+utiliserEffet(() => {
   if (mapRef.current === null) {
     const map = createMapWidget(containerRef.current);
     mapRef.current = map;
@@ -362,13 +362,13 @@ useEffect(() => {
 }, []);
 ```
 
-Ça vous permet d'utiliser `createPortal` pour afficher du contenu React dans `popupContainer` une fois qu'il est disponible :
+Ça vous permet d'utiliser `createPortal` pour afficher du contenu Réac dans `popupContainer` une fois qu'il est disponible :
 
 ```js {3-6}
 return (
   <div style={{ width: 250, height: 250 }} ref={containerRef}>
     {popupContainer !== null && createPortal(
-      <p>Bonjour depuis React !</p>,
+      <p>Bonjour depuis Réac !</p>,
       popupContainer
     )}
   </div>
@@ -383,31 +383,31 @@ Voici un exemple complet avec lequel vous pouvez jouer :
 {
   "dependencies": {
     "leaflet": "1.9.1",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "remarkable": "2.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js src/App.js
-import { useRef, useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { utiliserReference, utiliserEffet, utiliserEtat } from 'Réac';
+import { createPortal } from 'Réac-dom';
 import { createMapWidget, addPopupToMapWidget } from './map-widget.js';
 
 export default function Map() {
-  const containerRef = useRef(null);
-  const mapRef = useRef(null);
-  const [popupContainer, setPopupContainer] = useState(null);
+  const containerRef = utiliserReference(null);
+  const mapRef = utiliserReference(null);
+  const [popupContainer, setPopupContainer] = utiliserEtat(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (mapRef.current === null) {
       const map = createMapWidget(containerRef.current);
       mapRef.current = map;
@@ -419,7 +419,7 @@ export default function Map() {
   return (
     <div style={{ width: 250, height: 250 }} ref={containerRef}>
       {popupContainer !== null && createPortal(
-        <p>Bonjour depuis React !</p>,
+        <p>Bonjour depuis Réac !</p>,
         popupContainer
       )}
     </div>
@@ -442,7 +442,7 @@ export function createMapWidget(containerDomNode) {
 }
 
 export function addPopupToMapWidget(map) {
-  const popupDiv = document.createElement('div');
+  const popupDiv = document.creerElement('div');
   L.popup()
     .setLatLng([0, 0])
     .setContent(popupDiv)

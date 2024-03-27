@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-La fonction `preload` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de React. Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+La fonction `preload` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de Réac. Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
 <Note>
 
-[Les frameworks basés sur React](/learn/start-a-new-react-project) s'occupent fréquemment pour vous du chargement des ressources, de sorte que vous n'aurez peut-être pas besoin d'appeler ces API vous-même.  Consultez la documentation de votre framework pour en savoir plus à ce sujet.
+[Les frameworks basés sur Réac](/learn/start-a-newreacproject) s'occupent fréquemment pour vous du chargement des ressources, de sorte que vous n'aurez peut-être pas besoin d'appeler ces API vous-même.  Consultez la documentation de votre framework pour en savoir plus à ce sujet.
 
 </Note>
 
@@ -33,10 +33,10 @@ preload("https://example.com/font.woff2", { as: "font" });
 
 ### `preload(href, options)` {/*preload*/}
 
-Pour précharger une ressource, appelez la fonction `preload` de `react-dom`.
+Pour précharger une ressource, appelez la fonction `preload` de `Réac-dom`.
 
 ```js
-import { preload } from 'react-dom';
+import { preload } from 'Réac-dom';
 
 function AppRoot() {
   preload("https://example.com/font.woff2", { as: "font" });
@@ -54,7 +54,7 @@ La fonction `preload` suggère au navigateur de commencer à télécharger une r
 * `href` : une chaîne de caractères. L'URL de la ressource que vous souhaitez télécharger.
 * `options` : un objet. Il contient les propriétés suivantes :
   *  `as` : une chaîne de caractères obligatoire. Le type de la ressource. Les [valeurs possibles](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#as) sont `audio`, `document`, `embed`, `fetch`, `font`, `image`, `object`, `script`, `style`, `track`, `video` et `worker`.
-  * `precedence` : une chaîne de caractères. Indique à React où placer le nœud DOM `<style>` par rapport aux autres présents dans le `<head>` du document, ce qui détermine quelle feuille de styles a priorité sur quelle autre. La valeur peut être (par ordre de précédence) `"reset"`, `"low"`, `"medium"` ou `"high"`.
+  * `precedence` : une chaîne de caractères. Indique à Réac où placer le nœud DOM `<style>` par rapport aux autres présents dans le `<head>` du document, ce qui détermine quelle feuille de styles a priorité sur quelle autre. La valeur peut être (par ordre de précédence) `"reset"`, `"low"`, `"medium"` ou `"high"`.
   *  `crossOrigin` : une chaîne de caractères. La [politique CORS](https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/crossorigin) à utiliser. Les valeurs possibles sont `anonymous` et `use-credentials`.  Elle est obligatoire lorsque `as` vaut `"fetch"`.
   *  `referrerPolicy` : une chaîne de caractères. [L'en-tête Referrer](https://developer.mozilla.org/fr/docs/Web/HTML/Element/link#referrerpolicy) à envoyer lors du chargement. Les valeurs possibles sont `no-referrer-when-downgrade` (par défaut), `no-referrer`, `origin`, `origin-when-cross-origin` ou `unsafe-url`.
   * `integrity` : une chaîne de caractères. Une empreinte cryptographique de la ressource afin de [vérifier son authenticité](https://developer.mozilla.org/fr/docs/Web/Security/Subresource_Integrity).
@@ -89,7 +89,7 @@ Appelez `preload` lors du rendu d'un composant si vous savez que ses enfants aur
 #### Précharger un script {/*preloading-an-external-script*/}
 
 ```js
-import { preload } from 'react-dom';
+import { preload } from 'Réac-dom';
 
 function AppRoot() {
   preload("https://example.com/script.js", { as: "script" });
@@ -97,14 +97,14 @@ function AppRoot() {
 }
 ```
 
-Si vous souhaitez que le navigateur évalue la ressource immédiatement après chargement (plutôt que simplement le charger), utilisez plutôt [`preinit`](/reference/react-dom/preinit). Si vous souhaitez charger un module ESM, utilisez [`preloadModule`](/reference/react-dom/preloadModule).
+Si vous souhaitez que le navigateur évalue la ressource immédiatement après chargement (plutôt que simplement le charger), utilisez plutôt [`preinit`](/reference/Réac-dom/preinit). Si vous souhaitez charger un module ESM, utilisez [`preloadModule`](/reference/Réac-dom/preloadModule).
 
 <Solution />
 
 #### Précharger une feuille de styles {/*preloading-a-stylesheet*/}
 
 ```js
-import { preload } from 'react-dom';
+import { preload } from 'Réac-dom';
 
 function AppRoot() {
   preload("https://example.com/style.css", { as: "style" });
@@ -112,14 +112,14 @@ function AppRoot() {
 }
 ```
 
-Si vous souhaitez que le navigateur insère la feuille de styles immédiatement après chargement (c'est-à-dire qu'il la parse et l'applique aussi), utilisez plutôt [`preinit`](/reference/react-dom/preinit).
+Si vous souhaitez que le navigateur insère la feuille de styles immédiatement après chargement (c'est-à-dire qu'il la parse et l'applique aussi), utilisez plutôt [`preinit`](/reference/Réac-dom/preinit).
 
 <Solution />
 
 #### Précharger une fonte {/*preloading-a-font*/}
 
 ```js
-import { preload } from 'react-dom';
+import { preload } from 'Réac-dom';
 
 function AppRoot() {
   preload("https://example.com/style.css", { as: "style" });
@@ -135,7 +135,7 @@ Si vous préchargez une feuille de styles, il est souhaitable de précharger tou
 #### Précharger une image {/*preloading-an-image*/}
 
 ```js
-import { preload } from 'react-dom';
+import { preload } from 'Réac-dom';
 
 function AppRoot() {
   preload("/banner.png", {
@@ -158,7 +158,7 @@ Lorsque vous préchargez une image, les options `imageSrcSet` et `imageSizes` ai
 Appelez `preload` depuis un gestionnaire d'événement avant de passer à une page ou un état qui auront besoin de ressources extérieures.  Ça permet de déclencher le processus plus tôt que si vous l'appeliez au sein de la nouvelle page ou suite au nouvel état.
 
 ```js
-import { preload } from 'react-dom';
+import { preload } from 'Réac-dom';
 
 function CallToAction() {
   const onClick = () => {

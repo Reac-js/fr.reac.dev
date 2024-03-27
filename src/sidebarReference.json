@@ -11,78 +11,68 @@
       "path": "/reference/react"
     },
     {
-      "title": "Hooks",
-      "path": "/reference/react/hooks",
+      "title": "Crochets",
+      "path": "/reference/react/crochets",
       "routes": [
         {
-          "title": "use",
-          "path": "/reference/react/use",
-          "canary": true
+          "title": "utiliserRappel",
+          "path": "/reference/react/utiliserRappel"
         },
         {
-          "title": "useCallback",
-          "path": "/reference/react/useCallback"
+          "title": "utiliserContexte",
+          "path": "/reference/react/utiliserContexte"
         },
         {
-          "title": "useContext",
-          "path": "/reference/react/useContext"
+          "title": "utiliserValeurDebogage",
+          "path": "/reference/react/utiliserValeurDebogage"
         },
         {
-          "title": "useDebugValue",
-          "path": "/reference/react/useDebugValue"
+          "title": "utiliserValeurRetardee",
+          "path": "/reference/react/utiliserValeurRetardee"
         },
         {
-          "title": "useDeferredValue",
-          "path": "/reference/react/useDeferredValue"
+          "title": "utiliserEffet",
+          "path": "/reference/react/utiliserEffet"
         },
         {
-          "title": "useEffect",
-          "path": "/reference/react/useEffect"
+          "title": "utiliserId",
+          "path": "/reference/react/utiliserId"
         },
         {
-          "title": "useId",
-          "path": "/reference/react/useId"
+          "title": "utiliserPoigneeImperative",
+          "path": "/reference/react/utiliserPoigneeImperative"
         },
         {
-          "title": "useImperativeHandle",
-          "path": "/reference/react/useImperativeHandle"
+          "title": "utiliserEffetInsertion",
+          "path": "/reference/react/utiliserEffetInsertion"
         },
         {
-          "title": "useInsertionEffect",
-          "path": "/reference/react/useInsertionEffect"
+          "title": "utiliserEffetMiseEnPage",
+          "path": "/reference/react/utiliserEffetMiseEnPage"
         },
         {
-          "title": "useLayoutEffect",
-          "path": "/reference/react/useLayoutEffect"
+          "title": "utiliserMemoire",
+          "path": "/reference/react/utiliserMemoire"
         },
         {
-          "title": "useMemo",
-          "path": "/reference/react/useMemo"
+          "title": "utiliserReducteur",
+          "path": "/reference/react/utiliserReducteur"
         },
         {
-          "title": "useOptimistic",
-          "path": "/reference/react/useOptimistic",
-          "canary": true
+          "title": "utiliserReference",
+          "path": "/reference/react/utiliserReference"
         },
         {
-          "title": "useReducer",
-          "path": "/reference/react/useReducer"
+          "title": "utiliserEtat",
+          "path": "/reference/react/utiliserEtat"
         },
         {
-          "title": "useRef",
-          "path": "/reference/react/useRef"
+          "title": "utiliserSynchroniserStockageExterne",
+          "path": "/reference/react/utiliserSynchroniserStockageExterne"
         },
         {
-          "title": "useState",
-          "path": "/reference/react/useState"
-        },
-        {
-          "title": "useSyncExternalStore",
-          "path": "/reference/react/useSyncExternalStore"
-        },
-        {
-          "title": "useTransition",
-          "path": "/reference/react/useTransition"
+          "title": "utiliserTransition",
+          "path": "/reference/react/utiliserTransition"
         }
       ]
     },
@@ -113,56 +103,24 @@
       "path": "/reference/react/apis",
       "routes": [
         {
-          "title": "cache",
-          "path": "/reference/react/cache",
-          "canary": true
+          "title": "creerContexte",
+          "path": "/reference/react/creerContexte"
         },
         {
-          "title": "createContext",
-          "path": "/reference/react/createContext"
+          "title": "avancerReference",
+          "path": "/reference/react/avancerReference"
         },
         {
-          "title": "forwardRef",
-          "path": "/reference/react/forwardRef"
+          "title": "paresseux",
+          "path": "/reference/react/paresseux"
         },
         {
-          "title": "lazy",
-          "path": "/reference/react/lazy"
+          "title": "memoire",
+          "path": "/reference/react/memoire"
         },
         {
-          "title": "memo",
-          "path": "/reference/react/memo"
-        },
-        {
-          "title": "startTransition",
-          "path": "/reference/react/startTransition"
-        },
-        {
-          "title": "experimental_taintObjectReference",
-          "path": "/reference/react/experimental_taintObjectReference",
-          "canary": true
-        },
-        {
-          "title": "experimental_taintUniqueValue",
-          "path": "/reference/react/experimental_taintUniqueValue",
-          "canary": true
-        }
-      ]
-    },
-    {
-      "title": "Directives",
-      "path": "/reference/react/directives",
-      "canary": true,
-      "routes": [
-        {
-          "title": "'use client'",
-          "path": "/reference/react/use-client",
-          "canary": true
-        },
-        {
-          "title": "'use server'",
-          "path": "/reference/react/use-server",
-          "canary": true
+          "title": "demarrerTransition",
+          "path": "/reference/react/demarrerTransition"
         }
       ]
     },
@@ -171,7 +129,7 @@
       "sectionHeader": "react-dom@18.2.0"
     },
     {
-      "title": "Hooks",
+      "title": "Crochets",
       "path": "/reference/react-dom/hooks",
       "routes": [
         {
@@ -355,7 +313,7 @@
       "sectionHeader": "API historique"
     },
     {
-      "title": "API React historique",
+      "title": "API Réac historique",
       "path": "/reference/react/legacy",
       "routes": [
         {
@@ -363,28 +321,28 @@
           "path": "/reference/react/Children"
         },
         {
-          "title": "cloneElement",
-          "path": "/reference/react/cloneElement"
+          "title": "clonerElement",
+          "path": "/reference/react/clonerElement"
         },
         {
           "title": "Component",
           "path": "/reference/react/Component"
         },
         {
-          "title": "createElement",
-          "path": "/reference/react/createElement"
+          "title": "creerElement",
+          "path": "/reference/react/creerElement"
         },
         {
-          "title": "createFactory",
-          "path": "/reference/react/createFactory"
+          "title": "creerUsine",
+          "path": "/reference/react/creerUsine"
         },
         {
-          "title": "createRef",
-          "path": "/reference/react/createRef"
+          "title": "creerReference",
+          "path": "/reference/react/creerReference"
         },
         {
-          "title": "isValidElement",
-          "path": "/reference/react/isValidElement"
+          "title": "estUnElementValide",
+          "path": "/reference/react/estUnElementValide"
         },
         {
           "title": "PureComponent",

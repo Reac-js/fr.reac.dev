@@ -264,7 +264,7 @@ function getSyntaxHighlight(theme: any): HighlightStyle {
       class: classNameToken('definition'),
     },
     {
-      // Highlight function definition differently (eg: functional component def in React)
+      // Highlight function definition differently (eg: functional component def in Réac)
       tag: [tags.definition(tags.function(tags.variableName)), tags.tagName],
       class: classNameToken('definition'),
     },

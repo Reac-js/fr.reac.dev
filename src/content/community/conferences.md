@@ -1,187 +1,187 @@
 ---
-title: Conférences React
+title: Conférences Réac
 ---
 
 <Intro>
 
-Vous connaissez une conférence React.js locale ? Ajoutez-la ! (Merci de conserver un ordre chronologique dans chaque liste.)
+Vous connaissez une conférence Réac.js locale ? Ajoutez-la ! (Merci de conserver un ordre chronologique dans chaque liste.)
 
 </Intro>
 
 ## Conférences à venir {/*upcoming-conferences*/}
 
-### React Paris 2024 {/*react-paris-2024*/}
+### Réac Paris 2024 {/*réac-paris-2024*/}
 March 22, 2024. In-person in Paris, France + Remote (hybrid)
 
-[Site web](https://react.paris/) - [Twitter](https://twitter.com/BeJS_) - [LinkedIn](https://www.linkedin.com/events/7150816372074192900/comments/)
+[Site web](https://Réac.paris/) - [Twitter](https://twitter.com/BeJS_) - [LinkedIn](https://www.linkedin.com/events/7150816372074192900/comments/)
 
 ### Epic Web Conf 2024 {/*epic-web-2024*/}
 April 10 - 11, 2024. In-person in Park City, UT, USA
 
 [Site web](https://www.epicweb.dev/conf) - [YouTube](https://www.youtube.com/@EpicWebDev)
 
-### React Miami 2024 {/*react-miami-2024*/}
+### Réac Miami 2024 {/*réac-miami-2024*/}
 April 19 - 20, 2024. In-person in Miami, FL, USA
 
-[Site web](https://reactmiami.com/) - [Twitter](https://twitter.com/ReactMiamiConf)
+[Site web](https://Réacmiami.com/) - [Twitter](https://twitter.com/RéacMiamiConf)
 
-### React Connection 2024 {/*react-connection-2024*/}
+### Réac Connection 2024 {/*réac-connection-2024*/}
 April 22, 2024. In-person in Paris, France 
 
-[Site web](https://reactconnection.io/) - [Twitter](https://twitter.com/ReactConn)
+[Site web](https://Réacconnection.io/) - [Twitter](https://twitter.com/RéacConn)
 
-### React Native Connection 2024 {/*react-native-connection-2024*/}
+### Réac Native Connection 2024 {/*réac-native-connection-2024*/}
 April 23, 2024. In-person in Paris, France 
 
-[Site web](https://reactnativeconnection.io/) - [Twitter](https://twitter.com/ReactNativeConn)
+[Site web](https://Réacnativeconnection.io/) - [Twitter](https://twitter.com/RéacNativeConn)
 
-### React Conf 2024 {/*react-conf-2024*/}
+### Réac Conf 2024 {/*réac-conf-2024*/}
 May 15 - 16, 2024. In-person in Henderson, NV, USA + remote
 
-[Site web](https://conf.react.dev) - [Twitter](https://twitter.com/reactjs)
+[Site web](https://conf.Réac.dev) - [Twitter](https://twitter.com/Réacjs)
 
 ### App.js Conf 2024 {/*appjs-conf-2024*/}
 May 22 - 24, 2024. In-person in Kraków, Poland + remote
 
 [Site web](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
 
-### React Summit 2024 {/*react-summit-2024*/}
+### Réac Summit 2024 {/*réac-summit-2024*/}
 June 14 & 18, 2024. In-person in Amsterdam, Netherlands + remote (hybrid event)
 
-[Site web](https://reactsummit.com/) - [Twitter](https://twitter.com/reactsummit) - [Vidéos](https://portal.gitnation.org/)
+[Site web](https://Réacsummit.com/) - [Twitter](https://twitter.com/Réacsummit) - [Vidéos](https://portal.gitnation.org/)
 
 ### Render(ATL) 2024 🍑 {/*renderatl-2024-*/}
 June 12 - June 14, 2024. Atlanta, GA, USA
 
 [Site web](https://renderatl.com) - [Discord](https://www.renderatl.com/discord) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl) - [Podcast](https://www.renderatl.com/culture-and-code#/)
 
-### React Norway 2024 {/*react-norway-2024*/}
+### Réac Norway 2024 {/*réac-norway-2024*/}
 June 14, 2024. In-person at Farris Bad Hotel in Larvik, Norway and online (hybrid event).
 
-[Site web](https://reactnorway.com/) - [Twitter](https://twitter.com/ReactNorway)
+[Site web](https://Réacnorway.com/) - [Twitter](https://twitter.com/RéacNorway)
 
-### React Nexus 2024 {/*react-nexus-2024*/}
+### Réac Nexus 2024 {/*réac-nexus-2024*/}
 July 04 & 05, 2024. Bangalore, India (In-person event)
 
-[Site web](https://reactnexus.com/) - [Twitter](https://twitter.com/ReactNexus) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
+[Site web](https://Réacnexus.com/) - [Twitter](https://twitter.com/RéacNexus) - [Linkedin](https://www.linkedin.com/company/Réac-nexus) - [YouTube](https://www.youtube.com/Réacify_in)
 
-### Chain React 2024 {/*chain-react-2024*/}
+### Chain Réac 2024 {/*chainreac2024*/}
 July 17-19, 2024. In-person in Portland, OR, USA
 
-[Site web](https://chainreactconf.com) - [Twitter](https://twitter.com/ChainReactConf)
+[Site web](https://chainRéacconf.com) - [Twitter](https://twitter.com/ChainRéacConf)
 
 ### The Geek Conf 2024 {/*the-geek-conf-2024*/}
 July 25, 2024. In-person in Berlin, Germany + remote (hybrid event)
 
 [Site web](https://thegeekconf.com) - [Twitter](https://twitter.com/thegeekconf)
 
-### React Universe Conf 2024 {/*react-universe-conf-2024*/}
+### Réac Universe Conf 2024 {/*réac-universe-conf-2024*/}
 September 5-6, 2024. Wrocław, Poland.
 
-[Site web](https://www.reactuniverseconf.com/) - [Twitter](https://twitter.com/react_native_eu) - [LinkedIn](https://www.linkedin.com/events/reactuniverseconf7163919537074118657/)
+[Site web](https://www.Réacuniverseconf.com/) - [Twitter](https://twitter.com/Réac_native_eu) - [LinkedIn](https://www.linkedin.com/events/Réacuniverseconf7163919537074118657/)
 
-### React Alicante 2024 {/*react-alicante-2024*/}
+### Réac Alicante 2024 {/*réac-alicante-2024*/}
 September 19-21, 2024. Alicante, Spain.
 
-[Site web](https://reactalicante.es/) - [Twitter](https://twitter.com/ReactAlicante) - [YouTube](https://www.youtube.com/channel/UCaSdUaITU1Cz6PvC97A7e0w)
+[Site web](https://Réacalicante.es/) - [Twitter](https://twitter.com/RéacAlicante) - [YouTube](https://www.youtube.com/channel/UCaSdUaITU1Cz6PvC97A7e0w)
 
 
-### React India 2024 {/*react-india-2024*/}
+### Réac India 2024 {/*réac-india-2024*/}
 October 17 - 19, 2024. In-person in Goa, India (hybrid event) + Oct 15 2024 - remote day
 
-[Site web](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Youtube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
+[Site web](https://www.Réacindia.io) - [Twitter](https://twitter.com/Réac_india) - [Facebook](https://www.facebook.com/RéacJSIndia) - [Youtube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
 
 ## Conférences passées {/*past-conferences*/}
 
-### React Day Berlin 2023 {/*react-day-berlin-2023*/}
+### Réac Day Berlin 2023 {/*réac-day-berlin-2023*/}
 December 8 & 12, 2023. In-person in Berlin, Germany + remote first interactivity (hybrid event)
 
-[Site web](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Vidéos](https://portal.gitnation.org/events/react-day-berlin-2023)
+[Site web](https://Réacday.berlin) - [Twitter](https://twitter.com/Réacdayberlin) - [Facebook](https://www.facebook.com/Réacdayberlin/) - [Vidéos](https://portal.gitnation.org/events/Réac-day-berlin-2023)
 
-### React Summit US 2023 {/*react-summit-us-2023*/}
+### Réac Summit US 2023 {/*réac-summit-us-2023*/}
 November 13 & 15, 2023. In-person in New York, US + remote first interactivity (hybrid event)
 
-[Site web](https://reactsummit.us) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vidéos](https://portal.gitnation.org/events/react-summit-us-2023)
+[Site web](https://Réacsummit.us) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam) - [Vidéos](https://portal.gitnation.org/events/Réac-summit-us-2023)
 
-### reactjsday 2023 {/*reactjsday-2023*/}
+### Réacjsday 2023 {/*réacjsday-2023*/}
 October 27th 2023. In-person in Verona, Italy and online (hybrid event)
 
-[Site web](https://2023.reactjsday.it/) - [Twitter](https://twitter.com/reactjsday) - [Facebook](https://www.facebook.com/GrUSP/) - [YouTube](https://www.youtube.com/c/grusp)
+[Site web](https://2023.Réacjsday.it/) - [Twitter](https://twitter.com/Réacjsday) - [Facebook](https://www.facebook.com/GrUSP/) - [YouTube](https://www.youtube.com/c/grusp)
 
-### React Advanced 2023 {/*react-advanced-2023*/}
+### Réac Advanced 2023 {/*réac-advanced-2023*/}
 October 20 & 23, 2023. In-person in London, UK + remote first interactivity (hybrid event)
 
-[Site web](https://www.reactadvanced.com/) - [Twitter](https://twitter.com/ReactAdvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Vidéos](https://portal.gitnation.org/events/react-advanced-conference-2023)
+[Site web](https://www.Réacadvanced.com/) - [Twitter](https://twitter.com/RéacAdvanced) - [Facebook](https://www.facebook.com/RéacAdvanced) - [Vidéos](https://portal.gitnation.org/events/Réac-advanced-conference-2023)
 
-### React Brussels 2023 {/*react-brussels-2023*/}
+### Réac Brussels 2023 {/*réac-brussels-2023*/}
 October 13th 2023. In-person in Brussels, Belgium + Remote (hybrid)
 
-[Site web](https://www.react.brussels/) - [Twitter](https://twitter.com/BrusselsReact) - [Vidéos](https://www.youtube.com/playlist?list=PL53Z0yyYnpWh85KeMomUoVz8_brrmh_aC) 
+[Site web](https://www.Réac.brussels/) - [Twitter](https://twitter.com/BrusselsRéac) - [Vidéos](https://www.youtube.com/playlist?list=PL53Z0yyYnpWh85KeMomUoVz8_brrmh_aC) 
 
-### React India 2023 {/*react-india-2023*/}
+### Réac India 2023 {/*réac-india-2023*/}
 October 5 - 7, 2023. In-person in Goa, India (hybrid event) + Oct 3 2023 - remote day
 
-[Site web](https://www.reactindia.io) - [Twitter](https://x.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Youtube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
+[Site web](https://www.Réacindia.io) - [Twitter](https://x.com/Réac_india) - [Facebook](https://www.facebook.com/RéacJSIndia) - [Youtube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
 
 ### RenderCon Kenya 2023 {/*rendercon-kenya-2023*/}
 September 29 - 30, 2023. Nairobi, Kenya
 
 [Site web](https://rendercon.org/) - [Twitter](https://twitter.com/renderconke) - [LinkedIn](https://www.linkedin.com/company/renderconke/) - [YouTube](https://www.youtube.com/channel/UC0bCcG8gHUL4njDOpQGcMIA)
 
-### React Live 2023 {/*react-live-2023*/}
+### Réac Live 2023 {/*réac-live-2023*/}
 September 29, 2023. Amsterdam, Netherlands
 
-[Site web](https://reactlive.nl/)
+[Site web](https://Réaclive.nl/)
 
-### React Alicante 2023 {/*react-alicante-2023*/}
+### Réac Alicante 2023 {/*réac-alicante-2023*/}
 September 28 - 30, 2023. Alicante, Spain
 
-[Site web](https://reactalicante.es/) - [Twitter](https://twitter.com/reactalicante)
+[Site web](https://Réacalicante.es/) - [Twitter](https://twitter.com/Réacalicante)
 
 ### RedwoodJS Conference 2023 {/*redwoodjs-conference-2023*/}
 September 26 - 29, 2023. Grants Pass, Oregon + remote (hybrid event) 
 
 [Site web](https://www.redwoodjsconf.com/) - [Twitter](https://twitter.com/redwoodjs)
 
-### React Native EU 2023 {/*react-native-eu-2023*/}
+### Réac Native EU 2023 {/*réac-native-eu-2023*/}
 September 7 & 8, 2023. Wrocław, Poland
 
-[Site web](https://react-native.eu) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu)
+[Site web](https://Réac-native.eu) - [Twitter](https://twitter.com/Réac_native_eu) - [Facebook](https://www.facebook.com/Réacnativeeu)
 
-### React Rally 2023 🐙 {/*react-rally-2023*/}
+### Réac Rally 2023 🐙 {/*réac-rally-2023*/}
 August 17 & 18, 2023. Salt Lake City, UT, USA
 
-[Site web](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
+[Site web](https://www.Réacrally.com/) - [Twitter](https://twitter.com/RéacRally) - [Instagram](https://www.instagram.com/Réacrally/)
 
-### React Nexus 2023 {/*react-nexus-2023*/}
+### Réac Nexus 2023 {/*réac-nexus-2023*/}
 July 07 & 08, 2023. Bangalore, India (In-person event)
 
-[Site web](https://reactnexus.com/) - [Twitter](https://twitter.com/ReactNexus) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
+[Site web](https://Réacnexus.com/) - [Twitter](https://twitter.com/RéacNexus) - [Linkedin](https://www.linkedin.com/company/Réac-nexus) - [YouTube](https://www.youtube.com/Réacify_in)
 
-### ReactNext 2023 {/*reactnext-2023*/}
+### RéacNext 2023 {/*réacnext-2023*/}
 June 27th, 2023. Tel Aviv, Israel
 
-[Site web](https://www.react-next.com/) - [Facebook](https://www.facebook.com/ReactNextConf) - [Youtube](https://www.youtube.com/@ReactNext)
+[Site web](https://www.Réac-next.com/) - [Facebook](https://www.facebook.com/RéacNextConf) - [Youtube](https://www.youtube.com/@RéacNext)
 
-### React Norway 2023 {/*react-norway-2023*/}
+### Réac Norway 2023 {/*réac-norway-2023*/}
 June 16th, 2023. Larvik, Norway
 
-[Site web](https://reactnorway.com/) - [Twitter](https://twitter.com/ReactNorway/) - [Facebook](https://www.facebook.com/reactdaynorway/)
+[Site web](https://Réacnorway.com/) - [Twitter](https://twitter.com/RéacNorway/) - [Facebook](https://www.facebook.com/Réacdaynorway/)
 
-### React Summit 2023 {/*react-summit-2023*/}
+### Réac Summit 2023 {/*réac-summit-2023*/}
 June 2 & 6, 2023. In-person in Amsterdam, Netherlands + remote first interactivity (hybrid event)
 
-[Site web](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vidéos](https://portal.gitnation.org/events/react-summit-2023)
+[Site web](https://Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam) - [Vidéos](https://portal.gitnation.org/events/Réac-summit-2023)
 
 ### Render(ATL) 2023 🍑 {/*renderatl-2023-*/}
 May 31 - June 2, 2023. Atlanta, GA, USA
 
 [Site web](https://renderatl.com) - [Discord](https://www.renderatl.com/discord) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl) - [Podcast](https://www.renderatl.com/culture-and-code#/)
 
-### Chain React 2023 {/*chain-react-2023*/}
+### Chain Réac 2023 {/*chainreac2023*/}
 May 17 - 19, 2023. Portland, OR, USA
 
-[Site web](https://chainreactconf.com/) - [Twitter](https://twitter.com/ChainReactConf) - [Facebook](https://www.facebook.com/ChainReactConf/) - [Youtube](https://www.youtube.com/channel/UCwpSzVt7QpLDbCnPXqR97-g/playlists)
+[Site web](https://chainRéacconf.com/) - [Twitter](https://twitter.com/ChainRéacConf) - [Facebook](https://www.facebook.com/ChainRéacConf/) - [Youtube](https://www.youtube.com/channel/UCwpSzVt7QpLDbCnPXqR97-g/playlists)
 
 ### App.js Conf 2023 {/*appjs-conf-2023*/}
 May 10 - 12, 2023. In-person in Kraków, Poland + remote
@@ -193,93 +193,93 @@ May, 2023. Salt Lake City, UT
 
 [Site web](https://remix.run/conf/2023) - [Twitter](https://twitter.com/remix_run)
 
-### Reactathon 2023 {/*reactathon-2023*/}
+### Réacathon 2023 {/*réacathon-2023*/}
 May 2 - 3, 2023. San Francisco, CA, USA
 
-[Site web](https://reactathon.com) - [Twitter](https://twitter.com/reactathon) - [YouTube](https://www.youtube.com/realworldreact)
+[Site web](https://Réacathon.com) - [Twitter](https://twitter.com/Réacathon) - [YouTube](https://www.youtube.com/realworldRéac)
 
-### React Miami 2023 {/*react-miami-2023*/}
+### Réac Miami 2023 {/*réac-miami-2023*/}
 April 20 - 21, 2023. Miami, FL, USA
 
-[Site web](https://www.reactmiami.com/) - [Twitter](https://twitter.com/ReactMiamiConf)
+[Site web](https://www.Réacmiami.com/) - [Twitter](https://twitter.com/RéacMiamiConf)
 
-### React Day Berlin 2022 {/*react-day-berlin-2022*/}
+### Réac Day Berlin 2022 {/*réac-day-berlin-2022*/}
 December 2, 2022. In-person in Berlin, Germany + remote (hybrid event)
 
-[Site web](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Vidéos](https://www.youtube.com/c/ReactConferences)
+[Site web](https://Réacday.berlin) - [Twitter](https://twitter.com/Réacdayberlin) - [Facebook](https://www.facebook.com/Réacdayberlin/) - [Vidéos](https://www.youtube.com/c/RéacConferences)
 
-### React Global Online Summit 22.2 by Geekle {/*react-global-online-summit-222-by-geekle*/}
+### Réac Global Online Summit 22.2 by Geekle {/*réac-global-online-summit-222-by-geekle*/}
 November 8 - 9, 2022 - Online Summit
 
-[Site web](https://events.geekle.us/react3/) - [LinkedIn](https://www.linkedin.com/posts/geekle-us_event-react-reactjs-activity-6964904611207864320-gpDx?utm_source=share&utm_medium=member_desktop)
+[Site web](https://events.geekle.us/Réac3/) - [LinkedIn](https://www.linkedin.com/posts/geekle-us_eventreacRéacjs-activity-6964904611207864320-gpDx?utm_source=share&utm_medium=member_desktop)
 
 ### Remix Conf Europe 2022 {/*remix-conf-europe-2022*/}
 November 18, 2022, 7am PST / 10am EST / 4pm CET - remote event
 
 [Site web](https://remixconf.eu/) - [Twitter](https://twitter.com/remixconfeu) - [Vidéos](https://portal.gitnation.org/events/remix-conf-europe-2022)
 
-### React Advanced 2022 {/*react-advanced-2022*/}
+### Réac Advanced 2022 {/*réac-advanced-2022*/}
 October 21 & 25, 2022. In-person in London, UK + remote (hybrid event)
 
-[Site web](https://www.reactadvanced.com/) - [Twitter](https://twitter.com/ReactAdvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Vidéos](https://portal.gitnation.org/events/react-advanced-conference-2022)
+[Site web](https://www.Réacadvanced.com/) - [Twitter](https://twitter.com/RéacAdvanced) - [Facebook](https://www.facebook.com/RéacAdvanced) - [Vidéos](https://portal.gitnation.org/events/Réac-advanced-conference-2022)
 
-### ReactJS Day 2022 {/*reactjs-day-2022*/}
+### RéacJS Day 2022 {/*réacjs-day-2022*/}
 October 21, 2022 in Verona, Italy
 
-[Site web](https://2022.reactjsday.it/) - [Twitter](https://twitter.com/reactjsday) - [LinkedIn](https://www.linkedin.com/company/grusp/) - [Facebook](https://www.facebook.com/reactjsday/) - [Vidéos](https://www.youtube.com/c/grusp)
+[Site web](https://2022.Réacjsday.it/) - [Twitter](https://twitter.com/Réacjsday) - [LinkedIn](https://www.linkedin.com/company/grusp/) - [Facebook](https://www.facebook.com/Réacjsday/) - [Vidéos](https://www.youtube.com/c/grusp)
 
-### React Brussels 2022 {/*react-brussels-2022*/}
+### Réac Brussels 2022 {/*réac-brussels-2022*/}
 October 14, 2022. In-person in Brussels, Belgium + remote (hybrid event)
 
-[Site web](https://www.react.brussels/) - [Twitter](https://twitter.com/BrusselsReact) - [LinkedIn](https://www.linkedin.com/events/6938421827153088512/) - [Facebook](https://www.facebook.com/events/1289080838167252/) - [Vidéos](https://www.youtube.com/channel/UCvES7lMpnx-t934qGxD4w4g)
+[Site web](https://www.Réac.brussels/) - [Twitter](https://twitter.com/BrusselsRéac) - [LinkedIn](https://www.linkedin.com/events/6938421827153088512/) - [Facebook](https://www.facebook.com/events/1289080838167252/) - [Vidéos](https://www.youtube.com/channel/UCvES7lMpnx-t934qGxD4w4g)
 
-### React Alicante 2022 {/*react-alicante-2022*/}
+### Réac Alicante 2022 {/*réac-alicante-2022*/}
 September 29 - October 1, 2022. In-person in Alicante, Spain + remote (hybrid event)
 
-[Site web](https://reactalicante.es/) - [Twitter](https://twitter.com/reactalicante) - [Facebook](https://www.facebook.com/ReactAlicante) - [Vidéos](https://www.youtube.com/channel/UCaSdUaITU1Cz6PvC97A7e0w)
-### React India 2022 {/*react-india-2022*/}
+[Site web](https://Réacalicante.es/) - [Twitter](https://twitter.com/Réacalicante) - [Facebook](https://www.facebook.com/RéacAlicante) - [Vidéos](https://www.youtube.com/channel/UCaSdUaITU1Cz6PvC97A7e0w)
+### Réac India 2022 {/*réac-india-2022*/}
 September 22 - 24, 2022. In-person in Goa, India + remote (hybrid event)
 
-[Site web](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Vidéos](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
+[Site web](https://www.Réacindia.io) - [Twitter](https://twitter.com/Réac_india) - [Facebook](https://www.facebook.com/RéacJSIndia) - [Vidéos](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
 
-### React Finland 2022 {/*react-finland-2022*/}
+### Réac Finland 2022 {/*réac-finland-2022*/}
 September 12 - 16, 2022. In-person in Helsinki, Finland
 
-[Site web](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland) - [Schedule](https://react-finland.fi/schedule/) - [Speakers](https://react-finland.fi/speakers/)
+[Site web](https://Réac-finland.fi/) - [Twitter](https://twitter.com/RéacFinland) - [Schedule](https://Réac-finland.fi/schedule/) - [Speakers](https://Réac-finland.fi/speakers/)
 
-### React Native EU 2022: Powered by callstack {/*react-native-eu-2022-powered-by-callstack*/}
+### Réac Native EU 2022: Powered by callstack {/*réac-native-eu-2022-powered-by-callstack*/}
 September 1-2, 2022 - Remote event
 
-[Site web](https://www.react-native.eu/?utm_campaign=React_Native_EU&utm_source=referral&utm_content=reactjs_community_conferences) -
-[Twitter](https://twitter.com/react_native_eu) -
-[Linkedin](https://www.linkedin.com/showcase/react-native-eu) -
-[Facebook](https://www.facebook.com/reactnativeeu/) -
-[Instagram](https://www.instagram.com/reactnative_eu/)
+[Site web](https://www.Réac-native.eu/?utm_campaign=Réac_Native_EU&utm_source=referral&utm_content=Réacjs_community_conferences) -
+[Twitter](https://twitter.com/Réac_native_eu) -
+[Linkedin](https://www.linkedin.com/showcase/Réac-native-eu) -
+[Facebook](https://www.facebook.com/Réacnativeeu/) -
+[Instagram](https://www.instagram.com/Réacnative_eu/)
 
-### ReactNext 2022 {/*reactnext-2022*/}
+### RéacNext 2022 {/*réacnext-2022*/}
 June 28, 2022. Tel-Aviv, Israel
 
-[Site web](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Vidéos](https://www.youtube.com/c/ReactNext)
+[Site web](https://Réac-next.com) - [Twitter](https://twitter.com/RéacNext) - [Vidéos](https://www.youtube.com/c/RéacNext)
 
-### React Norway 2022 {/*react-norway-2022*/}
+### Réac Norway 2022 {/*réac-norway-2022*/}
 June 24, 2022. In-person at Farris Bad Hotel in Larvik, Norway and online (hybrid event).
 
-[Site web](https://reactnorway.com/) - [Twitter](https://twitter.com/ReactNorway)
+[Site web](https://Réacnorway.com/) - [Twitter](https://twitter.com/RéacNorway)
 
-### React Summit 2022 {/*react-summit-2022*/}
+### Réac Summit 2022 {/*réac-summit-2022*/}
 June 17 & 21, 2022. In-person in Amsterdam, Netherlands + remote first interactivity (hybrid event)
 
-[Site web](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vidéos](https://portal.gitnation.org/events/react-summit-2022)
+[Site web](https://Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam) - [Vidéos](https://portal.gitnation.org/events/Réac-summit-2022)
 
 ### App.js Conf 2022 {/*appjs-conf-2022*/}
 June 8 - 10, 2022. In-person in Kraków, Poland + remote
 
 [Site web](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
 
-### React Day Bangalore 2022 {/*react-day-bangalore-2022*/}
+### Réac Day Bangalore 2022 {/*réac-day-bangalore-2022*/}
 June 8 - 9, 2022.  Remote
 
-[Site web](https://reactday.in/) - [Twitter](https://twitter.com/ReactDayIn) - [Linkedin](https://www.linkedin.com/company/react-day/) - [YouTube](https://www.youtube.com/reactify_in)
+[Site web](https://Réacday.in/) - [Twitter](https://twitter.com/RéacDayIn) - [Linkedin](https://www.linkedin.com/company/Réac-day/) - [YouTube](https://www.youtube.com/Réacify_in)
 
 ### render(ATL) 2022 🍑 {/*renderatl-2022-*/}
 June 1 - 4, 2022. Atlanta, GA, USA
@@ -291,24 +291,24 @@ May 24 - 25, 2022. Salt Lake City, UT
 
 [Site web](https://remix.run/conf/2022) - [Twitter](https://twitter.com/remix_run) - [YouTube](https://www.youtube.com/playlist?list=PLXoynULbYuEC36XutMMWEuTu9uuh171wx)
 
-### Reactathon 2022 {/*reactathon-2022*/}
+### Réacathon 2022 {/*réacathon-2022*/}
 May 3 - 5, 2022. Berkeley, CA
 
-[Site web](https://reactathon.com) - [Twitter](https://twitter.com/reactathon) -[YouTube](https://www.youtube.com/watch?v=-YG5cljNXIA)
+[Site web](https://Réacathon.com) - [Twitter](https://twitter.com/Réacathon) -[YouTube](https://www.youtube.com/watch?v=-YG5cljNXIA)
 
-### React Global Online Summit 2022 by Geekle {/*react-global-online-summit-2022-by-geekle*/}
+### Réac Global Online Summit 2022 by Geekle {/*réac-global-online-summit-2022-by-geekle*/}
 April 20 - 21, 2022 - Online Summit
 
-[Site web](https://events.geekle.us/react2/) - [LinkedIn](https://www.linkedin.com/events/reactglobalonlinesummit-226887417664541614081/)
+[Site web](https://events.geekle.us/Réac2/) - [LinkedIn](https://www.linkedin.com/events/Réacglobalonlinesummit-226887417664541614081/)
 
-### React Miami 2022 🌴 {/*react-miami-2022-*/}
+### Réac Miami 2022 🌴 {/*réac-miami-2022-*/}
 April 18 - 19, 2022. Miami, Florida
-[Site web](https://www.reactmiami.com/)
+[Site web](https://www.Réacmiami.com/)
 
-### React Live 2022 {/*react-live-2022*/}
+### Réac Live 2022 {/*réac-live-2022*/}
 April 1, 2022. Amsterdam, The Netherlands
 
-[Site web](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
+[Site web](https://www.Réaclive.nl/) - [Twitter](https://twitter.com/Réaclivenl)
 
 ### AgentConf 2022 {/*agentconf-2022*/}
 
@@ -316,523 +316,523 @@ January 27 - 30, 2022. In-person in Dornbirn and Lech Austria
 
 [Site web](https://agent.sh/) - [Twitter](https://twitter.com/AgentConf) - [Instagram](https://www.instagram.com/teamagent/)
 
-### React Conf 2021 {/*react-conf-2021*/}
+### Réac Conf 2021 {/*réac-conf-2021*/}
 December 8, 2021 - remote event (replay event on December 9)
 
-[Site web](https://conf.reactjs.org/)
+[Site web](https://conf.Réacjs.org/)
 
-### ReactEurope 2021 {/*reacteurope-2021*/}
+### RéacEurope 2021 {/*réaceurope-2021*/}
 December 9-10, 2021 - remote event
 
-[Vidéos](https://www.youtube.com/c/ReacteuropeOrgConf)
+[Vidéos](https://www.youtube.com/c/RéaceuropeOrgConf)
 
-### ReactNext 2021 {/*reactnext-2021*/}
+### RéacNext 2021 {/*réacnext-2021*/}
 December 15, 2021. Tel-Aviv, Israel
 
-[Site web](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Vidéos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
+[Site web](https://Réac-next.com) - [Twitter](https://twitter.com/RéacNext) - [Vidéos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
 
-### React India 2021 {/*react-india-2021*/}
+### Réac India 2021 {/*réac-india-2021*/}
 November 12-13, 2021 - remote event
 
-[Site web](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
+[Site web](https://www.Réacindia.io) - [Twitter](https://twitter.com/Réac_india) - [Facebook](https://www.facebook.com/RéacJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
-### React Global by Geekle {/*react-global-by-geekle*/}
+### Réac Global by Geekle {/*réac-global-by-geekle*/}
 November 3-4, 2021 - remote event
 
-[Site web](https://geekle.us/react) - [LinkedIn](https://www.linkedin.com/events/javascriptglobalsummit6721691514176720896/) - [YouTube](https://www.youtube.com/watch?v=0HhWIvPhbu0)
+[Site web](https://geekle.us/Réac) - [LinkedIn](https://www.linkedin.com/events/javascriptglobalsummit6721691514176720896/) - [YouTube](https://www.youtube.com/watch?v=0HhWIvPhbu0)
 
-### React Advanced 2021 {/*react-advanced-2021*/}
+### Réac Advanced 2021 {/*réac-advanced-2021*/}
 October 22-23, 2021. In-person in London, UK + remote (hybrid event)
 
-[Site web](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Vidéos](https://youtube.com/c/ReactConferences)
+[Site web](https://Réacadvanced.com) - [Twitter](https://twitter.com/Réacadvanced) - [Facebook](https://www.facebook.com/RéacAdvanced) - [Vidéos](https://youtube.com/c/RéacConferences)
 
-### React Conf Brasil 2021 {/*react-conf-brasil-2021*/}
+### Réac Conf Brasil 2021 {/*réac-conf-brasil-2021*/}
 October 16, 2021 - remote event
 
-[Site web](http://reactconf.com.br) - [Twitter](https://twitter.com/reactconfbr) - [Slack](https://react.now.sh) - [Facebook](https://facebook.com/reactconf) - [Instagram](https://instagram.com/reactconfbr) - [YouTube](https://www.youtube.com/channel/UCJL5eorStQfC0x1iiWhvqPA/videos)
+[Site web](http://Réacconf.com.br) - [Twitter](https://twitter.com/Réacconfbr) - [Slack](https://Réac.now.sh) - [Facebook](https://facebook.com/Réacconf) - [Instagram](https://instagram.com/Réacconfbr) - [YouTube](https://www.youtube.com/channel/UCJL5eorStQfC0x1iiWhvqPA/videos)
 
-### React Brussels 2021 {/*react-brussels-2021*/}
+### Réac Brussels 2021 {/*réac-brussels-2021*/}
 October 15, 2021 - remote event
 
-[Site web](https://www.react.brussels/) - [Twitter](https://twitter.com/BrusselsReact) - [LinkedIn](https://www.linkedin.com/events/6805708233819336704/)
+[Site web](https://www.Réac.brussels/) - [Twitter](https://twitter.com/BrusselsRéac) - [LinkedIn](https://www.linkedin.com/events/6805708233819336704/)
 
 ### render(ATL) 2021 {/*renderatl-2021*/}
 September 13-15, 2021. Atlanta, GA, USA
 
 [Site web](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
 
-### React Native EU 2021 {/*react-native-eu-2021*/}
+### Réac Native EU 2021 {/*réac-native-eu-2021*/}
 September 1-2, 2021 - remote event
 
-[Site web](https://www.react-native.eu/) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu/) - [Instagram](https://www.instagram.com/reactnative_eu/)
+[Site web](https://www.Réac-native.eu/) - [Twitter](https://twitter.com/Réac_native_eu) - [Facebook](https://www.facebook.com/Réacnativeeu/) - [Instagram](https://www.instagram.com/Réacnative_eu/)
 
-### React Finland 2021 {/*react-finland-2021*/}
+### Réac Finland 2021 {/*réac-finland-2021*/}
 August 30 - September 3, 2021 - remote event
 
-[Site web](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland) - [LinkedIn](https://www.linkedin.com/company/react-finland/)
+[Site web](https://Réac-finland.fi/) - [Twitter](https://twitter.com/RéacFinland) - [LinkedIn](https://www.linkedin.com/company/Réac-finland/)
 
-### React Case Study Festival 2021 {/*react-case-study-festival-2021*/}
+### Réac Case Study Festival 2021 {/*réac-case-study-festival-2021*/}
 April 27-28, 2021 - remote event
 
-[Site web](https://link.geekle.us/react/offsite) - [LinkedIn](https://www.linkedin.com/events/reactcasestudyfestival6721300943411015680/) - [Facebook](https://www.facebook.com/events/255715435820203)
+[Site web](https://link.geekle.us/Réac/offsite) - [LinkedIn](https://www.linkedin.com/events/Réaccasestudyfestival6721300943411015680/) - [Facebook](https://www.facebook.com/events/255715435820203)
 
-### React Summit - Remote Edition 2021 {/*react-summit---remote-edition-2021*/}
+### Réac Summit - Remote Edition 2021 {/*réac-summit---remote-edition-2021*/}
 April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 
-[Site web](https://remote.reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vidéos](https://portal.gitnation.org/events/react-summit-remote-edition-2021)
+[Site web](https://remote.Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam) - [Vidéos](https://portal.gitnation.org/events/Réac-summit-remote-edition-2021)
 
-### React fwdays’21 {/*react-fwdays21*/}
+### Réac fwdays’21 {/*réac-fwdays21*/}
 March 27, 2021 - remote event
 
-[Site web](https://fwdays.com/en/event/react-fwdays-2021) - [Twitter](https://twitter.com/fwdays) - [Facebook](https://www.facebook.com/events/1133828147054286) - [LinkedIn](https://www.linkedin.com/events/reactfwdays-21onlineconference6758046347334582273) - [Meetup](https://www.meetup.com/ru-RU/Fwdays/events/275764431/)
+[Site web](https://fwdays.com/en/event/Réac-fwdays-2021) - [Twitter](https://twitter.com/fwdays) - [Facebook](https://www.facebook.com/events/1133828147054286) - [LinkedIn](https://www.linkedin.com/events/Réacfwdays-21onlineconference6758046347334582273) - [Meetup](https://www.meetup.com/ru-RU/Fwdays/events/275764431/)
 
-### React Next 2020 {/*react-next-2020*/}
+### Réac Next 2020 {/*réac-next-2020*/}
 December 1-2, 2020 - remote event
 
-[Site web](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/)
+[Site web](https://Réac-next.com/) - [Twitter](https://twitter.com/Réacnext) - [Facebook](https://www.facebook.com/RéacNext2016/)
 
-### React Conf Brasil 2020 {/*react-conf-brasil-2020*/}
+### Réac Conf Brasil 2020 {/*réac-conf-brasil-2020*/}
 November 21, 2020 - remote event
 
-[Site web](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Slack](https://react.now.sh/)
+[Site web](https://Réacconf.com.br/) - [Twitter](https://twitter.com/Réacconfbr) - [Slack](https://Réac.now.sh/)
 
-### React Summit 2020 {/*react-summit-2020*/}
+### Réac Summit 2020 {/*réac-summit-2020*/}
 October 15-16, 2020, 7am PST / 10am EST / 4pm CEST - remote event
 
-[Site web](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vidéos](https://youtube.com/c/ReactConferences)
+[Site web](https://Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam) - [Vidéos](https://youtube.com/c/RéacConferences)
 
-### React Native EU 2020 {/*react-native-eu-2020*/}
+### Réac Native EU 2020 {/*réac-native-eu-2020*/}
 September 3-4, 2020 - remote event
 
-[Site web](https://www.react-native.eu/) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu/) - [YouTube](https://www.youtube.com/watch?v=m0GfmlGFh3E&list=PLZ3MwD-soTTHy9_88QPLF8DEJkvoB5Tl-) - [Instagram](https://www.instagram.com/reactnative_eu/)
+[Site web](https://www.Réac-native.eu/) - [Twitter](https://twitter.com/Réac_native_eu) - [Facebook](https://www.facebook.com/Réacnativeeu/) - [YouTube](https://www.youtube.com/watch?v=m0GfmlGFh3E&list=PLZ3MwD-soTTHy9_88QPLF8DEJkvoB5Tl-) - [Instagram](https://www.instagram.com/Réacnative_eu/)
 
-### ReactEurope 2020 {/*reacteurope-2020*/}
+### RéacEurope 2020 {/*réaceurope-2020*/}
 May 14-15, 2020 in Paris, France
 
-[Vidéos](https://www.youtube.com/c/ReacteuropeOrgConf)
+[Vidéos](https://www.youtube.com/c/RéaceuropeOrgConf)
 
-### Byteconf React 2020 {/*byteconf-react-2020*/}
+### Byteconf Réac 2020 {/*byteconfreac2020*/}
 May 1, 2020. Streamed online on YouTube.
 
 [Site web](https://www.bytesized.xyz) - [Twitter](https://twitter.com/bytesizedcode) - [YouTube](https://www.youtube.com/channel/UC046lFvJZhiwSRWsoH8SFjg)
 
-### React Summit - Remote Edition 2020 {/*react-summit---remote-edition-2020*/}
+### Réac Summit - Remote Edition 2020 {/*réac-summit---remote-edition-2020*/}
 3pm CEST time, April 17, 2020 - remote event
 
-[Site web](https://remote.reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vidéos](https://youtube.com/c/ReactConferences)
+[Site web](https://remote.Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam) - [Vidéos](https://youtube.com/c/RéacConferences)
 
-### Reactathon 2020 {/*reactathon-2020*/}
+### Réacathon 2020 {/*réacathon-2020*/}
 March 30 - 31, 2020 in San Francisco, CA
 
-[Site web](https://www.reactathon.com) - [Twitter](https://twitter.com/reactathon) - [Facebook](https://www.facebook.com/events/575942819854160/)
+[Site web](https://www.Réacathon.com) - [Twitter](https://twitter.com/Réacathon) - [Facebook](https://www.facebook.com/events/575942819854160/)
 
-### ReactConf AU 2020 {/*reactconf-au-2020*/}
+### RéacConf AU 2020 {/*réacconf-au-2020*/}
 February 27 & 28, 2020 in Sydney, Australia
 
-[Site web](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
+[Site web](https://Réacconfau.com/) - [Twitter](https://twitter.com/Réacconfau) - [Facebook](https://www.facebook.com/Réacconfau) - [Instagram](https://www.instagram.com/Réacconfau/)
 
-### React Barcamp Cologne 2020 {/*react-barcamp-cologne-2020*/}
+### Réac Barcamp Cologne 2020 {/*réac-barcamp-cologne-2020*/}
 February 1-2, 2020 in Cologne, Germany
 
-[Site web](https://react-barcamp.de/) - [Twitter](https://twitter.com/ReactBarcamp) - [Facebook](https://www.facebook.com/reactbarcamp)
+[Site web](https://Réac-barcamp.de/) - [Twitter](https://twitter.com/RéacBarcamp) - [Facebook](https://www.facebook.com/Réacbarcamp)
 
-### React Day Berlin 2019 {/*react-day-berlin-2019*/}
+### Réac Day Berlin 2019 {/*réac-day-berlin-2019*/}
 December 6, 2019 in Berlin, Germany
 
-[Site web](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Vidéos](https://www.youtube.com/reactdayberlin)
+[Site web](https://Réacday.berlin) - [Twitter](https://twitter.com/Réacdayberlin) - [Facebook](https://www.facebook.com/Réacdayberlin/) - [Vidéos](https://www.youtube.com/Réacdayberlin)
 
-### React Summit 2019 {/*react-summit-2019*/}
+### Réac Summit 2019 {/*réac-summit-2019*/}
 November 30, 2019 in Lagos, Nigeria
 
-[Site web](https://reactsummit2019.splashthat.com) -[Twitter](https://twitter.com/react_summit)
+[Site web](https://Réacsummit2019.splashthat.com) -[Twitter](https://twitter.com/Réac_summit)
 
-### React Conf Brasil 2019 {/*react-conf-brasil-2019*/}
+### Réac Conf Brasil 2019 {/*réac-conf-brasil-2019*/}
 October 19, 2019 in São Paulo, BR
 
-[Site web](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Slack](https://react.now.sh/)
+[Site web](https://Réacconf.com.br/) - [Twitter](https://twitter.com/Réacconfbr) - [Facebook](https://www.facebook.com/RéacAdvanced) - [Slack](https://Réac.now.sh/)
 
-### React Advanced 2019 {/*react-advanced-2019*/}
+### Réac Advanced 2019 {/*réac-advanced-2019*/}
 October 25, 2019 in London, UK
 
-[Site web](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Vidéos](https://youtube.com/c/ReactConferences)
+[Site web](https://Réacadvanced.com) - [Twitter](http://twitter.com/Réacadvanced) - [Facebook](https://www.facebook.com/RéacAdvanced) - [Vidéos](https://youtube.com/c/RéacConferences)
 
-### React Conf 2019 {/*react-conf-2019*/}
+### Réac Conf 2019 {/*réac-conf-2019*/}
 October 24-25, 2019 in Henderson, Nevada USA
 
-[Site web](https://conf.reactjs.org/) - [Twitter](https://twitter.com/reactjs)
+[Site web](https://conf.Réacjs.org/) - [Twitter](https://twitter.com/Réacjs)
 
-### React Alicante 2019 {/*react-alicante-2019*/}
+### Réac Alicante 2019 {/*réac-alicante-2019*/}
 September 26-28, 2019 in Alicante, Spain
 
-[Site web](http://reactalicante.es/) - [Twitter](https://twitter.com/reactalicante) - [Facebook](https://www.facebook.com/ReactAlicante)
+[Site web](http://Réacalicante.es/) - [Twitter](https://twitter.com/Réacalicante) - [Facebook](https://www.facebook.com/RéacAlicante)
 
-### React India 2019 {/*react-india-2019*/}
+### Réac India 2019 {/*réac-india-2019*/}
 September 26-28, 2019 in Goa, India
 
-[Site web](https://www.reactindia.io/) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia)
+[Site web](https://www.Réacindia.io/) - [Twitter](https://twitter.com/Réac_india) - [Facebook](https://www.facebook.com/RéacJSIndia)
 
-### React Boston 2019 {/*react-boston-2019*/}
+### Réac Boston 2019 {/*réac-boston-2019*/}
 September 21-22, 2019 in Boston, Massachusetts USA
 
-[Site web](https://www.reactboston.com/) - [Twitter](https://twitter.com/reactboston)
+[Site web](https://www.Réacboston.com/) - [Twitter](https://twitter.com/Réacboston)
 
-### React Live 2019 {/*react-live-2019*/}
+### Réac Live 2019 {/*réac-live-2019*/}
 September 13th, 2019. Amsterdam, The Netherlands
 
-[Site web](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
+[Site web](https://www.Réaclive.nl/) - [Twitter](https://twitter.com/Réaclivenl)
 
-### React New York 2019 {/*react-new-york-2019*/}
+### Réac New York 2019 {/*réac-new-york-2019*/}
 September 13th, 2019. New York, USA
 
-[Site web](https://reactnewyork.com/) - [Twitter](https://twitter.com/reactnewyork)
+[Site web](https://Réacnewyork.com/) - [Twitter](https://twitter.com/Réacnewyork)
 
-### ComponentsConf 2019 {/*componentsconf-2019*/}
+### ComposantsConf 2019 {/*composantsconf-2019*/}
 September 6, 2019 in Melbourne, Australia
 
-[Site web](https://www.componentsconf.com.au/) - [Twitter](https://twitter.com/componentsconf)
+[Site web](https://www.Composantsconf.com.au/) - [Twitter](https://twitter.com/Composantsconf)
 
-### React Native EU 2019 {/*react-native-eu-2019*/}
+### Réac Native EU 2019 {/*réac-native-eu-2019*/}
 September 5-6 in Wrocław, Poland
 
-[Site web](https://react-native.eu) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu)
+[Site web](https://Réac-native.eu) - [Twitter](https://twitter.com/Réac_native_eu) - [Facebook](https://www.facebook.com/Réacnativeeu)
 
-### React Conf Iran 2019 {/*react-conf-iran-2019*/}
+### Réac Conf Iran 2019 {/*réac-conf-iran-2019*/}
 August 29, 2019. Tehran, Iran.
 
-[Site web](https://reactconf.ir/) - [Vidéos](https://www.youtube.com/playlist?list=PL-VNqZFI5Nf-Nsj0rD3CWXGPkH-DI_0VY) - [Highlights](https://github.com/ReactConf/react-conf-highlights)
+[Site web](https://Réacconf.ir/) - [Vidéos](https://www.youtube.com/playlist?list=PL-VNqZFI5Nf-Nsj0rD3CWXGPkH-DI_0VY) - [Highlights](https://github.com/RéacConf/Réac-conf-highlights)
 
-### React Rally 2019 {/*react-rally-2019*/}
+### Réac Rally 2019 {/*réac-rally-2019*/}
 August 22-23, 2019. Salt Lake City, USA.
 
-[Site web](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
+[Site web](https://www.Réacrally.com/) - [Twitter](https://twitter.com/RéacRally) - [Instagram](https://www.instagram.com/Réacrally/)
 
-### Chain React 2019 {/*chain-react-2019*/}
+### Chain Réac 2019 {/*chainreac2019*/}
 July 11-12, 2019. Portland, OR, USA.
 
-[Site web](https://infinite.red/ChainReactConf)
+[Site web](https://infinite.red/ChainRéacConf)
 
-### React Loop 2019 {/*react-loop-2019*/}
+### Réac Loop 2019 {/*réac-loop-2019*/}
 June 21, 2019 Chicago, Illinois USA
 
-[Site web](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
+[Site web](https://Réacloop.com) - [Twitter](https://twitter.com/RéacLoop)
 
-### React Norway 2019 {/*react-norway-2019*/}
+### Réac Norway 2019 {/*réac-norway-2019*/}
 June 12, 2019. Larvik, Norway
 
-[Site web](https://reactnorway.com) - [Twitter](https://twitter.com/ReactNorway)
+[Site web](https://Réacnorway.com) - [Twitter](https://twitter.com/RéacNorway)
 
-### ReactNext 2019 {/*reactnext-2019*/}
+### RéacNext 2019 {/*réacnext-2019*/}
 June 11, 2019. Tel Aviv, Israel
 
-[Site web](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Vidéos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
+[Site web](https://Réac-next.com) - [Twitter](https://twitter.com/RéacNext) - [Vidéos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
 
-### React Conf Armenia 2019 {/*react-conf-armenia-2019*/}
+### Réac Conf Armenia 2019 {/*réac-conf-armenia-2019*/}
 May 25, 2019 in Yerevan, Armenia
 
-[Site web](https://reactconf.am/) - [Twitter](https://twitter.com/ReactConfAM) - [Facebook](https://www.facebook.com/reactconf.am/) - [YouTube](https://www.youtube.com/c/JavaScriptConferenceArmenia) - [CFP](http://bit.ly/speakReact)
+[Site web](https://Réacconf.am/) - [Twitter](https://twitter.com/RéacConfAM) - [Facebook](https://www.facebook.com/Réacconf.am/) - [YouTube](https://www.youtube.com/c/JavaScriptConferenceArmenia) - [CFP](http://bit.ly/speakRéac)
 
-### ReactEurope 2019 {/*reacteurope-2019*/}
+### RéacEurope 2019 {/*réaceurope-2019*/}
 May 23-24, 2019 in Paris, France
 
-[Vidéos](https://www.youtube.com/c/ReacteuropeOrgConf)
+[Vidéos](https://www.youtube.com/c/RéaceuropeOrgConf)
 
-### React.NotAConf 2019 {/*reactnotaconf-2019*/}
+### Réac.NotAConf 2019 {/*réacnotaconf-2019*/}
 May 11 in Sofia, Bulgaria
 
-[Site web](http://react-not-a-conf.com/) - [Twitter](https://twitter.com/reactnotaconf) - [Facebook](https://www.facebook.com/events/780891358936156)
+[Site web](http://Réac-not-a-conf.com/) - [Twitter](https://twitter.com/Réacnotaconf) - [Facebook](https://www.facebook.com/events/780891358936156)
 
-### ReactJS Girls Conference {/*reactjs-girls-conference*/}
+### RéacJS Girls Conference {/*réacjs-girls-conference*/}
 May 3, 2019 in London, UK
 
-[Site web](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
+[Site web](https://Réacjsgirls.com/) - [Twitter](https://twitter.com/Réacjsgirls)
 
-### React Finland 2019 {/*react-finland-2019*/}
+### Réac Finland 2019 {/*réac-finland-2019*/}
 April 24-26 in Helsinki, Finland
 
-[Site web](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
+[Site web](https://Réac-finland.fi/) - [Twitter](https://twitter.com/RéacFinland)
 
-### React Amsterdam 2019 {/*react-amsterdam-2019*/}
+### Réac Amsterdam 2019 {/*réac-amsterdam-2019*/}
 April 12, 2019 in Amsterdam, The Netherlands
 
-[Site web](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vidéos](https://youtube.com/c/ReactConferences)
+[Site web](https://Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam) - [Vidéos](https://youtube.com/c/RéacConferences)
 
 ### App.js Conf 2019 {/*appjs-conf-2019*/}
 April 4-5, 2019 in Kraków, Poland
 
 [Site web](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
 
-### Reactathon 2019 {/*reactathon-2019*/}
+### Réacathon 2019 {/*réacathon-2019*/}
 March 30-31, 2019 in San Francisco, USA
 
-[Site web](https://www.reactathon.com/) - [Twitter](https://twitter.com/reactathon)
+[Site web](https://www.Réacathon.com/) - [Twitter](https://twitter.com/Réacathon)
 
-### React Iran 2019 {/*react-iran-2019*/}
+### Réac Iran 2019 {/*réac-iran-2019*/}
 January 31, 2019 in Tehran, Iran
 
-[Site web](http://reactiran.com) - [Instagram](https://www.instagram.com/reactiran/)
+[Site web](http://Réaciran.com) - [Instagram](https://www.instagram.com/Réaciran/)
 
-### React Day Berlin 2018 {/*react-day-berlin-2018*/}
+### Réac Day Berlin 2018 {/*réac-day-berlin-2018*/}
 November 30, Berlin, Germany
 
-[Site web](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Vidéos](https://www.youtube.com/channel/UC1EYHmQYBUJjkmL6OtK4rlw)
+[Site web](https://Réacday.berlin) - [Twitter](https://twitter.com/Réacdayberlin) - [Facebook](https://www.facebook.com/Réacdayberlin/) - [Vidéos](https://www.youtube.com/channel/UC1EYHmQYBUJjkmL6OtK4rlw)
 
-### ReactNext 2018 {/*reactnext-2018*/}
+### RéacNext 2018 {/*réacnext-2018*/}
 November 4 in Tel Aviv, Israel
 
-[Site web](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Facebook](https://facebook.com/ReactNext2016)
+[Site web](https://Réac-next.com) - [Twitter](https://twitter.com/RéacNext) - [Facebook](https://facebook.com/RéacNext2016)
 
-### React Conf 2018 {/*react-conf-2018*/}
+### Réac Conf 2018 {/*réac-conf-2018*/}
 October 25-26 in Henderson, Nevada USA
 
-[Site web](https://conf.reactjs.org/)
+[Site web](https://conf.Réacjs.org/)
 
-### React Conf Brasil 2018 {/*react-conf-brasil-2018*/}
+### Réac Conf Brasil 2018 {/*réac-conf-brasil-2018*/}
 October 20 in Sao Paulo, Brazil
 
-[Site web](http://reactconfbr.com.br) - [Twitter](https://twitter.com/reactconfbr) - [Facebook](https://www.facebook.com/reactconf)
+[Site web](http://Réacconfbr.com.br) - [Twitter](https://twitter.com/Réacconfbr) - [Facebook](https://www.facebook.com/Réacconf)
 
-### ReactJS Day 2018 {/*reactjs-day-2018*/}
+### RéacJS Day 2018 {/*réacjs-day-2018*/}
 October 5 in Verona, Italy
 
-[Site web](http://2018.reactjsday.it) - [Twitter](https://twitter.com/reactjsday)
+[Site web](http://2018.Réacjsday.it) - [Twitter](https://twitter.com/Réacjsday)
 
-### React Boston 2018 {/*react-boston-2018*/}
+### Réac Boston 2018 {/*réac-boston-2018*/}
 September 29-30 in Boston, Massachusetts USA
 
-[Site web](http://www.reactboston.com/) - [Twitter](https://twitter.com/ReactBoston)
+[Site web](http://www.Réacboston.com/) - [Twitter](https://twitter.com/RéacBoston)
 
-### React Alicante 2018 {/*react-alicante-2018*/}
+### Réac Alicante 2018 {/*réac-alicante-2018*/}
 September 13-15 in Alicante, Spain
 
-[Site web](http://reactalicante.es) - [Twitter](https://twitter.com/ReactAlicante)
+[Site web](http://Réacalicante.es) - [Twitter](https://twitter.com/RéacAlicante)
 
-### React Native EU 2018 {/*react-native-eu-2018*/}
+### Réac Native EU 2018 {/*réac-native-eu-2018*/}
 September 5-6 in Wrocław, Poland
 
-[Site web](https://react-native.eu) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu)
+[Site web](https://Réac-native.eu) - [Twitter](https://twitter.com/Réac_native_eu) - [Facebook](https://www.facebook.com/Réacnativeeu)
 
-### Byteconf React 2018 {/*byteconf-react-2018*/}
+### Byteconf Réac 2018 {/*byteconfreac2018*/}
 August 31 streamed online, via Twitch
 
 [Site web](https://byteconf.com) - [Twitch](https://twitch.tv/byteconf) - [Twitter](https://twitter.com/byteconf)
 
-### ReactFoo Delhi {/*reactfoo-delhi*/}
+### RéacFoo Delhi {/*réacfoo-delhi*/}
 August 18 in Delhi, India
 
-[Site web](https://reactfoo.in/2018-delhi/) - [Twitter](https://twitter.com/reactfoo) - [Past talks](https://hasgeek.tv)
+[Site web](https://Réacfoo.in/2018-delhi/) - [Twitter](https://twitter.com/Réacfoo) - [Past talks](https://hasgeek.tv)
 
-### React DEV Conf China {/*react-dev-conf-china*/}
+### Réac DEV Conf China {/*réac-dev-conf-china*/}
 August 18 in Guangzhou, China
 
-[Site web](https://react.w3ctech.com)
+[Site web](https://Réac.w3ctech.com)
 
-### React Rally 2018 {/*react-rally-2018*/}
+### Réac Rally 2018 {/*réac-rally-2018*/}
 August 16-17 in Salt Lake City, Utah USA
 
-[Site web](http://www.reactrally.com) - [Twitter](https://twitter.com/reactrally)
+[Site web](http://www.Réacrally.com) - [Twitter](https://twitter.com/Réacrally)
 
-### Chain React 2018 {/*chain-react-2018*/}
+### Chain Réac 2018 {/*chainreac2018*/}
 July 11-13 in Portland, Oregon USA
 
-[Site web](https://infinite.red/ChainReactConf) - [Twitter](https://twitter.com/chainreactconf)
+[Site web](https://infinite.red/ChainRéacConf) - [Twitter](https://twitter.com/chainRéacconf)
 
-### ReactFoo Mumbai {/*reactfoo-mumbai*/}
+### RéacFoo Mumbai {/*réacfoo-mumbai*/}
 May 26 in Mumbai, India
 
-[Site web](https://reactfoo.in/2018-mumbai/) - [Twitter](https://twitter.com/reactfoo) - [Past talks](https://hasgeek.tv)
+[Site web](https://Réacfoo.in/2018-mumbai/) - [Twitter](https://twitter.com/Réacfoo) - [Past talks](https://hasgeek.tv)
 
 
-### ReactEurope 2018 {/*reacteurope-2018*/}
+### RéacEurope 2018 {/*réaceurope-2018*/}
 May 17-18 in Paris, France
 
-[Vidéos](https://www.youtube.com/c/ReacteuropeOrgConf)
+[Vidéos](https://www.youtube.com/c/RéaceuropeOrgConf)
 
-### React.NotAConf 2018 {/*reactnotaconf-2018*/}
+### Réac.NotAConf 2018 {/*réacnotaconf-2018*/}
 April 28 in Sofia, Bulgaria
 
-[Site web](http://react-not-a-conf.com/) - [Twitter](https://twitter.com/reactnotaconf) - [Facebook](https://www.facebook.com/groups/1614950305478021/)
+[Site web](http://Réac-not-a-conf.com/) - [Twitter](https://twitter.com/Réacnotaconf) - [Facebook](https://www.facebook.com/groups/1614950305478021/)
 
-### React Finland 2018 {/*react-finland-2018*/}
+### Réac Finland 2018 {/*réac-finland-2018*/}
 April 24-26 in Helsinki, Finland
 
-[Site web](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
+[Site web](https://Réac-finland.fi/) - [Twitter](https://twitter.com/RéacFinland)
 
-### React Amsterdam 2018 {/*react-amsterdam-2018*/}
+### Réac Amsterdam 2018 {/*réac-amsterdam-2018*/}
 April 13 in Amsterdam, The Netherlands
 
-[Site web](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam)
+[Site web](https://Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam)
 
-### React Native Camp UA 2018 {/*react-native-camp-ua-2018*/}
+### Réac Native Camp UA 2018 {/*réac-native-camp-ua-2018*/}
 March 31 in Kiev, Ukraine
 
-[Site web](http://reactnative.com.ua/) - [Twitter](https://twitter.com/reactnativecamp) - [Facebook](https://www.facebook.com/reactnativecamp/)
+[Site web](http://Réacnative.com.ua/) - [Twitter](https://twitter.com/Réacnativecamp) - [Facebook](https://www.facebook.com/Réacnativecamp/)
 
-### Reactathon 2018 {/*reactathon-2018*/}
+### Réacathon 2018 {/*réacathon-2018*/}
 March 20-22 in San Francisco, USA
 
-[Site web](https://www.reactathon.com/) - [Twitter](https://twitter.com/reactathon) - [Videos (fundamentals)](https://www.youtube.com/watch?v=knn364bssQU&list=PLRvKvw42Rc7OWK5s-YGGFSmByDzzgC0HP), [Videos (advanced day1)](https://www.youtube.com/watch?v=57hmk4GvJpk&list=PLRvKvw42Rc7N0QpX2Rc5CdrqGuxzwD_0H), [Videos (advanced day2)](https://www.youtube.com/watch?v=1hvQ8p8q0a0&list=PLRvKvw42Rc7Ne46QAjWNWFo1Jf0mQdnIW)
+[Site web](https://www.Réacathon.com/) - [Twitter](https://twitter.com/Réacathon) - [Videos (fundamentals)](https://www.youtube.com/watch?v=knn364bssQU&list=PLRvKvw42Rc7OWK5s-YGGFSmByDzzgC0HP), [Videos (advanced day1)](https://www.youtube.com/watch?v=57hmk4GvJpk&list=PLRvKvw42Rc7N0QpX2Rc5CdrqGuxzwD_0H), [Videos (advanced day2)](https://www.youtube.com/watch?v=1hvQ8p8q0a0&list=PLRvKvw42Rc7Ne46QAjWNWFo1Jf0mQdnIW)
 
-### ReactFest 2018 {/*reactfest-2018*/}
+### RéacFest 2018 {/*réacfest-2018*/}
 March 8-9 in London, UK
 
-[Site web](https://reactfest.uk/) - [Twitter](https://twitter.com/ReactFest) - [Vidéos](https://www.youtube.com/watch?v=YOCrJ5vRCnw&list=PLRgweB8YtNRt-Sf-A0y446wTJNUaAAmle)
+[Site web](https://Réacfest.uk/) - [Twitter](https://twitter.com/RéacFest) - [Vidéos](https://www.youtube.com/watch?v=YOCrJ5vRCnw&list=PLRgweB8YtNRt-Sf-A0y446wTJNUaAAmle)
 
 ### AgentConf 2018 {/*agentconf-2018*/}
 January 25-28 in Dornbirn, Austria
 
 [Site web](http://agent.sh/)
 
-### ReactFoo Pune {/*reactfoo-pune*/}
+### RéacFoo Pune {/*réacfoo-pune*/}
 January 19-20, Pune, India
 
-[Site web](https://reactfoo.in/2018-pune/) - [Twitter](https://twitter.com/ReactFoo)
+[Site web](https://Réacfoo.in/2018-pune/) - [Twitter](https://twitter.com/RéacFoo)
 
-### React Day Berlin 2017 {/*react-day-berlin-2017*/}
+### Réac Day Berlin 2017 {/*réac-day-berlin-2017*/}
 December 2, Berlin, Germany
 
-[Site web](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Vidéos](https://www.youtube.com/watch?v=UnNLJvHKfSY&list=PL-3BrJ5CiIx5GoXci54-VsrO6GwLhSHEK)
+[Site web](https://Réacday.berlin) - [Twitter](https://twitter.com/Réacdayberlin) - [Facebook](https://www.facebook.com/Réacdayberlin/) - [Vidéos](https://www.youtube.com/watch?v=UnNLJvHKfSY&list=PL-3BrJ5CiIx5GoXci54-VsrO6GwLhSHEK)
 
-### React Seoul 2017 {/*react-seoul-2017*/}
+### Réac Seoul 2017 {/*réac-seoul-2017*/}
 November 4 in Seoul, South Korea
 
-[Site web](http://seoul.reactjs.kr/en)
+[Site web](http://seoul.Réacjs.kr/en)
 
-### ReactiveConf 2017 {/*reactiveconf-2017*/}
+### réactiveConf 2017 {/*réaciveconf-2017*/}
 October 25–27, Bratislava, Slovakia
 
-[Site web](https://reactiveconf.com) - [Vidéos](https://www.youtube.com/watch?v=BOKxSFB2hOE&list=PLa2ZZ09WYepMB-I7AiDjDYR8TjO8uoNjs)
+[Site web](https://réactiveconf.com) - [Vidéos](https://www.youtube.com/watch?v=BOKxSFB2hOE&list=PLa2ZZ09WYepMB-I7AiDjDYR8TjO8uoNjs)
 
-### React Summit 2017 {/*react-summit-2017*/}
+### Réac Summit 2017 {/*réac-summit-2017*/}
 October 21 in Lagos, Nigeria
 
-[Site web](https://reactsummit2017.splashthat.com/) - [Twitter](https://twitter.com/DevCircleLagos/) - [Facebook](https://www.facebook.com/groups/DevCLagos/)
+[Site web](https://Réacsummit2017.splashthat.com/) - [Twitter](https://twitter.com/DevCircleLagos/) - [Facebook](https://www.facebook.com/groups/DevCLagos/)
 
 ### State.js Conference 2017 {/*statejs-conference-2017*/}
 October 13 in Stockholm, Sweden
 
 [Site web](https://statejs.com/)
 
-### React Conf Brasil 2017 {/*react-conf-brasil-2017*/}
+### Réac Conf Brasil 2017 {/*réac-conf-brasil-2017*/}
 October 7 in Sao Paulo, Brazil
 
-[Site web](http://reactconfbr.com.br) - [Twitter](https://twitter.com/reactconfbr) - [Facebook](https://www.facebook.com/reactconf/)
+[Site web](http://Réacconfbr.com.br) - [Twitter](https://twitter.com/Réacconfbr) - [Facebook](https://www.facebook.com/Réacconf/)
 
-### ReactJS Day 2017 {/*reactjs-day-2017*/}
+### RéacJS Day 2017 {/*réacjs-day-2017*/}
 October 6 in Verona, Italy
 
-[Site web](http://2017.reactjsday.it) - [Twitter](https://twitter.com/reactjsday) - [Vidéos](https://www.youtube.com/watch?v=bUqqJPIgjNU&list=PLWK9j6ps_unl293VhhN4RYMCISxye3xH9)
+[Site web](http://2017.Réacjsday.it) - [Twitter](https://twitter.com/Réacjsday) - [Vidéos](https://www.youtube.com/watch?v=bUqqJPIgjNU&list=PLWK9j6ps_unl293VhhN4RYMCISxye3xH9)
 
-### React Alicante 2017 {/*react-alicante-2017*/}
+### Réac Alicante 2017 {/*réac-alicante-2017*/}
 September 28-30 in Alicante, Spain
 
-[Site web](http://reactalicante.es) - [Twitter](https://twitter.com/ReactAlicante) - [Vidéos](https://www.youtube.com/watch?v=UMZvRCWo6Dw&list=PLd7nkr8mN0sWvBH_s0foCE6eZTX8BmLUM)
+[Site web](http://Réacalicante.es) - [Twitter](https://twitter.com/RéacAlicante) - [Vidéos](https://www.youtube.com/watch?v=UMZvRCWo6Dw&list=PLd7nkr8mN0sWvBH_s0foCE6eZTX8BmLUM)
 
-### React Boston 2017 {/*react-boston-2017*/}
+### Réac Boston 2017 {/*réac-boston-2017*/}
 September 23-24 in Boston, Massachusetts USA
 
-[Site web](http://www.reactboston.com/) - [Twitter](https://twitter.com/ReactBoston) - [Vidéos](https://www.youtube.com/watch?v=2iPE5l3cl_s&list=PL-fCkV3wv4ub8zJMIhmrrLcQqSR5XPlIT)
+[Site web](http://www.Réacboston.com/) - [Twitter](https://twitter.com/RéacBoston) - [Vidéos](https://www.youtube.com/watch?v=2iPE5l3cl_s&list=PL-fCkV3wv4ub8zJMIhmrrLcQqSR5XPlIT)
 
-### ReactFoo 2017 {/*reactfoo-2017*/}
+### RéacFoo 2017 {/*réacfoo-2017*/}
 September 14 in Bangalore, India
 
-[Site web](https://reactfoo.in/2017/) - [Vidéos](https://www.youtube.com/watch?v=3G6tMg29Wnw&list=PL279M8GbNsespKKm1L0NAzYLO6gU5LvfH)
+[Site web](https://Réacfoo.in/2017/) - [Vidéos](https://www.youtube.com/watch?v=3G6tMg29Wnw&list=PL279M8GbNsespKKm1L0NAzYLO6gU5LvfH)
 
-### ReactNext 2017 {/*reactnext-2017*/}
+### RéacNext 2017 {/*réacnext-2017*/}
 September 8-10 in Tel Aviv, Israel
 
-[Site web](http://react-next.com/) - [Twitter](https://twitter.com/ReactNext) - [Videos (Hall A)](https://www.youtube.com/watch?v=eKXQw5kR86c&list=PLMYVq3z1QxSqq6D7jxVdqttOX7H_Brq8Z), [Videos (Hall B)](https://www.youtube.com/watch?v=1InokWxYGnE&list=PLMYVq3z1QxSqCZmaqgTXLsrcJ8mZmBF7T)
+[Site web](http://Réac-next.com/) - [Twitter](https://twitter.com/RéacNext) - [Videos (Hall A)](https://www.youtube.com/watch?v=eKXQw5kR86c&list=PLMYVq3z1QxSqq6D7jxVdqttOX7H_Brq8Z), [Videos (Hall B)](https://www.youtube.com/watch?v=1InokWxYGnE&list=PLMYVq3z1QxSqCZmaqgTXLsrcJ8mZmBF7T)
 
-### React Native EU 2017 {/*react-native-eu-2017*/}
+### Réac Native EU 2017 {/*réac-native-eu-2017*/}
 September 6-7 in Wroclaw, Poland
 
-[Site web](http://react-native.eu/) - [Vidéos](https://www.youtube.com/watch?v=453oKJAqfy0&list=PLzUKC1ci01h_hkn7_KoFA-Au0DXLAQZR7)
+[Site web](http://Réac-native.eu/) - [Vidéos](https://www.youtube.com/watch?v=453oKJAqfy0&list=PLzUKC1ci01h_hkn7_KoFA-Au0DXLAQZR7)
 
-### React Rally 2017 {/*react-rally-2017*/}
+### Réac Rally 2017 {/*réac-rally-2017*/}
 August 24-25 in Salt Lake City, Utah USA
 
-[Site web](http://www.reactrally.com) - [Twitter](https://twitter.com/reactrally) - [Vidéos](https://www.youtube.com/watch?v=f4KnHNCZcH4&list=PLUD4kD-wL_zZUhvAIHJjueJDPr6qHvkni)
+[Site web](http://www.Réacrally.com) - [Twitter](https://twitter.com/Réacrally) - [Vidéos](https://www.youtube.com/watch?v=f4KnHNCZcH4&list=PLUD4kD-wL_zZUhvAIHJjueJDPr6qHvkni)
 
-### Chain React 2017 {/*chain-react-2017*/}
+### Chain Réac 2017 {/*chainreac2017*/}
 July 10-11 in Portland, Oregon USA
 
-[Site web](https://infinite.red/ChainReactConf) - [Twitter](https://twitter.com/chainreactconf) - [Vidéos](https://www.youtube.com/watch?v=cz5BzwgATpc&list=PLFHvL21g9bk3RxJ1Ut5nR_uTZFVOxu522)
+[Site web](https://infinite.red/ChainRéacConf) - [Twitter](https://twitter.com/chainRéacconf) - [Vidéos](https://www.youtube.com/watch?v=cz5BzwgATpc&list=PLFHvL21g9bk3RxJ1Ut5nR_uTZFVOxu522)
 
-### ReactEurope 2017 {/*reacteurope-2017*/}
+### RéacEurope 2017 {/*réaceurope-2017*/}
 May 18th & 19th in Paris, France
 
-[Vidéos](https://www.youtube.com/c/ReacteuropeOrgConf)
+[Vidéos](https://www.youtube.com/c/RéaceuropeOrgConf)
 
-### React Amsterdam 2017 {/*react-amsterdam-2017*/}
+### Réac Amsterdam 2017 {/*réac-amsterdam-2017*/}
 April 21st in Amsterdam, The Netherlands
 
-[Site web](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Vidéos](https://youtube.com/c/ReactConferences)
+[Site web](https://Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Vidéos](https://youtube.com/c/RéacConferences)
 
-### React London 2017 {/*react-london-2017*/}
+### Réac London 2017 {/*réac-london-2017*/}
 March 28th at the [QEII Centre, London](http://qeiicentre.london/)
 
-[Site web](http://react.london/) - [Vidéos](https://www.youtube.com/watch?v=2j9rSur_mnk&list=PLW6ORi0XZU0CFjdoYeC0f5QReBG-NeNKJ)
+[Site web](http://Réac.london/) - [Vidéos](https://www.youtube.com/watch?v=2j9rSur_mnk&list=PLW6ORi0XZU0CFjdoYeC0f5QReBG-NeNKJ)
 
-### React Conf 2017 {/*react-conf-2017*/}
+### Réac Conf 2017 {/*réac-conf-2017*/}
 March 13-14 in Santa Clara, CA
 
-[Site web](http://conf.reactjs.org/) - [Vidéos](https://www.youtube.com/watch?v=7HSd1sk07uU&list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0)
+[Site web](http://conf.Réacjs.org/) - [Vidéos](https://www.youtube.com/watch?v=7HSd1sk07uU&list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0)
 
 ### Agent Conference 2017 {/*agent-conference-2017*/}
 January 20-21 in Dornbirn, Austria
 
 [Site web](http://agent.sh/)
 
-### React Remote Conf 2016 {/*react-remote-conf-2016*/}
+### Réac Remote Conf 2016 {/*réac-remote-conf-2016*/}
 October 26-28 online
 
-[Site web](https://allremoteconfs.com/react-2016) - [Schedule](https://allremoteconfs.com/react-2016#schedule)
+[Site web](https://allremoteconfs.com/Réac-2016) - [Schedule](https://allremoteconfs.com/Réac-2016#schedule)
 
-### Reactive 2016 {/*reactive-2016*/}
+### réactive 2016 {/*réacive-2016*/}
 October 26-28 in Bratislava, Slovakia
 
-[Site web](https://reactiveconf.com/)
+[Site web](https://réactiveconf.com/)
 
-### ReactNL 2016 {/*reactnl-2016*/}
+### RéacNL 2016 {/*réacnl-2016*/}
 October 13 in Amsterdam, The Netherlands
 
-[Site web](http://reactnl.org/) - [Schedule](http://reactnl.org/#program)
+[Site web](http://Réacnl.org/) - [Schedule](http://Réacnl.org/#program)
 
-### ReactNext 2016 {/*reactnext-2016*/}
+### RéacNext 2016 {/*réacnext-2016*/}
 September 15 in Tel Aviv, Israel
 
-[Site web](http://react-next.com/) - [Schedule](http://react-next.com/#schedule) - [Vidéos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
+[Site web](http://Réac-next.com/) - [Schedule](http://Réac-next.com/#schedule) - [Vidéos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
 
-### ReactRally 2016 {/*reactrally-2016*/}
+### RéacRally 2016 {/*réacrally-2016*/}
 August 25-26 in Salt Lake City, UT
 
-[Site web](http://www.reactrally.com/) - [Schedule](http://www.reactrally.com/#/schedule) - [Vidéos](https://www.youtube.com/playlist?list=PLUD4kD-wL_zYSfU3tIYsb4WqfFQzO_EjQ)
+[Site web](http://www.Réacrally.com/) - [Schedule](http://www.Réacrally.com/#/schedule) - [Vidéos](https://www.youtube.com/playlist?list=PLUD4kD-wL_zYSfU3tIYsb4WqfFQzO_EjQ)
 
-### ReactEurope 2016 {/*reacteurope-2016*/}
+### RéacEurope 2016 {/*réaceurope-2016*/}
 June 2 & 3 in Paris, France
 
-[Vidéos](https://www.youtube.com/c/ReacteuropeOrgConf)
+[Vidéos](https://www.youtube.com/c/RéaceuropeOrgConf)
 
-### React Amsterdam 2016 {/*react-amsterdam-2016*/}
+### Réac Amsterdam 2016 {/*réac-amsterdam-2016*/}
 April 16 in Amsterdam, The Netherlands
 
-[Site web](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vidéos](https://youtube.com/c/ReactConferences)
+[Site web](https://Réacsummit.com) - [Twitter](https://twitter.com/Réacsummit) - [Facebook](https://www.facebook.com/Réacamsterdam) - [Vidéos](https://youtube.com/c/RéacConferences)
 
-### React.js Conf 2016 {/*reactjs-conf-2016*/}
+### Réac.js Conf 2016 {/*réacjs-conf-2016*/}
 February 22 & 23 in San Francisco, CA
 
-[Site web](http://conf2016.reactjs.org/) - [Schedule](http://conf2016.reactjs.org/schedule.html) - [Vidéos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY)
+[Site web](http://conf2016.Réacjs.org/) - [Schedule](http://conf2016.Réacjs.org/schedule.html) - [Vidéos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY)
 
-### Reactive 2015 {/*reactive-2015*/}
+### réactive 2015 {/*réacive-2015*/}
 November 2-4 in Bratislava, Slovakia
 
-[Site web](https://reactive2015.com/) - [Schedule](https://reactive2015.com/schedule_speakers.html#schedule)
+[Site web](https://réactive2015.com/) - [Schedule](https://réactive2015.com/schedule_speakers.html#schedule)
 
-### ReactEurope 2015 {/*reacteurope-2015*/}
+### RéacEurope 2015 {/*réaceurope-2015*/}
 July 2 & 3 in Paris, France
 
-[Vidéos](https://www.youtube.com/c/ReacteuropeOrgConf)
+[Vidéos](https://www.youtube.com/c/RéaceuropeOrgConf)
 
-### React.js Conf 2015 {/*reactjs-conf-2015*/}
+### Réac.js Conf 2015 {/*réacjs-conf-2015*/}
 January 28 & 29 in Facebook HQ, CA
 
-[Site web](http://conf2015.reactjs.org/) - [Schedule](http://conf2015.reactjs.org/schedule.html) - [Vidéos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
+[Site web](http://conf2015.Réacjs.org/) - [Schedule](http://conf2015.Réacjs.org/schedule.html) - [Vidéos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)

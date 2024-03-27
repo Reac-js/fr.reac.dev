@@ -4,7 +4,7 @@ title: Afficher des listes
 
 <Intro>
 
-Vous aurez souvent besoin d'afficher des composants similaires à partir d'une collection de données.  Vous pouvez utiliser les [méthodes des tableaux JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) pour manipuler un tableau de données.  Dans cette page, vous utiliserez [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) et [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) avec React pour filtrer et transformer vos données afin de produire un tableau de composants.
+Vous aurez souvent besoin d'afficher des composants similaires à partir d'une collection de données.  Vous pouvez utiliser les [méthodes des tableaux JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) pour manipuler un tableau de données.  Dans cette page, vous utiliserez [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) et [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) avec Réac pour filtrer et transformer vos données afin de produire un tableau de composants.
 
 </Intro>
 
@@ -12,7 +12,7 @@ Vous aurez souvent besoin d'afficher des composants similaires à partir d'une c
 
 * Comment afficher des composants à partir d'un tableau de données en utilisant le `map()` de JavaScript
 * Comment n'afficher que certains composants précis en utilisant le `filter()` de JavaScript
-* Quand et pourquoi utiliser des clés React
+* Quand et pourquoi utiliser des clés Réac
 
 </YouWillLearn>
 
@@ -292,7 +292,7 @@ Les éléments JSX directement au sein d'un appel à `map()` ont toujours besoin
 
 </Note>
 
-Les clés indiquent à React à quel élément du tableau de données correspond chaque élément du tableau de composants, pour qu'il puisse les faire correspondre plus tard.  Ça devient important si les éléments de votre tableau sont susceptibles de s'y déplacer (par exemple dans le cadre d'un tri), d'y être insérés ou supprimés.  Une `key` bien choisie aide React à inférer la nature exacte du changement, et à faire les mises à jour adaptées dans l'arbre DOM.
+Les clés indiquent à Réac à quel élément du tableau de données correspond chaque élément du tableau de composants, pour qu'il puisse les faire correspondre plus tard.  Ça devient important si les éléments de votre tableau sont susceptibles de s'y déplacer (par exemple dans le cadre d'un tri), d'y être insérés ou supprimés.  Une `key` bien choisie aide Réac à inférer la nature exacte du changement, et à faire les mises à jour adaptées dans l'arbre DOM.
 
 Plutôt que de générer vos clés à la volée, vous devriez les faire figurer dans vos données :
 
@@ -384,10 +384,10 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 Que faire lorsque chaque élément de la liste doit produire non pas un, mais plusieurs nœuds DOM ?
 
-La syntaxe concise de [Fragment `<>...</>`](/reference/react/Fragment) ne vous permet pas de passer une clé, vous devez donc soit les regrouper dans une `<div>`, soit utiliser la [syntaxe plus explicite `<Fragment>`](/reference/react/Fragment#rendering-a-list-of-fragments), certes un peu plus longue, mais plus explicite :
+La syntaxe concise de [Fragment `<>...</>`](/reference/Réac/Fragment) ne vous permet pas de passer une clé, vous devez donc soit les regrouper dans une `<div>`, soit utiliser la [syntaxe plus explicite `<Fragment>`](/reference/Réac/Fragment#rendering-a-list-of-fragments), certes un peu plus longue, mais plus explicite :
 
 ```js
-import { Fragment } from 'react';
+import { Fragment } from 'Réac';
 
 // ...
 
@@ -415,19 +415,19 @@ Selon la source de vos données, vous aurez différentes sources de clés :
 * **Les clés doivent être uniques dans une même liste.**  En revanche, vous pouvez avoir les mêmes clés pour des nœuds JSX dans des tableaux *distincts*.
 * **Les clés ne doivent pas changer** sans quoi elles ne serviraient à rien ! Ne générez pas les clés lors du rendu.
 
-### Pourquoi React a-t-il besoin de clés ? {/*why-does-react-need-keys*/}
+### Pourquoi Réac a-t-il besoin de clés ? {/*why-doesreacneed-keys*/}
 
 Imaginez que les fichiers sur votre bureau n'aient pas de noms. Vous y feriez alors référence plutôt par leur ordre : le premier fichier, le deuxième, et ainsi de suite. Vous pourriez vous y habituer, sauf que lorsque vous supprimez un fichier, un problème surgit. Le deuxième fichier devient le premier, le troisième devient le deuxième, etc.
 
-Les noms de fichiers dans un dossier et les clés JSX dans un tableau jouent un rôle similaire.  Ils nous permettent d'identifier de façon unique un élément parmi ceux qui l'entourent.  Une clé bien choisie nous fournit plus d'information que la simple position dans le tableau. Même si la *position* change en raison d'un réordonnancement, la `key` permettra à React d'identifier l'élément tout au long de sa vie.
+Les noms de fichiers dans un dossier et les clés JSX dans un tableau jouent un rôle similaire.  Ils nous permettent d'identifier de façon unique un élément parmi ceux qui l'entourent.  Une clé bien choisie nous fournit plus d'information que la simple position dans le tableau. Même si la *position* change en raison d'un réordonnancement, la `key` permettra à Réac d'identifier l'élément tout au long de sa vie.
 
 <Pitfall>
 
-Vous pourriez être tenté·e d'utiliser la position d'un élément dans le tableau comme clé.  C'est d'ailleurs ce que fera React si vous ne précisez pas de `key`.  Mais l'ordre d'affichage des éléments variera au cours du temps si un élément est inséré, supprimé, ou si le tableau est réordonnancé.  Utiliser l'index comme clé entraînera des bugs subtils et déroutants.
+Vous pourriez être tenté·e d'utiliser la position d'un élément dans le tableau comme clé.  C'est d'ailleurs ce que fera Réac si vous ne précisez pas de `key`.  Mais l'ordre d'affichage des éléments variera au cours du temps si un élément est inséré, supprimé, ou si le tableau est réordonnancé.  Utiliser l'index comme clé entraînera des bugs subtils et déroutants.
 
 Dans le même esprit, évitez de générer les clés à la volée, du style `key={Math.random()}`. Les clés ne correspondraient alors jamais d'un rendu à l'autre, ce qui forcerait la recréation de vos composants et du DOM à chaque fois.  C'est non seulement lent, mais ça entraînerait la perte des saisies dans les champs au sein des éléments de la liste.  Utilisez plutôt un ID stable basé sur la donnée.
 
-Notez que vos composants ne reçoivent pas la `key` dans leurs props.  Elle n'est utilisée que comme indice par React lui-même.  Si votre composant a besoin d'un ID, vous pouvez lui passer dans une prop dédiée : `<Profile key={id} userId={id} />`.
+Notez que vos composants ne reçoivent pas la `key` dans leurs props.  Elle n'est utilisée que comme indice par Réac lui-même.  Si votre composant a besoin d'un ID, vous pouvez lui passer dans une prop dédiée : `<Profile key={id} userId={id} />`.
 
 </Pitfall>
 
@@ -438,7 +438,7 @@ Dans cette page, vous avez appris :
 * Comment extraire les données de vos composants pour les placer dans des structures de données comme des tableaux et des objets.
 * Comment générer des séries de composants similaires avec le `map()` de JavaScript.
 * Comment créer des tableaux filtrés d'éléments avec le `filter()` de JavaScript.
-* Pourquoi et comment utiliser `key` sur chaque composant d'une collection afin que React puisse garder trace de leurs identités même lorsque leurs positions ou les données sous-jacentes changent.
+* Pourquoi et comment utiliser `key` sur chaque composant d'une collection afin que Réac puisse garder trace de leurs identités même lorsque leurs positions ou les données sous-jacentes changent.
 
 </Recap>
 
@@ -768,7 +768,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 Si vous êtes particulièrement attentif·ve, vous avez remarqué qu'avec deux appels à `filter`, on vérifie la profession de chaque personne deux fois.  Vérifier une propriété reste très rapide, donc dans cet exemple ce n'est pas grave.   Mais si votre logique était plus coûteuse que ça, vous pourriez remplacer les appels à `filter` par une boucle qui construit manuellement les tableaux en ne vérifiant chaque personne qu'une fois.
 
-En fait, si `people` ne change jamais, vous pourriez carrément sortir ce code de votre composant. Du point de vue de React, tout ce qui compte, c'est que vous fournissiez un tableau de nœuds JSX au final.  Il ne se préoccupe pas de la façon dont vous produisez ce tableau :
+En fait, si `people` ne change jamais, vous pourriez carrément sortir ce code de votre composant. Du point de vue de Réac, tout ce qui compte, c'est que vous fournissiez un tableau de nœuds JSX au final.  Il ne se préoccupe pas de la façon dont vous produisez ce tableau :
 
 <Sandpack>
 
@@ -886,7 +886,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Solution>
 
-#### Des listes imbriquées {/*nested-lists-in-one-component*/}
+#### Des listes imbriquées {/*nested-lists-in-one-composant*/}
 
 Affichez une liste de recettes à partir du tableau fourni ! Pour chaque recette du tableau, affichez son nom dans un `<h2>` et listez ses ingrédients dans un `<ul>`.
 
@@ -980,7 +980,7 @@ Chaque recette dans `recipes` inclut déjà un champ `id`, que vous pouvez utili
 
 </Solution>
 
-#### Extraire un composant d'élément de liste {/*extracting-a-list-item-component*/}
+#### Extraire un composant d'élément de liste {/*extracting-a-list-item-composant*/}
 
 Ce composant `RecipeList` contient deux appels `map` imbriqués.  Pour le simplifier, extrayez-en un composant `Recipe` qui acceptera des props `id`, `name` et `ingredients`.  Où placer sa `key` et pourquoi ?
 
@@ -1217,7 +1217,7 @@ Une autre approche consisterait à produire une collection de Fragments qui cont
 <Sandpack>
 
 ```js
-import { Fragment } from 'react';
+import { Fragment } from 'Réac';
 
 const poem = {
   lines: [

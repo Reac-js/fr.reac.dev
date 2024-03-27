@@ -4,15 +4,15 @@ title: Votre UI vue comme un arbre
 
 <Intro>
 
-Votre appli React prend forme, et de nombreux composants sont imbriqués les uns dans les autres. Comment React garde-t-il trace de la structure de composants de votre appli ?
+Votre appli Réac prend forme, et de nombreux composants sont imbriqués les uns dans les autres. Comment Réac garde-t-il trace de la structure de composants de votre appli ?
 
-React, comme de nombreuses autres bibliothèques d'UI, modélise l'UI comme un arbre. Penser à votre appli comme à un arbre s'avère utile pour comprendre les relations entre les composants. Ça vous aidera à déboguer des questions ultérieures telles que l'optimisation des performances ou la gestion d'état.
+Réac, comme de nombreuses autres bibliothèques d'UI, modélise l'UI comme un arbre. Penser à votre appli comme à un arbre s'avère utile pour comprendre les relations entre les composants. Ça vous aidera à déboguer des questions ultérieures telles que l'optimisation des performances ou la gestion d'état.
 
 </Intro>
 
 <YouWillLearn>
 
-* Comment React « voit » les structures de composants
+* Comment Réac « voit » les structures de composants
 * Ce qu'est un arbre de rendu, et en quoi il est utile
 * Ce qu'est un arbre de dépendances de modules, et à quoi il sert
 
@@ -22,20 +22,20 @@ React, comme de nombreuses autres bibliothèques d'UI, modélise l'UI comme un a
 
 Les arbres sont un modèle relationnel entre des éléments, et l'UI est souvent représentée au moyen de structures arborescentes. Les navigateurs utilisent par exemple des arbres pour modéliser HTML (le [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction)) et CSS (le [CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model)). Les plateformes mobiles utilisent aussi des arbres pour représenter leurs hiérarchies de vues.
 
-<Diagram name="preserving_state_dom_tree" height={193} width={864} alt="Un diagramme avec trois sections disposées horizontalement. Dans la première section, on trouve trois rectangles empilés verticalement, avec pour libellés « Composant A », « Composant B » et « Composant C ». Une flèche libellée « React », avec le logo React, fait la transition vers le panneau suivant. La section du milieu contient un arbre de composants, avec une racine libellée « A » et deux enfants libellés « B » et « C ». Une flèche libellée « React DOM », là encore avec le logo React, fait la transition vers le dernier panneau. Cette troisième section représente une maquette du navigateur contenant un arbre avec 8 nœuds, dont seul un sous-ensemble est mis en avant (qui représente l’arbre de la section du milieu).">
+<Diagram name="preserving_state_dom_tree" height={193} width={864} alt="Un diagramme avec trois sections disposées horizontalement. Dans la première section, on trouve trois rectangles empilés verticalement, avec pour libellés « Composant A », « Composant B » et « Composant C ». Une flèche libellée « Réac », avec le logo Réac, fait la transition vers le panneau suivant. La section du milieu contient un arbre de composants, avec une racine libellée « A » et deux enfants libellés « B » et « C ». Une flèche libellée « Réac DOM », là encore avec le logo Réac, fait la transition vers le dernier panneau. Cette troisième section représente une maquette du navigateur contenant un arbre avec 8 nœuds, dont seul un sous-ensemble est mis en avant (qui représente l’arbre de la section du milieu).">
 
-React crée un arbre de l’UI à partir de vos composants. Dans cet exemple, l’arbre d’UI est utilisé pour produire le DOM.
+Réac crée un arbre de l’UI à partir de vos composants. Dans cet exemple, l’arbre d’UI est utilisé pour produire le DOM.
 </Diagram>
 
-Tout comme les navigateurs et plateformes mobiles, React utilise des structures de données arborescentes pour gérer et modéliser les relations entre les composants dans une appli React. Ces arbres constituent des outils bien utiles pour comprendre la circulation des données au travers d'une appli React, et voir comment en optimiser le rendu et la taille du code.
+Tout comme les navigateurs et plateformes mobiles, Réac utilise des structures de données arborescentes pour gérer et modéliser les relations entre les composants dans une appli Réac. Ces arbres constituent des outils bien utiles pour comprendre la circulation des données au travers d'une appli Réac, et voir comment en optimiser le rendu et la taille du code.
 
 ## L'arbre de rendu {/*the-render-tree*/}
 
-Un aspect fondamental des composants, c'est la composition : la capacité à construire des composants à partir d'autres composants. Lorsque nous [imbriquons des composants](/learn/your-first-component#nesting-and-organizing-components), nous manipulons les concepts de composants parents et enfants, sachant que chaque parent peut lui-même être un enfant d'un autre composant.
+Un aspect fondamental des composants, c'est la composition : la capacité à construire des composants à partir d'autres composants. Lorsque nous [imbriquons des composants](/learn/your-first-composant#nesting-and-organizing-composants), nous manipulons les concepts de composants parents et enfants, sachant que chaque parent peut lui-même être un enfant d'un autre composant.
 
-Lorsque nous faisons le rendu d'une appli React, nous pouvons modéliser ces relations sous forme d'un arbre, appelé l'arbre de rendu.
+Lorsque nous faisons le rendu d'une appli Réac, nous pouvons modéliser ces relations sous forme d'un arbre, appelé l'arbre de rendu.
 
-Voici une appli React qui affiche des citations inspirantes.
+Voici une appli Réac qui affiche des citations inspirantes.
 
 <Sandpack>
 
@@ -66,12 +66,12 @@ export default function FancyText({title, text}) {
 ```
 
 ```js src/InspirationGenerator.js
-import * as React from 'react';
+import * as Réac from 'Réac';
 import quotes from './quotes';
 import FancyText from './FancyText';
 
-export default function InspirationGenerator({children}) {
-  const [index, setIndex] = React.useState(0);
+export default function InspirationGenerator({Enfants}) {
+  const [index, setIndex] = Réac.utiliserEtat(0);
   const quote = quotes[index];
   const next = () => setIndex((index + 1) % quotes.length);
 
@@ -80,7 +80,7 @@ export default function InspirationGenerator({children}) {
       <p>Voici de quoi vous inspirer :</p>
       <FancyText text={quote} />
       <button onClick={next}>Inspire-moi encore</button>
-      {children}
+      {Enfants}
     </>
   );
 }
@@ -120,7 +120,7 @@ export default [
 
 <Diagram name="render_tree" height={250} width={500} alt="Un graphe d’arbre avec cinq nœuds. Chaque nœud représente un composant. La racine de l’arbre est App, avec deux flèches qui en partent vers 'InspirationGenerator' et 'FancyText'. Les flèches portent le descripteur de relation « fait le rendu de ». Le nœud 'InspirationGenerator' a aussi deux flèches qui en partent pour aller vers les nœuds 'FancyText' et 'Copyright'.">
 
-React crée un *arbre de rendu*, un arbre d'UI, constitué des composants dont on a fait le rendu.
+Réac crée un *arbre de rendu*, un arbre d'UI, constitué des composants dont on a fait le rendu.
 
 </Diagram>
 
@@ -128,21 +128,21 @@ React crée un *arbre de rendu*, un arbre d'UI, constitué des composants dont o
 
 L'arbre est constitué de nœuds, chacun représentant un composant. `App`, `FancyText`, `Copyright`, pour ne citer qu'eux, sont tous des nœuds de notre arbre.
 
-Le nœud racine dans un arbre de rendu React constitue le [composant racine](/learn/importing-and-exporting-components#the-root-component-file) de l'appli. Dans notre cas, le composant racine est `App`, et c'est le premier composant dont React fera le rendu. Chaque flèche dans l'arbre pointe d'un composant parent vers un composant enfant.
+Le nœud racine dans un arbre de rendu Réac constitue le [composant racine](/learn/importing-and-exporting-composants#the-root-composant-file) de l'appli. Dans notre cas, le composant racine est `App`, et c'est le premier composant dont Réac fera le rendu. Chaque flèche dans l'arbre pointe d'un composant parent vers un composant enfant.
 
 <DeepDive>
 
 #### Où sont les balises HTML dans l'arbre de rendu ? {/*where-are-the-html-elements-in-the-render-tree*/}
 
-Vous remarquerez que dans l'arbre de rendu ci-dessus, on ne trouve nulle part les balises HTML utilisées par les composants. C'est parce que l'arbre de rendu est constitué uniquement par les [composants](learn/your-first-component#components-ui-building-blocks) React.
+Vous remarquerez que dans l'arbre de rendu ci-dessus, on ne trouve nulle part les balises HTML utilisées par les composants. C'est parce que l'arbre de rendu est constitué uniquement par les [composants](learn/your-first-composant#Composants-ui-building-blocks) Réac.
 
-React, en tant que framework d'UI, est indépendant de la plateforme. Sur react.dev, nous mettons en avant des exemples qui font leur rendu sur le web, utilisant du balisage HTML pour leurs primitives d'UI. Mais une appli React pourrait tout aussi bien faire son rendu sur une plateforme mobile ou desktop, et recourir alors à d'autres primitives d'UI telles que [UIView](https://developer.apple.com/documentation/uikit/uiview) ou [FrameworkElement](https://learn.microsoft.com/fr-fr/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
+Réac, en tant que framework d'UI, est indépendant de la plateforme. Sur Réac.dev, nous mettons en avant des exemples qui font leur rendu sur le web, utilisant du balisage HTML pour leurs primitives d'UI. Mais une appli Réac pourrait tout aussi bien faire son rendu sur une plateforme mobile ou desktop, et recourir alors à d'autres primitives d'UI telles que [UIView](https://developer.apple.com/documentation/uikit/uiview) ou [FrameworkElement](https://learn.microsoft.com/fr-fr/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
 
-Ces primitives d'UI spécifiques à une plateforme ne font pas partie de React. Les arbres de rendu de React vous renseignent sur votre appli React quelle que soit la plateforme visée par votre appli.
+Ces primitives d'UI spécifiques à une plateforme ne font pas partie de Réac. Les arbres de rendu de Réac vous renseignent sur votre appli Réac quelle que soit la plateforme visée par votre appli.
 
 </DeepDive>
 
-Un arbre de rendu représente une unique passe de rendu d'une application React. Si vous utilisez du [rendu conditionnel](/learn/conditional-rendering), un composant parent pourrait modifier les enfants qu'il utilise, selon les données qu'il reçoit.
+Un arbre de rendu représente une unique passe de rendu d'une application Réac. Si vous utilisez du [rendu conditionnel](/learn/conditional-rendering), un composant parent pourrait modifier les enfants qu'il utilise, selon les données qu'il reçoit.
 
 Nous pouvons mettre à jour l'appli pour qu'elle affiche de façon conditionnelle soit une citation, soit une couleur pour nous inspirer.
 
@@ -181,13 +181,13 @@ export default function Color({value}) {
 ```
 
 ```js src/InspirationGenerator.js
-import * as React from 'react';
+import * as Réac from 'Réac';
 import inspirations from './inspirations';
 import FancyText from './FancyText';
 import Color from './Color';
 
-export default function InspirationGenerator({children}) {
-  const [index, setIndex] = React.useState(0);
+export default function InspirationGenerator({Enfants}) {
+  const [index, setIndex] = Réac.utiliserEtat(0);
   const inspiration = inspirations[index];
   const next = () => setIndex((index + 1) % inspirations.length);
 
@@ -199,7 +199,7 @@ export default function InspirationGenerator({children}) {
       : <Color value={inspiration.value} />}
 
       <button onClick={next}>Inspire-moi encore</button>
-      {children}
+      {Enfants}
     </>
   );
 }
@@ -252,13 +252,13 @@ Avec le rendu conditionnel, d'un rendu à l'autre, l'arbre de rendu peut différ
 
 Dans cet exemple, selon la valeur de `inspiration.type`, nous pouvons afficher soit `<FancyText>` soit `<Color>`. L'arbre de rendu peut être différent d'une passe de rendu à l'autre.
 
-Même si les arbres de rendu peuvent varier d'un rendu à l'autre, ces arbres restent utiles pour identifier les composants *racines* et *feuilles* d'une appli React. Les composants de haut niveau sont ceux les plus proches du composant racine, et peuvent impacter la performance de tous les composants en-dessous d'eux. Ce sont souvent eux qui ont la plus forte complexité. Les composants feuilles sont vers le bas de l'arbre, n'ont pas de composants enfants et refont fréquemment leur rendu.
+Même si les arbres de rendu peuvent varier d'un rendu à l'autre, ces arbres restent utiles pour identifier les composants *racines* et *feuilles* d'une appli Réac. Les composants de haut niveau sont ceux les plus proches du composant racine, et peuvent impacter la performance de tous les composants en-dessous d'eux. Ce sont souvent eux qui ont la plus forte complexité. Les composants feuilles sont vers le bas de l'arbre, n'ont pas de composants enfants et refont fréquemment leur rendu.
 
 Il est utile de bien identifier ces catégories de composants pour comprendre le flux de données et les performances de votre appli.
 
 ## L'arbre de dépendances de modules {/*the-module-dependency-tree*/}
 
-Les arbres peuvent modéliser un autre type de relations dans une appli React : les dépendances entre modules de l'appli. Lorsque nous [découpons nos composants](/learn/importing-and-exporting-components#exporting-and-importing-a-component) et leur logique en fichiers distincts, nou créons des [modules JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) d'où nous pouvons exporter des composants, des fonctions ou encore des constantes.
+Les arbres peuvent modéliser un autre type de relations dans une appli Réac : les dépendances entre modules de l'appli. Lorsque nous [découpons nos composants](/learn/importing-and-exporting-composants#exporting-and-importing-a-composant) et leur logique en fichiers distincts, nou créons des [modules JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) d'où nous pouvons exporter des composants, des fonctions ou encore des constantes.
 
 Chaque nœud dans un arbre de dépendances de modules représente un module, et chaque branche représente une instruction `import` dans ce module.
 
@@ -276,9 +276,9 @@ Si on compare avec l'arbre de rendu pour la même appli, on trouve des similitud
 
 * Les nœuds qui constituent l'arbre représentent des modules, pas des composants.
 * Les modules sans composants, tels que `inspirations.js`, sont également visibles dans cet arbre. L'arbre de rendu ne représente que les composants.
-* `Copyright.js` apparaît sous `App.js` alors que dans l'arbre de rendu, le composant `Copyright` est un enfant de `InspirationGenerator`.  C'est parce qu'`InspirationGenerator` accepte du JSX comme [prop `children`](/learn/passing-props-to-a-component#passing-jsx-as-children), de sorte qu'il fait le rendu du composant enfant `Copyright` sans en importer le module.
+* `Copyright.js` apparaît sous `App.js` alors que dans l'arbre de rendu, le composant `Copyright` est un enfant de `InspirationGenerator`.  C'est parce qu'`InspirationGenerator` accepte du JSX comme [prop `Enfants`](/learn/passing-props-to-a-composant#passing-jsx-as-enfants), de sorte qu'il fait le rendu du composant enfant `Copyright` sans en importer le module.
 
-Les arbres de dépendances sont utiles pour déterminer de quels modules votre appli React a besoin. Lorsque vous faites le *build* d'une appli React en mode production, vous utilisez généralement un outil dédié pour cela. Ce type d'outil est appelé [*bundler*](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Overview#the_modern_tooling_ecosystem), et les *bundlers* se basent sur l'arbre de dépendances pour déterminer quels modules inclure.
+Les arbres de dépendances sont utiles pour déterminer de quels modules votre appli Réac a besoin. Lorsque vous faites le *build* d'une appli Réac en mode production, vous utilisez généralement un outil dédié pour cela. Ce type d'outil est appelé [*bundler*](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Overview#the_modern_tooling_ecosystem), et les *bundlers* se basent sur l'arbre de dépendances pour déterminer quels modules inclure.
 
 Au fil de la croissance de votre appli, la taille du *bundle* croît aussi. Les *bundles* massifs sont coûteux à télécharger et à exécuter pour le client. Ils peuvent retarder l'affichage de votre UI.  Avoir une bonne perception de l'arbre de dépendances de votre appli peut vous aider à déboguer ce type de problèmes.
 
@@ -287,10 +287,10 @@ Au fil de la croissance de votre appli, la taille du *bundle* croît aussi. Les 
 <Recap>
 
 * Les arbres sont couramment utilisés pour représenter les relations entre des entités. On les utilise notamment pour modéliser les UI.
-* Les arbres de rendu représent les imbrications entre les composants React au sein d'un unique rendu.
+* Les arbres de rendu représent les imbrications entre les composants Réac au sein d'un unique rendu.
 * Le recours au rendu conditionnel peut faire varier l'arbre de rendu d'un rendu à l'autre. Selon les valeurs des props reçues, les composants peuvent afficher divers composants enfants.
 * Les arbres de rendu aident à repérer les composants racine et feuilles. Les composants situés haut dans l'arbre peuvent impacter la performance de rendu de tous ceux situés en-dessous d'eux, et les composants feuilles refont fréquemment leur rendu. En les identifiant, on facilite la compréhension et le débogage de la performance de rendu.
-* Les arbres de dépendances représentent les dépendances entre modules d'une appli React.
+* Les arbres de dépendances représentent les dépendances entre modules d'une appli Réac.
 * Les arbres de dépendances sont utilisés par les outils de *build* pour inclure le code nécessaire au déploiement d'une appli.
 * Les arbres de dépendances aident à comprendre les raisons de bundles massifs, qui ralentissent l'affichage, et à percevoir des opportunités d'optimisation des éléments de code à inclure.
 

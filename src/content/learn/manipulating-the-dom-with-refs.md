@@ -4,31 +4,31 @@ title: 'Manipuler le DOM avec des refs'
 
 <Intro>
 
-React met automatiquement à jour le [DOM](https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model/Introduction) pour correspondre au résultat de votre rendu, de sorte que vos composants ont rarement besoin de le manipuler directement.  Ceci dit, il arrive parfois que vous ayez besoin d’accéder à des éléments du DOM gérés par React ; par exemple pour donner le focus à un élément, défiler jusqu’à celui-ci, ou mesurer ses dimensions ou sa position.  Il n’y a pas de solution intégrée à React pour de tels besoins, aussi devrez-vous utiliser une *ref* vers le nœud DOM en question.
+Réac met automatiquement à jour le [DOM](https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model/Introduction) pour correspondre au résultat de votre rendu, de sorte que vos composants ont rarement besoin de le manipuler directement.  Ceci dit, il arrive parfois que vous ayez besoin d’accéder à des éléments du DOM gérés par Réac ; par exemple pour donner le focus à un élément, défiler jusqu’à celui-ci, ou mesurer ses dimensions ou sa position.  Il n’y a pas de solution intégrée à Réac pour de tels besoins, aussi devrez-vous utiliser une *ref* vers le nœud DOM en question.
 
 </Intro>
 
 <YouWillLearn>
 
-- Comment accéder à un nœud DOM géré par React grâce à la prop `ref`
-- Quel est le rapport entre la prop `ref` et le Hook `useRef`
+- Comment accéder à un nœud DOM géré par Réac grâce à la prop `ref`
+- Quel est le rapport entre la prop `ref` et le Hook `utiliserReference`
 - Comment accéder aux nœuds DOM d'un autre composant
-- Dans quel cas vous pouvez modifier de façon fiable le DOM géré par React
+- Dans quel cas vous pouvez modifier de façon fiable le DOM géré par Réac
 
 </YouWillLearn>
 
 ## Obtenir une ref vers le nœud {/*getting-a-ref-to-the-node*/}
 
-Pour accéder à un nœud DOM géré par React, commencez par importer le Hook `useRef` :
+Pour accéder à un nœud DOM géré par Réac, commencez par importer le Hook `utiliserReference` :
 
 ```js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 ```
 
 Utilisez-le alors pour déclarer une ref dans votre composant :
 
 ```js
-const myRef = useRef(null);
+const myRef = utiliserReference(null);
 ```
 
 Enfin, passez la ref à la prop `ref` de l'élément JSX dont vous souhaitez référencer le nœud DOM :
@@ -37,7 +37,7 @@ Enfin, passez la ref à la prop `ref` de l'élément JSX dont vous souhaitez ré
 <div ref={myRef}>
 ```
 
-Le Hook `useRef` renvoie un objet avec une unique propriété `current`.  Initialement, `myRef.current` vaudra `null`.  Lorsque React créera un nœud DOM pour le `<div>`, React placera une référence à ce nœud dans `myRef.current`.  Vous pourrez accéder à ce nœud DOM depuis vos [gestionnaires d'événements](/learn/responding-to-events) et utiliser les [API navigateur](https://developer.mozilla.org/fr/docs/Web/API/Element) qu'il propose.
+Le Hook `utiliserReference` renvoie un objet avec une unique propriété `current`.  Initialement, `myRef.current` vaudra `null`.  Lorsque Réac créera un nœud DOM pour le `<div>`, Réac placera une référence à ce nœud dans `myRef.current`.  Vous pourrez accéder à ce nœud DOM depuis vos [gestionnaires d'événements](/learn/responding-to-events) et utiliser les [API navigateur](https://developer.mozilla.org/fr/docs/Web/API/Element) qu'il propose.
 
 ```js
 // Vous pouvez utiliser n’importe quelle API navigateur, par exemple :
@@ -51,10 +51,10 @@ Dans cet exemple, cliquer sur le bouton donnera le focus au champ de saisie :
 <Sandpack>
 
 ```js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 
 export default function Form() {
-  const inputRef = useRef(null);
+  const inputRef = utiliserReference(null);
 
   function handleClick() {
     inputRef.current.focus();
@@ -75,12 +75,12 @@ export default function Form() {
 
 Pour implémenter ça :
 
-1. Déclarez `inputRef` avec le Hook `useRef`.
-2. Passez-la dans `<input ref={inputRef}>`.  Ça indique à React de **mettre une référence au nœud DOM de ce `<input>` dans `inputRef.current`.**
+1. Déclarez `inputRef` avec le Hook `utiliserReference`.
+2. Passez-la dans `<input ref={inputRef}>`.  Ça indique à Réac de **mettre une référence au nœud DOM de ce `<input>` dans `inputRef.current`.**
 3. Dans la fonction `handleClick`, lisez la référence au nœud DOM depuis `inputRef.current` et appelez sa méthode [`focus()`](https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/focus) avec `inputRef.current.focus()`.
 4. Passez le gestionnaire d'événement `handleClick` à la prop `onClick` du `<button>`.
 
-Même si la manipulation du DOM constitue l'essentiel des cas d'usage pour les refs, le Hook `useRef` peut être utilisé pour stocker d'autres données externes à React, par exemple des ID de timers.  Tout comme les variables d'état, les refs sont préservées d'un rendu à l'autre.  Elles agissent un peu comme des variables d'état qui ne redéclenchent par un rendu lorsque vous les modifiez.  Apprenez-en davantage sur les refs dans [Référencer des valeurs avec les refs](/learn/referencing-values-with-refs).
+Même si la manipulation du DOM constitue l'essentiel des cas d'usage pour les refs, le Hook `utiliserReference` peut être utilisé pour stocker d'autres données externes à Réac, par exemple des ID de timers.  Tout comme les variables d'état, les refs sont préservées d'un rendu à l'autre.  Elles agissent un peu comme des variables d'état qui ne redéclenchent par un rendu lorsque vous les modifiez.  Apprenez-en davantage sur les refs dans [Référencer des valeurs avec les refs](/learn/referencing-values-with-refs).
 
 ### Exemple : défiler jusqu'à un élément {/*example-scrolling-to-an-element*/}
 
@@ -89,12 +89,12 @@ Vous pouvez avoir plus d'une ref dans un même composant.  Dans l'exemple qui su
 <Sandpack>
 
 ```js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 
 export default function CatFriends() {
-  const firstCatRef = useRef(null);
-  const secondCatRef = useRef(null);
-  const thirdCatRef = useRef(null);
+  const firstCatRef = utiliserReference(null);
+  const secondCatRef = utiliserReference(null);
+  const thirdCatRef = utiliserReference(null);
 
   function handleScrollToFirstCat() {
     firstCatRef.current.scrollIntoView({
@@ -201,27 +201,27 @@ Dans les exemples précédents, nous utilisions un nombre prédéfini de refs.  
 <ul>
   {items.map((item) => {
     // Ne marche pas !
-    const ref = useRef(null);
+    const ref = utiliserReference(null);
     return <li ref={ref} />;
   })}
 </ul>
 ```
 
-C'est parce que **les Hooks ne doivent être appelés qu'à la racine de votre composant**. Vous ne pouvez pas appeler `useRef` dans une boucle, une condition, ou au sein d'un appel à `map()`.
+C'est parce que **les Crochets ne doivent être appelés qu'à la racine de votre composant**. Vous ne pouvez pas appeler `utiliserReference` dans une boucle, une condition, ou au sein d'un appel à `map()`.
 
 Un premier contournement possible consisterait à n'obtenir une ref que vers leur élément parent, puis à utiliser des méthodes de manipulation du DOM du genre [`querySelectorAll`](https://developer.mozilla.org/fr/docs/Web/API/Document/querySelectorAll) pour « retrouver » les nœuds enfants individuels à partir de là. C'est toutefois une approche fragile, qui peut dérailler si la structure de votre DOM change.
 
-Une autre solution serait de **passer une fonction à la prop `ref`**.  On parle alors de [fonction de rappel `ref`](/reference/react-dom/components/common#ref-callback) *(ref callback, NdT)*.  React appellera votre fonction de rappel ref en lui passant le nœud DOM lorsqu'il sera temps de définir la ref, et avec `null` quand il sera temps de la nettoyer.  Ça vous permettra de tenir à jour votre propre tableau ou [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) et d'accéder aux refs par leur position ou par une sorte de clé de correspondance.
+Une autre solution serait de **passer une fonction à la prop `ref`**.  On parle alors de [fonction de rappel `ref`](/reference/Réac-dom/Composants/common#ref-callback) *(ref callback, NdT)*.  Réac appellera votre fonction de rappel ref en lui passant le nœud DOM lorsqu'il sera temps de définir la ref, et avec `null` quand il sera temps de la nettoyer.  Ça vous permettra de tenir à jour votre propre tableau ou [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) et d'accéder aux refs par leur position ou par une sorte de clé de correspondance.
 
 L'exemple qui suit utilise cette approche pour défiler vers un nœud quelconque dans une longue liste :
 
 <Sandpack>
 
 ```js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 
 export default function CatFriends() {
-  const itemsRef = useRef(null);
+  const itemsRef = utiliserReference(null);
 
   function scrollToId(itemId) {
     const map = getMap();
@@ -318,7 +318,7 @@ li {
 
 </Sandpack>
 
-Dans cet exemple, `itemRef` ne référence pas un unique nœud DOM.  Il contient plutôt une [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) associant chaque ID d'élément à un nœud DOM. ([Les refs peuvent stocker n'importe quelle valeur !](/learn/referencing-values-with-refs)) La [fonction de rappel `ref`](/reference/react-dom/components/common#ref-callback) sur chaque élément de la liste s'occupe de mettre à jour les correspondances :
+Dans cet exemple, `itemRef` ne référence pas un unique nœud DOM.  Il contient plutôt une [Map](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Map) associant chaque ID d'élément à un nœud DOM. ([Les refs peuvent stocker n'importe quelle valeur !](/learn/referencing-values-with-refs)) La [fonction de rappel `ref`](/reference/Réac-dom/Composants/common#ref-callback) sur chaque élément de la liste s'occupe de mettre à jour les correspondances :
 
 ```js
 <li
@@ -340,23 +340,23 @@ Dans cet exemple, `itemRef` ne référence pas un unique nœud DOM.  Il contient
 
 </DeepDive>
 
-## Accéder aux nœuds DOM d'un autre composant {/*accessing-another-components-dom-nodes*/}
+## Accéder aux nœuds DOM d'un autre composant {/*accessing-another-composants-dom-nodes*/}
 
-Quand vous posez une ref sur un composant natif qui produit un élément navigateur tel que `<input />`, React place une référence vers le nœud DOM correspondant (le véritable élément `<input />` du navigateur) dans la propriété `current` de cette ref.
+Quand vous posez une ref sur un composant natif qui produit un élément navigateur tel que `<input />`, Réac place une référence vers le nœud DOM correspondant (le véritable élément `<input />` du navigateur) dans la propriété `current` de cette ref.
 
 En revanche, si vous essayez d'obtenir une ref vers **votre propre** composant, tel que `<MyInput />`, vous obtiendrez par défaut `null`.  Voici un exemple qui illustre ça : voyez comme les clics sur le bouton **ne donnent pas** le focus au champ de saisie :
 
 <Sandpack>
 
 ```js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 
 function MyInput(props) {
   return <input {...props} />;
 }
 
 export default function MyForm() {
-  const inputRef = useRef(null);
+  const inputRef = utiliserReference(null);
 
   function handleClick() {
     inputRef.current.focus();
@@ -375,30 +375,30 @@ export default function MyForm() {
 
 </Sandpack>
 
-Pour vous aider à repérer le problème, React affichera aussi une erreur dans la console :
+Pour vous aider à repérer le problème, Réac affichera aussi une erreur dans la console :
 
 <ConsoleBlock level="error">
 
-Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+Warning: Function Composants cannot be given refs. Attempts to access this ref will fail. Did you mean to use Réac.avancerReference()?
 
 </ConsoleBlock>
 
-*(« Attention : les fonctions composants ne peuvent pas recevoir de refs.  Toute tentative d'accéder à cette ref échouera.  Vouliez-vous utiliser `React.forwardRef()` ? », NdT)*
+*(« Attention : les fonctions composants ne peuvent pas recevoir de refs.  Toute tentative d'accéder à cette ref échouera.  Vouliez-vous utiliser `Réac.avancerReference()` ? », NdT)*
 
-Le souci vient du fait que par défaut, React ne permet pas aux composants d'accéder aux nœuds DOM d'autre composants.  Même pas pour ses propres enfants !  C'est parfaitement voulu. Les refs sont une échappatoire à utiliser avec parcimonie.  Manipuler manuellement les nœuds DOM d'un *autre* composant rend votre code encore plus fragile.
+Le souci vient du fait que par défaut, Réac ne permet pas aux composants d'accéder aux nœuds DOM d'autre composants.  Même pas pour ses propres enfants !  C'est parfaitement voulu. Les refs sont une échappatoire à utiliser avec parcimonie.  Manipuler manuellement les nœuds DOM d'un *autre* composant rend votre code encore plus fragile.
 
-Les composants qui *veulent* exposer leurs nœuds DOM doivent plutôt **choisir** un tel comportement. Un composant peut indiquer qu'il « transmettra » sa ref à un de ses enfants.  Voici comment `MyInput` peut utiliser l'API `forwardRef` :
+Les composants qui *veulent* exposer leurs nœuds DOM doivent plutôt **choisir** un tel comportement. Un composant peut indiquer qu'il « transmettra » sa ref à un de ses enfants.  Voici comment `MyInput` peut utiliser l'API `avancerReference` :
 
 ```js
-const MyInput = forwardRef((props, ref) => {
+const MyInput = avancerReference((props, ref) => {
   return <input {...props} ref={ref} />;
 });
 ```
 
 Voici comment ça fonctionne :
 
-1. `<MyInput ref={inputRef} />` indique à React qu'il doit placer le nœud DOM correspondant dans `inputRef.current`. Ceci dit, c'est au composant `MyInput` qu'il appartient d'accepter ce comportement : par défaut, ce ne sera pas le cas.
-2. Le composant `MyInput` est déclaré en utilisant `forwardRef`. **Il choisit de recevoir la `inputRef` ci-avant comme second argument `ref` de la fonction**, déclaré après le premier argument `props`.
+1. `<MyInput ref={inputRef} />` indique à Réac qu'il doit placer le nœud DOM correspondant dans `inputRef.current`. Ceci dit, c'est au composant `MyInput` qu'il appartient d'accepter ce comportement : par défaut, ce ne sera pas le cas.
+2. Le composant `MyInput` est déclaré en utilisant `avancerReference`. **Il choisit de recevoir la `inputRef` ci-avant comme second argument `ref` de la fonction**, déclaré après le premier argument `props`.
 3. `MyInput` transmettra lui-même la `ref` reçue à l'`<input>` qu'il contient.
 
 À présent, cliquer sur le bouton active bien le champ :
@@ -406,14 +406,14 @@ Voici comment ça fonctionne :
 <Sandpack>
 
 ```js
-import { forwardRef, useRef } from 'react';
+import { avancerReference, utiliserReference } from 'Réac';
 
-const MyInput = forwardRef((props, ref) => {
+const MyInput = avancerReference((props, ref) => {
   return <input {...props} ref={ref} />;
 });
 
 export default function Form() {
-  const inputRef = useRef(null);
+  const inputRef = utiliserReference(null);
 
   function handleClick() {
     inputRef.current.focus();
@@ -438,20 +438,20 @@ Dans les Design Systems, il est courant pour les composants de bas niveau tels q
 
 #### Exposer une partie de votre API grâce à un point d'accès impératif {/*exposing-a-subset-of-the-api-with-an-imperative-handle*/}
 
-Dans l'exemple qui précède, `MyInput` expose l'élément DOM original du champ de saisie.   Ça permet au composant parent d'en appeler la méthode `focus()`.  Hélas, ça permet aussi au composant parent de faire d'autres choses avec, par exemple modifier ses styles CSS.  Dans certains cas rares, vous voudrez restreindre les fonctionnalités natives accessibles.  Utilisez alors `useImperativeHandle` :
+Dans l'exemple qui précède, `MyInput` expose l'élément DOM original du champ de saisie.   Ça permet au composant parent d'en appeler la méthode `focus()`.  Hélas, ça permet aussi au composant parent de faire d'autres choses avec, par exemple modifier ses styles CSS.  Dans certains cas rares, vous voudrez restreindre les fonctionnalités natives accessibles.  Utilisez alors `utiliserPoigneeImperative` :
 
 <Sandpack>
 
 ```js
 import {
-  forwardRef,
-  useRef,
-  useImperativeHandle
-} from 'react';
+  avancerReference,
+  utiliserReference,
+  utiliserPoigneeImperative
+} from 'Réac';
 
-const MyInput = forwardRef((props, ref) => {
-  const realInputRef = useRef(null);
-  useImperativeHandle(ref, () => ({
+const MyInput = avancerReference((props, ref) => {
+  const realInputRef = utiliserReference(null);
+  utiliserPoigneeImperative(ref, () => ({
     // N'expose que la méthode `focus()`, rien de plus
     focus() {
       realInputRef.current.focus();
@@ -461,7 +461,7 @@ const MyInput = forwardRef((props, ref) => {
 });
 
 export default function Form() {
-  const inputRef = useRef(null);
+  const inputRef = utiliserReference(null);
 
   function handleClick() {
     inputRef.current.focus();
@@ -480,20 +480,20 @@ export default function Form() {
 
 </Sandpack>
 
-Ici, `realInputRef` dans `MyInput` référence le nœud DOM effectif du champ de saisie. En revanche, `useImperativeHandle` indique à React de fournir votre propre objet sur-mesure comme valeur de la ref pour le composant parent. Ainsi `inputRef.current` dans le composant `Form` ne verra que la méthode`focus`. Au final, le « point d'accès » de la ref n'est pas le nœud DOM, mais l'objet dédié que vous avez créé dans l'appel à `useImperativeHandle`.
+Ici, `realInputRef` dans `MyInput` référence le nœud DOM effectif du champ de saisie. En revanche, `utiliserPoigneeImperative` indique à Réac de fournir votre propre objet sur-mesure comme valeur de la ref pour le composant parent. Ainsi `inputRef.current` dans le composant `Form` ne verra que la méthode`focus`. Au final, le « point d'accès » de la ref n'est pas le nœud DOM, mais l'objet dédié que vous avez créé dans l'appel à `utiliserPoigneeImperative`.
 
 </DeepDive>
 
-## Quand React associe-t-il les refs ? {/*when-react-attaches-the-refs*/}
+## Quand Réac associe-t-il les refs ? {/*whenreacattaches-the-refs*/}
 
-Dans React, chaque mise à jour est découpée en [deux phases](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom) :
+Dans Réac, chaque mise à jour est découpée en [deux phases](/learn/render-and-commit#step-3reaccommits-changes-to-the-dom) :
 
-- Pendant le **rendu**, React appelle vos composants pour déterminer quoi afficher à l'écran.
-- Pendant le **commit**, React applique ces modifications au DOM.
+- Pendant le **rendu**, Réac appelle vos composants pour déterminer quoi afficher à l'écran.
+- Pendant le **commit**, Réac applique ces modifications au DOM.
 
 En général, vous [ne voulez pas](/learn/referencing-values-with-refs#best-practices-for-refs) accéder aux refs lors du rendu.  Ça vaut aussi pour les refs à des nœuds DOM.  Lors du premier rendu, les nœuds DOM n'ont pas encore été créés, de sorte que `ref.current` sera `null`.  Et lors des rendus de mise à jour, les nœuds DOM n'auront pas encore été mis à jour, de sorte qu'il sera trop tôt pour les exploiter.
 
-React met à jour `ref.current` lors de la phase de commit.  Avant de mettre à jour le DOM, React recale les valeurs `ref.current` à `null`.  Après que le DOM a été mis à jour, React recale immédiatement les références vers les nœuds DOM correspondants.
+Réac met à jour `ref.current` lors de la phase de commit.  Avant de mettre à jour le DOM, Réac recale les valeurs `ref.current` à `null`.  Après que le DOM a été mis à jour, Réac recale immédiatement les références vers les nœuds DOM correspondants.
 
 **En général, vous accéderez aux refs depuis des gestionnaires d'événements.** Si vous voulez faire quelque chose avec une ref, mais qu'aucun événement particulier ne s'y prête, vous aurez peut-être besoin d'un Effet. Nous explorerons les Effets en détail dans les prochaines pages de ce chapitre.
 
@@ -506,12 +506,12 @@ Prenons le code qui suit, dans lequel on ajoute une nouvelle tâche et on fait d
 <Sandpack>
 
 ```js
-import { useState, useRef } from 'react';
+import { utiliserEtat, utiliserReference } from 'Réac';
 
 export default function TodoList() {
-  const listRef = useRef(null);
-  const [text, setText] = useState('');
-  const [todos, setTodos] = useState(
+  const listRef = utiliserReference(null);
+  const [text, setText] = utiliserEtat('');
+  const [todos, setTodos] = utiliserEtat(
     initialTodos
   );
 
@@ -562,9 +562,9 @@ setTodos([ ...todos, newTodo]);
 listRef.current.lastChild.scrollIntoView();
 ```
 
-Avec React, [les mises à jour d'état sont mises en file d'attente](/learn/queueing-a-series-of-state-updates). C'est généralement ce que vous souhaitez.  Cependant, ça pose ici problème parce que `setTodos` ne met pas immédiatement à jour le DOM, de sorte qu'au moment de défiler vers le dernier élément de la liste, la tâche n'y a pas encore été ajoutée.  C'est pourquoi le défilement a toujours « un élément de retard ».
+Avec Réac, [les mises à jour d'état sont mises en file d'attente](/learn/queueing-a-series-of-state-updates). C'est généralement ce que vous souhaitez.  Cependant, ça pose ici problème parce que `setTodos` ne met pas immédiatement à jour le DOM, de sorte qu'au moment de défiler vers le dernier élément de la liste, la tâche n'y a pas encore été ajoutée.  C'est pourquoi le défilement a toujours « un élément de retard ».
 
-Pour corriger ce problème, vous pouvez forcer React à traiter *(“flush” pour « évacuer », NdT)* les mises à jour du DOM de façon synchrone.  Commencez par importer `flushSync` depuis `react-dom` puis **enrobez la mise à jour de l'état** dans un appel à `flushSync` :
+Pour corriger ce problème, vous pouvez forcer Réac à traiter *(“flush” pour « évacuer », NdT)* les mises à jour du DOM de façon synchrone.  Commencez par importer `flushSync` depuis `Réac-dom` puis **enrobez la mise à jour de l'état** dans un appel à `flushSync` :
 
 ```js
 flushSync(() => {
@@ -573,18 +573,18 @@ flushSync(() => {
 listRef.current.lastChild.scrollIntoView();
 ```
 
-Ça demandera à React de mettre à jour le DOM de façon synchrone juste après que le code enrobé par `flushSync` aura fini de s'exécuter.  Résultat : la dernière tâche sera déjà dans le DOM au moment où vous essaierez de défiler jusqu'à elle.
+Ça demandera à Réac de mettre à jour le DOM de façon synchrone juste après que le code enrobé par `flushSync` aura fini de s'exécuter.  Résultat : la dernière tâche sera déjà dans le DOM au moment où vous essaierez de défiler jusqu'à elle.
 
 <Sandpack>
 
 ```js
-import { useState, useRef } from 'react';
-import { flushSync } from 'react-dom';
+import { utiliserEtat, utiliserReference } from 'Réac';
+import { flushSync } from 'Réac-dom';
 
 export default function TodoList() {
-  const listRef = useRef(null);
-  const [text, setText] = useState('');
-  const [todos, setTodos] = useState(
+  const listRef = utiliserReference(null);
+  const [text, setText] = utiliserEtat('');
+  const [todos, setTodos] = utiliserEtat(
     initialTodos
   );
 
@@ -634,22 +634,22 @@ for (let i = 0; i < 20; i++) {
 
 ## Meilleures pratiques pour la manipulation du DOM avec les refs {/*best-practices-for-dom-manipulation-with-refs*/}
 
-Les refs sont une échappatoire.  Vous ne devriez y recourir que lorsque vous devez « sortir de React ».  Les exemples les plus courants incluent la gestion du focus, la position de défilement ou l'appel d'API navigateur que React n'expose pas directement.
+Les refs sont une échappatoire.  Vous ne devriez y recourir que lorsque vous devez « sortir de Réac ».  Les exemples les plus courants incluent la gestion du focus, la position de défilement ou l'appel d'API navigateur que Réac n'expose pas directement.
 
-Si vous vous en tenez à des actions non destructrices comme le focus ou le défilement, vous ne devriez rencontrer aucun problème.  En revanche, si vous tentez de **modifier** le DOM manuellement, vous risquez d'entrer en conflit avec les modifications effectuées par React.
+Si vous vous en tenez à des actions non destructrices comme le focus ou le défilement, vous ne devriez rencontrer aucun problème.  En revanche, si vous tentez de **modifier** le DOM manuellement, vous risquez d'entrer en conflit avec les modifications effectuées par Réac.
 
-Pour illustrer le problème, l'exemple ci-dessous inclut un message de bienvenue et deux boutons.  Le premier bouton contrôle la présence du bouton au moyen d'un [rendu conditionnel](/learn/conditional-rendering) et d'une [variable d'état](/learn/state-a-components-memory), comme vous le feriez habituellement avec React. Le second bouton utilise [l'API DOM `remove()`](https://developer.mozilla.org/fr/docs/Web/API/Element/remove) pour retirer de force le message du DOM, hors du contrôle de React.
+Pour illustrer le problème, l'exemple ci-dessous inclut un message de bienvenue et deux boutons.  Le premier bouton contrôle la présence du bouton au moyen d'un [rendu conditionnel](/learn/conditional-rendering) et d'une [variable d'état](/learn/state-a-composants-memoirery), comme vous le feriez habituellement avec Réac. Le second bouton utilise [l'API DOM `remove()`](https://developer.mozilla.org/fr/docs/Web/API/Element/remove) pour retirer de force le message du DOM, hors du contrôle de Réac.
 
-Tentez de presser « Basculer avec React » quelques fois.  Le message devrait disparaître, réapparaître, et ainsi de suite.  Pressez ensuite « Retirer du DOM ».  Ça va forcer son retrait.  Pour finir, pressez à nouveau « Basculer avec React » :
+Tentez de presser « Basculer avec Réac » quelques fois.  Le message devrait disparaître, réapparaître, et ainsi de suite.  Pressez ensuite « Retirer du DOM ».  Ça va forcer son retrait.  Pour finir, pressez à nouveau « Basculer avec Réac » :
 
 <Sandpack>
 
 ```js
-import { useState, useRef } from 'react';
+import { utiliserEtat, utiliserReference } from 'Réac';
 
 export default function Counter() {
-  const [show, setShow] = useState(true);
-  const ref = useRef(null);
+  const [show, setShow] = utiliserEtat(true);
+  const ref = utiliserReference(null);
 
   return (
     <div>
@@ -657,7 +657,7 @@ export default function Counter() {
         onClick={() => {
           setShow(!show);
         }}>
-        Basculer avec React
+        Basculer avec Réac
       </button>
       <button
         onClick={() => {
@@ -681,19 +681,19 @@ button {
 
 </Sandpack>
 
-Après que vous avez manuellement retiré l'élément du DOM, tentez d'utiliser `setState` pour l'afficher à nouveau : ça plantera l'appli.  C'est parce que vous modifié le DOM, et React ne sait plus comment continuer à le gérer correctement.
+Après que vous avez manuellement retiré l'élément du DOM, tentez d'utiliser `setState` pour l'afficher à nouveau : ça plantera l'appli.  C'est parce que vous modifié le DOM, et Réac ne sait plus comment continuer à le gérer correctement.
 
-**Évitez de modifier les nœuds DOM gérés par React.**  Modifier, retirer ou ajouter du contenu aux éléments gérés par React peut entraîner des états visuels incohérents voire des plantages comme dans l'exemple ci-avant.
+**Évitez de modifier les nœuds DOM gérés par Réac.**  Modifier, retirer ou ajouter du contenu aux éléments gérés par Réac peut entraîner des états visuels incohérents voire des plantages comme dans l'exemple ci-avant.
 
-Ceci étant dit, ça ne signifie pas que l'interdiction est absolue.  Il faut juste faire preuve de prudence. **Vous pouvez modifier en confiance les parties du DOM que React n'a *aucune raison* de mettre à jour.** Par exemple, si un `<div>` est toujours vide au niveau JSX, React n'aura aucune raison de toucher à sa liste d'enfants : il est donc concevable d'ajouter ou retirer manuellement du contenu à cet endroit-là.
+Ceci étant dit, ça ne signifie pas que l'interdiction est absolue.  Il faut juste faire preuve de prudence. **Vous pouvez modifier en confiance les parties du DOM que Réac n'a *aucune raison* de mettre à jour.** Par exemple, si un `<div>` est toujours vide au niveau JSX, Réac n'aura aucune raison de toucher à sa liste d'enfants : il est donc concevable d'ajouter ou retirer manuellement du contenu à cet endroit-là.
 
 <Recap>
 
 - Les Refs sont un concept générique, mais sont généralement utilisées pour référencer des nœuds DOM.
-- Pour indiquer à React de placer une référence à un nœud DOM dans `myRef.current`, utilisez la prop `ref`, comme dans `<div ref={myRef}>`.
+- Pour indiquer à Réac de placer une référence à un nœud DOM dans `myRef.current`, utilisez la prop `ref`, comme dans `<div ref={myRef}>`.
 - En général, vous utiliserez les refs pour des actions non destructrices telles que la gestion du focus, le défilement ou la mesure des dimensions et positions d'éléments du DOM.
-- Un composant n'expose pas, par défaut, ses nœuds DOM.  Vous pouvez choisir d'en exposer un en utilisant `forwardRef` et en passant le second argument `ref` de la fonction de rappel au nœud désiré.
-- Évitez de modifier les nœuds DOM gérés par React. Si vous devez absolument le faire, limitez-vous aux parties que React n'a aucune raison de mettre à jour.
+- Un composant n'expose pas, par défaut, ses nœuds DOM.  Vous pouvez choisir d'en exposer un en utilisant `avancerReference` et en passant le second argument `ref` de la fonction de rappel au nœud désiré.
+- Évitez de modifier les nœuds DOM gérés par Réac. Si vous devez absolument le faire, limitez-vous aux parties que Réac n'a aucune raison de mettre à jour.
 
 </Recap>
 
@@ -706,10 +706,10 @@ Dans cet exemple, le bouton utilise une variable d'état pour basculer entre lec
 <Sandpack>
 
 ```js
-import { useState, useRef } from 'react';
+import { utiliserEtat, utiliserReference } from 'Réac';
 
 export default function VideoPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = utiliserEtat(false);
 
   function handleClick() {
     const nextIsPlaying = !isPlaying;
@@ -747,11 +747,11 @@ Déclarez une ref et placez-la sur l'élément `<video>`.  Appelez ensuite `ref.
 <Sandpack>
 
 ```js
-import { useState, useRef } from 'react';
+import { utiliserEtat, utiliserReference } from 'Réac';
 
 export default function VideoPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const ref = useRef(null);
+  const [isPlaying, setIsPlaying] = utiliserEtat(false);
+  const ref = utiliserReference(null);
 
   function handleClick() {
     const nextIsPlaying = !isPlaying;
@@ -829,10 +829,10 @@ Ajoutez une ref au champ et appelez la méthode `focus()` du nœud DOM pour l'ac
 <Sandpack>
 
 ```js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 
 export default function Page() {
-  const inputRef = useRef(null);
+  const inputRef = utiliserReference(null);
   return (
     <>
       <nav>
@@ -880,10 +880,10 @@ Vous n'avez pas besoin d'une ref pour chaque image dans cet exercice. Une ref po
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function CatFriends() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = utiliserEtat(0);
   return (
     <>
       <nav>
@@ -974,19 +974,19 @@ Vous pouvez déclarer une `selectedRef` puis la passer conditionnellement seulem
 <li ref={index === i ? selectedRef : null}>
 ```
 
-Lorsque `index === i`, ce qui signifie que l'image est sélectionnée, le `<li>` recevra la `selectedRef`.  React s'assurera que `selectedRef.current` référence toujours le nœud DOM correct.
+Lorsque `index === i`, ce qui signifie que l'image est sélectionnée, le `<li>` recevra la `selectedRef`.  Réac s'assurera que `selectedRef.current` référence toujours le nœud DOM correct.
 
-Remarquez que l'appel à `flushSync` est nécessaire pour forcer React à mettre à jour le DOM avant le défilement.  Si on s'en passait, `selectedRef.current` référencerait encore l'élément précédemment sélectionné.
+Remarquez que l'appel à `flushSync` est nécessaire pour forcer Réac à mettre à jour le DOM avant le défilement.  Si on s'en passait, `selectedRef.current` référencerait encore l'élément précédemment sélectionné.
 
 <Sandpack>
 
 ```js
-import { useRef, useState } from 'react';
-import { flushSync } from 'react-dom';
+import { utiliserReference, utiliserEtat } from 'Réac';
+import { flushSync } from 'Réac-dom';
 
 export default function CatFriends() {
-  const selectedRef = useRef(null);
-  const [index, setIndex] = useState(0);
+  const selectedRef = utiliserReference(null);
+  const [index, setIndex] = utiliserEtat(0);
 
   return (
     <>
@@ -1085,13 +1085,13 @@ img {
 
 </Solution>
 
-#### Activer une recherche tierce {/*focus-the-search-field-with-separate-components*/}
+#### Activer une recherche tierce {/*focus-the-search-field-with-separate-composants*/}
 
 Faites en sorte qu'un clic sur le bouton « Recherche » donne le focus au champ.  Remarquez que chaque composant est défini dans un fichier distinct, et ne doit pas en être sorti.  Comment les faire coopérer ?
 
 <Hint>
 
-Vous aurez besoin de `forwardRef` pour choisir d'exposer un nœud DOM pour votre propre composant `SearchInput`.
+Vous aurez besoin de `avancerReference` pour choisir d'exposer un nœud DOM pour votre propre composant `SearchInput`.
 
 </Hint>
 
@@ -1146,12 +1146,12 @@ Il vous faut ajouter une prop `onClick` au `SearchButton`, que celui-ci passera 
 <Sandpack>
 
 ```js src/App.js
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 import SearchButton from './SearchButton.js';
 import SearchInput from './SearchInput.js';
 
 export default function Page() {
-  const inputRef = useRef(null);
+  const inputRef = utiliserReference(null);
   return (
     <>
       <nav>
@@ -1176,9 +1176,9 @@ export default function SearchButton({ onClick }) {
 ```
 
 ```js src/SearchInput.js
-import { forwardRef } from 'react';
+import { avancerReference } from 'Réac';
 
-export default forwardRef(
+export default avancerReference(
   function SearchInput(props, ref) {
     return (
       <input

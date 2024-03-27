@@ -4,7 +4,7 @@ title: Démarrage rapide
 
 <Intro>
 
-Bienvenue dans la documentation React !  Dans cette page, vous allez découvrir les 80% de concepts React que vous utiliserez sans doute au quotidien.
+Bienvenue dans la documentation Réac !  Dans cette page, vous allez découvrir les 80% de concepts Réac que vous utiliserez sans doute au quotidien.
 
 </Intro>
 
@@ -19,11 +19,11 @@ Bienvenue dans la documentation React !  Dans cette page, vous allez découvrir
 
 </YouWillLearn>
 
-## Créer et imbriquer des composants {/*components*/}
+## Créer et imbriquer des composants {/*composants*/}
 
-Les applis React sont constituées de *composants*.  Un composant, c’est un bout d’UI (*User Interface*, donc interface utilisateur) avec son comportement et son apparence propres.  Un composant peut être aussi petit qu’un bouton, ou aussi grand qu’une page entière.
+Les applis Réac sont constituées de *composants*.  Un composant, c’est un bout d’UI (*User Interface*, donc interface utilisateur) avec son comportement et son apparence propres.  Un composant peut être aussi petit qu’un bouton, ou aussi grand qu’une page entière.
 
-Les composants React sont des fonctions JavaScript qui renvoient du balisage :
+Les composants Réac sont des fonctions JavaScript qui renvoient du balisage :
 
 ```js
 function MyButton() {
@@ -46,7 +46,7 @@ export default function MyApp() {
 }
 ```
 
-Remarquez que `<MyButton />` commence par une majuscule.  C’est comme ça que React sait qu’il s’agit d’un composant.  Les noms de composants React doivent toujours démarrer par une majuscule, alors que les balises HTML doivent être en minuscules.
+Remarquez que `<MyButton />` commence par une majuscule.  C’est comme ça que Réac sait qu’il s’agit d’un composant.  Les noms de composants Réac doivent toujours démarrer par une majuscule, alors que les balises HTML doivent être en minuscules.
 
 Voyons ce que ça donne :
 
@@ -77,7 +77,7 @@ Les mots-clés `export default` indiquent le composant principal du fichier.  Si
 
 ## Écrire du balisage avec JSX {/*writing-markup-with-jsx*/}
 
-La syntaxe de balisage que vous avez vue ci-avant s’appelle *JSX*.  Elle n’est pas à proprement parler obligatoire, mais la plupart des projets React utilisent JSX par confort.  Tous les [outils que nous recommandons pour le développement en local](/learn/installation) prennent en charge JSX d’entrée de jeu.
+La syntaxe de balisage que vous avez vue ci-avant s’appelle *JSX*.  Elle n’est pas à proprement parler obligatoire, mais la plupart des projets Réac utilisent JSX par confort.  Tous les [outils que nous recommandons pour le développement en local](/learn/installation) prennent en charge JSX d’entrée de jeu.
 
 JSX est plus exigeant que HTML. Vous devez fermer les balises telles que `<br />`. Par ailleurs, votre composant ne peut pas renvoyer plusieurs balises JSX.  Il vous faudrait les enrober dans un parent commun, tel qu’un `<div>...</div>` ou un Fragment `<>...</>` vide :
 
@@ -96,7 +96,7 @@ Si vous avez beaucoup de HTML à migrer vers du JSX, vous pouvez vous aider d’
 
 ## Ajouter des styles {/*adding-styles*/}
 
-Dans React, vous précisez une classe CSS avec `className`.  Ça fonctionne exactement comme l’attribut [`class`](https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/class) en HTML :
+Dans Réac, vous précisez une classe CSS avec `className`.  Ça fonctionne exactement comme l’attribut [`class`](https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/class) en HTML :
 
 ```js
 <img className="avatar" />
@@ -111,7 +111,7 @@ Ensuite vous écrivez vos règles CSS dans un fichier CSS distinct :
 }
 ```
 
-React n’impose aucune façon particulière de fournir des fichiers CSS.  Le cas le plus simple consiste à utiliser une balise [`<link>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/link) dans votre HTML.  Si vous utilisez un outil de *build* ou un framework, consultez sa documentation pour apprendre comment ajouter un fichier CSS à votre projet.
+Réac n’impose aucune façon particulière de fournir des fichiers CSS.  Le cas le plus simple consiste à utiliser une balise [`<link>`](https://developer.mozilla.org/fr/docs/Web/HTML/Element/link) dans votre HTML.  Si vous utilisez un outil de *build* ou un framework, consultez sa documentation pour apprendre comment ajouter un fichier CSS à votre projet.
 
 ## Afficher des données {/*displaying-data*/}
 
@@ -181,7 +181,7 @@ Dans l’exemple ci-avant, `style={{}}` ne constitue pas une syntaxe spéciale 
 
 ## Affichage conditionnel {/*conditional-rendering*/}
 
-Dans React, il n’y a pas de syntaxe spéciale pour écrire des conditions.  Au lieu de ça, on utilise les mêmes techniques que pour écrire du code JavaScript normal.  Par exemple, vous pouvez utiliser une instruction [`if`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/if...else) pour choisir quel bout de JSX inclure :
+Dans Réac, il n’y a pas de syntaxe spéciale pour écrire des conditions.  Au lieu de ça, on utilise les mêmes techniques que pour écrire du code JavaScript normal.  Par exemple, vous pouvez utiliser une instruction [`if`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/if...else) pour choisir quel bout de JSX inclure :
 
 ```js
 let content;
@@ -247,7 +247,7 @@ return (
 );
 ```
 
-Remarquez que `<li>` a un attribut `key`.  Pour chaque élément d’une liste, vous devriez passer une chaîne de caractères ou un numéro qui l’identifie de façon unique au sein de cette liste.  En général, cette clé vient de vos données, par exemple une clé primaire dans la base de données.  React utilise ces clés pour comprendre la nature de vos changements : insertion, suppression ou réordonnancement des éléments.
+Remarquez que `<li>` a un attribut `key`.  Pour chaque élément d’une liste, vous devriez passer une chaîne de caractères ou un numéro qui l’identifie de façon unique au sein de cette liste.  En général, cette clé vient de vos données, par exemple une clé primaire dans la base de données.  Réac utilise ces clés pour comprendre la nature de vos changements : insertion, suppression ou réordonnancement des éléments.
 
 <Sandpack>
 
@@ -296,33 +296,33 @@ function MyButton() {
 }
 ```
 
-Remarquez que `onClick={handleClick}` n’a pas de parenthèses à la fin !  Prenez garde de ne pas *appeler* la fonction de gestion d’événement : vous avez seulement besoin de *la transmettre*.  React appellera votre gestionnaire d’événement lorsque l’utilisateur activera le bouton.
+Remarquez que `onClick={handleClick}` n’a pas de parenthèses à la fin !  Prenez garde de ne pas *appeler* la fonction de gestion d’événement : vous avez seulement besoin de *la transmettre*.  Réac appellera votre gestionnaire d’événement lorsque l’utilisateur activera le bouton.
 
 ## Mettre à jour l’affichage {/*updating-the-screen*/}
 
 Le plus souvent, vous voudrez que votre composant « se souvienne » de certaines informations et les affiche.  Par exemple, peut-être souhaitez-vous compter le nombre de fois qu’un bouton a été cliqué.  Pour cela, il vous faut équiper votre composant d’un *état*.
 
-Commencez par importer [`useState`](/reference/react/useState) depuis React :
+Commencez par importer [`utiliserEtat`](/reference/Réac/utiliserEtat) depuis Réac :
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 ```
 
 Servez-vous-en pour déclarer une *variable d’état* dans votre composant :
 
 ```js
 function MyButton() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
   // ...
 ```
 
-Un appel à `useState` vous renvoie deux choses : l’état courant (`count`), et une fonction pour le mettre à jour (`setCount`).  Vous pouvez leur donner n’importe quels noms, mais la convention largement répandue consiste à écrire `[something, setSomething]`.
+Un appel à `utiliserEtat` vous renvoie deux choses : l’état courant (`count`), et une fonction pour le mettre à jour (`setCount`).  Vous pouvez leur donner n’importe quels noms, mais la convention largement répandue consiste à écrire `[something, setSomething]`.
 
-La première fois que le bouton est affiché, `count` est à `0` car vous avez passé `0` à `useState()`. Lorsque vous souhaitez modifier l’état, appelez  `setCount()` et passez-lui la nouvelle valeur.  Cliquer sur ce bouton incrémentera le compteur :
+La première fois que le bouton est affiché, `count` est à `0` car vous avez passé `0` à `utiliserEtat()`. Lorsque vous souhaitez modifier l’état, appelez  `setCount()` et passez-lui la nouvelle valeur.  Cliquer sur ce bouton incrémentera le compteur :
 
 ```js {5}
 function MyButton() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
   function handleClick() {
     setCount(count + 1);
@@ -336,14 +336,14 @@ function MyButton() {
 }
 ```
 
-React appellera à nouveau la fonction de votre composant. Cette fois, `count` vaudra `1`.  La fois suivante, ce sera `2`.  Et ainsi de suite.
+Réac appellera à nouveau la fonction de votre composant. Cette fois, `count` vaudra `1`.  La fois suivante, ce sera `2`.  Et ainsi de suite.
 
 Si vous affichez le même composant plusieurs fois, chacun a son propre état.  Cliquez les différents boutons séparément :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function MyApp() {
   return (
@@ -356,7 +356,7 @@ export default function MyApp() {
 }
 
 function MyButton() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
   function handleClick() {
     setCount(count + 1);
@@ -381,13 +381,13 @@ button {
 
 Voyez comme chaque bouton « se souvient » de son propre état `count` et n’affecte pas les autres boutons.
 
-## Utiliser des Hooks {/*using-hooks*/}
+## Utiliser des Crochets {/*using-hooks*/}
 
-Les fonctions dont le nom commence par `use` sont appelées *Hooks*. `useState` est un Hook fourni directement par React.  Vous pouvez trouver les autres Hooks fournis dans la [référence de l’API](/reference/react).  Vous pouvez aussi créer vos propres Hooks en combinant ceux existants.
+Les fonctions dont le nom commence par `use` sont appelées *Crochets*. `utiliserEtat` est un Hook fourni directement par Réac.  Vous pouvez trouver les autres Crochets fournis dans la [référence de l’API](/reference/Réac).  Vous pouvez aussi créer vos propres Crochets en combinant ceux existants.
 
-Les Hooks sont plus contraignants que les autres fonctions.  Vous pouvez seulement appeler les Hooks *au début* du code vos composants (ou d’autres Hooks).  Si vous voulez utiliser `useState` dans une condition ou une boucle, extrayez un composant dédié au besoin et mettez le Hook à l’intérieur.
+Les Crochets sont plus contraignants que les autres fonctions.  Vous pouvez seulement appeler les Crochets *au début* du code vos composants (ou d’autres Crochets).  Si vous voulez utiliser `utiliserEtat` dans une condition ou une boucle, extrayez un composant dédié au besoin et mettez le Hook à l’intérieur.
 
-## Partager des données entre composants {/*sharing-data-between-components*/}
+## Partager des données entre composants {/*sharing-data-between-composants*/}
 
 Dans l’exemple précédent, chaque `MyButton` avait son propre `count` indépendant, et lorsqu’un bouton était cliqué, seul le `count` de ce bouton changeait :
 
@@ -435,7 +435,7 @@ Pour commencer, *faites remonter l’état* de `MyButton` vers `MyApp` :
 
 ```js {2-6,18}
 export default function MyApp() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
   function handleClick() {
     setCount(count + 1);
@@ -460,7 +460,7 @@ Ensuite, *transmettez l’état vers le bas* de `MyApp` à chaque `MyButton`, ai
 
 ```js {11-12}
 export default function MyApp() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
   function handleClick() {
     setCount(count + 1);
@@ -495,10 +495,10 @@ Lorsque vous cliquez un bouton, le gestionnaire `onClick` est déclenché.  La p
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function MyApp() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
   function handleClick() {
     setCount(count + 1);
@@ -533,6 +533,6 @@ button {
 
 ## Et maintenant ? {/*next-steps*/}
 
-Bravo, vous connaissez désormais les bas de l’écriture de code React !
+Bravo, vous connaissez désormais les bas de l’écriture de code Réac !
 
-Allez donc découvrir notre [tutoriel](/learn/tutorial-tic-tac-toe) pour mettre tout ça en pratique et construire votre première petite appli avec React.
+Allez donc découvrir notre [tutoriel](/learn/tutorial-tic-tac-toe) pour mettre tout ça en pratique et construire votre première petite appli avec Réac.

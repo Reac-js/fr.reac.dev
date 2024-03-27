@@ -10,7 +10,7 @@ Les tableaux sont un type d’objet modifiable en JavaScript que vous pouvez sto
 
 <YouWillLearn>
 
-- Comment ajouter, supprimer ou modifier des éléments dans un tableau dans l'état React
+- Comment ajouter, supprimer ou modifier des éléments dans un tableau dans l'état Réac
 - Comment mettre à jour un objet à l'intérieur d'un tableau
 - Comment rendre la copie de tableaux moins répétitive avec Immer
 
@@ -18,11 +18,11 @@ Les tableaux sont un type d’objet modifiable en JavaScript que vous pouvez sto
 
 ## Mettre à jour des tableaux sans modification en place {/*updating-arrays-without-mutation*/}
 
-En JavaScript, les tableaux sont des objets comme les autres. [Tout comme avec les objets](/learn/updating-objects-in-state), **vous devez considérer les tableaux dans l'état React comme étant en lecture seule**. Ça signifie que vous ne devez pas réaffecter les éléments à l'intérieur d'un tableau, comme dans `arr[0] = 'oiseau'`, et vous ne devez pas non plus utiliser des méthodes qui modifient le tableau en place, telles que `push()` et `pop()`.
+En JavaScript, les tableaux sont des objets comme les autres. [Tout comme avec les objets](/learn/updating-objects-in-state), **vous devez considérer les tableaux dans l'état Réac comme étant en lecture seule**. Ça signifie que vous ne devez pas réaffecter les éléments à l'intérieur d'un tableau, comme dans `arr[0] = 'oiseau'`, et vous ne devez pas non plus utiliser des méthodes qui modifient le tableau en place, telles que `push()` et `pop()`.
 
 Au lieu de ça, chaque fois que vous souhaitez mettre à jour un tableau, vous devez passer un *nouveau* tableau à la fonction de mise à jour de l'état. Pour cela, vous pouvez créer un nouveau tableau à partir de l'original en utilisant des méthodes non modifiantes telles que `filter()` et `map()`. Ensuite, vous pouvez mettre à jour l'état avec le nouveau tableau résultant.
 
-Voici un tableau de référence des opérations courantes sur les tableaux. Lorsque vous traitez des tableaux dans l'état de React, évitez les méthodes de la colonne de gauche et privilégiez celles de la colonne de droite :
+Voici un tableau de référence des opérations courantes sur les tableaux. Lorsque vous traitez des tableaux dans l'état de Réac, évitez les méthodes de la colonne de gauche et privilégiez celles de la colonne de droite :
 
 |              | à éviter (modifie le tableau)        | à privilégier (renvoie un nouveau tableau)                                |
 | ------------ | ------------------------------------ | ------------------------------------------------------------------------- |
@@ -40,7 +40,7 @@ Malheureusement, [`slice`](https://developer.mozilla.org/fr/docs/Web/JavaScript/
 - `slice` vous permet de copier un tableau ou une partie de celui-ci.
 - `splice` **modifie** le tableau (pour insérer ou supprimer des éléments).
 
-En React, vous utiliserez beaucoup plus souvent `slice` (sans le `p` !) car vous ne voulez pas modifier en place les objets ou les tableaux dans l'état. La page [Mettre à jour les objets d'un état](/learn/updating-objects-in-state) explique ce qu'est la modification en place, et pourquoi elle est déconseillée pour l'état.
+En Réac, vous utiliserez beaucoup plus souvent `slice` (sans le `p` !) car vous ne voulez pas modifier en place les objets ou les tableaux dans l'état. La page [Mettre à jour les objets d'un état](/learn/updating-objects-in-state) explique ce qu'est la modification en place, et pourquoi elle est déconseillée pour l'état.
 
 </Pitfall>
 
@@ -51,13 +51,13 @@ En React, vous utiliserez beaucoup plus souvent `slice` (sans le `p` !) car vou
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 let nextId = 0;
 
 export default function List() {
-  const [name, setName] = useState('');
-  const [artists, setArtists] = useState([]);
+  const [name, setName] = utiliserEtat('');
+  const [artists, setArtists] = utiliserEtat([]);
 
   return (
     <>
@@ -104,13 +104,13 @@ Maintenant, ça fonctionne correctement :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 let nextId = 0;
 
 export default function List() {
-  const [name, setName] = useState('');
-  const [artists, setArtists] = useState([]);
+  const [name, setName] = utiliserEtat('');
+  const [artists, setArtists] = utiliserEtat([]);
 
   return (
     <>
@@ -159,7 +159,7 @@ Le moyen le plus simple de retirer un élément d'un tableau consiste à le *fil
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 let initialArtists = [
   { id: 0, name: 'Marta Colvin Andrade' },
@@ -168,7 +168,7 @@ let initialArtists = [
 ];
 
 export default function List() {
-  const [artists, setArtists] = useState(
+  const [artists, setArtists] = utiliserEtat(
     initialArtists
   );
 
@@ -217,7 +217,7 @@ Dans cet exemple, un tableau contient les coordonnées de deux cercles et d'un c
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 let initialShapes = [
   { id: 0, type: 'circle', x: 50, y: 100 },
@@ -226,7 +226,7 @@ let initialShapes = [
 ];
 
 export default function ShapeEditor() {
-  const [shapes, setShapes] = useState(
+  const [shapes, setShapes] = utiliserEtat(
     initialShapes
   );
 
@@ -287,14 +287,14 @@ Pour remplacer un élément, créez un nouveau tableau avec `map`. À l'intérie
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 let initialCounters = [
   0, 0, 0
 ];
 
 export default function CounterList() {
-  const [counters, setCounters] = useState(
+  const [counters, setCounters] = utiliserEtat(
     initialCounters
   );
 
@@ -341,7 +341,7 @@ Dans cet exemple, le bouton Insérer insère toujours à l'index `1` :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 let nextId = 3;
 const initialArtists = [
@@ -351,8 +351,8 @@ const initialArtists = [
 ];
 
 export default function List() {
-  const [name, setName] = useState('');
-  const [artists, setArtists] = useState(
+  const [name, setName] = utiliserEtat('');
+  const [artists, setArtists] = utiliserEtat(
     initialArtists
   );
 
@@ -407,7 +407,7 @@ Par exemple :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialList = [
   { id: 0, title: 'Big Bellies' },
@@ -416,7 +416,7 @@ const initialList = [
 ];
 
 export default function List() {
-  const [list, setList] = useState(initialList);
+  const [list, setList] = utiliserEtat(initialList);
 
   function handleClick() {
     const nextList = [...list];
@@ -464,7 +464,7 @@ Dans cet exemple, deux listes d'œuvres d'art séparées ont le même état init
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 let nextId = 3;
 const initialList = [
@@ -474,8 +474,8 @@ const initialList = [
 ];
 
 export default function BucketList() {
-  const [myList, setMyList] = useState(initialList);
-  const [yourList, setYourList] = useState(
+  const [myList, setMyList] = utiliserEtat(initialList);
+  const [yourList, setYourList] = utiliserEtat(
     initialList
   );
 
@@ -571,7 +571,7 @@ Avec cette approche, aucun des éléments de l'état existant n'est modifié et 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 let nextId = 3;
 const initialList = [
@@ -581,8 +581,8 @@ const initialList = [
 ];
 
 export default function BucketList() {
-  const [myList, setMyList] = useState(initialList);
-  const [yourList, setYourList] = useState(
+  const [myList, setMyList] = utiliserEtat(initialList);
+  const [yourList, setYourList] = utiliserEtat(
     initialList
   );
 
@@ -666,7 +666,7 @@ Voici l'exemple de la liste des œuvres d'art réécrit avec Immer :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useImmer } from 'use-immer';
 
 let nextId = 3;
@@ -746,16 +746,16 @@ function ItemList({ artworks, onToggle }) {
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -796,7 +796,7 @@ Complétez la logique de `handleIncreaseClick` de manière à ce que lorsqu'on a
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialProducts = [{
   id: 0,
@@ -816,7 +816,7 @@ export default function ShoppingCart() {
   const [
     products,
     setProducts
-  ] = useState(initialProducts)
+  ] = utiliserEtat(initialProducts)
 
   function handleIncreaseClick(productId) {
 
@@ -854,7 +854,7 @@ Vous pouvez utiliser la fonction `map` pour créer un nouveau tableau, puis util
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialProducts = [{
   id: 0,
@@ -874,7 +874,7 @@ export default function ShoppingCart() {
   const [
     products,
     setProducts
-  ] = useState(initialProducts)
+  ] = utiliserEtat(initialProducts)
 
   function handleIncreaseClick(productId) {
     setProducts(products.map(product => {
@@ -923,7 +923,7 @@ Ce panier d'achat dispose d'un bouton « + » fonctionnel, mais le bouton « 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialProducts = [{
   id: 0,
@@ -943,7 +943,7 @@ export default function ShoppingCart() {
   const [
     products,
     setProducts
-  ] = useState(initialProducts)
+  ] = utiliserEtat(initialProducts)
 
   function handleIncreaseClick(productId) {
     setProducts(products.map(product => {
@@ -993,7 +993,7 @@ Vous pouvez d'abord utiliser `map` pour créer un nouveau tableau, puis `filter`
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialProducts = [{
   id: 0,
@@ -1013,7 +1013,7 @@ export default function ShoppingCart() {
   const [
     products,
     setProducts
-  ] = useState(initialProducts)
+  ] = utiliserEtat(initialProducts)
 
   function handleIncreaseClick(productId) {
     setProducts(products.map(product => {
@@ -1084,7 +1084,7 @@ Dans cet exemple, tous les gestionnaires d'événements dans `App.js` utilisent 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
 
@@ -1096,7 +1096,7 @@ const initialTodos = [
 ];
 
 export default function TaskApp() {
-  const [todos, setTodos] = useState(
+  const [todos, setTodos] = utiliserEtat(
     initialTodos
   );
 
@@ -1139,10 +1139,10 @@ export default function TaskApp() {
 ```
 
 ```js src/AddTodo.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTodo({ onAddTodo }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = utiliserEtat('');
   return (
     <>
       <input
@@ -1160,7 +1160,7 @@ export default function AddTodo({ onAddTodo }) {
 ```
 
 ```js src/TaskList.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   todos,
@@ -1183,7 +1183,7 @@ export default function TaskList({
 }
 
 function Task({ todo, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let todoContent;
   if (isEditing) {
     todoContent = (
@@ -1247,7 +1247,7 @@ Dans `handleAddTodo`, vous pouvez utiliser la syntaxe de *spread* de tableaux. D
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
 
@@ -1259,7 +1259,7 @@ const initialTodos = [
 ];
 
 export default function TaskApp() {
-  const [todos, setTodos] = useState(
+  const [todos, setTodos] = utiliserEtat(
     initialTodos
   );
 
@@ -1306,10 +1306,10 @@ export default function TaskApp() {
 ```
 
 ```js src/AddTodo.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTodo({ onAddTodo }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = utiliserEtat('');
   return (
     <>
       <input
@@ -1327,7 +1327,7 @@ export default function AddTodo({ onAddTodo }) {
 ```
 
 ```js src/TaskList.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   todos,
@@ -1350,7 +1350,7 @@ export default function TaskList({
 }
 
 function Task({ todo, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let todoContent;
   if (isEditing) {
     todoContent = (
@@ -1417,7 +1417,7 @@ Il s'agit du même exemple que dans l'exercice précédent. Cette fois-ci, corri
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useImmer } from 'use-immer';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
@@ -1430,7 +1430,7 @@ const initialTodos = [
 ];
 
 export default function TaskApp() {
-  const [todos, setTodos] = useState(
+  const [todos, setTodos] = utiliserEtat(
     initialTodos
   );
 
@@ -1473,10 +1473,10 @@ export default function TaskApp() {
 ```
 
 ```js src/AddTodo.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTodo({ onAddTodo }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = utiliserEtat('');
   return (
     <>
       <input
@@ -1494,7 +1494,7 @@ export default function AddTodo({ onAddTodo }) {
 ```
 
 ```js src/TaskList.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   todos,
@@ -1517,7 +1517,7 @@ export default function TaskList({
 }
 
 function Task({ todo, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let todoContent;
   if (isEditing) {
     todoContent = (
@@ -1576,16 +1576,16 @@ ul, li { margin: 0; padding: 0; }
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -1599,7 +1599,7 @@ Avec Immer, vous pouvez écrire du code de manière modifiante, tant que vous ne
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useImmer } from 'use-immer';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
@@ -1661,10 +1661,10 @@ export default function TaskApp() {
 ```
 
 ```js src/AddTodo.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTodo({ onAddTodo }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = utiliserEtat('');
   return (
     <>
       <input
@@ -1682,7 +1682,7 @@ export default function AddTodo({ onAddTodo }) {
 ```
 
 ```js src/TaskList.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   todos,
@@ -1705,7 +1705,7 @@ export default function TaskList({
 }
 
 function Task({ todo, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let todoContent;
   if (isEditing) {
     todoContent = (
@@ -1764,16 +1764,16 @@ ul, li { margin: 0; padding: 0; }
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -1787,7 +1787,7 @@ Par exemple, dans cette version, `handleAddTodo` est implémenté en modifiant l
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useImmer } from 'use-immer';
 import AddTodo from './AddTodo.js';
 import TaskList from './TaskList.js';
@@ -1846,10 +1846,10 @@ export default function TaskApp() {
 ```
 
 ```js src/AddTodo.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTodo({ onAddTodo }) {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = utiliserEtat('');
   return (
     <>
       <input
@@ -1867,7 +1867,7 @@ export default function AddTodo({ onAddTodo }) {
 ```
 
 ```js src/TaskList.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   todos,
@@ -1890,7 +1890,7 @@ export default function TaskList({
 }
 
 function Task({ todo, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let todoContent;
   if (isEditing) {
     todoContent = (
@@ -1949,16 +1949,16 @@ ul, li { margin: 0; padding: 0; }
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```

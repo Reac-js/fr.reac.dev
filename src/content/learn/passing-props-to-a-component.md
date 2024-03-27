@@ -4,7 +4,7 @@ title: Passer des props à un composant
 
 <Intro>
 
-Les composants React utilisent des *props* pour communiquer entre eux.  Chaque composant parent peut passer des informations à ses composants enfants en leur donnant des props. Les props vous rappellent peut-être les attributs HTML, mais vous pouvez y passer n'importe quelle valeur JavaScript, y compris des objets et des fonctions.
+Les composants Réac utilisent des *props* pour communiquer entre eux.  Chaque composant parent peut passer des informations à ses composants enfants en leur donnant des props. Les props vous rappellent peut-être les attributs HTML, mais vous pouvez y passer n'importe quelle valeur JavaScript, y compris des objets et des fonctions.
 
 </Intro>
 
@@ -51,9 +51,9 @@ body { min-height: 120px; }
 
 </Sandpack>
 
-Les props que vous pouvez passer à une balise `<img>` sont bien définies (ReactDOM respecte le [standard HTML](https://www.w3.org/TR/html52/semantics-embedded-content.html#the-img-element)). Mais vous pouvez passer les props de votre choix à *vos propres* composants, tels qu'`<Avatar>`, pour les personnaliser.  Voici comment faire !
+Les props que vous pouvez passer à une balise `<img>` sont bien définies (RéacDOM respecte le [standard HTML](https://www.w3.org/TR/html52/semantics-embedded-content.html#the-img-element)). Mais vous pouvez passer les props de votre choix à *vos propres* composants, tels qu'`<Avatar>`, pour les personnaliser.  Voici comment faire !
 
-## Passer des props à un composant {/*passing-props-to-a-component*/}
+## Passer des props à un composant {/*passing-props-to-a-composant*/}
 
 Dans le code qui suit, le composant `Profile` ne passe aucune prop à son composant fils, `Avatar` :
 
@@ -67,7 +67,7 @@ export default function Profile() {
 
 Vous pouvez donner quelques props à `Avatar` en deux étapes.
 
-### Étape 1 : passez des props au composant enfant {/*step-1-pass-props-to-the-child-component*/}
+### Étape 1 : passez des props au composant enfant {/*step-1-pass-props-to-the-child-composant*/}
 
 Commencez par passer quelques props à `Avatar`.  Par exemple, passons deux props : `person` (un objet) et `size` (un nombre) :
 
@@ -90,7 +90,7 @@ Si les doubles accolades après `person=` vous déroutent, souvenez-vous qu'il s
 
 Vous pouvez maintenant lire ces props au sein du composant `Avatar`.
 
-### Étape 2 : lisez les props dans le composant enfant {/*step-2-read-props-inside-the-child-component*/}
+### Étape 2 : lisez les props dans le composant enfant {/*step-2-read-props-inside-the-child-composant*/}
 
 Vous pouvez lire ces props en listant leurs noms `person, size` séparés par des virgules entre `({` et `})` immédiatement après `function Avatar`. Ça vous permet de les utiliser dans le code d'`Avatar`, comme si vous aviez une variable locale.
 
@@ -170,7 +170,7 @@ body { min-height: 120px; }
 
 Les props vous permettent de réfléchir aux composants parent et enfant indépendamment. Par exemple, vous pouvez modifier les props `person` et `size` au sein de `Profile` sans avoir à vous préoccuper de comment `Avatar` les utilise.  De la même façon, vous pouvez modifier l'utilisation interne de ces props par `Avatar` sans vous préoccuper de `Profile`.
 
-Vous pouvez concevoir les props comme des « molettes » que vous pouvez ajuster. Elles jouent le même rôle que les arguments des fonctions — en fait, les props *sont* le seul argument de votre composant ! Les fonctions composants React ne prennent qu'un argument, qui est l'objet `props` :
+Vous pouvez concevoir les props comme des « molettes » que vous pouvez ajuster. Elles jouent le même rôle que les arguments des fonctions — en fait, les props *sont* le seul argument de votre composant ! Les fonctions composants Réac ne prennent qu'un argument, qui est l'objet `props` :
 
 ```js
 function Avatar(props) {
@@ -253,7 +253,7 @@ function Profile(props) {
 
 **Utilisez la syntaxe de *spread* avec discernement.**  Si vous l'utilisez dans de nombreux composants, c'est que quelque chose ne va pas.  Le plus souvent, c'est un signe que vous devriez découper vos composants et passer du JSX enfant.  On va voir comment tout de suite !
 
-## Passer du JSX comme enfant {/*passing-jsx-as-children*/}
+## Passer du JSX comme enfant {/*passing-jsx-as-enfants*/}
 
 On imbrique fréquemment les balises natives du navigateur :
 
@@ -271,17 +271,17 @@ Vous voudrez parfois faire de même avec vos propres composants :
 </Card>
 ```
 
-Lorsque vous imbriquez du contenu dans une balise JSX, le composant parent reçoit ce contenu sous forme d'une prop appelée `children`. Par exemple, le composant `Card` ci-dessous recevra une prop `children` qui vaudra `<Avatar />` et l'affichera dans une div d'enrobage :
+Lorsque vous imbriquez du contenu dans une balise JSX, le composant parent reçoit ce contenu sous forme d'une prop appelée `Enfants`. Par exemple, le composant `Card` ci-dessous recevra une prop `Enfants` qui vaudra `<Avatar />` et l'affichera dans une div d'enrobage :
 
 <Sandpack>
 
 ```js src/App.js
 import Avatar from './Avatar.js';
 
-function Card({ children }) {
+function Card({ Enfants }) {
   return (
     <div className="card">
-      {children}
+      {Enfants}
     </div>
   );
 }
@@ -349,13 +349,13 @@ export function getImageUrl(person, size = 's') {
 
 Tentez de remplacer le `<Avatar>` au sein de `<Card>` avec du texte pour constater que le composant `Card` peut enrober n'importe quel contenu imbriqué.  Il n'a pas besoin de « savoir » ce qui est affiché à l'intérieur de lui.  Vous retrouverez cette approche flexible dans de nombreux endroits.
 
-Voyez la prop `children` d'un composant comme une sorte de « trou » qui peut être « rempli » par les composants parents avec du JSX quelconque.  Vous utiliserez souvent la prop `children` pour des enrobages visuels : panneaux, grilles, etc.
+Voyez la prop `Enfants` d'un composant comme une sorte de « trou » qui peut être « rempli » par les composants parents avec du JSX quelconque.  Vous utiliserez souvent la prop `Enfants` pour des enrobages visuels : panneaux, grilles, etc.
 
-<Illustration src="/images/docs/illustrations/i_children-prop.png" alt='Une Card ressemblant à une pièce de puzzle avec un emplacement pour les pièces « enfants » tels que du texte ou un Avatar' />
+<Illustration src="/images/docs/illustrations/i_Enfants-prop.png" alt='Une Card ressemblant à une pièce de puzzle avec un emplacement pour les pièces « enfants » tels que du texte ou un Avatar' />
 
 ## Les props changent avec le temps {/*how-props-change-over-time*/}
 
-Le composant `Clock` ci-dessous reçoit deux props de son composant parent : `color` et `time`. (Le code du composant parent est laissé de côté parce qu'il utilise un [état](/learn/state-a-components-memory), concept que nous n'avons pas encore exploré.)
+Le composant `Clock` ci-dessous reçoit deux props de son composant parent : `color` et `time`. (Le code du composant parent est laissé de côté parce qu'il utilise un [état](/learn/state-a-composants-memoirery), concept que nous n'avons pas encore exploré.)
 
 Essayez de modifier la couleur dans la liste déroulante :
 
@@ -372,12 +372,12 @@ export default function Clock({ color, time }) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import Clock from './Clock.js';
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -388,7 +388,7 @@ function useTime() {
 
 export default function App() {
   const time = useTime();
-  const [color, setColor] = useState('lightcoral');
+  const [color, setColor] = utiliserEtat('lightcoral');
   return (
     <div>
       <p>
@@ -411,7 +411,7 @@ Cet exemple illustre le fait qu'**un composant peut recevoir des props différen
 
 Cependant, les props sont [immuables](https://fr.wikipedia.org/wiki/Objet_immuable) — un terme qui en informatique signifie « non modifiable ».  Lorsqu'un composant a besoin de changer ses props (par exemple, en réponse à une interaction utilisateur ou à de nouvelles données), il doit « demander » à son composant parent de lui passer *des props différentes* — et donc un nouvel objet !  Ses anciennes props seront alors mises au rebut, et le moteur JavaScript récupèrera à terme la mémoire qui leur était associée.
 
-**N'essayez pas de « changer les props ».** Lorsque vous aurez besoin de réagir à une interaction utilisateur (telle qu'un changement de la couleur sélectionnée), vous devrez « mettre à jour l'état », ce que vous apprendrez à faire dans [L'état : la mémoire d'un composant](/learn/state-a-components-memory).
+**N'essayez pas de « changer les props ».** Lorsque vous aurez besoin de réagir à une interaction utilisateur (telle qu'un changement de la couleur sélectionnée), vous devrez « mettre à jour l'état », ce que vous apprendrez à faire dans [L'état : la mémoire d'un composant](/learn/state-a-composants-memoirery).
 
 <Recap>
 
@@ -419,7 +419,7 @@ Cependant, les props sont [immuables](https://fr.wikipedia.org/wiki/Objet_immuab
 * Pour lire des props, utilisez une déstructuration comme dans  `function Avatar({ person, size })`.
 * Vous pouvez spécifier une valeur par défaut comme `size = 100`, qui sera utilisée si la prop est manquante ou vaut `undefined`.
 * Vous pouvez transmettre tous les props avec la syntaxe de *spread* JSX `<Avatar {...props} />`, mais n'en abusez pas !
-* Le JSX imbriqué dans votre composant, comme dans `<Card><Avatar /></Card>` est fourni *via* la prop `children` du composant `Card`.
+* Le JSX imbriqué dans votre composant, comme dans `<Card><Avatar /></Card>` est fourni *via* la prop `Enfants` du composant `Card`.
 * Les props sont des instantanés en lecture seule : chaque rendu reçoit une nouvelle version des props.
 * Ne modifiez pas les props. Si vous avez besoin d'interactivité, utilisez l'état.
 
@@ -427,7 +427,7 @@ Cependant, les props sont [immuables](https://fr.wikipedia.org/wiki/Objet_immuab
 
 <Challenges>
 
-#### Extraire un composant {/*extract-a-component*/}
+#### Extraire un composant {/*extract-a-composant*/}
 
 Ce composant `Gallery` contient un balisage très similaire pour deux profils. Extrayez-en un composant `Profile` pour réduire la duplication. Vous devrez choisir quelles props lui passer.
 
@@ -921,9 +921,9 @@ Les props vous permettent d'encapsuler ce type de logique à l'intérieur du com
 
 </Solution>
 
-#### Passer du JSX dans la prop `children` {/*passing-jsx-in-a-children-prop*/}
+#### Passer du JSX dans la prop `Enfants` {/*passing-jsx-in-a-enfants-prop*/}
 
-Extrayez un composant `Card` du balisage ci-dessous, et utilisez la prop `children` pour lui passer divers contenus JSX :
+Extrayez un composant `Card` du balisage ci-dessous, et utilisez la prop `Enfants` pour lui passer divers contenus JSX :
 
 <Sandpack>
 
@@ -981,7 +981,7 @@ h1 {
 
 <Hint>
 
-Tout JSX que vous placez à l'intérieur d'une balise de composant lui sera passée *via* sa prop `children`.
+Tout JSX que vous placez à l'intérieur d'une balise de composant lui sera passée *via* sa prop `Enfants`.
 
 </Hint>
 
@@ -992,11 +992,11 @@ Voici comment vous pouvez utiliser le composant `Card` aux deux endroits :
 <Sandpack>
 
 ```js
-function Card({ children }) {
+function Card({ Enfants }) {
   return (
     <div className="card">
       <div className="card-content">
-        {children}
+        {Enfants}
       </div>
     </div>
   );
@@ -1054,12 +1054,12 @@ Vous pourriez aussi faire de `title` une prop distincte si vous souhaitez que ch
 <Sandpack>
 
 ```js
-function Card({ children, title }) {
+function Card({ Enfants, title }) {
   return (
     <div className="card">
       <div className="card-content">
         <h1>{title}</h1>
-        {children}
+        {Enfants}
       </div>
     </div>
   );

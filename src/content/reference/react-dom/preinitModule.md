@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-La fonction `preinitModule` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de React. Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+La fonction `preinitModule` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de Réac. Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
 <Note>
 
-[Les frameworks basés sur React](/learn/start-a-new-react-project) s'occupent fréquemment pour vous du chargement des ressources, de sorte que vous n'aurez peut-être pas besoin d'appeler ces API vous-même.  Consultez la documentation de votre framework pour en savoir plus à ce sujet.
+[Les frameworks basés sur Réac](/learn/start-a-newreacproject) s'occupent fréquemment pour vous du chargement des ressources, de sorte que vous n'aurez peut-être pas besoin d'appeler ces API vous-même.  Consultez la documentation de votre framework pour en savoir plus à ce sujet.
 
 </Note>
 
@@ -33,10 +33,10 @@ preinitModule("https://example.com/module.js", { as: "script" });
 
 ### `preinitModule(href, options)` {/*preinitmodule*/}
 
-Pour préinitialiser un module ESM, appelez la fonction `preinitModule` de `react-dom`.
+Pour préinitialiser un module ESM, appelez la fonction `preinitModule` de `Réac-dom`.
 
 ```js
-import { preinitModule } from 'react-dom';
+import { preinitModule } from 'Réac-dom';
 
 function AppRoot() {
   preinitModule("https://example.com/module.js", { as: "script" });
@@ -77,7 +77,7 @@ La fonction `preinitModule` suggère au navigateur de commencer à télécharger
 Appelez `preinitModule` lors du rendu d'un composant si vous savez que ses enfants auront besoin de charger un module spécifique, et que vous acceptez d'évaluer ce module immédiatement après son chargement.
 
 ```js
-import { preinitModule } from 'react-dom';
+import { preinitModule } from 'Réac-dom';
 
 function AppRoot() {
   preinitModule("https://example.com/module.js", { as: "script" });
@@ -85,14 +85,14 @@ function AppRoot() {
 }
 ```
 
-Si vous souhaitez que le navigateur télécharge mais n'évalue pas le module immédiatement, utilisez plutôt [`preload`](/reference/react-dom/preload). Si vous souhaitez charger et évaluer un script qui n'est pas un module ESM, utilisez [`preinit`](/reference/react-dom/preinitModule).
+Si vous souhaitez que le navigateur télécharge mais n'évalue pas le module immédiatement, utilisez plutôt [`preload`](/reference/Réac-dom/preload). Si vous souhaitez charger et évaluer un script qui n'est pas un module ESM, utilisez [`preinit`](/reference/Réac-dom/preinitModule).
 
 ### Préinitialisation dans un gestionnaire d'événement {/*preiniting-in-an-event-handler*/}
 
 Appelez `preinitModule` depuis un gestionnaire d'événement avant de passer à une page ou un état qui auront besoin de modules.  Ça permet de déclencher le processus plus tôt que si vous l'appeliez au sein de la nouvelle page ou suite au nouvel état.
 
 ```js
-import { preinitModule } from 'react-dom';
+import { preinitModule } from 'Réac-dom';
 
 function CallToAction() {
   const onClick = () => {

@@ -257,7 +257,7 @@ export default function TopNav({
                       'text-sm me-0 w-10 h-10 text-link dark:text-link-dark flex origin-center transition-all ease-in-out'
                     )}
                   />
-                  <span className="sr-only 3xl:not-sr-only">React</span>
+                  <span className="sr-only 3xl:not-sr-only">Réac</span>
                 </NextLink>
               </div>
             </div>

@@ -1,5 +1,5 @@
 ---
-title: "Découvrez react.dev"
+title: "Découvrez Réac.dev"
 ---
 
 Le 16 mars 2023 par [Dan Abramov](https://twitter.com/dan_abramov) et [Rachel Nabors](https://twitter.com/rachelnabors)
@@ -8,7 +8,7 @@ Le 16 mars 2023 par [Dan Abramov](https://twitter.com/dan_abramov) et [Rachel Na
 
 <Intro>
 
-Nous sommes enchantés d'annoncer aujourd'hui la sortie de react.dev, le nouveau site officiel de React et de sa documentation.  Dans ce billet, nous aimerions vous faire faire un tour du nouveau site.
+Nous sommes enchantés d'annoncer aujourd'hui la sortie de Réac.dev, le nouveau site officiel de Réac et de sa documentation.  Dans ce billet, nous aimerions vous faire faire un tour du nouveau site.
 
 </Intro>
 
@@ -16,50 +16,50 @@ Nous sommes enchantés d'annoncer aujourd'hui la sortie de react.dev, le nouveau
 
 ## tl;pl {/*tldr*/}
 
-* Le nouveau site de React ([react.dev](https://fr.react.dev)) enseigne une pratique moderne de React basée sur les fonctions composants et les Hooks.
+* Le nouveau site de Réac ([Réac.dev](https://fr.Réac.dev)) enseigne une pratique moderne de Réac basée sur les fonctions composants et les Crochets.
 * Nous avons ajouté des diagrammes, des illustrations, des défis et plus de 600 exemples interactifs.
-* La documentation historique de React a été déplacée sur [legacy.reactjs.org](https://legacy.reactjs.org).
+* La documentation historique de Réac a été déplacée sur [legacy.Réacjs.org](https://legacy.Réacjs.org).
 
 ## Nouveau site, nouveau domaine, nouvelle page d'accueil {/*new-site-new-domain-new-homepage*/}
 
 Commençons par un peu de ménage.
 
-Pour célébrer comme il se doit la sortie des nouvelles documentations et, plus important encore, pour clairement séparer le nouveau contenu de l'ancien, nous avons migré vers le domaine [react.dev](https://fr.react.dev). L'ancien domaine [reactjs.org](https://reactjs.org) redirigera sur `react.dev`.
+Pour célébrer comme il se doit la sortie des nouvelles documentations et, plus important encore, pour clairement séparer le nouveau contenu de l'ancien, nous avons migré vers le domaine [Réac.dev](https://fr.Réac.dev). L'ancien domaine [Réacjs.org](https://Réacjs.org) redirigera sur `Réac.dev`.
 
-L'ancienne documentation de React est désormais archivée sur [legacy.reactjs.org](https://fr.legacy.reactjs.org). Tous les liens existants vers l'ancien contenu redirigeront automatiquement là-bas pour éviter de « casser Internet », mais la documentation historique ne recevra que très peu de mises à jours.
+L'ancienne documentation de Réac est désormais archivée sur [legacy.Réacjs.org](https://fr.legacy.Réacjs.org). Tous les liens existants vers l'ancien contenu redirigeront automatiquement là-bas pour éviter de « casser Internet », mais la documentation historique ne recevra que très peu de mises à jours.
 
-Croyez-le ou non, React va bientôt avoir dix ans. En années JavaScript, c'est comme un siècle entier ! Nous avons [repensé la page d'accueil](/) pour refléter les raisons pour lesquelles nous pensons que React reste une excellente façon de construire des interfaces utilisateurs, et mis à jour le guide de démarrage pour mettre plus en avant les frameworks modernes basés sur React.
+Croyez-le ou non, Réac va bientôt avoir dix ans. En années JavaScript, c'est comme un siècle entier ! Nous avons [repensé la page d'accueil](/) pour refléter les raisons pour lesquelles nous pensons que Réac reste une excellente façon de construire des interfaces utilisateurs, et mis à jour le guide de démarrage pour mettre plus en avant les frameworks modernes basés sur Réac.
 
 Si vous n'avez pas encore vu la nouvelle page d'accueil, allez donc y jeter un coup d'œil !
 
-## Tout en React moderne avec les Hooks {/*going-all-in-on-modern-react-with-hooks*/}
+## Tout en Réac moderne avec les Crochets {/*going-all-in-on-modernreacwith-hooks*/}
 
-Lorsque nous avons sorti les Hooks React en 2018, la documentation des Hooks supposait que les lecteurs étaient habitués aux composants à base de classes.  Ça a permis à la communauté d'adopter rapidement les Hooks, mais au bout d'un moment les anciennes docs ont échoué à bien accompagner les nouveaux utilisateurs.  Ils devaient apprendre React deux fois : d'abord pour les composants à base de classes, et à nouveau pour les Hooks.
+Lorsque nous avons sorti les Crochets Réac en 2018, la documentation des Crochets supposait que les lecteurs étaient habitués aux composants à base de classes.  Ça a permis à la communauté d'adopter rapidement les Crochets, mais au bout d'un moment les anciennes docs ont échoué à bien accompagner les nouveaux utilisateurs.  Ils devaient apprendre Réac deux fois : d'abord pour les composants à base de classes, et à nouveau pour les Crochets.
 
 
-**Les nouvelles docs enseignent React avec les Hooks dès le départ.**  Les docs sont découpées en deux grandes sections principales :
+**Les nouvelles docs enseignent Réac avec les Crochets dès le départ.**  Les docs sont découpées en deux grandes sections principales :
 
-* **[Apprendre React](/learn)** est un cours complet, à suivre à votre rythme, qui enseigne React à partir de zéro.
-* **[La Référence API](/reference)** fournit tous les détails et exemples d'utilisation pour chaque API de React.
+* **[Apprendre Réac](/learn)** est un cours complet, à suivre à votre rythme, qui enseigne Réac à partir de zéro.
+* **[La Référence API](/reference)** fournit tous les détails et exemples d'utilisation pour chaque API de Réac.
 
 Examinons plus en détail ce que vous trouverez dans chaque section.
 
 <Note>
 
-Il reste quelques rares cas d'utilisation pour les composants à base de classes, qui ne disposent pas encore d'un équivalent basé sur les Hooks. Les composants à base de classes restent pris en charge et sont documentés dans la section [API historique](/reference/react/legacy) du nouveau site.
+Il reste quelques rares cas d'utilisation pour les composants à base de classes, qui ne disposent pas encore d'un équivalent basé sur les Crochets. Les composants à base de classes restent pris en charge et sont documentés dans la section [API historique](/reference/Réac/legacy) du nouveau site.
 
 </Note>
 
 ## Démarrage rapide {/*quick-start*/}
 
-La section Apprendre commence par la page de [Démarrage rapide](/learn). C'est un rapide tour d'horizon de React.  Elle présente la syntaxe associée aux concepts de composants, de props et d'état local, mais ne rentre pas trop dans les détails.
+La section Apprendre commence par la page de [Démarrage rapide](/learn). C'est un rapide tour d'horizon de Réac.  Elle présente la syntaxe associée aux concepts de composants, de props et d'état local, mais ne rentre pas trop dans les détails.
 
-Si vous aimez apprendre en pratiquant, nous vous recommandons de continuer avec le [tutoriel de tic-tac-toe](/learn/tutorial-tic-tac-toe). Il vous guide à travers la construction d'un petit jeu en React, tout en vous enseignant les compétences que vous utiliserez au quotidien. Voici ce que vous allez construire :
+Si vous aimez apprendre en pratiquant, nous vous recommandons de continuer avec le [tutoriel de tic-tac-toe](/learn/tutorial-tic-tac-toe). Il vous guide à travers la construction d'un petit jeu en Réac, tout en vous enseignant les compétences que vous utiliserez au quotidien. Voici ce que vous allez construire :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -114,8 +114,8 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = utiliserEtat(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
@@ -223,29 +223,29 @@ body {
 
 </Sandpack>
 
-Nous aimerions aussi signaler [Penser en React](/learn/thinking-in-react) — c'est le tutoriel qui a permis à nombre d'entre nous de « comprendre » React. **Nous avons mis à jour ces deux tutoriels bien connus pour reposer sur les fonctions composants et les Hooks**, ils sont donc flambants neufs.
+Nous aimerions aussi signaler [Penser en Réac](/learn/thinking-in-Réac) — c'est le tutoriel qui a permis à nombre d'entre nous de « comprendre » Réac. **Nous avons mis à jour ces deux tutoriels bien connus pour reposer sur les fonctions composants et les Crochets**, ils sont donc flambants neufs.
 
 <Note>
 
-L'exemple ci-dessus est un *bac à sable*.  Nous en avons mis plein partout dans ce site — plus de 600 !  Vous pouvez modifier n'importe quel bac à sable, voire cliquer sur “Fork” dans le coin supérieur droit pour l'ouvrir dans un nouvel onglet.  Les bacs à sable vous permettent de jouer rapidement avec les API React, d'explorer vos idées et de valider votre compréhension.
+L'exemple ci-dessus est un *bac à sable*.  Nous en avons mis plein partout dans ce site — plus de 600 !  Vous pouvez modifier n'importe quel bac à sable, voire cliquer sur “Fork” dans le coin supérieur droit pour l'ouvrir dans un nouvel onglet.  Les bacs à sable vous permettent de jouer rapidement avec les API Réac, d'explorer vos idées et de valider votre compréhension.
 
 </Note>
 
-## Apprendre React pas à pas {/*learn-react-step-by-step*/}
+## Apprendre Réac pas à pas {/*learnreacstep-by-step*/}
 
-Nous souhaitons qu'absolument tout le monde puisse avoir la même opportunité d'apprendre React gratuitement, par eux-mêmes.
+Nous souhaitons qu'absolument tout le monde puisse avoir la même opportunité d'apprendre Réac gratuitement, par eux-mêmes.
 
-C'est pourquoi la section Apprendre est conçue comme un cours à suivre à votre rythme, découpé en chapitres. Les deux premiers chapitres décrivent les fondamentaux de React. Si vous commencez en React ou si vous voulez juste vous rafraîchir la mémoire, commencez par là :
+C'est pourquoi la section Apprendre est conçue comme un cours à suivre à votre rythme, découpé en chapitres. Les deux premiers chapitres décrivent les fondamentaux de Réac. Si vous commencez en Réac ou si vous voulez juste vous rafraîchir la mémoire, commencez par là :
 
 - **[Décrire l'UI](/learn/describing-the-ui)** vous apprend à afficher des informations à l'aide de composants.
 - **[Ajouter de l'interactivité](/learn/adding-interactivity)** vous apprend à mettre à jour l'affichage en réaction à des saisies utilisateur.
 
-Les deux chapitres suivants sont plus avancés, et vous donneront une meilleure compréhension des parties plus subtiles de React :
+Les deux chapitres suivants sont plus avancés, et vous donneront une meilleure compréhension des parties plus subtiles de Réac :
 
 - **[Gérer l'état](/learn/managing-state)** vous explique comment organiser votre code métier au fil de la croissance de votre application.
-- **[Échappatoires](/learn/escape-hatches)** vous apprend à « sortir » de React, et surtout à savoir quand et pourquoi c'est pertinent, et quand ce serait une mauvaise idée.
+- **[Échappatoires](/learn/escape-hatches)** vous apprend à « sortir » de Réac, et surtout à savoir quand et pourquoi c'est pertinent, et quand ce serait une mauvaise idée.
 
-Chaque chapitre comprend plusieurs pages associées. La plupart des pages enseignent une compétence ou technique particulière, comme [Écrire du balisage avec JSX](/learn/writing-markup-with-jsx), [Mettre à jour les objets d'un état](/learn/updating-objects-in-state) ou [Partager l'état entre des composants](/learn/sharing-state-between-components). Certaines pages se concentrent sur l'explication de notions importantes, commme [Rendu et Commit](/learn/render-and-commit) ou [L'état est un instantané](/learn/state-as-a-snapshot). Et d'autres pages encore, comme [Vous n'avez pas forcément besoin d'un Effet](/learn/you-might-not-need-an-effect), partagent les meilleures pratiques et intuitions que nous avons bâties au fil des ans.
+Chaque chapitre comprend plusieurs pages associées. La plupart des pages enseignent une compétence ou technique particulière, comme [Écrire du balisage avec JSX](/learn/writing-markup-with-jsx), [Mettre à jour les objets d'un état](/learn/updating-objects-in-state) ou [Partager l'état entre des composants](/learn/sharing-state-between-composants). Certaines pages se concentrent sur l'explication de notions importantes, commme [Rendu et Commit](/learn/render-and-commit) ou [L'état est un instantané](/learn/state-as-a-snapshot). Et d'autres pages encore, comme [Vous n'avez pas forcément besoin d'un Effet](/learn/you-might-not-need-an-effect), partagent les meilleures pratiques et intuitions que nous avons bâties au fil des ans.
 
 Il n'est pas strictement obligatoire de lire ces chapitres séquentiellement. Qui a le temps pour ça ? Mais vous pourriez le faire, ça donnerait les meilleurs résultats. Chaque page de la section Apprendre se repose uniquement sur les concepts des pages qui la précèdent. Si vous souhaitez lire cette section comme un livre, n'hésitez pas !
 
@@ -441,7 +441,7 @@ Remarquez le bouton « Afficher la solution » dans le coin inférieur gauche.
 
 Lorsqu'on ne trouvait pas une bonne manière d'expliquer quelque chose juste avec du code et des mots, on a ajouté des diagrammes pour vous aider à bâtir votre intuition.  Voici par exemple un des diagrammes de [Préserver et réinitialiser l'état](/learn/preserving-and-resetting-state) :
 
-<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagramme avec trois sections, avec une flèche allant d'une section à l'autre. La première section contient un composant React appelé « div » avec un seul enfant appelé « section », qui lui-même n'a qu'un seul enfant appelé « Counter », qui dispose d'une bulle d'état appelée « count » dont la valeur est à 3. La section du milieu a le même parent « div », mais les composants enfants ont maintenant été supprimés, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « div » surligné en jaune, ainsi qu'un nouvel enfant appelé « Counter » contenant une bulle d'état appelée « count » avec une valeur à 0, le tout surligné en jaune.">
+<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagramme avec trois sections, avec une flèche allant d'une section à l'autre. La première section contient un composant Réac appelé « div » avec un seul enfant appelé « section », qui lui-même n'a qu'un seul enfant appelé « Counter », qui dispose d'une bulle d'état appelée « count » dont la valeur est à 3. La section du milieu a le même parent « div », mais les composants enfants ont maintenant été supprimés, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « div » surligné en jaune, ainsi qu'un nouvel enfant appelé « Counter » contenant une bulle d'état appelée « count » avec une valeur à 0, le tout surligné en jaune.">
 
 Quand la `section` change pour un `div`, la `section` est supprimée est le nouveau `div` est ajouté
 
@@ -455,21 +455,21 @@ Nous avons eu confirmation par les éditeurs de navigateurs que cette représent
 
 ## Une nouvelle référence API très détaillée {/*a-new-detailed-api-reference*/}
 
-Dans la [référence API](/reference/react), chaque API de React dispose de sa propre page.  Ça inclut tous types d'API :
+Dans la [référence API](/reference/Réac), chaque API de Réac dispose de sa propre page.  Ça inclut tous types d'API :
 
-- Les Hooks fournis tels que [`useState`](/reference/react/useState).
-- Les composants fournis tels que [`<Suspense>`](/reference/react/Suspense).
-- Les composants natifs tels qu'[`<input>`](/reference/react-dom/components/input).
-- Des API orientées frameworks comme [`renderToPipeableStream`](/reference/react-dom/server/renderToReadableStream).
-- D'autres API React telles que [`memo`](/reference/react/memo).
+- Les Crochets fournis tels que [`utiliserEtat`](/reference/Réac/utiliserEtat).
+- Les composants fournis tels que [`<suspendre>`](/reference/Réac/suspendre).
+- Les composants natifs tels qu'[`<input>`](/reference/Réac-dom/Composants/input).
+- Des API orientées frameworks comme [`renderToPipeableStream`](/reference/Réac-dom/server/renderToReadableStream).
+- D'autres API Réac telles que [`memoire`](/reference/Réac/memoire).
 
 Vous verrez que chaque page d'API est découpée en au moins deux parties : *Référence* et *Utilisation*.
 
-[Référence](/reference/react/useState#reference) décrit la signature formelle de l'API en listant ses arguments et sa valeur renvoyée.  Cette partie reste concise mais peut sembler un peu abstraite si l'API en question vous est encore inconnue.  Elle décrit ce que fait l'API, mais pas comment s'en servir.
+[Référence](/reference/Réac/utiliserEtat#reference) décrit la signature formelle de l'API en listant ses arguments et sa valeur renvoyée.  Cette partie reste concise mais peut sembler un peu abstraite si l'API en question vous est encore inconnue.  Elle décrit ce que fait l'API, mais pas comment s'en servir.
 
-[Utilisation](/reference/react/useState#usage) illustre comment et pourquoi recourir à cette API dans la pratique, comme vous l'expliquerait un·e ami·e ou collègue.  Elle présente **chaque scénario classique d'utilisation de cette API qu'a anticipé l'équipe React**.  Nous avons ajouté des extraits de code avec des vignettes à codes couleurs, des exemples d'utilisation combinée avec d'autres API, et des recettes que vous pouvez copier-coller :
+[Utilisation](/reference/Réac/utiliserEtat#usage) illustre comment et pourquoi recourir à cette API dans la pratique, comme vous l'expliquerait un·e ami·e ou collègue.  Elle présente **chaque scénario classique d'utilisation de cette API qu'a anticipé l'équipe Réac**.  Nous avons ajouté des extraits de code avec des vignettes à codes couleurs, des exemples d'utilisation combinée avec d'autres API, et des recettes que vous pouvez copier-coller :
 
-<Recipes titleText="Exemples basiques d'utilisation de useState" titleId="examples-basic">
+<Recipes titleText="Exemples basiques d'utilisation de utiliserEtat" titleId="examples-basic">
 
 #### Compteur (nombre) {/*counter-number*/}
 
@@ -478,10 +478,10 @@ Dans cet exemple, la variable d'état `count` contient un nombre. Elle est incr�
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
   function handleClick() {
     setCount(count + 1);
@@ -506,10 +506,10 @@ Dans cet exemple, la variable d'état `text` contient une chaîne de caractères
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function MyInput() {
-  const [text, setText] = useState('bonjour');
+  const [text, setText] = utiliserEtat('bonjour');
 
   function handleChange(e) {
     setText(e.target.value);
@@ -538,10 +538,10 @@ Dans cet exemple, la variable d'état `liked` contient un booléen. Lorsque vous
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function MyCheckbox() {
-  const [liked, setLiked] = useState(true);
+  const [liked, setLiked] = utiliserEtat(true);
 
   function handleChange(e) {
     setLiked(e.target.checked);
@@ -574,11 +574,11 @@ Vous pouvez déclarer plus d'une variable d'état dans le même composant. Chaqu
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [name, setName] = useState('Clara');
-  const [age, setAge] = useState(42);
+  const [name, setName] = utiliserEtat('Clara');
+  const [age, setAge] = utiliserEtat(42);
 
   return (
     <>
@@ -605,31 +605,31 @@ button { display: block; margin-top: 10px; }
 
 </Recipes>
 
-Certaines pages d'API comprennent aussi des parties [Dépannage](/reference/react/useEffect#troubleshooting) (pour les bugs courants) et [Alternatives](/reference/react-dom/findDOMNode#alternatives) (lorsque l'API est dépréciée).
+Certaines pages d'API comprennent aussi des parties [Dépannage](/reference/Réac/utiliserEffet#troubleshooting) (pour les bugs courants) et [Alternatives](/reference/Réac-dom/findDOMNode#alternatives) (lorsque l'API est dépréciée).
 
 Nous espérons que cette approche rendra la référence API utile non seulement pour retrouver rapidement la définition d'un argument, mais aussi pour explorer tout ce qu'on peut faire avec une API donnée — et comment la combiner à d'autres.
 
 ## Et maintenant ? {/*whats-next*/}
 
-Voilà qui conclut notre visite guidée ! Baladez-vous sur le nouveau site, voyez ce que vous aimez ou pas, et n'hésitez pas à nous faire part de vos retours *via* le [sondage anonyme](https://www.surveymonkey.co.uk/r/PYRPF3X) ou dans notre [gestion de tickets](https://github.com/reactjs/react.dev/issues).
+Voilà qui conclut notre visite guidée ! Baladez-vous sur le nouveau site, voyez ce que vous aimez ou pas, et n'hésitez pas à nous faire part de vos retours *via* le [sondage anonyme](https://www.surveymonkey.co.uk/r/PYRPF3X) ou dans notre [gestion de tickets](https://github.com/Réacjs/Réac.dev/issues).
 
-Nous sommes conscients que ce projet a mis longtemps à voir le jour. Nous voulions mettre très haut la barre de la qualité, car nous estimons que la communauté React le mérite.  Durant l'écriture de ces docs et la création de tous les exemples, nous avons repéré des erreurs dans nos propres explications, des bugs dans React, et même des trous dans la conception de React que nous travaillons désormais à régler.  Nous espérons que cette documentation nous aidera à garder la barre très haut pour React à l'avenir.
+Nous sommes conscients que ce projet a mis longtemps à voir le jour. Nous voulions mettre très haut la barre de la qualité, car nous estimons que la communauté Réac le mérite.  Durant l'écriture de ces docs et la création de tous les exemples, nous avons repéré des erreurs dans nos propres explications, des bugs dans Réac, et même des trous dans la conception de Réac que nous travaillons désormais à régler.  Nous espérons que cette documentation nous aidera à garder la barre très haut pour Réac à l'avenir.
 
 Nous avons bien reçu vos demandes d'extension du contenu et des fonctionnalités du site, notamment :
 
 - Une version TypeScript de tous les exemples ;
 - Des guides à jour sur la performance, les tests et l'accessibilité ;
-- Une documentation des React Server Components indépendante du framework utilisé ;
+- Une documentation des Réac Server Composants indépendante du framework utilisé ;
 - La traduction des nouvelles docs grâce à notre communauté internationale ;
 - L'ajout de fonctionnalités manquantes au nouveau site (par exemple un flux RSS pour ce blog).
 
-À présent que [react.dev](https://fr.react.dev/) est sorti, nous allons pouvoir cesser de « rattraper » les ressources éducatives tierces sur React pour ajouter de nouvelles informations et améliorer le site.
+À présent que [Réac.dev](https://fr.Réac.dev/) est sorti, nous allons pouvoir cesser de « rattraper » les ressources éducatives tierces sur Réac pour ajouter de nouvelles informations et améliorer le site.
 
-Nous pensons qu'il n'y a jamais eu de meilleur moment pour apprendre React.
+Nous pensons qu'il n'y a jamais eu de meilleur moment pour apprendre Réac.
 
 ## Qui a travaillé sur tout ça ? {/*who-worked-on-this*/}
 
-Dans l'équipe React, [Rachel Nabors](https://twitter.com/rachelnabors/) a piloté le projet (et fourni les illustrations) et [Dan Abramov](https://twitter.com/dan_abramov) a conçu le cursus. Ils ont par ailleurs co-écrit ensemble la majorité du contenu.
+Dans l'équipe Réac, [Rachel Nabors](https://twitter.com/rachelnabors/) a piloté le projet (et fourni les illustrations) et [Dan Abramov](https://twitter.com/dan_abramov) a conçu le cursus. Ils ont par ailleurs co-écrit ensemble la majorité du contenu.
 
 Naturellement, un projet de cette taille ne se fait pas avec une petite équipe dans son coin !  Nous avons beaucoup de monde à remercier !
 
@@ -641,6 +641,6 @@ Merci à [Dan Lebowitz](https://twitter.com/lebo) pour la design du site et à [
 
 Côté développement, merci à  [Jared Palmer](https://twitter.com/jaredpalmer) pour avoir codé le prototype. Merci à [Dane Grant](https://twitter.com/danecando) et [Dustin Goodman](https://twitter.com/dustinsgoodman) de [ThisDotLabs](https://www.thisdot.co/) pour leur aide dans le développement de l'UI. Merci à [Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor) et [Danilo Woznica](https://twitter.com/danilowoz) de [CodeSandbox](https://codesandbox.io/) pour leur boulot sur l'intégration des bacs à sable. Merci à [Rick Hanlon](https://twitter.com/rickhanlonii) pour son travail de qualité sur le développement et le design, l'affinage des couleurs et d'autres subtilités. Merci à [Harish Kumar](https://www.strek.in/) et [Luna Ruan](https://twitter.com/lunaruan) pour avoir ajouté des nouvelles fonctionnalités au site et pour nous aider à le maintenir.
 
-Un immense merci à celles et ceux qui ont donné de leur temps pour participer aux programmes de tests alpha et beta. Votre enthousiasme et vos retours précieux nous ont aidé à affiner ces docs. Un merci tout particulier à notre beta testeuse [Debbie O'Brien](https://twitter.com/debs_obrien), qui a présenté son expérience avec les docs React à la React Conf 2021.
+Un immense merci à celles et ceux qui ont donné de leur temps pour participer aux programmes de tests alpha et beta. Votre enthousiasme et vos retours précieux nous ont aidé à affiner ces docs. Un merci tout particulier à notre beta testeuse [Debbie O'Brien](https://twitter.com/debs_obrien), qui a présenté son expérience avec les docs Réac à la Réac Conf 2021.
 
-Enfin, merci à la communauté React de nous avoir inspirés dans cette entreprise.  Vous êtes la raison de tout cela, et nous espérons que ces nouvelles docs vous aideront à utiliser React pour construire toutes les interfaces utilisateurs que vous pourriez imaginer.
+Enfin, merci à la communauté Réac de nous avoir inspirés dans cette entreprise.  Vous êtes la raison de tout cela, et nous espérons que ces nouvelles docs vous aideront à utiliser Réac pour construire toutes les interfaces utilisateurs que vous pourriez imaginer.

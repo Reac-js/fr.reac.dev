@@ -27,7 +27,7 @@
     },
     {
       "source": "/link/hooks-data-fetching",
-      "destination": "/reference/react/useEffect#fetching-data-with-effects",
+      "destination": "/reference/react/utiliserEffet#fetching-data-with-effects",
       "permanent": false
     },
     {

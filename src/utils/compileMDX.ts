@@ -130,7 +130,7 @@ export default async function compileMDX(
     meta,
   };
 
-  // Serialize a server React tree node to JSON.
+  // Serialize a server Réac tree node to JSON.
   function stringifyNodeOnServer(key: unknown, val: any) {
     if (val != null && val.$$typeof === Symbol.for('react.element')) {
       // Remove fake MDX props.

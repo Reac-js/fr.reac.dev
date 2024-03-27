@@ -4,13 +4,13 @@ title: Remerciements
 
 <Intro>
 
-React a été créé à l'origine par [Jordan Walke](https://github.com/jordwalke). Aujourd'hui, React dispose d'une [équipe dédiée travaillant dessus à temps plein](/community/team), ainsi que de plus d'un millier de [contributeurs en logiciel libre](https://github.com/facebook/react/blob/main/AUTHORS).
+Réac a été créé à l'origine par [Jordan Walke](https://github.com/jordwalke). Aujourd'hui, Réac dispose d'une [équipe dédiée travaillant dessus à temps plein](/community/team), ainsi que de plus d'un millier de [contributeurs en logiciel libre](https://github.com/facebook/Réac/blob/main/AUTHORS).
 
 </Intro>
 
 ## Contributeurs passés {/*past-contributors*/}
 
-Nous aimerions remercier particulièrement certaines personnes ayant effectué des contributions significatives à React et à sa documentation par le passé, et qui ont aidé à le maintenir au fil des ans :
+Nous aimerions remercier particulièrement certaines personnes ayant effectué des contributions significatives à Réac et à sa documentation par le passé, et qui ont aidé à le maintenir au fil des ans :
 
 * [Almero Steyn](https://github.com/AlmeroSteyn)
 * [Andreas Svensson](https://github.com/syranide)
@@ -58,13 +58,13 @@ Nous aimerions remercier particulièrement certaines personnes ayant effectué d
 
 Cette liste n'est pas exhaustive.
 
-Nous aimerions remercier tout particulièrement [Tom Occhino](https://github.com/tomocchino) et [Adam Wolff](https://github.com/wolffiex) pour leur encadrement et leur soutien au fil des ans. Nous sommes aussi reconnaissants à tou·te·s les bénévoles qui [traduisent React dans d'autres langues](https://translations.react.dev/) (vous trouverez le [détail pour le français ici](https://github.com/reactjs/fr.react.dev/blob/main/TRANSLATORS.md)).
+Nous aimerions remercier tout particulièrement [Tom Occhino](https://github.com/tomocchino) et [Adam Wolff](https://github.com/wolffiex) pour leur encadrement et leur soutien au fil des ans. Nous sommes aussi reconnaissants à tou·te·s les bénévoles qui [traduisent Réac dans d'autres langues](https://translations.Réac.dev/) (vous trouverez le [détail pour le français ici](https://github.com/Réacjs/fr.Réac.dev/blob/main/TRANSLATORS.md)).
 
 ## Encore quelques mercis {/*additional-thanks*/}
 
 Pour finir, nous aimerions remercier :
 
-* [Jeff Barczewski](https://github.com/jeffbski) pour nous avoir permis d'utiliser le nom de module `react` sur npm
-* [Christopher Aue](https://christopheraue.net/) pour nous avoir permis d'utiliser le nom de domaine reactjs.com et le nom de compte Twitter [@reactjs](https://twitter.com/reactjs)
+* [Jeff Barczewski](https://github.com/jeffbski) pour nous avoir permis d'utiliser le nom de module `Réac` sur npm
+* [Christopher Aue](https://christopheraue.net/) pour nous avoir permis d'utiliser le nom de domaine Réacjs.com et le nom de compte Twitter [@Réacjs](https://twitter.com/Réacjs)
 * [ProjectMoon](https://github.com/ProjectMoon) pour nous avoir permis d'utiliser le nom de module [flux](https://www.npmjs.com/package/flux) sur npm
-* Shane Anderson pour nous avoir permis d'utiliser l'organisation [react](https://github.com/react) sur GitHub
+* Shane Anderson pour nous avoir permis d'utiliser l'organisation [Réac](https://github.com/Réac) sur GitHub

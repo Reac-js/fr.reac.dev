@@ -31,9 +31,9 @@ Enrobez des éléments dans un `<Fragment>` pour les grouper dans des situations
 
 #### Limitations {/*caveats*/}
 
-- Si vous souhaitez utiliser une `key` dans un Fragment, vous ne pouvez pas utiliser la syntaxe `<>...</>`. Vous devez explicitement importer `Fragment` depuis `'react'` et écrire `<Fragment key={yourKey}>...</Fragment>`.
+- Si vous souhaitez utiliser une `key` dans un Fragment, vous ne pouvez pas utiliser la syntaxe `<>...</>`. Vous devez explicitement importer `Fragment` depuis `'Réac'` et écrire `<Fragment key={yourKey}>...</Fragment>`.
 
-- React ne [réinitialise pas l’état](/learn/preserving-and-resetting-state) quand vous passez d'une structure `<><Child /></>` à `[<Child />]` et inversement, ni quand vous passez de `<><Child /></>` à `<Child />` et inversement. Ça ne marche qu’à un niveau de profondeur : par exemple, passer de `<><><Child /></></>` à `<Child />` réinitialise l’état. Consultez [la sémantique précise ici](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b).
+- Réac ne [réinitialise pas l’état](/learn/preserving-and-resetting-state) quand vous passez d'une structure `<><Child /></>` à `[<Child />]` et inversement, ni quand vous passez de `<><Child /></>` à `<Child />` et inversement. Ça ne marche qu’à un niveau de profondeur : par exemple, passer de `<><><Child /></></>` à `<Child />` réinitialise l’état. Consultez [la sémantique précise ici](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b).
 
 ---
 
@@ -96,10 +96,10 @@ function PostBody({ body }) {
 
 #### Comment utiliser un Fragment sans la syntaxe spéciale ? {/*how-to-write-a-fragment-without-the-special-syntax*/}
 
-L’exemple ci-dessus revient à importer `Fragment` depuis React :
+L’exemple ci-dessus revient à importer `Fragment` depuis Réac :
 
 ```js {1,5,8}
-import { Fragment } from 'react';
+import { Fragment } from 'Réac';
 
 function Post() {
   return (
@@ -178,7 +178,7 @@ Vous pouvez inspecter le DOM pour vérifier qu’il n’y a pas d'élément enro
 <Sandpack>
 
 ```js
-import { Fragment } from 'react';
+import { Fragment } from 'Réac';
 
 const posts = [
   { id: 1, title: 'Des nouvelles', body: 'Ça fait un moment que je n’ai pas écrit...' },

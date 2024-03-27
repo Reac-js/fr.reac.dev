@@ -11,7 +11,7 @@ Les composants avec beaucoup de mises à jour d'état dispersées dans de nombre
 <YouWillLearn>
 
 - Ce qu'est un réducteur
-- Comment remplacer `useState` par `useReducer`
+- Comment remplacer `utiliserEtat` par `utiliserReducteur`
 - Quand utiliser un réducteur
 - Comment l'écrire correctement
 
@@ -24,12 +24,12 @@ Plus vos composants deviennent complexes, plus il est difficile de voir d'un cou
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
 export default function TaskApp() {
-  const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, setTasks] = utiliserEtat(initialTasks);
 
   function handleAddTask(text) {
     setTasks([
@@ -80,10 +80,10 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTask({onAddTask}) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input
@@ -104,7 +104,7 @@ export default function AddTask({onAddTask}) {
 ```
 
 ```js src/TaskList.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
   return (
@@ -119,7 +119,7 @@ export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
 }
 
 function Task({task, onChange, onDelete}) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -181,7 +181,7 @@ li {
 
 Chaque gestionnaire d'événement appelle `setTasks` afin de mettre à jour l'état. Avec l'évolution de ce composant, la quantité de logique qu'il contient grandit également. Pour réduire cette complexité et garder votre logique en un seul endroit facile d'accès, vous pouvez la déplacer dans une fonction unique à l'extérieur du composant, **appelée « réducteur »**.
 
-Les réducteurs proposent une autre façon de gérer l'état. Vous pouvez migrer de `useState` à `useReducer` en trois étapes :
+Les réducteurs proposent une autre façon de gérer l'état. Vous pouvez migrer de `utiliserEtat` à `utiliserReducteur` en trois étapes :
 
 1. **Passez** de l'écriture de l'état au _dispatch_ d'actions.
 2. **Écrivez** la fonction du réducteur.
@@ -226,7 +226,7 @@ Supprimez toute la logique de définition d'état. Il vous reste ces trois gesti
 - `handleChangeTask(task)` est appelé quand l'utilisateur bascule l'état de complétion d'une tâche ou appuie sur « Enregistrer ».
 - `handleDeleteTask(taskId)` est appelé quand l'utilisateur appuie sur « Supprimer ».
 
-La gestion de l'état avec des réducteurs diffère légèrement d'une définition directe de l'état. Plutôt que de dire à React « quoi faire » en définissant l'état, vous dites « ce que l'utilisateur vient de faire » en émettant des « actions » à partir de vos gestionnaires d'événements (la logique de mise à jour de l'état se situe ailleurs). Ainsi, au lieu de « définir `tasks` » _via_ un gestionnaire d'événement, vous _dispatchez_ une action « ajout / mise à jour / suppression d'une tâche ». C'est davantage une description de l'intention de l'utilisateur.
+La gestion de l'état avec des réducteurs diffère légèrement d'une définition directe de l'état. Plutôt que de dire à Réac « quoi faire » en définissant l'état, vous dites « ce que l'utilisateur vient de faire » en émettant des « actions » à partir de vos gestionnaires d'événements (la logique de mise à jour de l'état se situe ailleurs). Ainsi, au lieu de « définir `tasks` » _via_ un gestionnaire d'événement, vous _dispatchez_ une action « ajout / mise à jour / suppression d'une tâche ». C'est davantage une description de l'intention de l'utilisateur.
 
 ```js
 function handleAddTask(text) {
@@ -290,17 +290,17 @@ Votre logique d'état se situera dans une fonction de réduction. Elle prend deu
 
 ```js
 function yourReducer(state, action) {
-  // renvoie le prochain état pour que React l'utilise
+  // renvoie le prochain état pour que Réac l'utilise
 }
 ```
 
-React définira l'état avec ce qu'aura renvoyé le réducteur.
+Réac définira l'état avec ce qu'aura renvoyé le réducteur.
 
 Pour déplacer votre logique de définition d'état des gestionnaires d'événements à une fonction de réduction dans cet exemple, vous :
 
 1. Déclarerez l'état courant (`tasks`) comme premier argument.
 2. Déclarerez l'objet `action` comme second argument.
-3. Renverrez le _prochain_ état depuis le réducteur (à partir duquel React fixera l'état).
+3. Renverrez le _prochain_ état depuis le réducteur (à partir duquel Réac fixera l'état).
 
 Voici toute la logique de définition d'état une fois migrée vers une fonction de réduction :
 
@@ -392,7 +392,7 @@ const sum = arr.reduce(
 ); // 1 + 2 + 3 + 4 + 5
 ```
 
-La fonction que vous passez à `reduce` est appelée « réducteur ». Elle prend le _résultat en cours_ et l'_élément courant_, puis renvoie le _prochain résultat_. Les réducteurs React sont un exemple de la même idée : ils prennent _l'état en cours_ et une _action_, puis renvoient le _prochain état_. De cette façon, ils accumulent avec le temps les actions au sein de l'état.
+La fonction que vous passez à `reduce` est appelée « réducteur ». Elle prend le _résultat en cours_ et l'_élément courant_, puis renvoie le _prochain résultat_. Les réducteurs Réac sont un exemple de la même idée : ils prennent _l'état en cours_ et une _action_, puis renvoient le _prochain état_. De cette façon, ils accumulent avec le temps les actions au sein de l'état.
 
 Vous pourriez d'ailleurs utiliser la méthode `reduce()` avec un `initialState` et un tableau d'`actions` pour calculer l'état final en lui passant votre fonction de réduction :
 
@@ -453,33 +453,33 @@ export default function tasksReducer(tasks, action) {
 
 </Sandpack>
 
-Vous n'aurez probablement pas besoin de le faire vous-même, mais c'est similaire à ce que fait React !
+Vous n'aurez probablement pas besoin de le faire vous-même, mais c'est similaire à ce que fait Réac !
 
 </DeepDive>
 
-### Étape 3 : utilisez le réducteur depuis votre composant {/*step-3-use-the-reducer-from-your-component*/}
+### Étape 3 : utilisez le réducteur depuis votre composant {/*step-3-use-the-reducer-from-your-composant*/}
 
-Pour finir, vous devez connecter le `tasksReducer` à votre composant. Commencez par importer le Hook `useReducer` depuis React :
-
-```js
-import { useReducer } from 'react';
-```
-
-Ensuite, vous pouvez remplacer le `useState` :
+Pour finir, vous devez connecter le `tasksReducer` à votre composant. Commencez par importer le Hook `utiliserReducteur` depuis Réac :
 
 ```js
-const [tasks, setTasks] = useState(initialTasks);
+import { utiliserReducteur } from 'Réac';
 ```
 
-…par `useReducer` de cette façon :
+Ensuite, vous pouvez remplacer le `utiliserEtat` :
 
 ```js
-const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+const [tasks, setTasks] = utiliserEtat(initialTasks);
 ```
 
-Le Hook `useReducer` est similaire à `useState` : d'une part vous devez lui passer un état initial, d'autre part il renvoie une valeur d'état ainsi qu'un moyen de le redéfinir (en l'occurrence, la fonction de _dispatch_). Toutefois, des différences existent.
+…par `utiliserReducteur` de cette façon :
 
-Le Hook `useReducer` prend deux arguments :
+```js
+const [tasks, dispatch] = utiliserReducteur(tasksReducer, initialTasks);
+```
+
+Le Hook `utiliserReducteur` est similaire à `utiliserEtat` : d'une part vous devez lui passer un état initial, d'autre part il renvoie une valeur d'état ainsi qu'un moyen de le redéfinir (en l'occurrence, la fonction de _dispatch_). Toutefois, des différences existent.
+
+Le Hook `utiliserReducteur` prend deux arguments :
 
 1. Une fonction de réduction.
 2. Un état initial.
@@ -494,12 +494,12 @@ Tout est câblé maintenant ! Ici, le réducteur est déclaré à la fin du fic
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+  const [tasks, dispatch] = utiliserReducteur(tasksReducer, initialTasks);
 
   function handleAddTask(text) {
     dispatch({
@@ -575,10 +575,10 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTask({onAddTask}) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input
@@ -599,7 +599,7 @@ export default function AddTask({onAddTask}) {
 ```
 
 ```js src/TaskList.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
   return (
@@ -614,7 +614,7 @@ export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
 }
 
 function Task({task, onChange, onDelete}) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -679,13 +679,13 @@ Si vous voulez, vous pouvez même déplacer le réducteur dans un fichier à par
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 import tasksReducer from './tasksReducer.js';
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+  const [tasks, dispatch] = utiliserReducteur(tasksReducer, initialTasks);
 
   function handleAddTask(text) {
     dispatch({
@@ -763,10 +763,10 @@ export default function tasksReducer(tasks, action) {
 ```
 
 ```js src/AddTask.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTask({onAddTask}) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input
@@ -787,7 +787,7 @@ export default function AddTask({onAddTask}) {
 ```
 
 ```js src/TaskList.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
   return (
@@ -802,7 +802,7 @@ export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
 }
 
 function Task({task, onChange, onDelete}) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -864,23 +864,23 @@ li {
 
 La logique des composants peut être plus simple à lire quand vous séparez les responsabilités de cette façon. Maintenant les gestionnaires d'événements spécifient seulement _ce qui s'est passé_ en _dispatchant_ les actions, et la fonction de réduction détermine _comment l'état se met à jour_ en réponse à celles-ci.
 
-## Comparaison de `useState` et `useReducer` {/*comparing-usestate-and-usereducer*/}
+## Comparaison de `utiliserEtat` et `utiliserReducteur` {/*comparing-usestate-and-usereducer*/}
 
 Les réducteurs ne sont pas sans inconvénients ! Voici quelques éléments de comparaison :
 
-- **Taille du code** : avec un `useState`, vous devez généralement écrire moins de code au début. Avec `useReducer`, vous devez écrire à la fois la fonction de réduction _et_ _dispatcher_ les actions. Cependant, `useReducer` peut aider à réduire le code si plusieurs gestionnaires d'événements modifient l'état local de façon similaire.
-- **Lisibilité** : `useState` est très facile à lire lorsque les mises à jour d'état sont simples. Mais quand ça se complique, elles peuvent gonfler le code de votre composant et le rendre difficile à analyser. Dans ce cas, `useReducer` vous permet de séparer proprement le _comment_ de la logique du _ce qui est arrivé_ des gestionnaires d'événements.
-- **Débogage** : quand vous avez un bug avec un `useState`, il peut être difficile de dire _où_ l'état a été mal défini et _pourquoi_. Avec un `useReducer`, vous pouvez ajouter des messages dans la console depuis votre réducteur pour voir chaque mise à jour d'état et _pourquoi_ elles ont lieu (en rapport à quelle `action`). Si chaque `action` est correcte, vous saurez que le problème se trouve dans la logique de réduction elle-même. En revanche, vous devez parcourir plus de code qu'avec `useState`.
+- **Taille du code** : avec un `utiliserEtat`, vous devez généralement écrire moins de code au début. Avec `utiliserReducteur`, vous devez écrire à la fois la fonction de réduction _et_ _dispatcher_ les actions. Cependant, `utiliserReducteur` peut aider à réduire le code si plusieurs gestionnaires d'événements modifient l'état local de façon similaire.
+- **Lisibilité** : `utiliserEtat` est très facile à lire lorsque les mises à jour d'état sont simples. Mais quand ça se complique, elles peuvent gonfler le code de votre composant et le rendre difficile à analyser. Dans ce cas, `utiliserReducteur` vous permet de séparer proprement le _comment_ de la logique du _ce qui est arrivé_ des gestionnaires d'événements.
+- **Débogage** : quand vous avez un bug avec un `utiliserEtat`, il peut être difficile de dire _où_ l'état a été mal défini et _pourquoi_. Avec un `utiliserReducteur`, vous pouvez ajouter des messages dans la console depuis votre réducteur pour voir chaque mise à jour d'état et _pourquoi_ elles ont lieu (en rapport à quelle `action`). Si chaque `action` est correcte, vous saurez que le problème se trouve dans la logique de réduction elle-même. En revanche, vous devez parcourir plus de code qu'avec `utiliserEtat`.
 - **Tests** : un réducteur est une fonction pure qui ne dépend pas de votre composant. Ça signifie que vous pouvez l'exporter et la tester en isolation. Bien qu'il soit généralement préférable de tester des composants dans un environnement plus réaliste, pour une logique de mise à jour d'état plus complexe, il peut être utile de vérifier que votre réducteur renvoie un état spécifique pour un état initial et une action particuliers.
-- **Préférence personnelle** : certaines personnes aiment les réducteurs, d'autres non. Ce n'est pas grave. C'est une question de préférence. Vous pouvez toujours convertir un `useState` en un `useReducer` et inversement : ils sont équivalents !
+- **Préférence personnelle** : certaines personnes aiment les réducteurs, d'autres non. Ce n'est pas grave. C'est une question de préférence. Vous pouvez toujours convertir un `utiliserEtat` en un `utiliserReducteur` et inversement : ils sont équivalents !
 
-Nous recommandons d'utiliser un réducteur si vous rencontrez souvent des bugs à cause de mauvaises mises à jour d'état dans un composant et que vous souhaitez introduire plus de structure dans son code. Vous n'êtes pas obligé·e d'utiliser les réducteurs pour tout : n'hésitez pas à mélanger les approches ! Vous pouvez aussi utiliser `useState` et `useReducer` dans le même composant.
+Nous recommandons d'utiliser un réducteur si vous rencontrez souvent des bugs à cause de mauvaises mises à jour d'état dans un composant et que vous souhaitez introduire plus de structure dans son code. Vous n'êtes pas obligé·e d'utiliser les réducteurs pour tout : n'hésitez pas à mélanger les approches ! Vous pouvez aussi utiliser `utiliserEtat` et `utiliserReducteur` dans le même composant.
 
 ## Écrire les réducteurs correctement {/*writing-reducers-well*/}
 
 Gardez ces deux points à l'esprit quand vous écrivez des réducteurs :
 
-- **Les réducteurs doivent être purs.** Tout comme les [fonctions de mise à jour d'état](/learn/queueing-a-series-of-state-updates), les réducteurs sont exécutés pendant le rendu! ! (Les actions sont mises en attente jusqu'au rendu suivant.) Ça signifie que les réducteurs [doivent être purs](/learn/keeping-components-pure) — les mêmes entrées doivent toujours produire les mêmes sorties. Ils ne doivent pas envoyer de requêtes, planifier des _timers_ ou traiter des effets secondaires (des opérations qui impactent des entités extérieures au composant). Ils doivent mettre à jour des [objets](/learn/updating-objects-in-state) et [des tableaux](/learn/updating-arrays-in-state) en respectant l'immutabilité.
+- **Les réducteurs doivent être purs.** Tout comme les [fonctions de mise à jour d'état](/learn/queueing-a-series-of-state-updates), les réducteurs sont exécutés pendant le rendu! ! (Les actions sont mises en attente jusqu'au rendu suivant.) Ça signifie que les réducteurs [doivent être purs](/learn/keeping-composants-pure) — les mêmes entrées doivent toujours produire les mêmes sorties. Ils ne doivent pas envoyer de requêtes, planifier des _timers_ ou traiter des effets secondaires (des opérations qui impactent des entités extérieures au composant). Ils doivent mettre à jour des [objets](/learn/updating-objects-in-state) et [des tableaux](/learn/updating-arrays-in-state) en respectant l'immutabilité.
 - **Chaque action décrit une interaction utilisateur unique, même si ça entraîne plusieurs modifications des données.** Par exemple, si l'utilisateur appuie sur le bouton « Réinitialiser » d'un formulaire comportant cinq champs gérés par un réducteur, il sera plus logique de _dispatcher_ une seule action `reset_form` plutôt que cinq actions `set_field` distinctes. Si vous journalisez chaque action d'un réducteur, ce journal doit être suffisamment clair pour vous permettre de reconstruire l'ordre et la nature des interactions et de leurs traitements. Ça facilite le débogage !
 
 ## Écrire des réducteurs concis avec Immer {/*writing-concise-reducers-with-immer*/}
@@ -965,10 +965,10 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTask({onAddTask}) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input
@@ -989,7 +989,7 @@ export default function AddTask({onAddTask}) {
 ```
 
 ```js src/TaskList.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
   return (
@@ -1004,7 +1004,7 @@ export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
 }
 
 function Task({task, onChange, onDelete}) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -1066,16 +1066,16 @@ li {
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -1086,10 +1086,10 @@ Les réducteurs doivent être purs, donc ils ne doivent pas modifier l'état. Ce
 
 <Recap>
 
-- Pour convertir `useState` vers `useReducer` :
+- Pour convertir `utiliserEtat` vers `utiliserReducteur` :
   1. _Dispatchez_ les actions depuis des gestionnaires d'événements.
   2. Écrivez une fonction de réduction qui s'occupera de renvoyer le prochain état, à partir d'un état et d'une action donnés.
-  3. Remplacez `useState` par `useReducer`.
+  3. Remplacez `utiliserEtat` par `utiliserReducteur`.
 - Les réducteurs vous obligent à écrire un peu plus de code, mais ils facilitent le débogage et les tests.
 - Les réducteurs doivent être purs.
 - Chaque action décrit une interaction utilisateur unique.
@@ -1127,13 +1127,13 @@ case 'changed_selection': {
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.message;
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -1210,7 +1210,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (
@@ -1277,13 +1277,13 @@ Voici l'exemple mis à jour afin pour envoyer les messages correspondants :
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.message;
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -1363,7 +1363,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (
@@ -1421,13 +1421,13 @@ Pour le moment, appuyer sur le bouton « Envoyer » ne fait rien du tout. Ajou
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.message;
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -1507,7 +1507,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (
@@ -1560,13 +1560,13 @@ Il existe plusieurs façons de procéder dans le gestionnaire d'événement du b
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.message;
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -1646,7 +1646,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (
@@ -1708,13 +1708,13 @@ Cependant, _du point de vue de l'utilisateur_, envoyer un message constitue une 
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.message;
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -1800,7 +1800,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (
@@ -1856,7 +1856,7 @@ textarea {
 
 Le comportement visible reste identique. Cependant, gardez à l'esprit que les types d'action doivent idéalement décrire « ce qu'a fait l'utilisateur » plutôt que « la façon dont vous voulez que l'état change ». Respecter cette philosophie facilite l'ajout de fonctionnalités par la suite.
 
-Quelle que soit l'approche retenue, il est important que vous ne placiez _pas_ l'`alert` dans un réducteur. Le réducteur doit être une fonction pure : il doit se limiter au calcul du prochain état. Il ne doit rien « faire », y compris afficher des messages à l'utilisateur. Ça doit être fait dans le gestionnaire d'événement (pour détecter ce genre d'erreur, React en Mode Strict appellera vos réducteurs plusieurs fois. Du coup, si vous placez une alerte dans un réducteur, vous la verrez deux fois).
+Quelle que soit l'approche retenue, il est important que vous ne placiez _pas_ l'`alert` dans un réducteur. Le réducteur doit être une fonction pure : il doit se limiter au calcul du prochain état. Il ne doit rien « faire », y compris afficher des messages à l'utilisateur. Ça doit être fait dans le gestionnaire d'événement (pour détecter ce genre d'erreur, Réac en Mode Strict appellera vos réducteurs plusieurs fois. Du coup, si vous placez une alerte dans un réducteur, vous la verrez deux fois).
 
 </Solution>
 
@@ -1905,13 +1905,13 @@ La syntaxe `[key]: value` des [noms de propriétés calculés](https://developer
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.message;
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -1997,7 +1997,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (
@@ -2080,13 +2080,13 @@ const message = state.messages[state.selectedId];
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.messages[state.selectedId];
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -2181,7 +2181,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (
@@ -2239,9 +2239,9 @@ Notez que vous n'avez pas eu besoin de modifier les gestionnaires d'événements
 
 </Solution>
 
-#### Implémenter `useReducer` de zéro {/*implement-usereducer-from-scratch*/}
+#### Implémenter `utiliserReducteur` de zéro {/*implement-usereducer-from-scratch*/}
 
-Dans les exemples précédents, vous avez importé le Hook `useReducer` de React. Cette fois, vous allez implémenter _le Hook `useReducer` vous-même_ ! Voici un bout de code pour démarrer. Ça ne devrait pas vous prendre plus de 10 lignes de code.
+Dans les exemples précédents, vous avez importé le Hook `utiliserReducteur` de Réac. Cette fois, vous allez implémenter _le Hook `utiliserReducteur` vous-même_ ! Voici un bout de code pour démarrer. Ça ne devrait pas vous prendre plus de 10 lignes de code.
 
 Pour tester vos modifications, essayez de taper dans le champ de saisie ou choisissez un contact.
 
@@ -2250,8 +2250,8 @@ Pour tester vos modifications, essayez de taper dans le champ de saisie ou chois
 Voici une esquisse plus détaillée de l'implémentation :
 
 ```js
-export function useReducer(reducer, initialState) {
-  const [state, setState] = useState(initialState);
+export function utiliserReducteur(reducer, initialState) {
+  const [state, setState] = utiliserEtat(initialState);
 
   function dispatch(action) {
     // ???
@@ -2268,13 +2268,13 @@ Souvenez-vous qu'une fonction de réduction prend deux arguments — l'état co
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from './MyReact.js';
+import { utiliserReducteur } from './MyRéac.js';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.messages[state.selectedId];
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -2344,11 +2344,11 @@ export function messengerReducer(state, action) {
 }
 ```
 
-```js src/MyReact.js active
-import { useState } from 'react';
+```js src/MyRéac.js active
+import { utiliserEtat } from 'Réac';
 
-export function useReducer(reducer, initialState) {
-  const [state, setState] = useState(initialState);
+export function utiliserReducteur(reducer, initialState) {
+  const [state, setState] = utiliserEtat(initialState);
 
   // ???
 
@@ -2381,7 +2381,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (
@@ -2442,13 +2442,13 @@ textarea {
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from './MyReact.js';
+import { utiliserReducteur } from './MyRéac.js';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
-  const [state, dispatch] = useReducer(messengerReducer, initialState);
+  const [state, dispatch] = utiliserReducteur(messengerReducer, initialState);
   const message = state.messages[state.selectedId];
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
@@ -2518,11 +2518,11 @@ export function messengerReducer(state, action) {
 }
 ```
 
-```js src/MyReact.js active
-import { useState } from 'react';
+```js src/MyRéac.js active
+import { utiliserEtat } from 'Réac';
 
-export function useReducer(reducer, initialState) {
-  const [state, setState] = useState(initialState);
+export function utiliserReducteur(reducer, initialState) {
+  const [state, setState] = utiliserEtat(initialState);
 
   function dispatch(action) {
     const nextState = reducer(state, action);
@@ -2558,7 +2558,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 ```
 
 ```js src/Chat.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({contact, message, dispatch}) {
   return (

@@ -4,7 +4,7 @@ title: Affichage conditionnel
 
 <Intro>
 
-Vos composants devront souvent produire des affichages distincts en fonction de certaines conditions.  Dans React, vous pouvez produire du JSX conditionnellement en utilisant des syntaxes JavaScript telles que les instructions `if` et les opérateurs `&&` et `? :`.
+Vos composants devront souvent produire des affichages distincts en fonction de certaines conditions.  Dans Réac, vous pouvez produire du JSX conditionnellement en utilisant des syntaxes JavaScript telles que les instructions `if` et les opérateurs `&&` et `? :`.
 
 </Intro>
 
@@ -12,7 +12,7 @@ Vos composants devront souvent produire des affichages distincts en fonction de 
 
 * Comment renvoyer du JSX différent en fonction d'une condition
 * Comment inclure ou exclure conditionnellement un bout de JSX
-* Les raccourcis syntaxiques habituels que vous rencontrerez dans les bases de code utilisant React
+* Les raccourcis syntaxiques habituels que vous rencontrerez dans les bases de code utilisant Réac
 
 </YouWillLearn>
 
@@ -102,7 +102,7 @@ export default function PackingList() {
 
 Essayez de modifier le balisage renvoyé dans chaque cas, et voyez comme le résultat évolue !
 
-Notez que vous avez créé des branches logiques en utilisant les instructions `if` et `else` de JavaScript. Dans React, le flux de contrôle (tel que les conditions) est géré par JavaScript.
+Notez que vous avez créé des branches logiques en utilisant les instructions `if` et `else` de JavaScript. Dans Réac, le flux de contrôle (tel que les conditions) est géré par JavaScript.
 
 ### Conditionnellement ne rien renvoyer avec `null` {/*conditionally-returning-nothing-with-null*/}
 
@@ -256,11 +256,11 @@ export default function PackingList() {
 
 </Sandpack>
 
-Ce style fonctionne bien pour des conditions simples, mais utilisez-le avec modération.  Si vos composants deviennent difficiles à lire en raison de trop de balisages conditionnels imbriqués, envisagez d'extraire des composants enfants pour nettoyer tout ça.  Dans React, le balisage fait partie de votre code, vous pouvez donc recourir à des variables et des fonctions pour nettoyer les expressions complexes.
+Ce style fonctionne bien pour des conditions simples, mais utilisez-le avec modération.  Si vos composants deviennent difficiles à lire en raison de trop de balisages conditionnels imbriqués, envisagez d'extraire des composants enfants pour nettoyer tout ça.  Dans Réac, le balisage fait partie de votre code, vous pouvez donc recourir à des variables et des fonctions pour nettoyer les expressions complexes.
 
 ### L'opérateur logique ET (`&&`) {/*logical-and-operator-*/}
 
-Un autre raccourci que vous rencontrerez souvent utilise [l'opérateur ET logique (`&&`) de JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Dans les composants React, il apparaît souvent lorsque vous souhaitez afficher du JSX lorsqu'une condition est remplie, **ou ne rien afficher dans le cas contraire**.  Avec `&&`, vous pouvez afficher conditionnellement la coche seulement si `isPacked` vaut `true` :
+Un autre raccourci que vous rencontrerez souvent utilise [l'opérateur ET logique (`&&`) de JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.). Dans les composants Réac, il apparaît souvent lorsque vous souhaitez afficher du JSX lorsqu'une condition est remplie, **ou ne rien afficher dans le cas contraire**.  Avec `&&`, vous pouvez afficher conditionnellement la coche seulement si `isPacked` vaut `true` :
 
 ```js
 return (
@@ -310,14 +310,14 @@ export default function PackingList() {
 
 </Sandpack>
 
-Une [expression `&&` JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Logical_AND) renvoie la valeur de son opérande à droite (dans notre cas, la coche) si l'opérande à gauche (notre condition) vaut `true`.  Mais si la condition vaut `false`, React considèrera `false` comme un « trou » dans l'arbre JSX, tout comme `null` ou `undefined`, et n'affichera rien à cet endroit.
+Une [expression `&&` JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Logical_AND) renvoie la valeur de son opérande à droite (dans notre cas, la coche) si l'opérande à gauche (notre condition) vaut `true`.  Mais si la condition vaut `false`, Réac considèrera `false` comme un « trou » dans l'arbre JSX, tout comme `null` ou `undefined`, et n'affichera rien à cet endroit.
 
 
 <Pitfall>
 
 **Ne mettez pas des nombres à gauche de `&&`.**
 
-Pour tester la condition, JavaScript convertit automatiquement l'opérande de gauche en booléen.  Seulement voilà, si l'opérande de gauche vaut `0`, alors l'expression entière vaudra `0`, et React sera ravi d'afficher `0` plutôt que rien.
+Pour tester la condition, JavaScript convertit automatiquement l'opérande de gauche en booléen.  Seulement voilà, si l'opérande de gauche vaut `0`, alors l'expression entière vaudra `0`, et Réac sera ravi d'afficher `0` plutôt que rien.
 
 Ainsi, une erreur commune consiste à écrire du code du genre `messageCount && <p>Nouveaux messages</p>`. On peut facilement supposer que ça n'affichera rien si `messageCount` vaut `0`, mais en fait ça affichera le `0` lui-même !
 
@@ -437,11 +437,11 @@ export default function PackingList() {
 
 </Sandpack>
 
-Si vous n'êtes pas à l'aise avec JavaScript, cette variété de styles peut vous sembler intimidante au premier abord.  Ceci dit, apprendre ces différents styles vous aidera à lire et écrire n'importe quel code JavaScript — pas seulement des composants React !  Choisissez le style que vous préférez pour commencer, puis revenez sur cette page si vous oubliez quels autres styles marchent aussi.
+Si vous n'êtes pas à l'aise avec JavaScript, cette variété de styles peut vous sembler intimidante au premier abord.  Ceci dit, apprendre ces différents styles vous aidera à lire et écrire n'importe quel code JavaScript — pas seulement des composants Réac !  Choisissez le style que vous préférez pour commencer, puis revenez sur cette page si vous oubliez quels autres styles marchent aussi.
 
 <Recap>
 
-* Dans React, vous contrôlez les branches logiques avec JavaScript.
+* Dans Réac, vous contrôlez les branches logiques avec JavaScript.
 * Vous pouvez renvoyer une expression JavaScript conditionnellement avec une instruction `if`.
 * Vous pouvez sauver conditionnellement du JSX dans une variable puis l'inclure dans un autre bout de JSX grâce aux accolades.
 * En JSX, `{cond ? <A /> : <B />}` signifie *« si `cond`, affiche `<A />`, sinon `<B />` »*.

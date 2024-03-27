@@ -288,7 +288,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col">
           <FooterLink href="/learn" isHeader={true}>
-            Apprendre React
+            Apprendre Réac
           </FooterLink>
           <FooterLink href="/learn/">Démarrage rapide</FooterLink>
           <FooterLink href="/learn/installation">Installation</FooterLink>
@@ -303,8 +303,8 @@ export function Footer() {
           <FooterLink href="/reference/react" isHeader={true}>
             Référence de l’API
           </FooterLink>
-          <FooterLink href="/reference/react">API React</FooterLink>
-          <FooterLink href="/reference/react-dom">API React DOM</FooterLink>
+          <FooterLink href="/reference/react">API Réac</FooterLink>
+          <FooterLink href="/reference/react-dom">API Réac DOM</FooterLink>
         </div>
         <div className="md:col-start-2 xl:col-start-4 flex flex-col">
           <FooterLink href="/community" isHeader={true}>
@@ -324,7 +324,7 @@ export function Footer() {
         <div className="flex flex-col">
           <FooterLink isHeader={true}>Plus</FooterLink>
           <FooterLink href="/blog">Blog</FooterLink>
-          <FooterLink href="https://reactnative.dev/">React Native</FooterLink>
+          <FooterLink href="https://reactnative.dev/">Réac Native</FooterLink>
           <FooterLink href="https://opensource.facebook.com/legal/privacy">
             Politique de confidentialité
           </FooterLink>
@@ -333,19 +333,19 @@ export function Footer() {
           </FooterLink>
           <div className="flex flex-row items-center mt-8 gap-x-2">
             <ExternalLink
-              aria-label="React sur Facebook"
+              aria-label="Réac sur Facebook"
               href="https://www.facebook.com/react"
               className={socialLinkClasses}>
               <IconFacebookCircle />
             </ExternalLink>
             <ExternalLink
-              aria-label="React sur Twitter"
+              aria-label="Réac sur Twitter"
               href="https://twitter.com/reactjs"
               className={socialLinkClasses}>
               <IconTwitter />
             </ExternalLink>
             <ExternalLink
-              aria-label="React sur Github"
+              aria-label="Réac sur Github"
               href="https://github.com/facebook/react"
               className={socialLinkClasses}>
               <IconGitHub />

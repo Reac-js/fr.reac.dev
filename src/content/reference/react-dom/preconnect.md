@@ -5,7 +5,7 @@ canary: true
 
 <Canary>
 
-La fonction `preconnect` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de React. Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+La fonction `preconnect` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de Réac. Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
@@ -27,10 +27,10 @@ preconnect("https://example.com");
 
 ### `preconnect(href)` {/*preconnect*/}
 
-Pour vous préconnecter à un hôte, appelez la fonction `preconnect` de `react-dom`.
+Pour vous préconnecter à un hôte, appelez la fonction `preconnect` de `Réac-dom`.
 
 ```js
-import { preconnect } from 'react-dom';
+import { preconnect } from 'Réac-dom';
 
 function AppRoot() {
   preconnect("https://example.com");
@@ -57,7 +57,7 @@ La fonction `preconnect` suggère au navigateur d'ouvrir une connection vers le 
 * Plusieurs appels à `preconnect` vers le même serveur ont le même effet qu'un unique appel.
 * Côté client, vous pouvez appeler `preconnect` n'importe où : lors du rendu d'un composant, dans un Effet, dans un gestionnaire d'événement, etc.
 * Lors d'un rendu côté serveur ou du rendu de Composants Serveur, `preconnect` n'a d'effet que si vous l'appelez lors du rendu d'un composant ou dans une fonction asynchrone issue du rendu d'un composant.  Tout autre appel sera ignoré.
-* Si vous connaissez à l'avance les ressources précises dont vous aurez besoin, vous pouvez appeler [d'autres fonctions](/reference/react-dom/#resource-preloading-apis) plutôt que celle-ci, qui initieront directement le chargement des ressources.
+* Si vous connaissez à l'avance les ressources précises dont vous aurez besoin, vous pouvez appeler [d'autres fonctions](/reference/Réac-dom/#resource-preloading-apis) plutôt que celle-ci, qui initieront directement le chargement des ressources.
 * Il n'y a aucun intérêt à se préconnecter au même serveur que celui qui sert la page web elle-même, car la connexion est déjà établie lorsque la suggestion est reçue.
 
 ---
@@ -69,7 +69,7 @@ La fonction `preconnect` suggère au navigateur d'ouvrir une connection vers le 
 Appelez `preconnect` lors du rendu d'un composant si vous savez que ses enfants auront besoin de charger des ressources extérieures depuis un hôte donné.
 
 ```js
-import { preconnect } from 'react-dom';
+import { preconnect } from 'Réac-dom';
 
 function AppRoot() {
   preconnect("https://example.com");
@@ -82,7 +82,7 @@ function AppRoot() {
 Appelez `preconnect` depuis un gestionnaire d'événement avant de passer à une page ou un état qui auront besoin de ressources extérieures.  Ça permet de déclencher le processus de connexion plus tôt que si vous l'appeliez au sein de la nouvelle page ou suite au nouvel état.
 
 ```js
-import { preconnect } from 'react-dom';
+import { preconnect } from 'Réac-dom';
 
 function CallToAction() {
   const onClick = () => {

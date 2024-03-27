@@ -4,30 +4,30 @@ title: Préserver et réinitialiser l’état
 
 <Intro>
 
-L'état est isolé entre les composants. React garde en mémoire quel état appartient à quel composant en fonction de leur place dans l'arbre de l'interface utilisateur (l'UI). Vous pouvez contrôler quand préserver l'état et quand le réinitialiser entre les différents rendus.
+L'état est isolé entre les composants. Réac garde en mémoire quel état appartient à quel composant en fonction de leur place dans l'arbre de l'interface utilisateur (l'UI). Vous pouvez contrôler quand préserver l'état et quand le réinitialiser entre les différents rendus.
 
 </Intro>
 
 <YouWillLearn>
 
-* Quand React choisit de préserver ou de réinitialiser l'état
-* Comment forcer React à réinitialiser l'état d'un composant
+* Quand Réac choisit de préserver ou de réinitialiser l'état
+* Comment forcer Réac à réinitialiser l'état d'un composant
 * Comment les clés et les types déterminent si l'état est préservé ou non
 
 </YouWillLearn>
 
 ## L'état est lié à une position dans l'arbre {/*state-is-tied-to-a-position-in-the-tree*/}
 
-React construit un [arbre de rendu](/learn/understanding-your-ui-as-a-tree#the-render-tree) pour représenter la structure des composants de votre UI.
+Réac construit un [arbre de rendu](/learn/understanding-your-ui-as-a-tree#the-render-tree) pour représenter la structure des composants de votre UI.
 
-Lorsque vous donnez un état à un composant, vous pouvez penser que l'état « vit » à l'intérieur du composant. En réalité, l'état est conservé à l'intérieur de React. React associe chaque élément d'état qu'il conserve au composant correspondant en fonction de la place que celui-ci occupe dans l'arbre de rendu.
+Lorsque vous donnez un état à un composant, vous pouvez penser que l'état « vit » à l'intérieur du composant. En réalité, l'état est conservé à l'intérieur de Réac. Réac associe chaque élément d'état qu'il conserve au composant correspondant en fonction de la place que celui-ci occupe dans l'arbre de rendu.
 
 Ci-dessous, il n'y a qu'une seule balise `<Counter />`, pourtant elle est affichée à deux positions différentes :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
   const counter = <Counter />;
@@ -40,8 +40,8 @@ export default function App() {
 }
 
 function Counter() {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -90,24 +90,24 @@ Voici comment les visualiser sous forme d'arbre :
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_tree" height={248} width={395} alt="Diagramme d'un arbre de composants React. Le nœud racine est appelé « div » et a deux enfants. Chacun d'eux est appelé « Counter » et contient une bulle d'état appelée « count » dont la valeur est à 0.">
+<Diagram name="preserving_state_tree" height={248} width={395} alt="Diagramme d'un arbre de composants Réac. Le nœud racine est appelé « div » et a deux enfants. Chacun d'eux est appelé « Counter » et contient une bulle d'état appelée « count » dont la valeur est à 0.">
 
-L'arbre de React
+L'arbre de Réac
 
 </Diagram>
 
 </DiagramGroup>
 
-**Il s'agit de deux compteurs distincts car chacun d'eux a sa propre position dans l'arbre.** Généralement, vous n'avez pas besoin de penser à ces positions pour utiliser React, mais il peut être utile de comprendre comment ça fonctionne.
+**Il s'agit de deux compteurs distincts car chacun d'eux a sa propre position dans l'arbre.** Généralement, vous n'avez pas besoin de penser à ces positions pour utiliser Réac, mais il peut être utile de comprendre comment ça fonctionne.
 
-Dans React, chaque composant à l'écran a son propre état complétement isolé. Par exemple, si vous affichez deux composants `Counter` l'un à côté de l'autre, chacun d'eux aura ses propres variables d'état indépendantes de `score` et d'`hover`.
+Dans Réac, chaque composant à l'écran a son propre état complétement isolé. Par exemple, si vous affichez deux composants `Counter` l'un à côté de l'autre, chacun d'eux aura ses propres variables d'état indépendantes de `score` et d'`hover`.
 
 Cliquez sur chaque compteur et constatez qu'ils ne s'affectent pas l'un l'autre :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
   return (
@@ -119,8 +119,8 @@ export default function App() {
 }
 
 function Counter() {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -165,7 +165,7 @@ Comme vous pouvez le voir, quand un compteur est mis à jour, seul l'état de ce
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_increment" height={248} width={441} alt="Diagramme avec un arbre de composants React. Le nœud racine est appelé « div » et a deux enfants. L'enfant à gauche est appelé « Counter » et contient un bulle d'état appelée « count » ayant une valeur à 0. L'enfant à droite est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 1. La bulle d'état de l'enfant à droite est surlignée en jaune afin d'indiquer que sa valeur a été mise à jour.">
+<Diagram name="preserving_state_increment" height={248} width={441} alt="Diagramme avec un arbre de composants Réac. Le nœud racine est appelé « div » et a deux enfants. L'enfant à gauche est appelé « Counter » et contient un bulle d'état appelée « count » ayant une valeur à 0. L'enfant à droite est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 1. La bulle d'état de l'enfant à droite est surlignée en jaune afin d'indiquer que sa valeur a été mise à jour.">
 
 Mise à jour de l’état
 
@@ -174,15 +174,15 @@ Mise à jour de l’état
 </DiagramGroup>
 
 
-React conservera l'état tant que vous afficherez le même composant à la même position dans l'arbre. Pour vous en rendre compte, incrémentez les deux compteurs, puis supprimez le deuxième composant en décochant « Afficher le deuxième compteur », et enfin remettez-le en cochant à nouveau la case :
+Réac conservera l'état tant que vous afficherez le même composant à la même position dans l'arbre. Pour vous en rendre compte, incrémentez les deux compteurs, puis supprimez le deuxième composant en décochant « Afficher le deuxième compteur », et enfin remettez-le en cochant à nouveau la case :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [showB, setShowB] = useState(true);
+  const [showB, setShowB] = utiliserEtat(true);
   return (
     <div>
       <Counter />
@@ -202,8 +202,8 @@ export default function App() {
 }
 
 function Counter() {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -248,11 +248,11 @@ label {
 
 </Sandpack>
 
-Remarquez qu'au moment où vous cessez d'afficher le deuxième compteur, son état disparaît complètement. Lorsque React supprime un composant, il supprime également son état.
+Remarquez qu'au moment où vous cessez d'afficher le deuxième compteur, son état disparaît complètement. Lorsque Réac supprime un composant, il supprime également son état.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_remove_component" height={253} width={422} alt="Diagramme avec un arbre de composants React. Le nœud racine est appelé « div » et a deux enfants. L'enfant à gauche est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 0. L'enfant à droite est manquant, et à sa place est affichée une image avec des étincelles indiquant qu'il a été supprimé de l'arbre.">
+<Diagram name="preserving_state_remove_Composant" height={253} width={422} alt="Diagramme avec un arbre de composants Réac. Le nœud racine est appelé « div » et a deux enfants. L'enfant à gauche est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 0. L'enfant à droite est manquant, et à sa place est affichée une image avec des étincelles indiquant qu'il a été supprimé de l'arbre.">
 
 Suppression d’un composant
 
@@ -264,7 +264,7 @@ Lorsque vous cochez « Afficher le deuxième compteur », un deuxième `Counte
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_add_component" height={258} width={500} alt="Diagramme d'un arbre de composants React. Le nœud racine est appelé « div » et a deux enfants. L'enfant à gauche est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 0. L'enfant à droite est appelé « Counter » et contient une bulle d'état « count » valant 0. Tout le nœud de l'enfant à droite est surligné en jaune, indiquant qu'il vient juste d'être ajouté à l'arbre.">
+<Diagram name="preserving_state_add_Composant" height={258} width={500} alt="Diagramme d'un arbre de composants Réac. Le nœud racine est appelé « div » et a deux enfants. L'enfant à gauche est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 0. L'enfant à droite est appelé « Counter » et contient une bulle d'état « count » valant 0. Tout le nœud de l'enfant à droite est surligné en jaune, indiquant qu'il vient juste d'être ajouté à l'arbre.">
 
 Ajout d’un composant
 
@@ -272,19 +272,19 @@ Ajout d’un composant
 
 </DiagramGroup>
 
-**React préserve l'état d'un composant tant qu'il est affiché à sa position dans l'arbre de l'UI.** S'il est supprimé, ou si un composant différent est affiché à la même position, alors React se débarrasse de son état.
+**Réac préserve l'état d'un composant tant qu'il est affiché à sa position dans l'arbre de l'UI.** S'il est supprimé, ou si un composant différent est affiché à la même position, alors Réac se débarrasse de son état.
 
-## Le même composant à la même position préserve son état {/*same-component-at-the-same-position-preserves-state*/}
+## Le même composant à la même position préserve son état {/*same-composant-at-the-same-position-preserves-state*/}
 
 Dans cet exemple, il y a deux balises `<Counter />` différentes :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [isFancy, setIsFancy] = useState(false);
+  const [isFancy, setIsFancy] = utiliserEtat(false);
   return (
     <div>
       {isFancy ? (
@@ -307,8 +307,8 @@ export default function App() {
 }
 
 function Counter({ isFancy }) {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -365,7 +365,7 @@ Quand vous cochez ou décochez la case, l'état du compteur n'est pas réinitial
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_same_component" height={461} width={600} alt="Diagramme avec deux sections séparées par une flèche allant de l'une à l'autre. Chaque section affiche une structure de composants avec un parent appelé « App », contenant une bulle d'état appelée « isFancy ». Ce composant a un enfant appelé « div », qui amène à une bulle de prop contenant « isFancy » (qui est affichée en violet), laquelle est donnée plus bas à l'enfant unique. Le dernier enfant est appelé « Counter » et contient une bulle d'état appelée « count » dont la valeur est à 3 dans les deux diagrammes. Dans la section de gauche du diagramme, il n'y a rien de surligné et la valeur de l'état « isFancy » du parent est à false. Dans la section de droite, la valeur de l'état « isFancy » a été changée à true, et est surlignée en jaune, de la même façon que la bulle plus bas, qui a aussi sa valeur « isFancy » à true.">
+<Diagram name="preserving_state_same_Composant" height={461} width={600} alt="Diagramme avec deux sections séparées par une flèche allant de l'une à l'autre. Chaque section affiche une structure de composants avec un parent appelé « App », contenant une bulle d'état appelée « isFancy ». Ce composant a un enfant appelé « div », qui amène à une bulle de prop contenant « isFancy » (qui est affichée en violet), laquelle est donnée plus bas à l'enfant unique. Le dernier enfant est appelé « Counter » et contient une bulle d'état appelée « count » dont la valeur est à 3 dans les deux diagrammes. Dans la section de gauche du diagramme, il n'y a rien de surligné et la valeur de l'état « isFancy » du parent est à false. Dans la section de droite, la valeur de l'état « isFancy » a été changée à true, et est surlignée en jaune, de la même façon que la bulle plus bas, qui a aussi sa valeur « isFancy » à true.">
 
 Mettre à jour l’état de `App` ne remet pas à jour le `Counter` parce que ce dernier reste à la même position
 
@@ -374,19 +374,19 @@ Mettre à jour l’état de `App` ne remet pas à jour le `Counter` parce que ce
 </DiagramGroup>
 
 
-C'est le même composant à la même position, donc du point de vue de React, il s'agit du même compteur.
+C'est le même composant à la même position, donc du point de vue de Réac, il s'agit du même compteur.
 
 <Pitfall>
 
-Souvenez-vous que **c'est la position dans l'arbre de l'UI — et non dans le JSX — qui importe à React** ! Ce composant a deux clauses `return` avec des balises JSX différentes de `<Counter />` à l'intérieur et l'extérieur du `if` :
+Souvenez-vous que **c'est la position dans l'arbre de l'UI — et non dans le JSX — qui importe à Réac** ! Ce composant a deux clauses `return` avec des balises JSX différentes de `<Counter />` à l'intérieur et l'extérieur du `if` :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [isFancy, setIsFancy] = useState(false);
+  const [isFancy, setIsFancy] = utiliserEtat(false);
   if (isFancy) {
     return (
       <div>
@@ -422,8 +422,8 @@ export default function App() {
 }
 
 function Counter({ isFancy }) {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -476,23 +476,23 @@ label {
 
 </Sandpack>
 
-Vous pourriez supposer que l'état est réinitialisé quand vous cochez la case, mais ce n'est pas le cas ! C'est parce que **les deux balises `<Counter />` sont affichées à la même position**. React ne sait pas où vous placez les conditions dans votre fonction. Tout ce qu'il « voit » c'est l'arbre qui est renvoyé.
+Vous pourriez supposer que l'état est réinitialisé quand vous cochez la case, mais ce n'est pas le cas ! C'est parce que **les deux balises `<Counter />` sont affichées à la même position**. Réac ne sait pas où vous placez les conditions dans votre fonction. Tout ce qu'il « voit » c'est l'arbre qui est renvoyé.
 
-Dans les deux cas, le composant `App` renvoie un `<div>` avec un `<Counter />` comme premier enfant. Pour React, ces deux compteurs ont la même « adresse » : le premier enfant du premier enfant de la racine. C'est ainsi que React les associe d'un rendu à l'autre, peu importe la façon dont vous structurez votre logique.
+Dans les deux cas, le composant `App` renvoie un `<div>` avec un `<Counter />` comme premier enfant. Pour Réac, ces deux compteurs ont la même « adresse » : le premier enfant du premier enfant de la racine. C'est ainsi que Réac les associe d'un rendu à l'autre, peu importe la façon dont vous structurez votre logique.
 
 </Pitfall>
 
-## Des composants différents à la même position réinitialisent l'état {/*different-components-at-the-same-position-reset-state*/}
+## Des composants différents à la même position réinitialisent l'état {/*different-composants-at-the-same-position-reset-state*/}
 
 Dans cet exemple, cliquer sur la case remplacera `<Counter>` par un `<p>` :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = utiliserEtat(false);
   return (
     <div>
       {isPaused ? (
@@ -515,8 +515,8 @@ export default function App() {
 }
 
 function Counter() {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -561,11 +561,11 @@ label {
 
 </Sandpack>
 
-Vous basculez ici entre deux types de composants _différents_ à la même position. À l'origine, le premier enfant du `<div>` contenait un `Counter`. Ensuite, comme vous l'avez échangé avec un `p`, React a supprimé le `Counter` de l'UI et détruit son état.
+Vous basculez ici entre deux types de composants _différents_ à la même position. À l'origine, le premier enfant du `<div>` contenait un `Counter`. Ensuite, comme vous l'avez échangé avec un `p`, Réac a supprimé le `Counter` de l'UI et détruit son état.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_pt1" height={290} width={753} alt="Diagramme avec trois sections, avec une flèche allant d'une section à une autre. La première section contient un composant React appelé « div » avec un seul enfant « Counter » contenant une bulle d'état appelée « count », avec une valeur à 3. La section du milieu a le même parent « div », mais le composant enfant a maintenant été supprimé, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « p », surligné en jaune.">
+<Diagram name="preserving_state_diff_pt1" height={290} width={753} alt="Diagramme avec trois sections, avec une flèche allant d'une section à une autre. La première section contient un composant Réac appelé « div » avec un seul enfant « Counter » contenant une bulle d'état appelée « count », avec une valeur à 3. La section du milieu a le même parent « div », mais le composant enfant a maintenant été supprimé, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « p », surligné en jaune.">
 
 Quand `Counter` est changé en `p`, le `Counter` est supprimé et le `p` est ajouté
 
@@ -575,7 +575,7 @@ Quand `Counter` est changé en `p`, le `Counter` est supprimé et le `p` est ajo
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_pt2" height={290} width={753} alt="Diagramme avec trois sections, avec une flèche allant d'une section à une autre. La première section contient un composant React appelé « p ». La section du milieu a le même parent « div », mais le composant enfant a maintenant été supprimé, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « Counter » contenant une bulle d'état « count » de valeur 0, surligné en jaune.">
+<Diagram name="preserving_state_diff_pt2" height={290} width={753} alt="Diagramme avec trois sections, avec une flèche allant d'une section à une autre. La première section contient un composant Réac appelé « p ». La section du milieu a le même parent « div », mais le composant enfant a maintenant été supprimé, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « Counter » contenant une bulle d'état « count » de valeur 0, surligné en jaune.">
 
 En revenant en arrière, le `p` est supprimé et le `Counter` est ajouté
 
@@ -588,10 +588,10 @@ Ainsi, **quand vous faites le rendu d'un composant différent à la même positi
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [isFancy, setIsFancy] = useState(false);
+  const [isFancy, setIsFancy] = utiliserEtat(false);
   return (
     <div>
       {isFancy ? (
@@ -618,8 +618,8 @@ export default function App() {
 }
 
 function Counter({ isFancy }) {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -676,7 +676,7 @@ L'état du compteur se réinitialise quand vous cliquez sur la case. Bien que vo
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagramme avec trois sections, avec une flèche allant d'une section à l'autre. La première section contient un composant React appelé « div » avec un seul enfant appelé « section », qui lui-même n'a qu'un seul enfant appelé « Counter », qui dispose d'une bulle d'état appelée « count » dont la valeur est à 3. La section du milieu a le même parent « div », mais les composants enfants ont maintenant été supprimés, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « div » surligné en jaune, ainsi qu'un nouvel enfant appelé « Counter » contenant une bulle d'état appelée « count » avec une valeur à 0, le tout surligné en jaune.">
+<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagramme avec trois sections, avec une flèche allant d'une section à l'autre. La première section contient un composant Réac appelé « div » avec un seul enfant appelé « section », qui lui-même n'a qu'un seul enfant appelé « Counter », qui dispose d'une bulle d'état appelée « count » dont la valeur est à 3. La section du milieu a le même parent « div », mais les composants enfants ont maintenant été supprimés, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « div » surligné en jaune, ainsi qu'un nouvel enfant appelé « Counter » contenant une bulle d'état appelée « count » avec une valeur à 0, le tout surligné en jaune.">
 
 Quand la `section` change pour un `div`, la `section` est supprimée est le nouveau `div` est ajouté
 
@@ -686,7 +686,7 @@ Quand la `section` change pour un `div`, la `section` est supprimée est le nouv
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_same_pt2" height={350} width={794} alt="Diagramme avec trois sections, avec une flèche allant d'une section à l'autre. La première section contient un composant React appelé « div » avec un seul enfant appelé « div », qui lui-même n'a qu'un seul enfant appelé « Counter », qui dispose d'une bulle d'état appelé « count » dont la valeur est à 0. La section du milieu a le même parent « div », mais les composants enfants ont maintenant été supprimés, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « section » surligné en jaune, ainsi qu'un nouvel enfant appelé « Counter » contenant une bulle d'état appelée « count » de valeur 0, le tout surligné en jaune.">
+<Diagram name="preserving_state_diff_same_pt2" height={350} width={794} alt="Diagramme avec trois sections, avec une flèche allant d'une section à l'autre. La première section contient un composant Réac appelé « div » avec un seul enfant appelé « div », qui lui-même n'a qu'un seul enfant appelé « Counter », qui dispose d'une bulle d'état appelé « count » dont la valeur est à 0. La section du milieu a le même parent « div », mais les composants enfants ont maintenant été supprimés, indiqué par une image avec des étincelles. La troisième section a toujours le même parent « div », mais avec un nouvel enfant appelé « section » surligné en jaune, ainsi qu'un nouvel enfant appelé « Counter » contenant une bulle d'état appelée « count » de valeur 0, le tout surligné en jaune.">
 
 En revenant en arrière, le `div` est supprimé et la nouvelle `section` est ajoutée
 
@@ -694,24 +694,24 @@ En revenant en arrière, le `div` est supprimé et la nouvelle `section` est ajo
 
 </DiagramGroup>
 
-De manière générale, **si vous voulez préserver l'état entre les rendus, la structure de votre arbre doit « correspondre »** d'un rendu à l'autre. Si la structure est différente, l'état sera détruit car React détruit l'état quand il enlève un composant de l'arbre.
+De manière générale, **si vous voulez préserver l'état entre les rendus, la structure de votre arbre doit « correspondre »** d'un rendu à l'autre. Si la structure est différente, l'état sera détruit car Réac détruit l'état quand il enlève un composant de l'arbre.
 
 <Pitfall>
 
 Voici pourquoi il ne faut pas imbriquer les définitions des fonctions des composants.
 
-Ici, la fonction du composant `MyTextField` est définie à *l'intérieur de* `MyComponent` :
+Ici, la fonction du composant `MyTextField` est définie à *l'intérieur de* `MyComposant` :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
-export default function MyComponent() {
-  const [counter, setCounter] = useState(0);
+export default function MyComposant() {
+  const [counter, setCounter] = utiliserEtat(0);
 
   function MyTextField() {
-    const [text, setText] = useState('');
+    const [text, setText] = utiliserEtat('');
 
     return (
       <input
@@ -735,21 +735,21 @@ export default function MyComponent() {
 </Sandpack>
 
 
-Chaque fois que vous appuyez sur le bouton, l'état du champ de saisie disparaît ! C'est parce qu'une fonction `MyTextField` *différente* est créée à chaque rendu de `MyComponent`. Puisque vous affichez composant *différent* à la même position, React réinitialise tout l'état en dessous. Ça cause des bugs et des problèmes de performances. Pour éviter ce problème, **déclarez toujours les fonctions de composants au niveau racine, et n'imbriquez pas leurs définitions**.
+Chaque fois que vous appuyez sur le bouton, l'état du champ de saisie disparaît ! C'est parce qu'une fonction `MyTextField` *différente* est créée à chaque rendu de `MyComposant`. Puisque vous affichez composant *différent* à la même position, Réac réinitialise tout l'état en dessous. Ça cause des bugs et des problèmes de performances. Pour éviter ce problème, **déclarez toujours les fonctions de composants au niveau racine, et n'imbriquez pas leurs définitions**.
 
 </Pitfall>
 
 ## Réinitialiser l'état à la même position {/*resetting-state-at-the-same-position*/}
 
-Par défaut, React préserve l'état d'un composant tant que celui-ci conserve sa position. Généralement, c'est exactement ce que vous voulez, c'est donc logique qu'il s'agisse du comportement par défaut. Cependant, il peut arriver que vous vouliez réinitialiser l'état d'un composant. Regardez cette appli qui permet à deux joueurs de surveiller leur score pendant leur tour :
+Par défaut, Réac préserve l'état d'un composant tant que celui-ci conserve sa position. Généralement, c'est exactement ce que vous voulez, c'est donc logique qu'il s'agisse du comportement par défaut. Cependant, il peut arriver que vous vouliez réinitialiser l'état d'un composant. Regardez cette appli qui permet à deux joueurs de surveiller leur score pendant leur tour :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Scoreboard() {
-  const [isPlayerA, setIsPlayerA] = useState(true);
+  const [isPlayerA, setIsPlayerA] = utiliserEtat(true);
   return (
     <div>
       {isPlayerA ? (
@@ -767,8 +767,8 @@ export default function Scoreboard() {
 }
 
 function Counter({ person }) {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -811,7 +811,7 @@ h1 {
 
 </Sandpack>
 
-Pour le moment, le score est conservé quand vous changez de joueur. Les deux `Counter` apparaissent à la même position, donc React les voit comme *le même* `Counter` dont la prop `person` a changé.
+Pour le moment, le score est conservé quand vous changez de joueur. Les deux `Counter` apparaissent à la même position, donc Réac les voit comme *le même* `Counter` dont la prop `person` a changé.
 
 Conceptuellement, dans cette appli, ils doivent être considérés comme deux compteurs distincts. Ils apparaissent certes à la même place dans l'UI, mais l'un est pour Clara, l'autre pour Sarah.
 
@@ -821,17 +821,17 @@ Il y a deux façons de réinitialiser l'état lorsqu'on passe de l'un à l'autre
 2. Donner explicitement à chaque composant une identité avec `key`.
 
 
-### Option 1 : changer la position du composant {/*option-1-rendering-a-component-in-different-positions*/}
+### Option 1 : changer la position du composant {/*option-1-rendering-a-composant-in-different-positions*/}
 
 Si vous souhaitez rendre ces deux `Counter` indépendants, vous pouvez choisir de les afficher à deux positions différentes :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Scoreboard() {
-  const [isPlayerA, setIsPlayerA] = useState(true);
+  const [isPlayerA, setIsPlayerA] = utiliserEtat(true);
   return (
     <div>
       {isPlayerA &&
@@ -850,8 +850,8 @@ export default function Scoreboard() {
 }
 
 function Counter({ person }) {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -899,19 +899,19 @@ h1 {
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_position_p1" height={375} width={504} alt="Diagramme d'un arbre de composants React. Le parent est appelé « Scoreboard » avec une bulle d'état appelée « isPlayerA » qui vaut true. Le seul enfant, placé à gauche, est appelé « Counter », avec une bulle d'état appelée « count » dont la valeur est à 0. L'enfant à gauche est entièrement surligné en jaune, indiquant qu'il a été ajouté.">
+<Diagram name="preserving_state_diff_position_p1" height={375} width={504} alt="Diagramme d'un arbre de composants Réac. Le parent est appelé « Scoreboard » avec une bulle d'état appelée « isPlayerA » qui vaut true. Le seul enfant, placé à gauche, est appelé « Counter », avec une bulle d'état appelée « count » dont la valeur est à 0. L'enfant à gauche est entièrement surligné en jaune, indiquant qu'il a été ajouté.">
 
 État initial
 
 </Diagram>
 
-<Diagram name="preserving_state_diff_position_p2" height={375} width={504} alt="Diagramme d'un arbre de composants React. Le parent est appelé « Scoreboard » avec une bulle d'état appelée « isPlayerA » qui vaut false. La bulle d'état est surlignée en jaune, indiquant qu'elle a changé. L'enfant à gauche est remplacé par une image avec des étincelles, indiquant qu'il a été supprimé, et il y a désormais un nouvel enfant à droite, surligné en jaune indiquant qu'il a été ajouté. Le nouvel enfant est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 0.">
+<Diagram name="preserving_state_diff_position_p2" height={375} width={504} alt="Diagramme d'un arbre de composants Réac. Le parent est appelé « Scoreboard » avec une bulle d'état appelée « isPlayerA » qui vaut false. La bulle d'état est surlignée en jaune, indiquant qu'elle a changé. L'enfant à gauche est remplacé par une image avec des étincelles, indiquant qu'il a été supprimé, et il y a désormais un nouvel enfant à droite, surligné en jaune indiquant qu'il a été ajouté. Le nouvel enfant est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 0.">
 
 Appui sur « Joueur suivant »
 
 </Diagram>
 
-<Diagram name="preserving_state_diff_position_p3" height={375} width={504} alt="Diagramme d'un arbre de composants React. Le parent est appelé « Scoreboard » avec une bulle d'état appelée « isPlayerA » qui vaut true. La bulle d'état est surlignée en jaune, indiquant qu'elle a changé. Il y a un nouvel enfant à gauche, surligné en jaune pour indiquer qu'il a été ajouté. Ce nouvel enfant est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 0. L'enfant à droite est remplacé par une image avec des étincelles, indiquant qu'il a été supprimé.">
+<Diagram name="preserving_state_diff_position_p3" height={375} width={504} alt="Diagramme d'un arbre de composants Réac. Le parent est appelé « Scoreboard » avec une bulle d'état appelée « isPlayerA » qui vaut true. La bulle d'état est surlignée en jaune, indiquant qu'elle a changé. Il y a un nouvel enfant à gauche, surligné en jaune pour indiquer qu'il a été ajouté. Ce nouvel enfant est appelé « Counter » et contient une bulle d'état appelée « count » avec une valeur à 0. L'enfant à droite est remplacé par une image avec des étincelles, indiquant qu'il a été supprimé.">
 
 Nouvel appui sur « Joueur suivant »
 
@@ -927,17 +927,17 @@ Cette solution est pratique quand vous n'avez qu'un petit nombre de composants i
 
 Il existe une méthode plus générique pour réinitialiser l'état d'un composant.
 
-Vous avez peut-être déjà vu les `key` lors de [l'affichage des listes](/learn/rendering-lists#keeping-list-items-in-order-with-key). Ces clés ne sont pas réservées aux listes ! Vous pouvez les utiliser pour aider React à faire la distinction entre n'importe quels composants. Par défaut, React utilise l'ordre dans un parent (« premier compteur », « deuxième compteur ») pour différencier les composants. Les clés vous permettent de dire à React qu'il ne s'agit pas simplement d'un *premier* compteur ou d'un *deuxième* compteur, mais plutôt un compteur spécifique — par exemple le compteur de *Clara*. De cette façon, React reconnaîtra le compteur de *Clara* où qu'il apparaisse dans l'arbre.
+Vous avez peut-être déjà vu les `key` lors de [l'affichage des listes](/learn/rendering-lists#keeping-list-items-in-order-with-key). Ces clés ne sont pas réservées aux listes ! Vous pouvez les utiliser pour aider Réac à faire la distinction entre n'importe quels composants. Par défaut, Réac utilise l'ordre dans un parent (« premier compteur », « deuxième compteur ») pour différencier les composants. Les clés vous permettent de dire à Réac qu'il ne s'agit pas simplement d'un *premier* compteur ou d'un *deuxième* compteur, mais plutôt un compteur spécifique — par exemple le compteur de *Clara*. De cette façon, Réac reconnaîtra le compteur de *Clara* où qu'il apparaisse dans l'arbre.
 
 Dans cet exemple, les deux `<Counter />` ne partagent pas leur état, bien qu'ils apparaissent à la même position dans le JSX :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Scoreboard() {
-  const [isPlayerA, setIsPlayerA] = useState(true);
+  const [isPlayerA, setIsPlayerA] = utiliserEtat(true);
   return (
     <div>
       {isPlayerA ? (
@@ -955,8 +955,8 @@ export default function Scoreboard() {
 }
 
 function Counter({ person }) {
-  const [score, setScore] = useState(0);
-  const [hover, setHover] = useState(false);
+  const [score, setScore] = utiliserEtat(0);
+  const [hover, setHover] = utiliserEtat(false);
 
   let className = 'counter';
   if (hover) {
@@ -1009,7 +1009,7 @@ Remplacer Clara par Sarah ne préserve pas l'état. C'est parce que **vous leur 
 )}
 ```
 
-Le fait de spécifier une `key` indique à React de l'utiliser également comme élément de position, plutôt que son ordre au sein du parent. Ainsi, même si vous faites le rendu à la même position dans le JSX, React les voit comme deux compteurs distincts qui ne partageront jamais leur état. À chaque fois qu'un compteur apparaît à l'écran, son état est créé. À chaque fois qu'il est supprimé, son état est supprimé. Passer de l'un à l'autre réinitialise leur état, encore et encore.
+Le fait de spécifier une `key` indique à Réac de l'utiliser également comme élément de position, plutôt que son ordre au sein du parent. Ainsi, même si vous faites le rendu à la même position dans le JSX, Réac les voit comme deux compteurs distincts qui ne partageront jamais leur état. À chaque fois qu'un compteur apparaît à l'écran, son état est créé. À chaque fois qu'il est supprimé, son état est supprimé. Passer de l'un à l'autre réinitialise leur état, encore et encore.
 
 <Note>
 
@@ -1026,12 +1026,12 @@ Dans cette appli de discussions, le composant `<Chat>` contient l'état du champ
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 
 export default function Messenger() {
-  const [to, setTo] = useState(contacts[0]);
+  const [to, setTo] = utiliserEtat(contacts[0]);
   return (
     <div>
       <ContactList
@@ -1076,10 +1076,10 @@ export default function ContactList({
 ```
 
 ```js src/Chat.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({ contact }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <section className="chat">
       <textarea
@@ -1124,19 +1124,19 @@ Essayez de saisir quelque chose dans le champ, puis appuyez sur « Alice » ou
 <Chat key={to.id} contact={to} />
 ```
 
-Ça garantit que lorsque vous sélectionnez un destinataire différent, le composant `Chat` sera recréé de zéro, ce qui inclut tout l'état dans l'arbre en dessous. React recréera également tous les éléments DOM plutôt que de les réutiliser.
+Ça garantit que lorsque vous sélectionnez un destinataire différent, le composant `Chat` sera recréé de zéro, ce qui inclut tout l'état dans l'arbre en dessous. Réac recréera également tous les éléments DOM plutôt que de les réutiliser.
 
 Désormais, changer de destinataire vide le champ de saisie :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 
 export default function Messenger() {
-  const [to, setTo] = useState(contacts[0]);
+  const [to, setTo] = utiliserEtat(contacts[0]);
   return (
     <div>
       <ContactList
@@ -1181,10 +1181,10 @@ export default function ContactList({
 ```
 
 ```js src/Chat.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({ contact }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <section className="chat">
       <textarea
@@ -1223,13 +1223,13 @@ textarea {
 
 <DeepDive>
 
-#### Préserver l'état des composants supprimés {/*preserving-state-for-removed-components*/}
+#### Préserver l'état des composants supprimés {/*preserving-state-for-removed-composants*/}
 
 Dans une véritable appli de discussion, vous souhaiterez probablement récupérer l'état de la saisie lorsque l'utilisateur resélectionne le destinataire précédent. Il existe plusieurs manières de garder « vivant » l'état d'un composant qui n'est plus visible :
 
 - Vous pouvez afficher _toutes_ les discussions plutôt que seulement celle qui est active, mais en masquant les autres avec du CSS. Les discussions ne seraient pas supprimés de l'arbre, de sorte que leur état local serait préservé. Cette solution fonctionne très bien pour des UI simples. Cependant, ça peut devenir très lent si les arbres cachés sont grands et contiennent de nombreux nœuds DOM.
-- Vous pouvez [faire remonter l'état](/learn/sharing-state-between-components) et conserver dans le composant parent le message en attente pour chaque destinataire. De cette façon, le fait que les composants enfants soient supprimés importe peu, car c'est en réalité le parent qui conserve les informations importantes. C'est la solution la plus courante.
-- Vous pouvez aussi utiliser une source différente en plus de l'état React. Par exemple, vous souhaitez sans doute qu'un brouillon du message persiste même si l'utilisateur ferme accidentellement la page. Pour implémenter ça, vous pouvez faire en sorte que le composant `Chat` intialise son état en lisant le [`localStorage`](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage) et y sauve également les brouillons.
+- Vous pouvez [faire remonter l'état](/learn/sharing-state-between-composants) et conserver dans le composant parent le message en attente pour chaque destinataire. De cette façon, le fait que les composants enfants soient supprimés importe peu, car c'est en réalité le parent qui conserve les informations importantes. C'est la solution la plus courante.
+- Vous pouvez aussi utiliser une source différente en plus de l'état Réac. Par exemple, vous souhaitez sans doute qu'un brouillon du message persiste même si l'utilisateur ferme accidentellement la page. Pour implémenter ça, vous pouvez faire en sorte que le composant `Chat` intialise son état en lisant le [`localStorage`](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage) et y sauve également les brouillons.
 
 Quelle que soit votre stratégie, une discussion _avec Alice_ est conceptuellement différente d'une autre _avec Bob_, il est donc naturel de donner une `key` à l'arbre `<Chat>` en fonction du destinataire actuel.
 
@@ -1237,7 +1237,7 @@ Quelle que soit votre stratégie, une discussion _avec Alice_ est conceptuelleme
 
 <Recap>
 
-- React conserve l'état tant que le même composant est affiché à la même position.
+- Réac conserve l'état tant que le même composant est affiché à la même position.
 - L'état n'est pas conservé dans les balises JSX. Il est associé à la position dans l'arbre où vous placez ce JSX.
 - Vous pouvez forcer un sous-arbre à réinitialiser son état en lui donnant une clé différente.
 - N'imbriquez pas les définitions de composants ou vous allez accidentellement réinitialiser leur état.
@@ -1255,10 +1255,10 @@ Cet exemple affiche un message quand vous appuyez sur le bouton. Cependant, appu
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [showHint, setShowHint] = useState(false);
+  const [showHint, setShowHint] = utiliserEtat(false);
   if (showHint) {
     return (
       <div>
@@ -1281,7 +1281,7 @@ export default function App() {
 }
 
 function Form() {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <textarea
       value={text}
@@ -1299,17 +1299,17 @@ textarea { display: block; margin: 10px 0; }
 
 <Solution>
 
-Le problème vient de ce que le `Form` est affiché à des positions différentes. Dans la branche du `if`, c'est le second enfant du `<div>`, mais c'est le premier enfant dans la branche `else`. Du coup, le type du composant à chaque position change. Dans un cas, la première position reçoit un `p` puis un `Form`, alors que dans l'autre cas, elle reçoit un `Form` puis un `button`. React réinitialise l'état à chaque fois que le type du composant change.
+Le problème vient de ce que le `Form` est affiché à des positions différentes. Dans la branche du `if`, c'est le second enfant du `<div>`, mais c'est le premier enfant dans la branche `else`. Du coup, le type du composant à chaque position change. Dans un cas, la première position reçoit un `p` puis un `Form`, alors que dans l'autre cas, elle reçoit un `Form` puis un `button`. Réac réinitialise l'état à chaque fois que le type du composant change.
 
 La solution la plus simple consiste à réunir les branches de façon à ce que `Form` soit toujours affiché à la même position :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [showHint, setShowHint] = useState(false);
+  const [showHint, setShowHint] = utiliserEtat(false);
   return (
     <div>
       {showHint &&
@@ -1330,7 +1330,7 @@ export default function App() {
 }
 
 function Form() {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <textarea
       value={text}
@@ -1352,10 +1352,10 @@ Techniquement, vous pourriez aussi ajouter un `null` avant le `<Form />` dans la
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [showHint, setShowHint] = useState(false);
+  const [showHint, setShowHint] = utiliserEtat(false);
   if (showHint) {
     return (
       <div>
@@ -1379,7 +1379,7 @@ export default function App() {
 }
 
 function Form() {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <textarea
       value={text}
@@ -1407,17 +1407,17 @@ Ce formulaire vous permet de saisir le prénom et le nom. Il y a également une 
 
 <Hint>
 
-Il semble que la position de ces champs au sein du parent n'est pas suffisante. Existe-t-il un moyen de dire à React de faire correspondre les états entre les rendus ?
+Il semble que la position de ces champs au sein du parent n'est pas suffisante. Existe-t-il un moyen de dire à Réac de faire correspondre les états entre les rendus ?
 
 </Hint>
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [reverse, setReverse] = useState(false);
+  const [reverse, setReverse] = utiliserEtat(false);
   let checkbox = (
     <label>
       <input
@@ -1448,7 +1448,7 @@ export default function App() {
 }
 
 function Field({ label }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <label>
       {label} :{' '}
@@ -1471,15 +1471,15 @@ label { display: block; margin: 10px 0; }
 
 <Solution>
 
-Donnez une `key` à chacun des composants `<Field>` dans les branches `if` et `else`. Ça indique à React de « faire correspondre » le bon état à chacun des `<Field>` même si l'ordre au sein du parent change :
+Donnez une `key` à chacun des composants `<Field>` dans les branches `if` et `else`. Ça indique à Réac de « faire correspondre » le bon état à chacun des `<Field>` même si l'ordre au sein du parent change :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function App() {
-  const [reverse, setReverse] = useState(false);
+  const [reverse, setReverse] = utiliserEtat(false);
   let checkbox = (
     <label>
       <input
@@ -1510,7 +1510,7 @@ export default function App() {
 }
 
 function Field({ label }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <label>
       {label} :{' '}
@@ -1542,7 +1542,7 @@ Lorsque vous choisissez un contact différent (par exemple Alice), l'état se me
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ContactList from './ContactList.js';
 import EditContact from './EditContact.js';
 
@@ -1550,11 +1550,11 @@ export default function ContactManager() {
   const [
     contacts,
     setContacts
-  ] = useState(initialContacts);
+  ] = utiliserEtat(initialContacts);
   const [
     selectedId,
     setSelectedId
-  ] = useState(0);
+  ] = utiliserEtat(0);
   const selectedContact = contacts.find(c =>
     c.id === selectedId
   );
@@ -1621,11 +1621,11 @@ export default function ContactList({
 ```
 
 ```js src/EditContact.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function EditContact({ initialData, onSave }) {
-  const [name, setName] = useState(initialData.name);
-  const [email, setEmail] = useState(initialData.email);
+  const [name, setName] = utiliserEtat(initialData.name);
+  const [email, setEmail] = utiliserEtat(initialData.email);
   return (
     <section>
       <label>
@@ -1694,7 +1694,7 @@ Ajoutez `key={selectedId}` au composant `EditContact`. De cette façon, changer 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ContactList from './ContactList.js';
 import EditContact from './EditContact.js';
 
@@ -1702,11 +1702,11 @@ export default function ContactManager() {
   const [
     contacts,
     setContacts
-  ] = useState(initialContacts);
+  ] = utiliserEtat(initialContacts);
   const [
     selectedId,
     setSelectedId
-  ] = useState(0);
+  ] = utiliserEtat(0);
   const selectedContact = contacts.find(c =>
     c.id === selectedId
   );
@@ -1774,11 +1774,11 @@ export default function ContactList({
 ```
 
 ```js src/EditContact.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function EditContact({ initialData, onSave }) {
-  const [name, setName] = useState(initialData.name);
-  const [email, setEmail] = useState(initialData.email);
+  const [name, setName] = utiliserEtat(initialData.name);
+  const [email, setEmail] = utiliserEtat(initialData.email);
   return (
     <section>
       <label>
@@ -1848,17 +1848,17 @@ Lorsque vous appuyez sur « Suivante », le navigateur commence à charger l'i
 
 <Hint>
 
-Existe-t-il un moyen de dire à React de recréer le DOM plutôt que de le réutiliser ?
+Existe-t-il un moyen de dire à Réac de recréer le DOM plutôt que de le réutiliser ?
 
 </Hint>
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = utiliserEtat(0);
   const hasNext = index < images.length - 1;
 
   function handleClick() {
@@ -1918,15 +1918,15 @@ img { width: 150px; height: 150px; }
 
 <Solution>
 
-Vous pouvez fournir une `key` à la balise `<img>`. Lorsque cette `key`change, React recréera de zéro le nœud DOM `<img>`. Ça causera un bref flash lorsque chaque image se chargera, ce n'est donc pas quelque chose de souhaitable pour chaque image de votre appli. Cependant, ça a un intérêt si vous voulez garantir que l'image corresponde effectivement au texte.
+Vous pouvez fournir une `key` à la balise `<img>`. Lorsque cette `key`change, Réac recréera de zéro le nœud DOM `<img>`. Ça causera un bref flash lorsque chaque image se chargera, ce n'est donc pas quelque chose de souhaitable pour chaque image de votre appli. Cependant, ça a un intérêt si vous voulez garantir que l'image corresponde effectivement au texte.
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = utiliserEtat(0);
   const hasNext = index < images.length - 1;
 
   function handleClick() {
@@ -1995,11 +1995,11 @@ Corrigez ça afin que l'état déplié soit associé à chaque contact, quel que
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Contact from './Contact.js';
 
 export default function ContactList() {
-  const [reverse, setReverse] = useState(false);
+  const [reverse, setReverse] = utiliserEtat(false);
 
   const displayedContacts = [...contacts];
   if (reverse) {
@@ -2037,10 +2037,10 @@ const contacts = [
 ```
 
 ```js src/Contact.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Contact({ contact }) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = utiliserEtat(false);
   return (
     <>
       <p><b>{contact.name}</b></p>
@@ -2094,11 +2094,11 @@ Utiliser l'identifiant de contact comme `key` corrige le problème :
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Contact from './Contact.js';
 
 export default function ContactList() {
-  const [reverse, setReverse] = useState(false);
+  const [reverse, setReverse] = utiliserEtat(false);
 
   const displayedContacts = [...contacts];
   if (reverse) {
@@ -2136,10 +2136,10 @@ const contacts = [
 ```
 
 ```js src/Contact.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Contact({ contact }) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = utiliserEtat(false);
   return (
     <>
       <p><b>{contact.name}</b></p>

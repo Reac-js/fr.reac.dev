@@ -20,13 +20,13 @@ Lorsque vous écrivez un Effet, le *linter* vérifiera que vous avez bien inclus
 
 ## Les dépendances devraient refléter votre code {/*dependencies-should-match-the-code*/}
 
-Quand vous écrivez un Effet, vous commencez par indiquer comment [démarrer et arrêter](/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect) le traitement que l'Effet est censé gérer :
+Quand vous écrivez un Effet, vous commencez par indiquer comment [démarrer et arrêter](/learn/lifecycle-of-réactive-effects#the-lifecycle-of-an-effect) le traitement que l'Effet est censé gérer :
 
 ```js {5-7}
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -39,13 +39,13 @@ Ensuite, si vous laissez le tableau de dépendances vide (`[]`), le *linter* vou
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -54,7 +54,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -100,7 +100,7 @@ Remplissez-les en fonction de ce que le *linter* vous dit :
 
 ```js {6}
 function ChatRoom({ roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -109,18 +109,18 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-[Les Effets « réagissent » aux valeurs réactives](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Puisque `roomId` est une valeur réactive (elle peut changer suite à un nouveau rendu), le *linter* vérifie que vous l'avez précisée dans les dépendances. Si `roomId` reçoit une valeur différente, React resynchronisera votre Effet. Ça garantit que l'appli reste connectée au bon salon de discussion et « réagit » à la liste déroulante :
+[Les Effets « réagissent » aux valeurs réactives](/learn/lifecycle-of-réactive-effects#effectsreacto-réactive-values). Puisque `roomId` est une valeur réactive (elle peut changer suite à un nouveau rendu), le *linter* vérifie que vous l'avez précisée dans les dépendances. Si `roomId` reçoit une valeur différente, Réac resynchronisera votre Effet. Ça garantit que l'appli reste connectée au bon salon de discussion et « réagit » à la liste déroulante :
 
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -129,7 +129,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -179,7 +179,7 @@ Notez que vous ne pouvez pas « choisir » les dépendances de votre Effet. Cha
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) { // C’est une valeur réactive
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId); // Cet Effet lit la valeur réactive
     connection.connect();
     return () => connection.disconnect();
@@ -188,17 +188,17 @@ function ChatRoom({ roomId }) { // C’est une valeur réactive
 }
 ```
 
-[Les valeurs réactives](/learn/lifecycle-of-reactive-effects#all-variables-declared-in-the-component-body-are-reactive) comprennent les props et toutes les variables et fonctions déclarées directement au sein de votre composant. Dans la mesure où `roomId` est une valeur réactive, vous ne pouvez pas la retirer de la liste des dépendances. Le *linter* vous l'interdirait :
+[Les valeurs réactives](/learn/lifecycle-of-réactive-effects#all-variables-declared-in-the-composant-body-are-réactive) comprennent les props et toutes les variables et fonctions déclarées directement au sein de votre composant. Dans la mesure où `roomId` est une valeur réactive, vous ne pouvez pas la retirer de la liste des dépendances. Le *linter* vous l'interdirait :
 
 ```js {8}
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
-  }, []); // 🔴 “React Hook useEffect has a missing dependency: 'roomId'”
+  }, []); // 🔴 “Réac Hook utiliserEffet has a missing dependency: 'roomId'”
   // ...
 }
 ```
@@ -212,7 +212,7 @@ const serverUrl = 'https://localhost:1234';
 const roomId = 'music'; // Ce n’est plus une valeur réactive
 
 function ChatRoom() {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -226,14 +226,14 @@ function ChatRoom() {
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 const roomId = 'music';
 
 export default function ChatRoom() {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -263,7 +263,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Voilà pourquoi vous pouvez désormais spécifier une [liste de dépendances vide (`[]`)](/learn/lifecycle-of-reactive-effects#what-an-effect-with-empty-dependencies-means). Votre Effet *ne dépend effectivement plus* de quelque valeur réactive que ce soit, donc *il n'a effectivement plus besoin* d'être ré-exécuté lorsque des props ou variables d'état de votre composant changent.
+Voilà pourquoi vous pouvez désormais spécifier une [liste de dépendances vide (`[]`)](/learn/lifecycle-of-réactive-effects#what-an-effect-with-empty-dependencies-means). Votre Effet *ne dépend effectivement plus* de quelque valeur réactive que ce soit, donc *il n'a effectivement plus besoin* d'être ré-exécuté lorsque des props ou variables d'état de votre composant changent.
 
 ### Pour changer les dépendances, changez le code {/*to-change-the-dependencies-change-the-code*/}
 
@@ -273,7 +273,7 @@ Vous avez peut-être remarqué un motif récurrent dans votre façon de travaill
 2. Ensuite, vous suivez les recommandations du *linter* et ajustez les dépendances pour **correspondre à vos changements de code**.
 3. Lorsque la liste des dépendances vous déplaît, vous **revenez à la première étape** (et recommencez à changer le code).
 
-Ce dernier point est important. **Si vous voulez changer les dépendances, changez d'abord le code environnant.** Vous pouvez assimiler la liste de dépendances à [une liste de toutes les valeurs réactives utilisées par le code de votre Effet](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency). Vous ne *choisissez* pas ce que vous y mettez. La liste *décrit* votre code. Pour changer la liste des dépendances, changez le code.
+Ce dernier point est important. **Si vous voulez changer les dépendances, changez d'abord le code environnant.** Vous pouvez assimiler la liste de dépendances à [une liste de toutes les valeurs réactives utilisées par le code de votre Effet](/learn/lifecycle-of-réactive-effects#Réac-verifies-that-you-specified-every-réactive-value-as-a-dependency). Vous ne *choisissez* pas ce que vous y mettez. La liste *décrit* votre code. Pour changer la liste des dépendances, changez le code.
 
 Ça peut faire penser à la résolution d'une équation.  Vous pourriez commencer par un objectif (par exemple, retirer telle ou telle dépendance), et devoir alors « trouver » le code qui correspond à cet objectif.  Certes, tout le monde n'aime pas les équations, et il en va de même pour l'écriture des Effets !  Heureusement, voici une liste de recettes éprouvées que vous pouvez essayer.
 
@@ -282,14 +282,14 @@ Ce dernier point est important. **Si vous voulez changer les dépendances, chang
 Si vous avez une base de code existante, vous trouverez peut-être des Effets qui réduisent le *linter* au silence comme ceci :
 
 ```js {3-4}
-useEffect(() => {
+utiliserEffet(() => {
   // ...
   // 🔴 Évitez de réduire ainsi le *linter* au silence :
-  // eslint-ignore-next-line react-hooks/exhaustive-deps
+  // eslint-ignore-next-line Réac-hooks/exhaustive-deps
 }, []);
 ```
 
-**Lorsque les dépendances ne correspondent pas au code, il y a un risque élevé de bugs.**  En réduisant le *linter* au silence, vous « mentez » à React quant aux valeurs dont dépend votre Effet.
+**Lorsque les dépendances ne correspondent pas au code, il y a un risque élevé de bugs.**  En réduisant le *linter* au silence, vous « mentez » à Réac quant aux valeurs dont dépend votre Effet.
 
 Utilisez plutôt les techniques qui suivent.
 
@@ -304,20 +304,20 @@ Mettre le *linter* en sourdine entraîne des bugs surprenants qui sont difficile
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
-  const [increment, setIncrement] = useState(1);
+  const [count, setCount] = utiliserEtat(0);
+  const [increment, setIncrement] = utiliserEtat(1);
 
   function onTick() {
     setCount(count + increment);
   }
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(onTick, 1000);
     return () => clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line Réac-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -348,9 +348,9 @@ button { margin: 10px; }
 
 </Sandpack>
 
-Disons que vous souhaitiez que cet Effet ne s’exécute « qu'au montage ». Vous avez lu qu'un [tableau de dépendances vide (`[]`)](/learn/lifecycle-of-reactive-effects#what-an-effect-with-empty-dependencies-means) permettait ça, aussi vous avez décidé d'ignorer le *linter*, et avez forcé les dépendances à `[]`.
+Disons que vous souhaitiez que cet Effet ne s’exécute « qu'au montage ». Vous avez lu qu'un [tableau de dépendances vide (`[]`)](/learn/lifecycle-of-réactive-effects#what-an-effect-with-empty-dependencies-means) permettait ça, aussi vous avez décidé d'ignorer le *linter*, et avez forcé les dépendances à `[]`.
 
-Ce compteur était censé s'incrémenter chaque seconde de la quantité configurée *via* les deux boutons. Et pourtant, puisque vous avez « menti » à React en lui disant que cet Effet ne dépendait de rien, React continuera éternellement à utiliser la fonction `onTick` du rendu initial. [Pendant ce rendu](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time), `count` valait `0` et `increment` était à `1`. C'est pourquoi la `onTick` de ce rendu appelle systématiquement `setCount(0 + 1)` chaque seconde, et vous obtenez donc toujours `1`.  Ce type de bugs est encore plus délicat à corriger lorsqu'il impacte plusieurs composants.
+Ce compteur était censé s'incrémenter chaque seconde de la quantité configurée *via* les deux boutons. Et pourtant, puisque vous avez « menti » à Réac en lui disant que cet Effet ne dépendait de rien, Réac continuera éternellement à utiliser la fonction `onTick` du rendu initial. [Pendant ce rendu](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time), `count` valait `0` et `increment` était à `1`. C'est pourquoi la `onTick` de ce rendu appelle systématiquement `setCount(0 + 1)` chaque seconde, et vous obtenez donc toujours `1`.  Ce type de bugs est encore plus délicat à corriger lorsqu'il impacte plusieurs composants.
 
 Ignorer le *linter* n'est jamais la meilleure approche !  Pour corriger ce code, vous devez ajouter `onTick` à la liste de dépendances. (Pour vous assurer que l'intervalle ne soit mis en place qu'une seule fois, [faites de `onTick` un Événement d'Effet](/learn/separating-events-from-effects#reading-latest-props-and-state-with-effect-events).)
 
@@ -376,9 +376,9 @@ Imaginons un formulaire. À la soumission, vous passez la variable d'état `subm
 
 ```js {6-8}
 function Form() {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = utiliserEtat(false);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (submitted) {
       // 🔴 À éviter : logique événementielle au sein d’un Effet
       post('/api/register');
@@ -398,10 +398,10 @@ Plus tard, vous souhaitez styler le message de notification selon le thème en v
 
 ```js {3,9,11}
 function Form() {
-  const [submitted, setSubmitted] = useState(false);
-  const theme = useContext(ThemeContext);
+  const [submitted, setSubmitted] = utiliserEtat(false);
+  const theme = utiliserContexte(ThemeContext);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (submitted) {
       // 🔴 À éviter : logique événementielle au sein d’un Effet
       post('/api/register');
@@ -423,7 +423,7 @@ En procédant ainsi, vous avez introduit un bug.  Supposons que vous envoyiez d'
 
 ```js {6-7}
 function Form() {
-  const theme = useContext(ThemeContext);
+  const theme = utiliserContexte(ThemeContext);
 
   function handleSubmit() {
     // ✅ Correct : logique événementielle dans un gestionnaire d’événement
@@ -435,7 +435,7 @@ function Form() {
 }
 ```
 
-À présent que le code est dans un gestionnaire d'événement, il n'est plus réactif--il ne s'exécutera que lorsque l'utilisateur soumettra le formulaire.  Allez voir [comment choisir entre gestionnaires d'événements et Effets](/learn/separating-events-from-effects#reactive-values-and-reactive-logic) et [comment retirer les Effets superflus](/learn/you-might-not-need-an-effect).
+À présent que le code est dans un gestionnaire d'événement, il n'est plus réactif--il ne s'exécutera que lorsque l'utilisateur soumettra le formulaire.  Allez voir [comment choisir entre gestionnaires d'événements et Effets](/learn/separating-events-from-effects#réactive-values-and-réactive-logic) et [comment retirer les Effets superflus](/learn/you-might-not-need-an-effect).
 
 ### Votre Effet a-t-il trop de responsabilités ? {/*is-your-effect-doing-several-unrelated-things*/}
 
@@ -445,10 +445,10 @@ Disons que vous êtes en train de créer un formulaire d'expédition dans lequel
 
 ```js
 function ShippingForm({ country }) {
-  const [cities, setCities] = useState(null);
-  const [city, setCity] = useState(null);
+  const [cities, setCities] = utiliserEtat(null);
+  const [city, setCity] = utiliserEtat(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     let ignore = false;
     fetch(`/api/cities?country=${country}`)
       .then(response => response.json())
@@ -471,11 +471,11 @@ Disons maintenant que vous souhaitez ajouter une seconde liste déroulante pour 
 
 ```js {15-24,28}
 function ShippingForm({ country }) {
-  const [cities, setCities] = useState(null);
-  const [city, setCity] = useState(null);
-  const [areas, setAreas] = useState(null);
+  const [cities, setCities] = utiliserEtat(null);
+  const [city, setCity] = utiliserEtat(null);
+  const [areas, setAreas] = utiliserEtat(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     let ignore = false;
     fetch(`/api/cities?country=${country}`)
       .then(response => response.json())
@@ -513,8 +513,8 @@ Découpez ces comportements en deux Effets, qui chacun ne réagissent qu'à la d
 
 ```js {19-33}
 function ShippingForm({ country }) {
-  const [cities, setCities] = useState(null);
-  useEffect(() => {
+  const [cities, setCities] = utiliserEtat(null);
+  utiliserEffet(() => {
     let ignore = false;
     fetch(`/api/cities?country=${country}`)
       .then(response => response.json())
@@ -528,9 +528,9 @@ function ShippingForm({ country }) {
     };
   }, [country]); // ✅ Toutes les dépendances sont déclarées
 
-  const [city, setCity] = useState(null);
-  const [areas, setAreas] = useState(null);
-  useEffect(() => {
+  const [city, setCity] = utiliserEtat(null);
+  const [areas, setAreas] = utiliserEtat(null);
+  utiliserEffet(() => {
     if (city) {
       let ignore = false;
       fetch(`/api/areas?city=${city}`)
@@ -551,7 +551,7 @@ function ShippingForm({ country }) {
 
 Désormais, le premier Effet n'est ré-exécuté que lorsque `country` change, tandis que le second Effet n'est ré-exécuté que lorsque `city` change.  Vous les avez découpés par objectif : deux données différentes sont synchronisées par deux Effets différents.  Deux Effets distincts ont deux listes de dépendances distinctes, afin de ne pas se déclencher l'un l'autre par inadvertance.
 
-Le code final est certes plus long que l'original, mais découper ces Effets reste la bonne approche. [Chaque Effet doit représenter un processus distinct de synchronisation](/learn/lifecycle-of-reactive-effects#each-effect-represents-a-separate-synchronization-process). Dans notre exemple, retirer un Effet ne casse pas le comportement de l'autre.  Ça indique bien qu'ils *synchronisent des choses distinctes*, et qu'on a bien fait de les découper. Si la duplication du code vous ennuie, vous pouvez améliorer ça en [extrayant la logique répétitive dans un Hook personnalisé](/learn/reusing-logic-with-custom-hooks#when-to-use-custom-hooks).
+Le code final est certes plus long que l'original, mais découper ces Effets reste la bonne approche. [Chaque Effet doit représenter un processus distinct de synchronisation](/learn/lifecycle-of-réactive-effects#each-effect-represents-a-separate-synchronization-process). Dans notre exemple, retirer un Effet ne casse pas le comportement de l'autre.  Ça indique bien qu'ils *synchronisent des choses distinctes*, et qu'on a bien fait de les découper. Si la duplication du code vous ennuie, vous pouvez améliorer ça en [extrayant la logique répétitive dans un Hook personnalisé](/learn/reusing-logic-with-custom-hooks#when-to-use-custom-hooks).
 
 ### Lisez-vous un état pour calculer le prochain ? {/*are-you-reading-some-state-to-calculate-the-next-state*/}
 
@@ -559,8 +559,8 @@ L'Effet ci-après met à jour la variable d'état `messages` avec un tableau fra
 
 ```js {2,6-8}
 function ChatRoom({ roomId }) {
-  const [messages, setMessages] = useState([]);
-  useEffect(() => {
+  const [messages, setMessages] = utiliserEtat([]);
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     connection.on('message', (receivedMessage) => {
@@ -573,8 +573,8 @@ Il utilise la variable `messages` pour [créer un nouveau tableau](/learn/updati
 
 ```js {7,10}
 function ChatRoom({ roomId }) {
-  const [messages, setMessages] = useState([]);
-  useEffect(() => {
+  const [messages, setMessages] = utiliserEtat([]);
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     connection.on('message', (receivedMessage) => {
@@ -589,12 +589,12 @@ Seulement voilà, ajouter `messages` aux dépendances pose un problème.
 
 Chaque fois que vous recevez un nouveau message, `setMessages()` entraîne un nouveau rendu du composant, avec un nouveau tableau `messages` qui contient le message reçu.  Mais puisque l'Effet dépend désormais de `messages`, la réception du message va *aussi* resynchroniser l'Effet.  Du coup, à chaque message on se reconnecte au salon de discussion. L'utilisateur n'aimera sûrement pas ça !
 
-Pour corriger le problème, ne lisez pas `messages` au sein de l'Effet. Optez plutôt pour le passage d'une [fonction de mise à jour](/reference/react/useState#updating-state-based-on-the-previous-state) à `setMessages` :
+Pour corriger le problème, ne lisez pas `messages` au sein de l'Effet. Optez plutôt pour le passage d'une [fonction de mise à jour](/reference/Réac/utiliserEtat#updating-state-based-on-the-previous-state) à `setMessages` :
 
 ```js {7,10}
 function ChatRoom({ roomId }) {
-  const [messages, setMessages] = useState([]);
-  useEffect(() => {
+  const [messages, setMessages] = utiliserEtat([]);
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     connection.on('message', (receivedMessage) => {
@@ -605,13 +605,13 @@ function ChatRoom({ roomId }) {
   // ...
 ```
 
-**Voyez comme l'Effet ne lit désormais plus du tout la variable `messages`.**  Il vous suffit de passer une fonction de mise à jour du style `msgs => [...msgs, receivedMessage]`. React [mettra la fonction de mise à jour dans une file](/learn/queueing-a-series-of-state-updates) et lui passera l'argument `msgs` pour le prochain rendu. C'est pourquoi l'Effet lui-même n'a plus besoin de dépendre de `messages`. Résultat : la réception d'un message n'entraîne plus de reconnexion.
+**Voyez comme l'Effet ne lit désormais plus du tout la variable `messages`.**  Il vous suffit de passer une fonction de mise à jour du style `msgs => [...msgs, receivedMessage]`. Réac [mettra la fonction de mise à jour dans une file](/learn/queueing-a-series-of-state-updates) et lui passera l'argument `msgs` pour le prochain rendu. C'est pourquoi l'Effet lui-même n'a plus besoin de dépendre de `messages`. Résultat : la réception d'un message n'entraîne plus de reconnexion.
 
-### Voulez-vous lire une valeur sans « réagir » à ses changements ? {/*do-you-want-to-read-a-value-without-reacting-to-its-changes*/}
+### Voulez-vous lire une valeur sans « réagir » à ses changements ? {/*do-you-want-to-read-a-value-without-réacing-to-its-changes*/}
 
 <Wip>
 
-Cette section décrit une **API expérimentale : elle n’a donc pas encore été livrée** dans une version stable de React.
+Cette section décrit une **API expérimentale : elle n’a donc pas encore été livrée** dans une version stable de Réac.
 
 </Wip>
 
@@ -619,10 +619,10 @@ Disons que vous souhaitez jouer un son lorsque l'utilisateur reçoit un nouveau 
 
 ```js {3,10-12}
 function ChatRoom({ roomId }) {
-  const [messages, setMessages] = useState([]);
-  const [isMuted, setIsMuted] = useState(false);
+  const [messages, setMessages] = utiliserEtat([]);
+  const [isMuted, setIsMuted] = utiliserEtat(false);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     connection.on('message', (receivedMessage) => {
@@ -638,10 +638,10 @@ Puisque votre Effet utilise désormais `isMuted` au sein de son code, vous devez
 
 ```js {10,15}
 function ChatRoom({ roomId }) {
-  const [messages, setMessages] = useState([]);
-  const [isMuted, setIsMuted] = useState(false);
+  const [messages, setMessages] = utiliserEtat([]);
+  const [isMuted, setIsMuted] = utiliserEtat(false);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     connection.on('message', (receivedMessage) => {
@@ -660,20 +660,20 @@ Le problème, c'est que chaque fois que `isMuted` change (par exemple lorsque l'
 Pour résoudre ce souci, vous devez extraire de l'Effet la partie du comportement qui ne devrait pas être réactive.  Vous ne souhaitez pas que cet Effet « réagisse » aux modifications de `isMuted`. [Déplacez la partie non-réactive du code dans un Événement d'Effet](/learn/separating-events-from-effects#declaring-an-effect-event) :
 
 ```js {1,7-12,18,21}
-import { useState, useEffect, useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet, utiliserEffetEvent } from 'Réac';
 
 function ChatRoom({ roomId }) {
-  const [messages, setMessages] = useState([]);
-  const [isMuted, setIsMuted] = useState(false);
+  const [messages, setMessages] = utiliserEtat([]);
+  const [isMuted, setIsMuted] = utiliserEtat(false);
 
-  const onMessage = useEffectEvent(receivedMessage => {
+  const onMessage = utiliserEffetEvent(receivedMessage => {
     setMessages(msgs => [...msgs, receivedMessage]);
     if (!isMuted) {
       playSound();
     }
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     connection.on('message', (receivedMessage) => {
@@ -692,9 +692,9 @@ Vous pourriez tomber sur un problème similaire lorsque votre composant reçoit 
 
 ```js {1,8,11}
 function ChatRoom({ roomId, onReceiveMessage }) {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = utiliserEtat([]);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     connection.on('message', (receivedMessage) => {
@@ -720,13 +720,13 @@ Dans la mesure où `onReceiveMessage` est une dépendance, ça causerait une res
 
 ```js {4-6,12,15}
 function ChatRoom({ roomId, onReceiveMessage }) {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = utiliserEtat([]);
 
-  const onMessage = useEffectEvent(receivedMessage => {
+  const onMessage = utiliserEffetEvent(receivedMessage => {
     onReceiveMessage(receivedMessage);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.connect();
     connection.on('message', (receivedMessage) => {
@@ -739,7 +739,7 @@ function ChatRoom({ roomId, onReceiveMessage }) {
 
 Les Événements d'Effets ne sont pas réactifs, vous n'avez donc pas à les ajouter à vos dépendances.  Grâce à ça, vous éviterez une reconnexion au serveur même lorsque le composant parent passe une fonction différente à chaque rendu.
 
-#### Séparer les codes réactif et non réactif {/*separating-reactive-and-non-reactive-code*/}
+#### Séparer les codes réactif et non réactif {/*separating-réactive-and-non-réactive-code*/}
 
 Dans l'exemple qui suit, vous souhaitez ajouter un événement de visite dans votre journal analytique à chaque fois que `roomId` change. Vous souhaitez inclure `notificationCount` dans chaque entrée de journal, mais vous *ne voulez pas* qu'une modification de `notificationCount` déclenche une journalisation.
 
@@ -747,11 +747,11 @@ Pour y parvenir, sortez la partie non réactive du code dans un Événement d'Ef
 
 ```js {2-4,7}
 function Chat({ roomId, notificationCount }) {
-  const onVisit = useEffectEvent(visitedRoomId => {
+  const onVisit = utiliserEffetEvent(visitedRoomId => {
     logVisit(visitedRoomId, notificationCount);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     onVisit(roomId);
   }, [roomId]); // ✅ Toutes les dépendances sont déclarées
   // ...
@@ -760,7 +760,7 @@ function Chat({ roomId, notificationCount }) {
 
 Vous souhaitez continuer à avoir un comportement réactif envers `roomId`, de sorte que vous lisez `roomId` au sein de votre Effet. En revanche, vous ne voulez pas qu'un changement de `notificationCount` entraîne une entrée de journal supplémentaire, et lisez donc `notificationCount` au sein d'un Événement d'Effet. [Apprenez en détail comment lire les dernières valeurs à jour de props et variables d'état pour vos Effets grâce aux Événements d'Effets](/learn/separating-events-from-effects#reading-latest-props-and-state-with-effect-events).
 
-### Une valeur réactive change-t-elle par accident ? {/*does-some-reactive-value-change-unintentionally*/}
+### Une valeur réactive change-t-elle par accident ? {/*does-some-réactive-value-change-unintentionally*/}
 
 Parfois vous *voulez effectivement* que vos Effets « réagissent » à une certaine valeur, mais cette valeur change plus souvent que vous ne le voudriez--et d'une façon qui ne reflète pas nécessairement un changement perceptible par l'utilisateur.  Par exemple, disons que vous créez un objet `options` dans le corps de votre composant, puis lisez cet objet depuis votre Effet :
 
@@ -772,17 +772,17 @@ function ChatRoom({ roomId }) {
     roomId: roomId
   };
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(options);
     connection.connect();
     // ...
 ```
 
-Cet objet est déclaré dans le corps du composant, il s'agit donc d'une [valeur réactive](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values).  Lorsque vous lisez une valeur réactive depuis votre Effet, vous devez la déclarer comme dépendance.  Ça garantit que votre Effet « réagit » aux modifications de cette valeur :
+Cet objet est déclaré dans le corps du composant, il s'agit donc d'une [valeur réactive](/learn/lifecycle-of-réactive-effects#effectsreacto-réactive-values).  Lorsque vous lisez une valeur réactive depuis votre Effet, vous devez la déclarer comme dépendance.  Ça garantit que votre Effet « réagit » aux modifications de cette valeur :
 
 ```js {3,6}
   // ...
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -795,23 +795,23 @@ C'est important de déclarer cet objet comme dépendance ! Ça garantit par exe
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
   // Désactivation temporaire du *linter* pour mettre
   // en lumière le problème.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line Réac-hooks/exhaustive-deps
   const options = {
     serverUrl: serverUrl,
     roomId: roomId
   };
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -826,7 +826,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -870,7 +870,7 @@ button { margin-left: 10px; }
 
 Dans le bac à sable qui précède, le champ de saisie se contente de mettre à jour la variable d'état `message`.  Du point de vue de l'utilisateur, ça ne devrait en rien impacter la connexion au serveur.  Seulement voilà, chaque fois que vous mettez à jour `message`, le composant fait un nouveau rendu. Et quand il fait un rendu, son code est intégralement exécuté à nouveau.
 
-Un nouvel objet `options` est créé à chaque rendu du composant `ChatRoom`.  React perçoit cet objet `options` comme un *objet distinct* de l'objet `options` créé lors du rendu précédent. C'est pourquoi il resynchronise votre Effet (qui dépend d'`options`), entraînant des reconnexions au serveur au fil de votre saisie.
+Un nouvel objet `options` est créé à chaque rendu du composant `ChatRoom`.  Réac perçoit cet objet `options` comme un *objet distinct* de l'objet `options` créé lors du rendu précédent. C'est pourquoi il resynchronise votre Effet (qui dépend d'`options`), entraînant des reconnexions au serveur au fil de votre saisie.
 
 **Ce problème n'affecte que les objets et fonctions. En JavaScript, chaque objet ou fonction nouvellement créé est considéré comme distinct de tous les autres. Peu importe que leurs contenus soient identiques !**
 
@@ -889,7 +889,7 @@ console.log(Object.is(options1, options2)); // false
 
 Voilà pourquoi, autant que possible, vous devriez essayer d'éviter les objets et fonctions dans les dépendances de votre Effet. Essayez plutôt de les sortir de votre composant, ou de les déplacer au sein de votre Effet, ou d'en extraire les valeurs primitives.
 
-#### Sortez les objets et fonctions statiques de votre composant {/*move-static-objects-and-functions-outside-your-component*/}
+#### Sortez les objets et fonctions statiques de votre composant {/*move-static-objects-and-functions-outside-your-composant*/}
 
 Si l'objet ne dépend ni de props ni de variables d'état, vous pouvez le sortir de votre composant :
 
@@ -900,9 +900,9 @@ const options = {
 };
 
 function ChatRoom() {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -923,9 +923,9 @@ function createOptions() {
 }
 
 function ChatRoom() {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = createOptions();
     const connection = createConnection(options);
     connection.connect();
@@ -944,9 +944,9 @@ Si votre objet dépend de valeurs réactives, qui sont donc susceptibles de chan
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -976,15 +976,15 @@ Grâce à ce correctif, il n'y aura pas de reconnexion au serveur lorsque vous m
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -1003,7 +1003,7 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -1053,9 +1053,9 @@ Ceci dit, il *se reconnectera bien* lorsque vous changerez `roomId` *via* la lis
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     function createOptions() {
       return {
         serverUrl: serverUrl,
@@ -1079,9 +1079,9 @@ Il arrive que vous receviez un objet en tant que prop :
 
 ```js {1,5,8}
 function ChatRoom({ options }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -1105,10 +1105,10 @@ Le risque vient ici du composant parent, qui pourrait créer cet objet lors de s
 
 ```js {4,7-8,12}
 function ChatRoom({ options }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
   const { roomId, serverUrl } = options;
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection({
       roomId: roomId,
       serverUrl: serverUrl
@@ -1141,10 +1141,10 @@ Pour éviter d'en faire une dépendance (ce qui entraînerait une reconnexion à
 
 ```js {1,4}
 function ChatRoom({ getOptions }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
   const { roomId, serverUrl } = getOptions();
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection({
       roomId: roomId,
       serverUrl: serverUrl
@@ -1155,7 +1155,7 @@ function ChatRoom({ getOptions }) {
   // ...
 ```
 
-Ça ne marche toutefois que pour les fonctions [pures](/learn/keeping-components-pure), afin qu'il soit possible de les appeler au sein du rendu.  Si votre fonction est un gestionnaire d'événement, mais que vous ne souhaitez pas que ses modifications resynchronisent votre Effet, [enrobez-la plutôt dans un Événement d'Effet](#do-you-want-to-read-a-value-without-reacting-to-its-changes).
+Ça ne marche toutefois que pour les fonctions [pures](/learn/keeping-composants-pure), afin qu'il soit possible de les appeler au sein du rendu.  Si votre fonction est un gestionnaire d'événement, mais que vous ne souhaitez pas que ses modifications resynchronisent votre Effet, [enrobez-la plutôt dans un Événement d'Effet](#do-you-want-to-read-a-value-without-réacing-to-its-changes).
 
 <Recap>
 
@@ -1187,12 +1187,12 @@ Il semble que le code de votre Effet dépende de `count`.  Y'a-t-il un moyen de 
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     console.log('✅ Création de l’intervalle');
     const id = setInterval(() => {
       console.log('⏰ Tic toc');
@@ -1214,17 +1214,17 @@ export default function Timer() {
 
 Vous souhaitez mettre à jour la variable d'état `count` vers `count + 1` au sein de l'Effet.  Cependant, ça vous oblige à dépendre de `count` pour votre Effet, valeur qui change à chaque tic d'intervalle, raison pour laquelle ce dernier est recréé à chaque fois.
 
-Pour corriger ça, utilisez une [fonction de mise à jour](/reference/react/useState#updating-state-based-on-the-previous-state) et écrivez `setCount(c => c + 1)` plutôt que `setCount(count + 1)` :
+Pour corriger ça, utilisez une [fonction de mise à jour](/reference/Réac/utiliserEtat#updating-state-based-on-the-previous-state) et écrivez `setCount(c => c + 1)` plutôt que `setCount(count + 1)` :
 
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     console.log('✅ Création de l’intervalle');
     const id = setInterval(() => {
       console.log('⏰ Tic toc');
@@ -1242,7 +1242,7 @@ export default function Timer() {
 
 </Sandpack>
 
-Au lieu de lire `count` au sein de l'Effet, passez à React la fonction `c => c + 1` (« incrémente ce nombre ! »). React l'appliquera pour le prochain rendu.  Et comme vous n'avez plus besoin de lire la valeur de `count` depuis votre Effet, vous pouvez ramener ses dépendances à un tableau vide (`[]`). Ça évite que votre Effet ne recrée l'intervalle à chaque fois.
+Au lieu de lire `count` au sein de l'Effet, passez à Réac la fonction `c => c + 1` (« incrémente ce nombre ! »). Réac l'appliquera pour le prochain rendu.  Et comme vous n'avez plus besoin de lire la valeur de `count` depuis votre Effet, vous pouvez ramener ses dépendances à un tableau vide (`[]`). Ça évite que votre Effet ne recrée l'intervalle à chaque fois.
 
 </Solution>
 
@@ -1263,28 +1263,28 @@ Y'a-t-il une ligne de code dans votre Effet qui ne devrait pas être réactive 
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect, useRef } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet, utiliserReference } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 import { FadeInAnimation } from './animation.js';
 
 function Welcome({ duration }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const animation = new FadeInAnimation(ref.current);
     animation.start(duration);
     return () => {
@@ -1310,8 +1310,8 @@ function Welcome({ duration }) {
 }
 
 export default function App() {
-  const [duration, setDuration] = useState(1000);
-  const [show, setShow] = useState(false);
+  const [duration, setDuration] = utiliserEtat(1000);
+  const [show, setShow] = utiliserEtat(false);
 
   return (
     <>
@@ -1390,32 +1390,32 @@ Votre Effet a besoin de lire la dernière valeur à jour de `duration`, mais vou
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect, useRef } from 'react';
+import { utiliserEtat, utiliserEffet, utiliserReference } from 'Réac';
 import { FadeInAnimation } from './animation.js';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 function Welcome({ duration }) {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  const onAppear = useEffectEvent(animation => {
+  const onAppear = utiliserEffetEvent(animation => {
     animation.start(duration);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const animation = new FadeInAnimation(ref.current);
     onAppear(animation);
     return () => {
@@ -1441,8 +1441,8 @@ function Welcome({ duration }) {
 }
 
 export default function App() {
-  const [duration, setDuration] = useState(1000);
-  const [show, setShow] = useState(false);
+  const [duration, setDuration] = utiliserEtat(1000);
+  const [show, setShow] = utiliserEtat(false);
 
   return (
     <>
@@ -1525,13 +1525,13 @@ Il y a plusieurs façons de résoudre le problème, mais au bout du compte vous 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [isDark, setIsDark] = utiliserEtat(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   const options = {
     serverUrl: serverUrl,
@@ -1569,11 +1569,11 @@ export default function App() {
 ```
 
 ```js src/ChatRoom.js active
-import { useEffect } from 'react';
+import { utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 export default function ChatRoom({ options }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -1619,13 +1619,13 @@ Le correctif le moins impactant consiste à lire `roomId` et `serverUrl` directe
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [isDark, setIsDark] = utiliserEtat(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   const options = {
     serverUrl: serverUrl,
@@ -1663,12 +1663,12 @@ export default function App() {
 ```
 
 ```js src/ChatRoom.js active
-import { useEffect } from 'react';
+import { utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 export default function ChatRoom({ options }) {
   const { roomId, serverUrl } = options;
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection({
       roomId: roomId,
       serverUrl: serverUrl
@@ -1713,13 +1713,13 @@ Il serait encore préférable de remplacer la prop `options` de type objet par d
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [isDark, setIsDark] = utiliserEtat(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   return (
     <div className={isDark ? 'dark' : 'light'}>
@@ -1755,11 +1755,11 @@ export default function App() {
 ```
 
 ```js src/ChatRoom.js active
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 
 export default function ChatRoom({ roomId, serverUrl }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection({
       roomId: roomId,
       serverUrl: serverUrl
@@ -1826,22 +1826,22 @@ Une autre fonction n'existe que pour passer des données issues de l'état à un
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ChatRoom from './ChatRoom.js';
 import {
   createEncryptedConnection,
@@ -1850,9 +1850,9 @@ import {
 import { showNotification } from './notifications.js';
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
-  const [isEncrypted, setIsEncrypted] = useState(false);
+  const [isDark, setIsDark] = utiliserEtat(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isEncrypted, setIsEncrypted] = utiliserEtat(false);
 
   return (
     <>
@@ -1907,11 +1907,11 @@ export default function App() {
 ```
 
 ```js src/ChatRoom.js active
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export default function ChatRoom({ roomId, createConnection, onMessage }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.on('message', (msg) => onMessage(msg));
     connection.connect();
@@ -2040,9 +2040,9 @@ Pour corriger le souci avec `onMessage`, il nous fallait l'enrober dans un Évé
 
 ```js {1,2,6}
 export default function ChatRoom({ roomId, createConnection, onMessage }) {
-  const onReceiveMessage = useEffectEvent(onMessage);
+  const onReceiveMessage = utiliserEffetEvent(onMessage);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection();
     connection.on('message', (msg) => onReceiveMessage(msg));
     // ...
@@ -2071,9 +2071,9 @@ import {
 } from './chat.js';
 
 export default function ChatRoom({ roomId, isEncrypted, onMessage }) {
-  const onReceiveMessage = useEffectEvent(onMessage);
+  const onReceiveMessage = utiliserEffetEvent(onMessage);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     function createConnection() {
       const options = {
         serverUrl: 'https://localhost:1234',
@@ -2092,9 +2092,9 @@ Ces ajustements faits, votre Effet ne dépend plus d'aucune fonction :
 
 ```js {1,8,10,21}
 export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Valeurs réactives
-  const onReceiveMessage = useEffectEvent(onMessage); // Non réactives
+  const onReceiveMessage = utiliserEffetEvent(onMessage); // Non réactives
 
-  useEffect(() => {
+  utiliserEffet(() => {
     function createConnection() {
       const options = {
         serverUrl: 'https://localhost:1234',
@@ -2121,30 +2121,30 @@ Par conséquent, la reconnexion au serveur n'a lieu que lorsqu'une modification 
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ChatRoom from './ChatRoom.js';
 
 import { showNotification } from './notifications.js';
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
-  const [isEncrypted, setIsEncrypted] = useState(false);
+  const [isDark, setIsDark] = utiliserEtat(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isEncrypted, setIsEncrypted] = utiliserEtat(false);
 
   return (
     <>
@@ -2189,17 +2189,17 @@ export default function App() {
 ```
 
 ```js src/ChatRoom.js active
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 import {
   createEncryptedConnection,
   createUnencryptedConnection,
 } from './chat.js';
 
 export default function ChatRoom({ roomId, isEncrypted, onMessage }) {
-  const onReceiveMessage = useEffectEvent(onMessage);
+  const onReceiveMessage = utiliserEffetEvent(onMessage);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     function createConnection() {
       const options = {
         serverUrl: 'https://localhost:1234',

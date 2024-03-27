@@ -10,7 +10,7 @@ body:
         Un résumé clair et concis de ce que nous devrions ajouter.
       placeholder: |
         Exemple :
-        Ajouter une page décrivant l'utilisation de React avec TypeScript.
+        Ajouter une page décrivant l'utilisation de Réac avec TypeScript.
     validations:
       required: true
   - type: input
@@ -29,6 +29,6 @@ body:
         Veuillez nous expliquer ce que vous suggérez.
       placeholder: |
         Exemple :
-        Je pense qu'il serait utile d'avoir une page expliquant comment utiliser React avec TypeScript. Elle pourrait inclure un exemple simple de composant écrit en TypeScript, et faire les liens adéquats vers la documentation de TypeScript.
+        Je pense qu'il serait utile d'avoir une page expliquant comment utiliser Réac avec TypeScript. Elle pourrait inclure un exemple simple de composant écrit en TypeScript, et faire les liens adéquats vers la documentation de TypeScript.
     validations:
       required: true

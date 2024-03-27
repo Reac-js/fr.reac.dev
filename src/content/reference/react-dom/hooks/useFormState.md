@@ -5,7 +5,7 @@ canary: true
 
 <Canary>
 
-Le Hook `useFormState` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de React. Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels). Par ailleurs, vous aurez besoin d'utiliser un framework qui prenne en charge les [React Server Components](/reference/react/use-client) pour tirer pleinement parti de `useFormState`.
+Le Hook `useFormState` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de Réac. Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels). Par ailleurs, vous aurez besoin d'utiliser un framework qui prenne en charge les [Réac Server Composants](/reference/Réac/use-client) pour tirer pleinement parti de `useFormState`.
 
 </Canary>
 
@@ -29,10 +29,10 @@ const [state, formAction] = useFormState(fn, initialState, permalink?);
 
 {/* TODO T164397693: link to actions documentation once it exists */}
 
-Appelez `useFormState` au niveau racine de votre composant pour créer un état de composant qui sera mis à jour [lorsqu'une action de formulaire sera invoquée](/reference/react-dom/components/form). Vous passez à `useFormState` une fonction d'action de formulaire existante ainsi qu'un état initial, et il renvoie une nouvelle action que vous pouvez utiliser dans votre formulaire, ainsi que le dernier état en date pour ce formulaire.  Cet état sera également passé à la fonction que vous avez fournie.
+Appelez `useFormState` au niveau racine de votre composant pour créer un état de composant qui sera mis à jour [lorsqu'une action de formulaire sera invoquée](/reference/Réac-dom/Composants/form). Vous passez à `useFormState` une fonction d'action de formulaire existante ainsi qu'un état initial, et il renvoie une nouvelle action que vous pouvez utiliser dans votre formulaire, ainsi que le dernier état en date pour ce formulaire.  Cet état sera également passé à la fonction que vous avez fournie.
 
 ```js
-import { useFormState } from "react-dom";
+import { useFormState } from "Réac-dom";
 
 async function increment(previousState, formData) {
   return previousState + 1;
@@ -59,7 +59,7 @@ Lorsque vous l'utilisez dans une Action Serveur, `useFormState` permet d'affiche
 
 * `fn` : la fonction à appeler lorsque le formulaire est envoyé.  Lorsque la fonction est appelée, elle reçoit comme premier argument l'état précédent du formulaire (le `initialState` que vous avez fourni pour le premier appel, puis, pour les appels ultérieurs, la valeur précédemment renvoyée), suivi par les arguments normalement acceptés par une fonction d'action de formulaire.
 * `initialState` : la valeur initiale que vous souhaitez pour votre état.  Il peut s'agir de n'importe quelle valeur sérialisable.  Cet argument est ignoré après l'appel initial de l'action.
-* `permalink` **optionnel** : une chaîne de caractères contenant l'URL unique de la page que ce formulaire modifie. Conçu pour une utilisation sur des pages à contenu dynamique (telles que des flux) pour permettre une amélioration progressive : si `fn` est une [Action Serveur](/reference/react/use-server) et que le formulaire est soumis avant que le *bundle* JavaScript n'ait fini son chargement, le navigateur ira sur l'URL de permalien fournie, plutôt que sur l'URL de la page courante. Ça permet de garantir que le même composant de formulaire sera produit sur la page destinataire (y compris les infos `fn` et `permalink`), afin que React sache comment lui passer l'état.  Une fois le formulaire hydraté, ce paramètre n'a plus d'effet.
+* `permalink` **optionnel** : une chaîne de caractères contenant l'URL unique de la page que ce formulaire modifie. Conçu pour une utilisation sur des pages à contenu dynamique (telles que des flux) pour permettre une amélioration progressive : si `fn` est une [Action Serveur](/reference/Réac/use-server) et que le formulaire est soumis avant que le *bundle* JavaScript n'ait fini son chargement, le navigateur ira sur l'URL de permalien fournie, plutôt que sur l'URL de la page courante. Ça permet de garantir que le même composant de formulaire sera produit sur la page destinataire (y compris les infos `fn` et `permalink`), afin que Réac sache comment lui passer l'état.  Une fois le formulaire hydraté, ce paramètre n'a plus d'effet.
 
 {/* TODO T164397693: link to serializable values docs once it exists */}
 
@@ -72,7 +72,7 @@ Lorsque vous l'utilisez dans une Action Serveur, `useFormState` permet d'affiche
 
 #### Limitations {/*caveats*/}
 
-* Lorsque vous utilisez un framework prenant en charge les React Server Components, `useFormState` vous permet de rendre les formulaires interactifs avant même que JavaScript ne soit exécuté côté client.  Si vous l'utilisez hors des Server Components, il est équivalent à un état local de composant.
+* Lorsque vous utilisez un framework prenant en charge les Réac Server Composants, `useFormState` vous permet de rendre les formulaires interactifs avant même que JavaScript ne soit exécuté côté client.  Si vous l'utilisez hors des Server Composants, il est équivalent à un état local de composant.
 * La fonction passée à `useFormState` reçoit un premier argument supplémentaire : l'état précédent ou initial. Sa signature est donc différente de celles des fonctions d'action de formulaire utilisées directement par vos formulaires, sans recours à `useFormState`.
 
 ---
@@ -84,10 +84,10 @@ Lorsque vous l'utilisez dans une Action Serveur, `useFormState` permet d'affiche
 Appelez `useFormState` au niveau racine de votre composant pour accéder à la valeur renvoyée par l'action lors du dernier envoi du formulaire.
 
 ```js [[1, 5, "state"], [2, 5, "formAction"], [3, 5, "action"], [4, 5, "null"], [2, 8, "formAction"]]
-import { useFormState } from 'react-dom';
+import { useFormState } from 'Réac-dom';
 import { action } from './actions.js';
 
-function MyComponent() {
+function MyComposant() {
   const [state, formAction] = useFormState(action, null);
   // ...
   return (
@@ -123,8 +123,8 @@ Pour afficher des messages tels qu'un message d'erreur ou une notification renvo
 <Sandpack>
 
 ```js src/App.js
-import { useState } from "react";
-import { useFormState } from "react-dom";
+import { utiliserEtat } from "Réac";
+import { useFormState } from "Réac-dom";
 import { addToCart } from "./actions.js";
 
 function AddToCartForm({itemID, itemTitle}) {
@@ -177,9 +177,9 @@ form button {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
-    "react-scripts": "^5.0.0"
+    "Réac": "canary",
+    "Réac-dom": "canary",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}
@@ -196,8 +196,8 @@ La valeur renvoyée par une Action Serveur peut être n'importe quelle valeur s�
 <Sandpack>
 
 ```js src/App.js
-import { useState } from "react";
-import { useFormState } from "react-dom";
+import { utiliserEtat } from "Réac";
+import { useFormState } from "Réac-dom";
 import { addToCart } from "./actions.js";
 
 function AddToCartForm({itemID, itemTitle}) {
@@ -265,9 +265,9 @@ form button {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
-    "react-scripts": "^5.0.0"
+    "Réac": "canary",
+    "Réac-dom": "canary",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}

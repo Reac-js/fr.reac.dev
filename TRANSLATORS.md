@@ -1,6 +1,6 @@
-# À propos de la traduction française de la documentation React
+# À propos de la traduction française de la documentation Réac
 
-Si vous bénéficiez d’une traduction française de qualité et à jour de la documentation officielle React, c’est grâce au travail bénévole d’un nombre significatif de traducteur·rice·s, qui dans certains cas ont fait là leur premier travail de traduction, voire leur première contribution sur GitHub.
+Si vous bénéficiez d’une traduction française de qualité et à jour de la documentation officielle Réac, c’est grâce au travail bénévole d’un nombre significatif de traducteur·rice·s, qui dans certains cas ont fait là leur premier travail de traduction, voire leur première contribution sur GitHub.
 
 Ce document vous fournit le détail de leurs travaux, afin de les remercier plus spécifiquement que sur le site de documentation elle-même, et vous permettre si vous le souhaitez de leur exprimer votre gratitude.
 
@@ -26,8 +26,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td><a href="https://twitter.com/adevinwild">@adevinwild</a></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/reference/react/apis">API React intégrées</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react/createContext"><code>createContext</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/apis">API Réac intégrées</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/creerContexte"><code>creerContexte</code></a></li>
         </ul>
       </td>
     </tr>
@@ -36,7 +36,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/learn/react-developer-tools">Outils de développement React</a></li>
+          <li><a href="https://fr.Réac.dev/learn/Réac-developer-tools">Outils de développement Réac</a></li>
         </ul>
       </td>
     </tr>
@@ -45,9 +45,9 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/reference/react/components">Composants fournis par React</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react/Fragment"><code>&lt;Fragment&gt;</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/Profiler"><code>&lt;Profiler&gt;</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/Composants">Composants fournis par Réac</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/Fragment"><code>&lt;Fragment&gt;</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/Profileur"><code>&lt;Profileur&gt;</code></a></li>
         </ul>
       </td>
     </tr>
@@ -56,106 +56,106 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>@porteneuve / @porteneuve@piaille.fr</td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev">Page d'accueil</a></li>
-          <li><a href="https://fr.react.dev/learn">Démarrage rapide</a></li>
-          <li><a href="https://fr.react.dev/learn/tutorial-tic-tac-toe">Tutoriel : Tic-Tac-Toe</a></li>
-          <li><a href="https://fr.react.dev/learn/thinking-in-react">Penser en React</a></li>
-          <li><a href="https://fr.react.dev/learn/installation">Installation</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/learn/typescript">Utiliser TypeScript</a></li>
-          <li><a href="https://fr.react.dev/learn/describing-the-ui">Décrire l’UI</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/learn/your-first-component">Votre premier composant</a></li>
-          <li><a href="https://fr.react.dev/learn/writing-markup-with-jsx">Écrire du balisage avec JSX</a></li>
-          <li><a href="https://fr.react.dev/learn/javascript-in-jsx-with-curly-braces">JavaScript dans JSX grâce aux accolades</a></li>
-          <li><a href="https://fr.react.dev/learn/passing-props-to-a-component">Passer des props à un composant</a></li>
-          <li><a href="https://fr.react.dev/learn/conditional-rendering">Affichage conditionnel</a></li>
-          <li><a href="https://fr.react.dev/learn/rendering-lists">Afficher des listes</a></li>
-          <li><a href="https://fr.react.dev/learn/keeping-components-pure">Garder les composants purs</a></li>
-          <li><a href="https://fr.react.dev/learn/understanding-your-ui-as-a-tree">Votre UI vue comme un arbre</a></li>
-          <li><a href="https://fr.react.dev/learn/state-a-components-memory">L’état : la mémoire d’un composant</a></li>
-          <li><a href="https://fr.react.dev/learn/render-and-commit">Rendu et Commit</a></li>
-          <li><a href="https://fr.react.dev/learn/state-as-a-snapshot">L’état est un instantané</a></li>
-          <li><a href="https://fr.react.dev/learn/queueing-a-series-of-state-updates">Cumuler les mises à jour d’un même état</a></li>
-          <li><a href="https://fr.react.dev/learn/preserving-and-resetting-state">Préserver et réinitialiser l’état</a> (arbres UI)</li>
-          <li><a href="https://fr.react.dev/learn/escape-hatches">Échappatoires</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/learn/referencing-values-with-refs">Référencer des valeurs avec les refs</a></li>
-          <li><a href="https://fr.react.dev/learn/manipulating-the-dom-with-refs">Manipuler le DOM avec des refs</a></li>
-          <li><a href="https://fr.react.dev/learn/synchronizing-with-effects">Synchroniser grâce aux Effets</a></li>
-          <li><a href="https://fr.react.dev/learn/you-might-not-need-an-effect">Vous n’avez pas forcément besoin d’un Effet</a></li>
-          <li><a href="https://fr.react.dev/learn/removing-effect-dependencies">Alléger les dépendances des Effets</a></li>
-          <li><a href="https://fr.react.dev/reference/react/">Référence</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react/use"><code>use</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useCallback"><code>useCallback</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useEffect"><code>useEffect</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useImperativeHandle"><code>useImperativeHandle</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useInsertionEffect"><code>useInsertionEffect</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useLayoutEffect"><code>useLayoutEffect</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useMemo"><code>useMemo</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useOptimistic"><code>useOptimistic</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useRef"><code>useRef</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useSyncExternalStore"><code>useSyncExternalStore</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useTransition"><code>useTransition</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/experimental_taintObjectReference"><code>experimental_taintObjectReference</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/experimental_taintUniqueValue"><code>experimental_taintUniqueValue</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/experimental_useEffectEvent"><code>experimental_useEffectEvent</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/Suspense"><code>&lt;Suspense&gt;</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/cache"><code>cache</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/forwardRef"><code>forwardRef</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/startTransition"><code>startTransition</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/directives">Directives</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react/use-client"><code>'use client'</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/use-server"><code>'use server'</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/hooks">react-dom : Hooks</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react-dom/hooks/useFormState"><code>useFormState</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/hooks/useFormStatus"><code>useFormStatus</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/components">react-dom : Composants</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react-dom/components/form"><code>&lt;form&gt;</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/components/progress"><code>&lt;progress&gt;</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/components/select"><code>&lt;select&gt;</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom">API React DOM intégrées</a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/flushSync"><code>flushSync</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/hydrate"><code>hydrate</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/render"><code>render</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/umountComponentAtNode"><code>umountComponentAtNode</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/client">API React DOM côté client</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react-dom/client/createRoot"><code>createRoot</code></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/client/hydrateRoot"><code>hydrateRoot</code></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/server">API React DOM côté serveur</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react-dom/server/renderToNodeStream"><code>renderToNodeStream</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/server/renderToPipeableStream"><code>renderToPipeableStream</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/server/renderToReadableStream"><code>renderToReadableStream</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/server/renderToStaticMarkup"><code>renderToStaticMarkup</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/server/renderToStaticNodeStream"><code>renderToStaticNodeStream</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/server/renderToString"><code>renderToString</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/legacy">API React historique</a></li>
-          <li><a href="https://fr.react.dev/reference/react/Children"><code>Children</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/cloneElement"><code>cloneElement</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/Component"><code>Component</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/createElement"><code>createElement</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/createFactory"><code>createFactory</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/createRef"><code>createRef</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/isValidElement"><code>isValidElement</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/PureComponent"><code>PureComponent</code></a></li>
-          <li><a href="https://fr.react.dev/community">Communauté</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/community/conferences">Conférences React</a> (partiel)</li>
-          <li><a href="https://fr.react.dev/community/meetups">Meetups React</a> (partiel)</li>
-          <li><a href="https://fr.react.dev/community/videos">Vidéos React</a> (partiel)</li>
-          <li><a href="https://fr.react.dev/community/team">Rencontrez l’équipe</a></li>
-          <li><a href="https://fr.react.dev/community/docs-contributors">Contributeurs aux docs</a></li>
-          <li><a href="https://fr.react.dev/community/acknowledgements">Remerciements</a></li>
-          <li><a href="https://fr.react.dev/blog">Blog</a> (accueil)</li>
-          <li><a href="https://fr.react.dev/blog/2023/05/03/react-canaries">Blog : React Canaries</a></li>
-          <li><a href="https://fr.react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023">Blog : React Labs mars 2023</a></li>
-          <li><a href="https://fr.react.dev/blog/2023/03/16/introducing-react-dev">Blog : Découvrez react.dev</a></li>
-          <li><a href="https://fr.react.dev/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022">Blog : React Labs juin 2022</a></li>
-          <li><a href="https://fr.react.dev/blog/2022/03/29/react-v18">Blog : React v18.0</a></li>
-          <li><a href="https://fr.react.dev/blog/2022/03/08/react-18-upgrade-guide">Blog : Comment migrer sur React 18</a></li>
-          <li><a href="https://fr.react.dev/blog/2021/12/17/react-conf-2021-recap">Blog : La React Conf 2021 en bref</a></li>
-          <li><a href="https://fr.react.dev/blog/2021/06/08/the-plan-for-react-18">Blog : Nos plans pour React 18</a></li>
-          <li><a href="https://fr.react.dev/blog/2020/12/21/data-fetching-with-react-server-components">Blog : Découvrez les React Server Components qui n'impactent pas votre bundle</a></li>
-          <li><a href="https://fr.react.dev/warnings/invalid-aria-prop">Avertissement : prop ARIA invalide</a></li>
-          <li><a href="https://fr.react.dev/warnings/invalid-hook-call-warning">Avertissement : règles des Hooks</a></li>
-          <li><a href="https://fr.react.dev/warnings/special-props">Avertissement : props à traitement spécial</a></li>
-          <li><a href="https://fr.react.dev/warnings/unknown-prop">Avertissement : prop inconnue</a></li>
+          <li><a href="https://fr.Réac.dev">Page d'accueil</a></li>
+          <li><a href="https://fr.Réac.dev/learn">Démarrage rapide</a></li>
+          <li><a href="https://fr.Réac.dev/learn/tutorial-tic-tac-toe">Tutoriel : Tic-Tac-Toe</a></li>
+          <li><a href="https://fr.Réac.dev/learn/thinking-in-Réac">Penser en Réac</a></li>
+          <li><a href="https://fr.Réac.dev/learn/installation">Installation</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/learn/typescript">Utiliser TypeScript</a></li>
+          <li><a href="https://fr.Réac.dev/learn/describing-the-ui">Décrire l’UI</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/learn/your-first-composant">Votre premier composant</a></li>
+          <li><a href="https://fr.Réac.dev/learn/writing-markup-with-jsx">Écrire du balisage avec JSX</a></li>
+          <li><a href="https://fr.Réac.dev/learn/javascript-in-jsx-with-curly-braces">JavaScript dans JSX grâce aux accolades</a></li>
+          <li><a href="https://fr.Réac.dev/learn/passing-props-to-a-composant">Passer des props à un composant</a></li>
+          <li><a href="https://fr.Réac.dev/learn/conditional-rendering">Affichage conditionnel</a></li>
+          <li><a href="https://fr.Réac.dev/learn/rendering-lists">Afficher des listes</a></li>
+          <li><a href="https://fr.Réac.dev/learn/keeping-composants-pure">Garder les composants purs</a></li>
+          <li><a href="https://fr.Réac.dev/learn/understanding-your-ui-as-a-tree">Votre UI vue comme un arbre</a></li>
+          <li><a href="https://fr.Réac.dev/learn/state-a-composants-memoirery">L’état : la mémoire d’un composant</a></li>
+          <li><a href="https://fr.Réac.dev/learn/render-and-commit">Rendu et Commit</a></li>
+          <li><a href="https://fr.Réac.dev/learn/state-as-a-snapshot">L’état est un instantané</a></li>
+          <li><a href="https://fr.Réac.dev/learn/queueing-a-series-of-state-updates">Cumuler les mises à jour d’un même état</a></li>
+          <li><a href="https://fr.Réac.dev/learn/preserving-and-resetting-state">Préserver et réinitialiser l’état</a> (arbres UI)</li>
+          <li><a href="https://fr.Réac.dev/learn/escape-hatches">Échappatoires</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/learn/referencing-values-with-refs">Référencer des valeurs avec les refs</a></li>
+          <li><a href="https://fr.Réac.dev/learn/manipulating-the-dom-with-refs">Manipuler le DOM avec des refs</a></li>
+          <li><a href="https://fr.Réac.dev/learn/synchronizing-with-effects">Synchroniser grâce aux Effets</a></li>
+          <li><a href="https://fr.Réac.dev/learn/you-might-not-need-an-effect">Vous n’avez pas forcément besoin d’un Effet</a></li>
+          <li><a href="https://fr.Réac.dev/learn/removing-effect-dependencies">Alléger les dépendances des Effets</a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/">Référence</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/use"><code>use</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserRappel"><code>utiliserRappel</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserEffet"><code>utiliserEffet</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserPoigneeImperative"><code>utiliserPoigneeImperative</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserEffetInsertion"><code>utiliserEffetInsertion</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserEffetMiseEnPage"><code>utiliserEffetMiseEnPage</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserMemoire"><code>utiliserMemoire</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/useOptimistic"><code>useOptimistic</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserReference"><code>utiliserReference</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserSynchroniserStockageExterne"><code>utiliserSynchroniserStockageExterne</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserTransition"><code>utiliserTransition</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/experimental_taintObjectReference"><code>experimental_taintObjectReference</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/experimental_taintUniqueValue"><code>experimental_taintUniqueValue</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/experimental_utiliserEffetEvent"><code>experimental_utiliserEffetEvent</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/suspendre"><code>&lt;suspendre&gt;</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/cache"><code>cache</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/avancerReference"><code>avancerReference</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/demarrerTransition"><code>demarrerTransition</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/directives">Directives</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/use-client"><code>'use client'</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/use-server"><code>'use server'</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/hooks">Réac-dom : Crochets</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/hooks/useFormState"><code>useFormState</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/hooks/useFormStatus"><code>useFormStatus</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/Composants">Réac-dom : Composants</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/Composants/form"><code>&lt;form&gt;</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/Composants/progress"><code>&lt;progress&gt;</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/Composants/select"><code>&lt;select&gt;</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom">API Réac DOM intégrées</a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/flushSync"><code>flushSync</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/hydrate"><code>hydrate</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/render"><code>render</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/umountComposantAtNode"><code>umountComposantAtNode</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/client">API Réac DOM côté client</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/client/createRoot"><code>createRoot</code></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/client/hydrateRoot"><code>hydrateRoot</code></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/server">API Réac DOM côté serveur</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/server/renderToNodeStream"><code>renderToNodeStream</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/server/renderToPipeableStream"><code>renderToPipeableStream</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/server/renderToReadableStream"><code>renderToReadableStream</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/server/renderToStaticMarkup"><code>renderToStaticMarkup</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/server/renderToStaticNodeStream"><code>renderToStaticNodeStream</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/server/renderToString"><code>renderToString</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/legacy">API Réac historique</a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/Enfants"><code>Enfants</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/clonerElement"><code>clonerElement</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/Composant"><code>Composant</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/creerElement"><code>creerElement</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/creerUsine"><code>creerUsine</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/creerReference"><code>creerReference</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/estUnElementValide"><code>estUnElementValide</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/ComposantPur"><code>ComposantPur</code></a></li>
+          <li><a href="https://fr.Réac.dev/community">Communauté</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/community/conferences">Conférences Réac</a> (partiel)</li>
+          <li><a href="https://fr.Réac.dev/community/meetups">Meetups Réac</a> (partiel)</li>
+          <li><a href="https://fr.Réac.dev/community/videos">Vidéos Réac</a> (partiel)</li>
+          <li><a href="https://fr.Réac.dev/community/team">Rencontrez l’équipe</a></li>
+          <li><a href="https://fr.Réac.dev/community/docs-contributors">Contributeurs aux docs</a></li>
+          <li><a href="https://fr.Réac.dev/community/acknowledgements">Remerciements</a></li>
+          <li><a href="https://fr.Réac.dev/blog">Blog</a> (accueil)</li>
+          <li><a href="https://fr.Réac.dev/blog/2023/05/03/Réac-canaries">Blog : Réac Canaries</a></li>
+          <li><a href="https://fr.Réac.dev/blog/2023/03/22/Réac-labs-what-we-have-been-working-on-march-2023">Blog : Réac Labs mars 2023</a></li>
+          <li><a href="https://fr.Réac.dev/blog/2023/03/16/introducingreacdev">Blog : Découvrez Réac.dev</a></li>
+          <li><a href="https://fr.Réac.dev/blog/2022/06/15/Réac-labs-what-we-have-been-working-on-june-2022">Blog : Réac Labs juin 2022</a></li>
+          <li><a href="https://fr.Réac.dev/blog/2022/03/29/Réac-v18">Blog : Réac v18.0</a></li>
+          <li><a href="https://fr.Réac.dev/blog/2022/03/08/Réac-18-upgrade-guide">Blog : Comment migrer sur Réac 18</a></li>
+          <li><a href="https://fr.Réac.dev/blog/2021/12/17/Réac-conf-2021-recap">Blog : La Réac Conf 2021 en bref</a></li>
+          <li><a href="https://fr.Réac.dev/blog/2021/06/08/the-plan-forreac18">Blog : Nos plans pour Réac 18</a></li>
+          <li><a href="https://fr.Réac.dev/blog/2020/12/21/data-fetching-withreacserver-composants">Blog : Découvrez les Réac Server Composants qui n'impactent pas votre bundle</a></li>
+          <li><a href="https://fr.Réac.dev/warnings/invalid-aria-prop">Avertissement : prop ARIA invalide</a></li>
+          <li><a href="https://fr.Réac.dev/warnings/invalid-hook-call-warning">Avertissement : règles des Crochets</a></li>
+          <li><a href="https://fr.Réac.dev/warnings/special-props">Avertissement : props à traitement spécial</a></li>
+          <li><a href="https://fr.Réac.dev/warnings/unknown-prop">Avertissement : prop inconnue</a></li>
         </ul>
       </td>
     </tr>
@@ -164,11 +164,11 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td><a href="https://twitter.com/emmanuel_dal">@emmanuel_dal</a></td>
       <td>
         <ul>
-          <li><a href="http://fr.react.dev/learn/start-a-new-react-project">Créer un nouveau projet avec React</a></li>
-          <li><a href="https://fr.react.dev/reference/react">Hooks fournis par React</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/reference/react/lazy"><code>lazy</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/memo"><code>memo</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/findDOMNode"><code>findDOMNode</code></a></li>
+          <li><a href="http://fr.Réac.dev/learn/start-a-newreacproject">Créer un nouveau projet avec Réac</a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac">Crochets fournis par Réac</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/paresseux"><code>paresseux</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/memoire"><code>memoire</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/findDOMNode"><code>findDOMNode</code></a></li>
         </ul>
       </td>
     </tr>
@@ -177,7 +177,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="http://fr.react.dev/learn/add-react-to-an-existing-project">Ajouter React à un projet existant</a></li>
+          <li><a href="http://fr.Réac.dev/learn/addreacto-an-existing-project">Ajouter Réac à un projet existant</a></li>
         </ul>
       </td>
     </tr>
@@ -186,8 +186,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/learn/updating-objects-in-state">Mettre à jour les objets d’un état</li>
-          <li><a href="https://fr.react.dev/learn/updating-arrays-in-state">Mettre à jour les tableaux d’un état</li>
+          <li><a href="https://fr.Réac.dev/learn/updating-objects-in-state">Mettre à jour les objets d’un état</li>
+          <li><a href="https://fr.Réac.dev/learn/updating-arrays-in-state">Mettre à jour les tableaux d’un état</li>
         </ul>
       </td>
     </tr>
@@ -196,8 +196,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td><a href="https://twitter.com/MatteoGauthier_">@MatteoGauthier_</a></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/reference/react/useDebugValue"><code>useDebugValue</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useId"><code>useId</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserValeurDebogage"><code>utiliserValeurDebogage</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserId"><code>utiliserId</code></a></li>
         </ul>
       </td>
     </tr>
@@ -206,11 +206,11 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/reference/react/useDeferredValue"><code>useDeferredValue</code></li>
-          <li><a href="https://fr.react.dev/reference/react/useState"><code>useState</code></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/components/input"><code>&lt;input&gt;</code></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/components/textarea"><code>&lt;textarea&gt;</code></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/createPortal"><code>createPortal</code></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserValeurRetardee"><code>utiliserValeurRetardee</code></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserEtat"><code>utiliserEtat</code></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/Composants/input"><code>&lt;input&gt;</code></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/Composants/textarea"><code>&lt;textarea&gt;</code></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/createPortal"><code>createPortal</code></li>
         </ul>
       </td>
     </tr>
@@ -219,8 +219,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/learn/adding-interactivity">Ajouter de l'interactivité</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/learn/reacting-to-input-with-state">Réagir à la saisie avec un état</a></li>
+          <li><a href="https://fr.Réac.dev/learn/adding-interactivity">Ajouter de l'interactivité</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/learn/réacing-to-input-with-state">Réagir à la saisie avec un état</a></li>
         </ul>
       </td>
     </tr>
@@ -229,8 +229,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/learn/editor-setup">Configuration de l'éditeur</a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/components/option"><code>&lt;option&gt;</code></a></li>
+          <li><a href="https://fr.Réac.dev/learn/editor-setup">Configuration de l'éditeur</a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/Composants/option"><code>&lt;option&gt;</code></a></li>
         </ul>
       </td>
     </tr>
@@ -239,19 +239,19 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/learn/sharing-state-between-components">Partager l’état entre des composants</a></li>
-          <li><a href="https://fr.react.dev/learn/preserving-and-resetting-state">Préserver et réinitialiser l’état</a> (sauf arbres UI)</li>
-          <li><a href="https://fr.react.dev/learn/extracting-state-logic-into-a-reducer">Extraire la logique d’état dans un réducteur</a></li>
-          <li><a href="https://fr.react.dev/learn/passing-data-deeply-with-context">Transmettre des données en profondeur avec le contexte</a></li>
-          <li><a href="https://fr.react.dev/learn/scaling-up-with-reducer-and-context">Mise à l’échelle en combinant réducteur et contexte</a></li>
-          <li><a href="https://fr.react.dev/learn/lifecycle-of-reactive-effects">Cycle de vie des Effets réactifs</a></li>
-          <li><a href="https://fr.react.dev/learn/separating-events-from-effects">Séparer les événements des Effets</a></li>
-          <li><a href="https://fr.react.dev/learn/reusing-logic-with-custom-hooks">Réutiliser de la logique grâce aux Hooks personnalisés</a></li>
-          <li><a href="https://fr.react.dev/reference/react/useContext"><code>useContext</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/useReducer"><code>useReducer</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react/StrictMode"><code>&lt;StrictMode&gt;</code></a></li>
-          <li><a href="https://fr.react.dev/reference/react-dom/components/common">Composants React-DOM communs</a></li>
-          <li><a href="https://fr.react.dev/community/versioning-policy">Politique de versions</a></li>
+          <li><a href="https://fr.Réac.dev/learn/sharing-state-between-composants">Partager l’état entre des composants</a></li>
+          <li><a href="https://fr.Réac.dev/learn/preserving-and-resetting-state">Préserver et réinitialiser l’état</a> (sauf arbres UI)</li>
+          <li><a href="https://fr.Réac.dev/learn/extracting-state-logic-into-a-reducer">Extraire la logique d’état dans un réducteur</a></li>
+          <li><a href="https://fr.Réac.dev/learn/passing-data-deeply-with-context">Transmettre des données en profondeur avec le contexte</a></li>
+          <li><a href="https://fr.Réac.dev/learn/scaling-up-with-reducer-and-context">Mise à l’échelle en combinant réducteur et contexte</a></li>
+          <li><a href="https://fr.Réac.dev/learn/lifecycle-of-réactive-effects">Cycle de vie des Effets réactifs</a></li>
+          <li><a href="https://fr.Réac.dev/learn/separating-events-from-effects">Séparer les événements des Effets</a></li>
+          <li><a href="https://fr.Réac.dev/learn/reusing-logic-with-custom-hooks">Réutiliser de la logique grâce aux Crochets personnalisés</a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserContexte"><code>utiliserContexte</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/utiliserReducteur"><code>utiliserReducteur</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac/ModeStrict"><code>&lt;ModeStrict&gt;</code></a></li>
+          <li><a href="https://fr.Réac.dev/reference/Réac-dom/Composants/common">Composants Réac-DOM communs</a></li>
+          <li><a href="https://fr.Réac.dev/community/versioning-policy">Politique de versions</a></li>
         </ul>
       </td>
     </tr>
@@ -260,9 +260,9 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td></td>
       <td>
         <ul>
-          <li><a href="https://fr.react.dev/learn/managing-state">Gérer l’état</a> (accueil chapitre)</li>
-          <li><a href="https://fr.react.dev/learn/reacting-to-input-with-state">Réagir à la saisie avec un état</a></li>
-          <li><a href="https://fr.react.dev/learn/choosing-the-state-structure">Choisir la structure de l'état</a></li>
+          <li><a href="https://fr.Réac.dev/learn/managing-state">Gérer l’état</a> (accueil chapitre)</li>
+          <li><a href="https://fr.Réac.dev/learn/réacing-to-input-with-state">Réagir à la saisie avec un état</a></li>
+          <li><a href="https://fr.Réac.dev/learn/choosing-the-state-structure">Choisir la structure de l'état</a></li>
         </ul>
       </td>
     </tr>
@@ -271,7 +271,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td><a href="https://twitter.com/yann_birba">@yann_birba</a></td>
       <td>
         <ul>
-          <li><a href="http://fr.react.dev/learn/importing-and-exporting-components">Importer et exporter des composants</a></li>
+          <li><a href="http://fr.Réac.dev/learn/importing-and-exporting-composants">Importer et exporter des composants</a></li>
         </ul>
       </td>
     </tr>
@@ -297,7 +297,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       </td>
       <td></td>
       <td>
-        <a href="https://fr.reactjs.org/docs/how-to-contribute.html">
+        <a href="https://fr.Réacjs.org/docs/how-to-contribute.html">
           Contribuer › Comment contribuer
         </a>
       </td>
@@ -310,7 +310,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/shinework">@shinework</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/rendering-elements.html">
+        <a href="https://fr.Réacjs.org/docs/rendering-elements.html">
           Fondamentaux › Le rendu des éléments
         </a>
       </td>
@@ -325,13 +325,13 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/hooks-rules.html">
-              Hooks › Les règles des Hooks
+            <a href="https://fr.Réacjs.org/docs/hooks-rules.html">
+              Crochets › Les règles des Crochets
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/hooks-custom.html">
-              Hooks › Construire vos propres Hooks
+            <a href="https://fr.Réacjs.org/docs/hooks-custom.html">
+              Crochets › Construire vos propres Crochets
             </a>
           </li>
         </ul>
@@ -347,96 +347,96 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/tutorial/tutorial.html">Tutoriel</a>
+            <a href="https://fr.Réacjs.org/tutorial/tutorial.html">Tutoriel</a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/react-dom.html">
-              Référence de l’API › ReactDOM
+            <a href="https://fr.Réacjs.org/docs/Réac-dom.html">
+              Référence de l’API › RéacDOM
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/glossary.html">
+            <a href="https://fr.Réacjs.org/docs/glossary.html">
               Référence de l’API › Glossaire
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/warnings/invalid-aria-prop.html">
+            <a href="https://fr.Réacjs.org/warnings/invalid-aria-prop.html">
               Avertissements › invalid-aria-prop
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/warnings/invalid-hook-call-warning.html">
+            <a href="https://fr.Réacjs.org/warnings/invalid-hook-call-warning.html">
               Avertissements › invalid-hook-call-warning
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/warnings/legacy-factories.html">
+            <a href="https://fr.Réacjs.org/warnings/legacy-factories.html">
               Avertissements › legacy-factories
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/warnings/refs-must-have-owner.html">
+            <a href="https://fr.Réacjs.org/warnings/refs-must-have-owner.html">
               Avertissements › refs-must-have-owner
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/warnings/special-props.html">
+            <a href="https://fr.Réacjs.org/warnings/special-props.html">
               Avertissements › special-props
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/warnings/unknown-prop.html">
+            <a href="https://fr.Réacjs.org/warnings/unknown-prop.html">
               Avertissements › unknown-prop
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/videos.html">
+            <a href="https://fr.Réacjs.org/community/videos.html">
               Communauté › Ressources › Vidéos
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/external-resources.html">
+            <a href="https://fr.Réacjs.org/community/external-resources.html">
               Communauté › Ressources › Ressources externes
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2019/02/23/is-react-translated-yet.html">
-              Blog › React est-il enfin traduit ?
+            <a href="https://fr.Réacjs.org/blog/2019/02/23/isreactranslated-yet.html">
+              Blog › Réac est-il enfin traduit ?
             </a>{' '}
             (en cours)
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2019/02/06/react-v16.8.0.html">
-              Blog › React v16.8.0
+            <a href="https://fr.Réacjs.org/blog/2019/02/06/Réac-v16.8.0.html">
+              Blog › Réac v16.8.0
             </a>{' '}
             (en cours)
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2018/11/27/react-16-roadmap.html">
-              Blog › Feuille de route pour react 16
+            <a href="https://fr.Réacjs.org/blog/2018/11/27/Réac-16-roadmap.html">
+              Blog › Feuille de route pour Réac 16
             </a>{' '}
             (en cours)
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2018/03/27/update-on-async-rendering.html">
+            <a href="https://fr.Réacjs.org/blog/2018/03/27/update-on-async-rendering.html">
               Blog › Des nouvelles du rendu asynchrone
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2016/07/13/mixins-considered-harmful.html">
+            <a href="https://fr.Réacjs.org/blog/2016/07/13/mixins-considered-harmful.html">
               Blog › Les mixins sont dangereux
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/acknowledgements.html/">
+            <a href="https://fr.Réacjs.org/acknowledgements.html/">
               Remerciements
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/versions">Liste des versions</a>
+            <a href="https://fr.Réacjs.org/versions">Liste des versions</a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/languages">Liste des langues</a>
+            <a href="https://fr.Réacjs.org/languages">Liste des langues</a>
           </li>
           <li>Navigations latérales de la doc</li>
           <li>Gabarits et composants de la doc</li>
@@ -449,7 +449,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       </td>
       <td></td>
       <td>
-        <a href="https://fr.reactjs.org/docs/static-type-checking.html">
+        <a href="https://fr.Réacjs.org/docs/static-type-checking.html">
           Guides avancés › La validation de types statique
         </a>
       </td>
@@ -462,7 +462,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/damusnet">@damusnet</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/dom-elements.html">
+        <a href="https://fr.Réacjs.org/docs/dom-elements.html">
           Référence de l’API › Éléments DOM
         </a>
       </td>
@@ -477,13 +477,13 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/hooks-intro.html">
-              Hooks › Introduction aux Hooks
+            <a href="https://fr.Réacjs.org/docs/hooks-intro.html">
+              Crochets › Introduction aux Crochets
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2018/12/19/react-v-16-7.html">
-              Blog › React v16.7
+            <a href="https://fr.Réacjs.org/blog/2018/12/19/Réac-v-16-7.html">
+              Blog › Réac v16.7
             </a>{' '}
             (en cours)
           </li>
@@ -498,7 +498,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/neocydfr">@neocydfr</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/javascript-environment-requirements.html">
+        <a href="https://fr.Réacjs.org/docs/javascript-environment-requirements.html">
           Référence de l’API › Pré-requis pour l’environnement JS
         </a>
       </td>
@@ -511,8 +511,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/gaetankueny">@gaetankueny</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/thinking-in-react.html">
-          Fondamentaux › Penser en React
+        <a href="https://fr.Réacjs.org/docs/thinking-in-Réac.html">
+          Fondamentaux › Penser en Réac
         </a>
       </td>
     </tr>
@@ -526,13 +526,13 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/components-and-props.html">
+            <a href="https://fr.Réacjs.org/docs/Composants-and-props.html">
               Fondamentaux › Composants et props
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/react-dom-server.html">
-              Référence de l’API › ReactDOMServer
+            <a href="https://fr.Réacjs.org/docs/Réac-dom-server.html">
+              Référence de l’API › RéacDOMServer
             </a>
           </li>
         </ul>
@@ -548,18 +548,18 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/conditional-rendering.html">
+            <a href="https://fr.Réacjs.org/docs/conditional-rendering.html">
               Fondamentaux › Affichage conditionnel
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/refs-and-the-dom.html">
+            <a href="https://fr.Réacjs.org/docs/refs-and-the-dom.html">
               Guides avancés › Les refs et le DOM
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/hooks-overview.html">
-              Hooks › Aperçu des Hooks
+            <a href="https://fr.Réacjs.org/docs/hooks-overview.html">
+              Crochets › Aperçu des Crochets
             </a>
           </li>
         </ul>
@@ -575,15 +575,15 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org">Accueil</a>
+            <a href="https://fr.Réacjs.org">Accueil</a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/react-api.html">
-              Référence de l’API › React
+            <a href="https://fr.Réacjs.org/docs/Réac-api.html">
+              Référence de l’API › Réac
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html">
+            <a href="https://fr.Réacjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html">
               Blog › Vous n'avez sans doute pas besoin d'états dérivés
             </a>
           </li>
@@ -598,8 +598,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/jcukier">@jcukier</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/react-without-jsx.html">
-          Guides avancés › React sans JSX
+        <a href="https://fr.Réacjs.org/docs/Réac-without-jsx.html">
+          Guides avancés › Réac sans JSX
         </a>
       </td>
     </tr>
@@ -611,19 +611,19 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/jsx-in-depth.html">
+            <a href="https://fr.Réacjs.org/docs/jsx-in-depth.html">
               Guides avancés › JSX dans le détail
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2018/10/01/create-react-app-v2.html">
-              Blog › Create React App 2.0 : Babel 7, Sass et plus encore
+            <a href="https://fr.Réacjs.org/blog/2018/10/01/createreacapp-v2.html">
+              Blog › Create Réac App 2.0 : Babel 7, Sass et plus encore
             </a>{' '}
             (en cours)
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2017/04/07/react-v15.5.0.html">
-              Blog › React v15.5.0
+            <a href="https://fr.Réacjs.org/blog/2017/04/07/Réac-v15.5.0.html">
+              Blog › Réac v15.5.0
             </a>{' '}
             (en cours)
           </li>
@@ -636,7 +636,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       </td>
       <td></td>
       <td>
-        <a href="https://fr.reactjs.org/docs/getting-started.html">
+        <a href="https://fr.Réacjs.org/docs/getting-started.html">
           Installation › Bien démarrer
         </a>
       </td>
@@ -651,17 +651,17 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/integrating-with-other-libraries.html">
+            <a href="https://fr.Réacjs.org/docs/integrating-with-other-libraries.html">
               Guides avancés › Intégration avec d’autres bibliothèques
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/warnings/dont-call-proptypes.html">
+            <a href="https://fr.Réacjs.org/warnings/dont-call-proptypes.html">
               Avertissements › dont-call-proptypes
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/codebase-overview.html">
+            <a href="https://fr.Réacjs.org/docs/codebase-overview.html">
               Contribuer › Aperçu du code source
             </a>
           </li>
@@ -672,42 +672,42 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
             <a href="">FAQ › Babel, JSX, et étapes de construction</a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/faq-styling.html">
+            <a href="https://fr.Réacjs.org/docs/faq-styling.html">
               FAQ › Styles et CSS
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/faq-state.html">
+            <a href="https://fr.Réacjs.org/docs/faq-state.html">
               FAQ › État local de composant
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/faq-structure.html">
+            <a href="https://fr.Réacjs.org/docs/faq-structure.html">
               FAQ › Structure de fichier
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/faq-internals.html">
+            <a href="https://fr.Réacjs.org/docs/faq-internals.html">
               FAQ › DOM virtuel et autres détails
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/support.html">
+            <a href="https://fr.Réacjs.org/community/support.html">
               Communauté › Ressources › Support
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/courses.html">
+            <a href="https://fr.Réacjs.org/community/courses.html">
               Communauté › Ressources › Cours
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/articles.html">
+            <a href="https://fr.Réacjs.org/community/articles.html">
               Communauté › Ressources › Articles
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/podcasts.html">
+            <a href="https://fr.Réacjs.org/community/podcasts.html">
               Communauté › Ressources › Podcasts
             </a>
           </li>
@@ -724,18 +724,18 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/render-props.html">
+            <a href="https://fr.Réacjs.org/docs/render-props.html">
               Guides avancés › Props de rendu
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/typechecking-with-proptypes.html">
+            <a href="https://fr.Réacjs.org/docs/typechecking-with-proptypes.html">
               Guides avancés › Validation de types avec PropTypes
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/hooks-state.html">
-              Hooks › Utiliser le Hook d’état
+            <a href="https://fr.Réacjs.org/docs/hooks-state.html">
+              Crochets › Utiliser le Hook d’état
             </a>
           </li>
         </ul>
@@ -751,18 +751,18 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/forwarding-refs.html">
+            <a href="https://fr.Réacjs.org/docs/forwarding-refs.html">
               Guides avancés › Transfert de refs
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2017/07/26/error-handling-in-react-16.html">
-              Blog › Gestion des erreurs dans React 16
+            <a href="https://fr.Réacjs.org/blog/2017/07/26/error-handling-inreac16.html">
+              Blog › Gestion des erreurs dans Réac 16
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html">
-              Blog › Prise en charge des fragments dans React v16.2.0
+            <a href="https://fr.Réacjs.org/blog/2017/11/28/Réac-v16.2.0-fragment-support.html">
+              Blog › Prise en charge des fragments dans Réac v16.2.0
             </a>{' '}
             (en cours)
           </li>
@@ -779,12 +779,12 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/composition-vs-inheritance.html">
+            <a href="https://fr.Réacjs.org/docs/composition-vs-inheritance.html">
               Fondamentaux › Composition ou héritage ?
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/uncontrolled-components.html">
+            <a href="https://fr.Réacjs.org/docs/uncontrolled-composants.html">
               Guides avancés › Composants non-contrôlés
             </a>
           </li>
@@ -799,7 +799,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/ItsMeSetheal">@ItsMeSetheal</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/hello-world.html">
+        <a href="https://fr.Réacjs.org/docs/hello-world.html">
           Fondamentaux › Bonjour, monde !
         </a>
       </td>
@@ -812,12 +812,12 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/context.html">
+            <a href="https://fr.Réacjs.org/docs/context.html">
               Guides avancés › Contexte
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/fragments.html">
+            <a href="https://fr.Réacjs.org/docs/fragments.html">
               Guides avancés › Fragments
             </a>
           </li>
@@ -832,7 +832,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/mikaoelitiana">@mikaoelitiana</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/shallow-renderer.html">
+        <a href="https://fr.Réacjs.org/docs/shallow-renderer.html">
           Référence de l’API › Moteur de rendu superficiel
         </a>
       </td>
@@ -843,7 +843,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       </td>
       <td></td>
       <td>
-        <a href="https://fr.reactjs.org/docs/strict-mode.html">
+        <a href="https://fr.Réacjs.org/docs/strict-mode.html">
           Guides avancés › Mode strict
         </a>
       </td>
@@ -854,8 +854,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       </td>
       <td></td>
       <td>
-        <a href="https://fr.reactjs.org/docs/hooks-effect.html">
-          Hooks › Utiliser le Hook d’effet
+        <a href="https://fr.Réacjs.org/docs/hooks-effect.html">
+          Crochets › Utiliser le Hook d’effet
         </a>
       </td>
     </tr>
@@ -867,8 +867,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/robincsl">@robincsl</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/hooks-reference.html">
-          Hooks › Référence de l’API des Hooks
+        <a href="https://fr.Réacjs.org/docs/hooks-reference.html">
+          Crochets › Référence de l’API des Crochets
         </a>
       </td>
     </tr>
@@ -882,22 +882,22 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/higher-order-components.html">
+            <a href="https://fr.Réacjs.org/docs/higher-order-composants.html">
               Guides avancés › Composants d’ordre supérieur
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/examples.html">
+            <a href="https://fr.Réacjs.org/community/examples.html">
               Communauté › Ressources › Exemples
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/meetups.html">
+            <a href="https://fr.Réacjs.org/community/meetups.html">
               Communauté › Ressources › Meetups
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/conferences.html">
+            <a href="https://fr.Réacjs.org/community/conferences.html">
               Communauté › Ressources › Conférences
             </a>
           </li>
@@ -912,7 +912,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/r_ricard">@r_ricard</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/test-renderer.html">
+        <a href="https://fr.Réacjs.org/docs/test-renderer.html">
           Référence de l’API › Moteur de rendu de test
         </a>
       </td>
@@ -927,112 +927,112 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/create-a-new-react-app.html">
-              Installation › Créer une nouvelle appli React
+            <a href="https://fr.Réacjs.org/docs/create-a-newreacapp.html">
+              Installation › Créer une nouvelle appli Réac
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/cdn-links.html">
+            <a href="https://fr.Réacjs.org/docs/cdn-links.html">
               Installation › Liens CDN
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/accessibility.html">
+            <a href="https://fr.Réacjs.org/docs/accessibility.html">
               Guides avancés › Accessibilité
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/code-splitting.html">
+            <a href="https://fr.Réacjs.org/docs/code-splitting.html">
               Guides avancés › Découpage dynamique du code
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/error-boundaries.html">
+            <a href="https://fr.Réacjs.org/docs/error-boundaries.html">
               Guides avancés › Périmètres d’erreurs
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/optimizing-performance.html">
+            <a href="https://fr.Réacjs.org/docs/optimizing-performance.html">
               Guides avancés › Optimiser les performances
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/reconciliation.html">
+            <a href="https://fr.Réacjs.org/docs/reconciliation.html">
               Guides avancés › Réconciliation
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/web-components.html">
-              Guides avancés › Web Components
+            <a href="https://fr.Réacjs.org/docs/web-composants.html">
+              Guides avancés › Web Composants
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/events.html">
+            <a href="https://fr.Réacjs.org/docs/events.html">
               Référence de l’API › SyntheticEvent
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/test-utils.html">
+            <a href="https://fr.Réacjs.org/docs/test-utils.html">
               Référence de l’API › Utilitaires de test
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/test-renderer.html">
+            <a href="https://fr.Réacjs.org/docs/test-renderer.html">
               Référence de l’API › Moteur de rendu de test
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/design-principles.html">
+            <a href="https://fr.Réacjs.org/docs/design-principles.html">
               Contribuer › Principe de conception
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/debugging-tools.html">
+            <a href="https://fr.Réacjs.org/community/debugging-tools.html">
               Communauté › Outils › Débogage
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/component-workbenches.html">
+            <a href="https://fr.Réacjs.org/community/Composant-workbenches.html">
               Communauté › Outils › Outils de mise au point
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/jsx-integrations.html">
+            <a href="https://fr.Réacjs.org/community/jsx-integrations.html">
               Communauté › Outils › Intégrations JSX
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/starter-kits.html">
+            <a href="https://fr.Réacjs.org/community/starter-kits.html">
               Communauté › Outils › Kits de démarrage
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/routing.html">
+            <a href="https://fr.Réacjs.org/community/routing.html">
               Communauté › Outils › Routage
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/model-management.html">
+            <a href="https://fr.Réacjs.org/community/model-management.html">
               Communauté › Outils › Gestion de modèles
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/data-fetching.html">
+            <a href="https://fr.Réacjs.org/community/data-fetching.html">
               Communauté › Outils › Chargement de données
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/testing.html">
+            <a href="https://fr.Réacjs.org/community/testing.html">
               Communauté › Outils › Tests
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/ui-components.html">
+            <a href="https://fr.Réacjs.org/community/ui-composants.html">
               Communauté › Outils › Composants UI
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/community/misc.html">
+            <a href="https://fr.Réacjs.org/community/misc.html">
               Communauté › Outils › Divers
             </a>
           </li>
@@ -1047,17 +1047,17 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/add-react-to-a-website.html">
-              Installation › Ajouter React à un site web
+            <a href="https://fr.Réacjs.org/docs/addreacto-a-website.html">
+              Installation › Ajouter Réac à un site web
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/handling-events.html">
+            <a href="https://fr.Réacjs.org/docs/handling-events.html">
               Fondamentaux › Gérer les événements
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/portals.html">
+            <a href="https://fr.Réacjs.org/docs/portals.html">
               Guides avancés › Portails
             </a>
           </li>
@@ -1072,7 +1072,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/salimbenfarhat">@salimbenfarhat</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/faq-versioning.html">
+        <a href="https://fr.Réacjs.org/docs/faq-versioning.html">
           FAQ › Politique de versions
         </a>
       </td>
@@ -1085,8 +1085,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/flightcom">@flightcom</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/hooks-faq.html">
-          Hooks › FAQ des Hooks
+        <a href="https://fr.Réacjs.org/docs/hooks-faq.html">
+          Crochets › FAQ des Crochets
         </a>
       </td>
     </tr>
@@ -1098,8 +1098,8 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/sbentifraouine">@sbentifraouine</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/react-without-es6.html">
-          Guides avancés › React sans ES6
+        <a href="https://fr.Réacjs.org/docs/Réac-without-es6.html">
+          Guides avancés › Réac sans ES6
         </a>
       </td>
     </tr>
@@ -1113,13 +1113,13 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/implementation-notes.html">
+            <a href="https://fr.Réacjs.org/docs/implementation-notes.html">
               Contribuer › Notes d’implémentation
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html">
-              Blog › Les composants, éléments et instances en React
+            <a href="https://fr.Réacjs.org/blog/2015/12/18/Réac-composants-elements-and-instances.html">
+              Blog › Les composants, éléments et instances en Réac
             </a>{' '}
             (en cours)
           </li>
@@ -1134,7 +1134,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/sylvhama">@sylvhama</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/introducing-jsx.html">
+        <a href="https://fr.Réacjs.org/docs/introducing-jsx.html">
           Fondamentaux › Introduction à JSX
         </a>
       </td>
@@ -1149,22 +1149,22 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
       <td>
         <ul>
           <li>
-            <a href="https://fr.reactjs.org/docs/state-and-lifecycle.html">
+            <a href="https://fr.Réacjs.org/docs/state-and-lifecycle.html">
               Fondamentaux › État et cycle de vie
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/lifting-state-up.html">
+            <a href="https://fr.Réacjs.org/docs/lifting-state-up.html">
               Fondamentaux › Faire remonter l’état
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/lists-and-keys.html">
+            <a href="https://fr.Réacjs.org/docs/lists-and-keys.html">
               Fondamentaux › Listes et clés
             </a>
           </li>
           <li>
-            <a href="https://fr.reactjs.org/docs/faq-functions.html">
+            <a href="https://fr.Réacjs.org/docs/faq-functions.html">
               FAQ › Passer des fonctions aux composants
             </a>
           </li>
@@ -1179,7 +1179,7 @@ Voici la liste par ordre alphabétique (prénom, nom). **🙏🏻 Mille mercis �
         <a href="https://twitter.com/thibz">@thibz</a>
       </td>
       <td>
-        <a href="https://fr.reactjs.org/docs/forms.html">
+        <a href="https://fr.Réacjs.org/docs/forms.html">
           Fondamentaux › Formulaires
         </a>
       </td>

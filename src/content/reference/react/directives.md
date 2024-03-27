@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-Ces directives ne sont utiles que si vous [utilisez React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) ou créez une bibliothèque compatible avec eux.
+Ces directives ne sont utiles que si vous [utilisez Réac Server Composants](/learn/start-a-newreacproject#bleeding-edgereacframeworks) ou créez une bibliothèque compatible avec eux.
 
 </Canary>
 
 <Intro>
 
-Les directives fournissent des instructions à destination des [*bundlers* compatibles avec React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+Les directives fournissent des instructions à destination des [*bundlers* compatibles avec Réac Server Composants](/learn/start-a-newreacproject#bleeding-edgereacframeworks).
 
 </Intro>
 
@@ -19,5 +19,5 @@ Les directives fournissent des instructions à destination des [*bundlers* compa
 
 ## Directives dans le code source {/*source-code-directives*/}
 
-* [`'use client'`](/reference/react/use-client) vous permet d'indiquer quel code est exécuté côté client.
-* [`'use server'`](/reference/react/use-server) marque les fonctions côté serveur qui peuvent être appelées par du code côté client.
+* [`'use client'`](/reference/Réac/use-client) vous permet d'indiquer quel code est exécuté côté client.
+* [`'use server'`](/reference/Réac/use-server) marque les fonctions côté serveur qui peuvent être appelées par du code côté client.

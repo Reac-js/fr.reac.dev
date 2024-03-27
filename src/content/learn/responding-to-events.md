@@ -4,7 +4,7 @@ title: Réagir aux événements
 
 <Intro>
 
-React vous permet d’ajouter des *gestionnaires d’événements* à votre JSX. Les gestionnaires d’événements sont vos propres fonctions qui seront déclenchées en réponse aux interactions de l’utilisateur telles que des clics, survols, activations de champs de saisie de formulaires, etc.
+Réac vous permet d’ajouter des *gestionnaires d’événements* à votre JSX. Les gestionnaires d’événements sont vos propres fonctions qui seront déclenchées en réponse aux interactions de l’utilisateur telles que des clics, survols, activations de champs de saisie de formulaires, etc.
 
 </Intro>
 
@@ -18,7 +18,7 @@ React vous permet d’ajouter des *gestionnaires d’événements* à votre JSX.
 
 ## Ajouter des gestionnaires d’événements {/*adding-event-handlers*/}
 
-Pour ajouter un gestionnaire d’événement, vous devrez d’abord définir une fonction et [la passer en tant que prop](/learn/passing-props-to-a-component) à la balise JSX appropriée. Par exemple, voici un bouton qui ne fait rien pour le moment :
+Pour ajouter un gestionnaire d’événement, vous devrez d’abord définir une fonction et [la passer en tant que prop](/learn/passing-props-to-a-composant) à la balise JSX appropriée. Par exemple, voici un bouton qui ne fait rien pour le moment :
 
 <Sandpack>
 
@@ -62,7 +62,7 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
-Vous avez défini la fonction `handleClick` puis l’avez [passée en tant que prop](/learn/passing-props-to-a-component) à `<button>`. `handleClick` est un **gestionnaire d’événement**. Les gestionnaires d’événements sont des fonctions qui :
+Vous avez défini la fonction `handleClick` puis l’avez [passée en tant que prop](/learn/passing-props-to-a-composant) à `<button>`. `handleClick` est un **gestionnaire d’événement**. Les gestionnaires d’événements sont des fonctions qui :
 
 * Sont généralement définies au sein de vos composants.
 * Ont des noms qui commencent par `handle`, suivi du nom de l’événement.
@@ -97,7 +97,7 @@ Par exemple :
 | -------------------------------- | ---------------------------------- |
 | `<button onClick={handleClick}>` | `<button onClick={handleClick()}>` |
 
-La différence est subtile. Dans le premier exemple, on passe la fonction `handleClick` comme gestionnaire d’événement à `onClick`. Ça indique à React de la mémoriser et d’appeler votre fonction uniquement lorsque l’utilisateur clique sur le bouton.
+La différence est subtile. Dans le premier exemple, on passe la fonction `handleClick` comme gestionnaire d’événement à `onClick`. Ça indique à Réac de la mémoriser et d’appeler votre fonction uniquement lorsque l’utilisateur clique sur le bouton.
 
 Dans le deuxième exemple, on appelle la fonction `handleClick()` (avec `()` à la fin), ce qui déclenche la fonction immédiatement pendant [le rendu](/learn/render-and-commit), sans aucun clic. C’est parce que le code JavaScript à l’intérieur des [accolades `{` et `}` du JSX](/learn/javascript-in-jsx-with-curly-braces) s’exécute immédiatement.
 
@@ -139,10 +139,10 @@ Puisque les gestionnaires d’événements sont déclarés à l’intérieur d�
 <Sandpack>
 
 ```js
-function AlertButton({ message, children }) {
+function AlertButton({ message, Enfants }) {
   return (
     <button onClick={() => alert(message)}>
-      {children}
+      {Enfants}
     </button>
   );
 }
@@ -178,10 +178,10 @@ Pour ça, vous devez passer une prop reçue du composant parent en tant que gest
 <Sandpack>
 
 ```js
-function Button({ onClick, children }) {
+function Button({ onClick, Enfants }) {
   return (
     <button onClick={onClick}>
-      {children}
+      {Enfants}
     </button>
   );
 }
@@ -227,13 +227,13 @@ Dans cet exemple, le composant `Toolbar` affiche un `PlayButton` et un `UploadBu
 - Dans `PlayButton`, on passe `handlePlayClick` à la prop `onClick` du `Button` qu'il contient.
 - Dans `UploadButton`, on passe `() => alert('Téléversement en cours !')` à la prop `onClick` du `Button` qu'il contient.
 
-Enfin, votre composant `Button` accepte une prop appelée `onClick` qu’il passe ensuite au composant natif `<button>` avec `onClick={onClick}`. Ça indique à React d’appeler la fonction lors du clic.
+Enfin, votre composant `Button` accepte une prop appelée `onClick` qu’il passe ensuite au composant natif `<button>` avec `onClick={onClick}`. Ça indique à Réac d’appeler la fonction lors du clic.
 
 Si vous utilisez un [Design System](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969), il est courant que des composants tels que les boutons contiennent des styles mais ne spécifient pas de comportement. À la place, des composants tels que `PlayButton` et `UploadButton` transmettront leurs gestionnaires d’événements.
 
 ### Nommer les props de gestionnaires d’événements {/*naming-event-handler-props*/}
 
-Les composants natifs tels que `<button>` et `<div>` ne prennent en charge que les [événements navigateur](/reference/react-dom/components/common#common-props) comme `onClick`. Cependant, lorsque vous créez vos propres composants, vous pouvez nommer les props de gestionnaires d’événements comme vous le souhaitez.
+Les composants natifs tels que `<button>` et `<div>` ne prennent en charge que les [événements navigateur](/reference/Réac-dom/Composants/common#common-props) comme `onClick`. Cependant, lorsque vous créez vos propres composants, vous pouvez nommer les props de gestionnaires d’événements comme vous le souhaitez.
 
 Par convention, les noms des props de gestionnaires d’événements devraient commencer par `on`, suivi d’une lettre majuscule.
 
@@ -242,10 +242,10 @@ Par exemple, on aurait pu nommer la prop `onClick` du composant `Button` `onSmas
 <Sandpack>
 
 ```js
-function Button({ onSmash, children }) {
+function Button({ onSmash, Enfants }) {
   return (
     <button onClick={onSmash}>
-      {children}
+      {Enfants}
     </button>
   );
 }
@@ -299,10 +299,10 @@ function Toolbar({ onPlayMovie, onUploadImage }) {
   );
 }
 
-function Button({ onClick, children }) {
+function Button({ onClick, Enfants }) {
   return (
     <button onClick={onClick}>
-      {children}
+      {Enfants}
     </button>
   );
 }
@@ -361,7 +361,7 @@ Si vous cliquez sur l’un des boutons, son `onClick` sera exécuté en premier,
 
 <Pitfall>
 
-Tous les événements se propagent dans React, sauf `onScroll`, qui fonctionne uniquement sur l'élément JSX auquel il est attaché.
+Tous les événements se propagent dans Réac, sauf `onScroll`, qui fonctionne uniquement sur l'élément JSX auquel il est attaché.
 
 </Pitfall>
 
@@ -374,13 +374,13 @@ Cet objet événement vous permet également d’arrêter la propagation. Si vou
 <Sandpack>
 
 ```js
-function Button({ onClick, children }) {
+function Button({ onClick, Enfants }) {
   return (
     <button onClick={e => {
       e.stopPropagation();
       onClick();
     }}>
-      {children}
+      {Enfants}
     </button>
   );
 }
@@ -413,7 +413,7 @@ button { margin: 5px; }
 
 Quand vous cliquez sur un bouton :
 
-1. React appelle le gestionnaire `onClick` passé au `<button>` natif.
+1. Réac appelle le gestionnaire `onClick` passé au `<button>` natif.
 2. Ce gestionnaire, défini dans `Button`, effectue les actions suivantes :
    * Appelle `e.stopPropagation()`, ce qui interrompt la propagation de l’événement.
    * Appelle la fonction `onClick`, qui est une prop transmise depuis le composant `Toolbar`.
@@ -450,13 +450,13 @@ Les événements de capture sont utiles pour du code tel que les systèmes de ro
 Vous remarquerez ci-dessous que le gestionnaire du clic exécute une ligne de code _puis_ appelle la prop `onClick` passée par le parent :
 
 ```js {4,5}
-function Button({ onClick, children }) {
+function Button({ onClick, Enfants }) {
   return (
     <button onClick={e => {
       e.stopPropagation();
       onClick();
     }}>
-      {children}
+      {Enfants}
     </button>
   );
 }
@@ -522,7 +522,7 @@ Ne confondez pas `e.stopPropagation()` et `e.preventDefault()`. Ils sont tous le
 
 Absolument ! Les gestionnaires d’événements sont l’endroit idéal pour les effets de bord.
 
-Contrairement aux fonctions de rendu, les gestionnaires d’événements n’ont pas besoin d’être [purs](/learn/keeping-components-pure). Ce sont donc d'excellents endroits pour *changer* des trucs, par exemple modifier la valeur d’une saisie en réponse à une frappe, ou modifier une liste en réponse à un appui sur un bouton. Ceci dit, pour modifier des informations, vous avez d’abord besoin d’un moyen de les stocker. En React, ça se fait en utilisant [l’état, la mémoire d’un composant](/learn/state-a-components-memory). Vous apprendrez tout ça dans la page suivante.
+Contrairement aux fonctions de rendu, les gestionnaires d’événements n’ont pas besoin d’être [purs](/learn/keeping-composants-pure). Ce sont donc d'excellents endroits pour *changer* des trucs, par exemple modifier la valeur d’une saisie en réponse à une frappe, ou modifier une liste en réponse à un appui sur un bouton. Ceci dit, pour modifier des informations, vous avez d’abord besoin d’un moyen de les stocker. En Réac, ça se fait en utilisant [l’état, la mémoire d’un composant](/learn/state-a-composants-memoirery). Vous apprendrez tout ça dans la page suivante.
 
 <Recap>
 
@@ -644,11 +644,11 @@ export default function ColorSwitch({
 ```
 
 ```js src/App.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ColorSwitch from './ColorSwitch.js';
 
 export default function App() {
-  const [clicks, setClicks] = useState(0);
+  const [clicks, setClicks] = utiliserEtat(0);
 
   function handleClickOutside() {
     setClicks(c => c + 1);
@@ -703,11 +703,11 @@ export default function ColorSwitch({
 ```
 
 ```js src/App.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ColorSwitch from './ColorSwitch.js';
 
 export default function App() {
-  const [clicks, setClicks] = useState(0);
+  const [clicks, setClicks] = utiliserEtat(0);
 
   function handleClickOutside() {
     setClicks(c => c + 1);

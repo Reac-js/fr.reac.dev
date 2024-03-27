@@ -1,5 +1,5 @@
 {
-  "title": "Apprendre React",
+  "title": "Apprendre Réac",
   "path": "/learn",
   "routes": [
     {
@@ -15,7 +15,7 @@
           "path": "/learn/tutorial-tic-tac-toe"
         },
         {
-          "title": "Penser en React",
+          "title": "Penser en Réac",
           "path": "/learn/thinking-in-react"
         }
       ]
@@ -25,11 +25,11 @@
       "path": "/learn/installation",
       "routes": [
         {
-          "title": "Créer un nouveau projet React",
+          "title": "Créer un nouveau projet Réac",
           "path": "/learn/start-a-new-react-project"
         },
         {
-          "title": "Ajouter React à un projet existant",
+          "title": "Ajouter Réac à un projet existant",
           "path": "/learn/add-react-to-an-existing-project"
         },
         {
@@ -41,7 +41,7 @@
           "path": "/learn/typescript"
         },
         {
-          "title": "Outils de développement React",
+          "title": "Outils de développement Réac",
           "path": "/learn/react-developer-tools"
         }
       ]
@@ -104,7 +104,7 @@
         },
         {
           "title": "L’état : la mémoire d’un composant",
-          "path": "/learn/state-a-components-memory"
+          "path": "/learn/state-a-components-memoirery"
         },
         {
           "title": "Rendu et Commit",
@@ -201,7 +201,7 @@
           "path": "/learn/removing-effect-dependencies"
         },
         {
-          "title": "Réutiliser de la logique grâce aux Hooks personnalisés",
+          "title": "Réutiliser de la logique grâce aux Crochets personnalisés",
           "path": "/learn/reusing-logic-with-custom-hooks"
         }
       ]

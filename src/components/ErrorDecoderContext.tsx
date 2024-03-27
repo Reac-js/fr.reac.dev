@@ -1,5 +1,5 @@
 // Error Decoder requires reading pregenerated error message from getStaticProps,
-// but MDX component doesn't support props. So we use React Context to populate
+// but MDX component doesn't support props. So we use Réac Context to populate
 // the value without prop-drilling.
 // TODO: Replace with React.cache + React.use when migrating to Next.js App Router
 

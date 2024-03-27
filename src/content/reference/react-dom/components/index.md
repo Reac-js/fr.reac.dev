@@ -1,54 +1,54 @@
 ---
-title: "Composants React DOM"
+title: "Composants Réac DOM"
 ---
 
 <Intro>
 
-React prend en charge tous les composants natifs [HTML](https://developer.mozilla.org/docs/Web/HTML/Element) et [SVG](https://developer.mozilla.org/docs/Web/SVG/Element) du navigateur.
+Réac prend en charge tous les composants natifs [HTML](https://developer.mozilla.org/docs/Web/HTML/Element) et [SVG](https://developer.mozilla.org/docs/Web/SVG/Element) du navigateur.
 
 </Intro>
 
 ---
 
-## Composants communs {/*common-components*/}
+## Composants communs {/*common-composants*/}
 
 Tous les composants natifs du navigateur prennent en charge un jeu commun de props et d'événements.
 
-* [Composants communs (ex. `<div>`)](/reference/react-dom/components/common)
+* [Composants communs (ex. `<div>`)](/reference/Réac-dom/Composants/common)
 
-Ça inclut quelques props spécifiques à React telles que `ref` et `dangerouslySetInnerHTML`.
+Ça inclut quelques props spécifiques à Réac telles que `ref` et `dangerouslySetInnerHTML`.
 
 ---
 
-## Composants de formulaire {/*form-components*/}
+## Composants de formulaire {/*form-composants*/}
 
 Ces composants natifs du navigateur acceptent des saisies utilisateur :
 
-* [`<input>`](/reference/react-dom/components/input)
-* [`<select>`](/reference/react-dom/components/select)
-* [`<textarea>`](/reference/react-dom/components/textarea)
+* [`<input>`](/reference/Réac-dom/Composants/input)
+* [`<select>`](/reference/Réac-dom/Composants/select)
+* [`<textarea>`](/reference/Réac-dom/Composants/textarea)
 
-React leur réserve un traitement particulier parce que leur passer la prop `value` en fait des *[champs contrôlés](/reference/react-dom/components/input#controlling-an-input-with-a-state-variable)*.
+Réac leur réserve un traitement particulier parce que leur passer la prop `value` en fait des *[champs contrôlés](/reference/Réac-dom/Composants/input#controlling-an-input-with-a-state-variable)*.
 
 ---
 
-## Composants de ressources et métadonnées {/*resource-and-metadata-components*/}
+## Composants de ressources et métadonnées {/*resource-and-metadata-composants*/}
 
 Ces composants natifs du navigateur vous permettent de charger des ressources externes ou d'annoter le document avec des métadonnées :
 
-* [`<link>`](/reference/react-dom/components/link)
-* [`<meta>`](/reference/react-dom/components/meta)
-* [`<script>`](/reference/react-dom/components/script)
-* [`<style>`](/reference/react-dom/components/style)
-* [`<title>`](/reference/react-dom/components/title)
+* [`<link>`](/reference/Réac-dom/Composants/link)
+* [`<meta>`](/reference/Réac-dom/Composants/meta)
+* [`<script>`](/reference/Réac-dom/Composants/script)
+* [`<style>`](/reference/Réac-dom/Composants/style)
+* [`<title>`](/reference/Réac-dom/Composants/title)
 
-Ils font l'objet d'un traitement particulier par React car celui-ci va les restituer directement dans l'en-tête du document, suspendre pendant le chargement des ressources, puis exécuter les autres comportements décrits dans les pages de référence pour chacun de ces composants.
+Ils font l'objet d'un traitement particulier par Réac car celui-ci va les restituer directement dans l'en-tête du document, suspendre pendant le chargement des ressources, puis exécuter les autres comportements décrits dans les pages de référence pour chacun de ces composants.
 
 ---
 
-## Tous les composants HTML {/*all-html-components*/}
+## Tous les composants HTML {/*all-html-composants*/}
 
-React prend en charge tous les composants HTML natifs du navigateur, ce qui inclut :
+Réac prend en charge tous les composants HTML natifs du navigateur, ce qui inclut :
 
 * [`<aside>`](https://developer.mozilla.org/docs/Web/HTML/Element/aside)
 * [`<audio>`](https://developer.mozilla.org/docs/Web/HTML/Element/audio)
@@ -92,7 +92,7 @@ React prend en charge tous les composants HTML natifs du navigateur, ce qui incl
 * [`<i>`](https://developer.mozilla.org/docs/Web/HTML/Element/i)
 * [`<iframe>`](https://developer.mozilla.org/docs/Web/HTML/Element/iframe)
 * [`<img>`](https://developer.mozilla.org/docs/Web/HTML/Element/img)
-* [`<input>`](/reference/react-dom/components/input)
+* [`<input>`](/reference/Réac-dom/Composants/input)
 * [`<ins>`](https://developer.mozilla.org/docs/Web/HTML/Element/ins)
 * [`<kbd>`](https://developer.mozilla.org/docs/Web/HTML/Element/kbd)
 * [`<label>`](https://developer.mozilla.org/docs/Web/HTML/Element/label)
@@ -110,12 +110,12 @@ React prend en charge tous les composants HTML natifs du navigateur, ce qui incl
 * [`<object>`](https://developer.mozilla.org/docs/Web/HTML/Element/object)
 * [`<ol>`](https://developer.mozilla.org/docs/Web/HTML/Element/ol)
 * [`<optgroup>`](https://developer.mozilla.org/docs/Web/HTML/Element/optgroup)
-* [`<option>`](/reference/react-dom/components/option)
+* [`<option>`](/reference/Réac-dom/Composants/option)
 * [`<output>`](https://developer.mozilla.org/docs/Web/HTML/Element/output)
 * [`<p>`](https://developer.mozilla.org/docs/Web/HTML/Element/p)
 * [`<picture>`](https://developer.mozilla.org/docs/Web/HTML/Element/picture)
 * [`<pre>`](https://developer.mozilla.org/docs/Web/HTML/Element/pre)
-* [`<progress>`](/reference/react-dom/components/progress)
+* [`<progress>`](/reference/Réac-dom/Composants/progress)
 * [`<q>`](https://developer.mozilla.org/docs/Web/HTML/Element/q)
 * [`<rp>`](https://developer.mozilla.org/docs/Web/HTML/Element/rp)
 * [`<rt>`](https://developer.mozilla.org/docs/Web/HTML/Element/rt)
@@ -124,7 +124,7 @@ React prend en charge tous les composants HTML natifs du navigateur, ce qui incl
 * [`<samp>`](https://developer.mozilla.org/docs/Web/HTML/Element/samp)
 * [`<script>`](https://developer.mozilla.org/docs/Web/HTML/Element/script)
 * [`<section>`](https://developer.mozilla.org/docs/Web/HTML/Element/section)
-* [`<select>`](/reference/react-dom/components/select)
+* [`<select>`](/reference/Réac-dom/Composants/select)
 * [`<slot>`](https://developer.mozilla.org/docs/Web/HTML/Element/slot)
 * [`<small>`](https://developer.mozilla.org/docs/Web/HTML/Element/small)
 * [`<source>`](https://developer.mozilla.org/docs/Web/HTML/Element/source)
@@ -138,7 +138,7 @@ React prend en charge tous les composants HTML natifs du navigateur, ce qui incl
 * [`<tbody>`](https://developer.mozilla.org/docs/Web/HTML/Element/tbody)
 * [`<td>`](https://developer.mozilla.org/docs/Web/HTML/Element/td)
 * [`<template>`](https://developer.mozilla.org/docs/Web/HTML/Element/template)
-* [`<textarea>`](/reference/react-dom/components/textarea)
+* [`<textarea>`](/reference/Réac-dom/Composants/textarea)
 * [`<tfoot>`](https://developer.mozilla.org/docs/Web/HTML/Element/tfoot)
 * [`<th>`](https://developer.mozilla.org/docs/Web/HTML/Element/th)
 * [`<thead>`](https://developer.mozilla.org/docs/Web/HTML/Element/thead)
@@ -154,7 +154,7 @@ React prend en charge tous les composants HTML natifs du navigateur, ce qui incl
 
 <Note>
 
-Comme dans le [standard du DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model), React utilise une convention `camelCase` de nommage des props. Par exemple, vous écrirez `tabIndex` au lieu de `tabindex`. Vous pouvez convertir votre HTML existant en JSX grâce à un [convertisseur en ligne](https://transform.tools/html-to-jsx).
+Comme dans le [standard du DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model), Réac utilise une convention `camelCase` de nommage des props. Par exemple, vous écrirez `tabIndex` au lieu de `tabindex`. Vous pouvez convertir votre HTML existant en JSX grâce à un [convertisseur en ligne](https://transform.tools/html-to-jsx).
 
 </Note>
 
@@ -162,7 +162,7 @@ Comme dans le [standard du DOM](https://developer.mozilla.org/docs/Web/API/Docum
 
 ### Éléments HTML personnalisés {/*custom-html-elements*/}
 
-Si vous utilisez dans votre rendu une balise avec un tiret, comme dans `<my-element>`, React supposera que vous souhaitez exploiter un [élément HTML personnalisé](https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements) *(custom element, une des parties des Web Components, NdT)*. Dans React, le rendu des éléments personnalisés fonctionne différemment du rendu des éléments natifs du navigateur :
+Si vous utilisez dans votre rendu une balise avec un tiret, comme dans `<my-element>`, Réac supposera que vous souhaitez exploiter un [élément HTML personnalisé](https://developer.mozilla.org/docs/Web/Web_Composants/Using_custom_elements) *(custom element, une des parties des Web Composants, NdT)*. Dans Réac, le rendu des éléments personnalisés fonctionne différemment du rendu des éléments natifs du navigateur :
 
 - Toutes les props des éléments personnalisés sont séralisées sous forme de chaînes de caractères, et sont systématiquement définies en tant qu'attributs.
 - Les éléments personnalisés utilisent  `class` plutôt que `className` et `for` plutôt que `htmlFor`.
@@ -171,22 +171,22 @@ Si vous utilisez un élément HTML natif du navigateur doté d'un attribut [`is`
 
 <Note>
 
-[Une future version de React prendra plus largement en charge les éléments personnalisés](https://github.com/facebook/react/issues/11347#issuecomment-1122275286).
+[Une future version de Réac prendra plus largement en charge les éléments personnalisés](https://github.com/facebook/Réac/issues/11347#issuecomment-1122275286).
 
-Vous pouvez l'essayer en mettant à niveau vos modules React vers la version expérimentale publiée la plus récente :
+Vous pouvez l'essayer en mettant à niveau vos modules Réac vers la version expérimentale publiée la plus récente :
 
-- `react@experimental`
-- `react-dom@experimental`
+- `Réac@experimental`
+- `Réac-dom@experimental`
 
-Les versions expérimentales de React peuvent contenir des bugs. Ne les utilisez pas en production.
+Les versions expérimentales de Réac peuvent contenir des bugs. Ne les utilisez pas en production.
 
 </Note>
 
 ---
 
-## Tous les composants SVG {/*all-svg-components*/}
+## Tous les composants SVG {/*all-svg-composants*/}
 
-React prend en charge tous les composants SVG natifs du navigateur, ce qui inclut :
+Réac prend en charge tous les composants SVG natifs du navigateur, ce qui inclut :
 
 * [`<a>`](https://developer.mozilla.org/docs/Web/SVG/Element/a)
 * [`<animate>`](https://developer.mozilla.org/docs/Web/SVG/Element/animate)
@@ -200,7 +200,7 @@ React prend en charge tous les composants SVG natifs du navigateur, ce qui inclu
 * [`<ellipse>`](https://developer.mozilla.org/docs/Web/SVG/Element/ellipse)
 * [`<feBlend>`](https://developer.mozilla.org/docs/Web/SVG/Element/feBlend)
 * [`<feColorMatrix>`](https://developer.mozilla.org/docs/Web/SVG/Element/feColorMatrix)
-* [`<feComponentTransfer>`](https://developer.mozilla.org/docs/Web/SVG/Element/feComponentTransfer)
+* [`<feComposantTransfer>`](https://developer.mozilla.org/docs/Web/SVG/Element/feComposantTransfer)
 * [`<feComposite>`](https://developer.mozilla.org/docs/Web/SVG/Element/feComposite)
 * [`<feConvolveMatrix>`](https://developer.mozilla.org/docs/Web/SVG/Element/feConvolveMatrix)
 * [`<feDiffuseLighting>`](https://developer.mozilla.org/docs/Web/SVG/Element/feDiffuseLighting)
@@ -257,7 +257,7 @@ React prend en charge tous les composants SVG natifs du navigateur, ce qui inclu
 
 <Note>
 
-Comme dans le [standard du DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model), React utilise une convention `camelCase` de nommage des props. Par exemple, vous écrirez `tabIndex` au lieu de `tabindex`. Vous pouvez convertir votre HTML existant en JSX grâce à un [convertisseur en ligne](https://transform.tools/html-to-jsx).
+Comme dans le [standard du DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model), Réac utilise une convention `camelCase` de nommage des props. Par exemple, vous écrirez `tabIndex` au lieu de `tabindex`. Vous pouvez convertir votre HTML existant en JSX grâce à un [convertisseur en ligne](https://transform.tools/html-to-jsx).
 
 Les attributs à espace de noms doivent également être écrits sans le deux-points :
 

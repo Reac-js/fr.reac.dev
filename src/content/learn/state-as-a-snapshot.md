@@ -19,18 +19,18 @@ Vous trouvez peut-être que les variables d'état ressemblent à des variables J
 
 ## Modifier l'état déclenche un rendu {/*setting-state-triggers-renders*/}
 
-Vous pourriez croire que l'interface utilisateur (UI) évolue en réaction directe à des événements utilisateurs tels qu'un clic. Dans React, les choses sont un peu différentes de ce modèle mental.  Dans la page précédente, nous avons vu que [modifier l'état demande un nouveau rendu](/learn/render-and-commit#step-1-trigger-a-render) à React. Ça signifie que pour que l'interface réagisse à l'événement, vous devez *mettre à jour l'état*.
+Vous pourriez croire que l'interface utilisateur (UI) évolue en réaction directe à des événements utilisateurs tels qu'un clic. Dans Réac, les choses sont un peu différentes de ce modèle mental.  Dans la page précédente, nous avons vu que [modifier l'état demande un nouveau rendu](/learn/render-and-commit#step-1-trigger-a-render) à Réac. Ça signifie que pour que l'interface réagisse à l'événement, vous devez *mettre à jour l'état*.
 
-Dans cet exemple, lorsque vous appuyez sur « Envoyer », `setIsSent(true)` demande à React de refaire un rendu de l'UI :
+Dans cet exemple, lorsque vous appuyez sur « Envoyer », `setIsSent(true)` demande à Réac de refaire un rendu de l'UI :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [isSent, setIsSent] = useState(false);
-  const [message, setMessage] = useState('Salut !');
+  const [isSent, setIsSent] = utiliserEtat(false);
+  const [message, setMessage] = utiliserEtat('Salut !');
   if (isSent) {
     return <h1>Votre message est en route !</h1>
   }
@@ -65,34 +65,34 @@ Voici ce qui se passe lorsque vous cliquez sur le bouton :
 
 1. Le gestionnaire d'événement `onSubmit` est appelé.
 2. `setIsSent(true)` définit `isSent` à `true` et planifie un nouveau rendu.
-3. React refait le rendu du composant conformément à la nouvelle valeur de `isSent`.
+3. Réac refait le rendu du composant conformément à la nouvelle valeur de `isSent`.
 
 Examinons de plus près la relation entre l'état et le rendu.
 
 ## Le rendu prend une photo instantanée {/*rendering-takes-a-snapshot-in-time*/}
 
-[« Faire le rendu »](/learn/render-and-commit#step-2-react-renders-your-components) signifie que React appelle votre composant, qui est une fonction. Le JSX que cette fonction renvoie est comme une photo instantanée de l'UI à ce moment précis.  Ses props, ses gestionnaires d'événements et ses variables locales ont tous été calculés **en utilisant l'état au moment du rendu**.
+[« Faire le rendu »](/learn/render-and-commit#step-2reacrenders-your-composants) signifie que Réac appelle votre composant, qui est une fonction. Le JSX que cette fonction renvoie est comme une photo instantanée de l'UI à ce moment précis.  Ses props, ses gestionnaires d'événements et ses variables locales ont tous été calculés **en utilisant l'état au moment du rendu**.
 
-Contrairement à une photo ou une image de film, « l'instantané » de l'UI que vous renvoyez est interactif. Il comprend des éléments de logique tels que les gestionnaires d'événements qui décrivent ce qui doit arriver suite à des interactions. React met à jour l'écran pour refléter cet instantané et le connecte aux gestionnaires d'événements.  Résultat, cliquer sur le bouton déclenchera le gestionnaire de clic défini dans votre JSX.
+Contrairement à une photo ou une image de film, « l'instantané » de l'UI que vous renvoyez est interactif. Il comprend des éléments de logique tels que les gestionnaires d'événements qui décrivent ce qui doit arriver suite à des interactions. Réac met à jour l'écran pour refléter cet instantané et le connecte aux gestionnaires d'événements.  Résultat, cliquer sur le bouton déclenchera le gestionnaire de clic défini dans votre JSX.
 
-Lorsque React refait le rendu d'un composant :
+Lorsque Réac refait le rendu d'un composant :
 
-1. React rappelle votre fonction.
+1. Réac rappelle votre fonction.
 2. Votre fonction renvoie un nouvel instantané JSX.
-3. React met alors à jour l'écran pour refléter l'instantané que votre fonction vient de renvoyer.
+3. Réac met alors à jour l'écran pour refléter l'instantané que votre fonction vient de renvoyer.
 
 <IllustrationBlock sequential>
-    <Illustration caption="React appelle la fonction" src="/images/docs/illustrations/i_render1.png" />
+    <Illustration caption="Réac appelle la fonction" src="/images/docs/illustrations/i_render1.png" />
     <Illustration caption="Vous calculez l’instantané" src="/images/docs/illustrations/i_render2.png" />
     <Illustration caption="L’arborescence du DOM est mise à jour" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
-Dans son rôle de mémoire du composant, l'état n'est pas comme une variable classique qui disparaît après que votre fonction a renvoyé son résultat. En réalité, l'état « vit » dans React lui-même — un peu comme sur une étagère ! — hors de votre fonction. Lorsque React appelle votre composant, il lui fournit un instantané de l'état pour ce rendu spécifique. Votre composant renvoie un instantané de l'UI avec un jeu tout frais de props et de gestionnaires d'événements dans son JSX, tous calculés **en utilisant les valeurs de l'état pour ce rendu** !
+Dans son rôle de mémoire du composant, l'état n'est pas comme une variable classique qui disparaît après que votre fonction a renvoyé son résultat. En réalité, l'état « vit » dans Réac lui-même — un peu comme sur une étagère ! — hors de votre fonction. Lorsque Réac appelle votre composant, il lui fournit un instantané de l'état pour ce rendu spécifique. Votre composant renvoie un instantané de l'UI avec un jeu tout frais de props et de gestionnaires d'événements dans son JSX, tous calculés **en utilisant les valeurs de l'état pour ce rendu** !
 
 <IllustrationBlock sequential>
-  <Illustration caption="Vous demandez à React de mettre à jour l’état" src="/images/docs/illustrations/i_state-snapshot1.png" />
-  <Illustration caption="React met à jour la valeur de l’état" src="/images/docs/illustrations/i_state-snapshot2.png" />
-  <Illustration caption="React passe un instantané de la valeur de l’état à votre composant" src="/images/docs/illustrations/i_state-snapshot3.png" />
+  <Illustration caption="Vous demandez à Réac de mettre à jour l’état" src="/images/docs/illustrations/i_state-snapshot1.png" />
+  <Illustration caption="Réac met à jour la valeur de l’état" src="/images/docs/illustrations/i_state-snapshot2.png" />
+  <Illustration caption="Réac passe un instantané de la valeur de l’état à votre composant" src="/images/docs/illustrations/i_state-snapshot3.png" />
 </IllustrationBlock>
 
 Voici une petite expérience pour vous montrer comment ça fonctionne. Dans cet exemple, vous vous attendez peut-être à ce que cliquer sur le bouton « +3 » incrémente le compteur trois fois parce qu'il appelle `setNumber(number + 1)` trois fois.
@@ -102,10 +102,10 @@ Voyez ce qui se passe lorsque vous cliquez sur le bouton « +3 » :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = utiliserEtat(0);
 
   return (
     <>
@@ -139,16 +139,16 @@ Notez que `number` n'est incrémenté qu'une fois par clic !
 }}>+3</button>
 ```
 
-Voici ce que le gestionnaire de clic de ce bouton dit à React de faire :
+Voici ce que le gestionnaire de clic de ce bouton dit à Réac de faire :
 
 1. `setNumber(number + 1)` : `number` est à `0` donc `setNumber(0 + 1)`.
-    - React se prépare à modifier `number` à `1` pour le prochain rendu.
+    - Réac se prépare à modifier `number` à `1` pour le prochain rendu.
 2. `setNumber(number + 1)` : `number` est à `0` donc `setNumber(0 + 1)`.
-    - React se prépare à modifier `number` à `1` pour le prochain rendu.
+    - Réac se prépare à modifier `number` à `1` pour le prochain rendu.
 3. `setNumber(number + 1)` : `number` est à `0` donc `setNumber(0 + 1)`.
-    - React se prépare à modifier `number` à `1` pour le prochain rendu.
+    - Réac se prépare à modifier `number` à `1` pour le prochain rendu.
 
-Même si vous appelez `setNumber(number + 1)` trois fois, dans le gestionnaire d'événement *de ce rendu* `number` est toujours à `0`, de sorte que vous le définissez à `1` trois fois. C'est pourquoi, après que le gestionnaire d'événement a terminé, React refait le rendu du composant avec `number` égal à `1` plutôt qu'à `3`.
+Même si vous appelez `setNumber(number + 1)` trois fois, dans le gestionnaire d'événement *de ce rendu* `number` est toujours à `0`, de sorte que vous le définissez à `1` trois fois. C'est pourquoi, après que le gestionnaire d'événement a terminé, Réac refait le rendu du composant avec `number` égal à `1` plutôt qu'à `3`.
 
 Vous pouvez visualiser ça mentalement en substituant les variables d'état par leurs valeurs dans votre code.  Puisque la variable d'état `number` est à `0` *pour ce rendu*, son gestionnaire d'événement a l'aspect suivant :
 
@@ -179,10 +179,10 @@ Eh bien, c'était amusant.  Essayez de deviner ce qui s'affichera en cliquant su
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = utiliserEtat(0);
 
   return (
     <>
@@ -215,10 +215,10 @@ Mais si vous mettiez un timer sur l'alerte, de sorte qu'elle ne se déclenche _q
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = utiliserEtat(0);
 
   return (
     <>
@@ -250,9 +250,9 @@ setTimeout(() => {
 }, 3000);
 ```
 
-L'état stocké dans React a peut-être changé lorsque l'alerte finit par être exécutée, mais elle était planifiée en utilisant un instantané de l'état au moment de l'interaction utilisateur !
+L'état stocké dans Réac a peut-être changé lorsque l'alerte finit par être exécutée, mais elle était planifiée en utilisant un instantané de l'état au moment de l'interaction utilisateur !
 
-**La valeur d'une variable d'état ne change jamais au sein d'un rendu**, même si le code du gestionnaire d'événement est asynchrone. Au sein du `onClick` *de ce rendu*, la valeur de `number` continue à être à `0` même après que `setNumber(number + 5)` a été appelée. Sa valeur est « figée » lorsque React « prend une photo » de l'UI en appelant votre composant.
+**La valeur d'une variable d'état ne change jamais au sein d'un rendu**, même si le code du gestionnaire d'événement est asynchrone. Au sein du `onClick` *de ce rendu*, la valeur de `number` continue à être à `0` même après que `setNumber(number + 5)` a été appelée. Sa valeur est « figée » lorsque Réac « prend une photo » de l'UI en appelant votre composant.
 
 Voici un exemple qui illustre en quoi ça réduit le potentiel d'erreur de chronologie dans vos gestionnaires d'événements.  Vous trouverez ci-dessous un formulaire qui envoie un message avec un retard de cinq secondes. Imaginez le scénario suivant :
 
@@ -264,11 +264,11 @@ Voici un exemple qui illustre en quoi ça réduit le potentiel d'erreur de chron
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [to, setTo] = useState('Alice');
-  const [message, setMessage] = useState('Bonjour');
+  const [to, setTo] = utiliserEtat('Alice');
+  const [message, setMessage] = utiliserEtat('Bonjour');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -305,17 +305,17 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-**React conserve les valeurs d'état « figées » au sein des gestionnaires d'événements d'un rendu.**  Vous n'avez pas à vous soucier des éventuelles modifications ultérieures de l'état lorsque votre code s'exécute.
+**Réac conserve les valeurs d'état « figées » au sein des gestionnaires d'événements d'un rendu.**  Vous n'avez pas à vous soucier des éventuelles modifications ultérieures de l'état lorsque votre code s'exécute.
 
 Et si vous souhaitiez plutôt lire la dernière valeur à jour d'un état avant de refaire un rendu ? Vous voudrez pour cela utiliser une [fonction de mise à jour d'état](/learn/queueing-a-series-of-state-updates), que nous découvrirons dans la prochaine page !
 
 <Recap>
 
 * Modifier l'état demande un nouveau rendu.
-* React stocke l'état hors de votre composant, comme sur une étagère.
-* Lorsque vous appelez `useState`, React vous donne une photo instantanée de l'état *pour ce rendu*.
+* Réac stocke l'état hors de votre composant, comme sur une étagère.
+* Lorsque vous appelez `utiliserEtat`, Réac vous donne une photo instantanée de l'état *pour ce rendu*.
 * Les variables et gestionnaires d'événements ne « survivent » pas d'un rendu à l'autre.  Chaque rendu a ses propres gestionnaires d'événements.
-* Chaque rendu (et les fonctions qu'il contient) « verra » toujours l'instantané de l'état que React a fourni à *ce rendu spécifique*.
+* Chaque rendu (et les fonctions qu'il contient) « verra » toujours l'instantané de l'état que Réac a fourni à *ce rendu spécifique*.
 * Vous pouvez mentalement substituer l'état dans les gestionnaires d'événements, comme lorsque vous pensez au JSX produit par le rendu.
 * Les gestionnaires d'événements créés par le passé continuent à voir les valeurs d'état spécifiques au rendu qui les a créés.
 
@@ -332,10 +332,10 @@ Voici un composant de signal de passage piéton qui bascule lorsqu'on appuie sur
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TrafficLight() {
-  const [walk, setWalk] = useState(true);
+  const [walk, setWalk] = utiliserEtat(true);
 
   function handleClick() {
     setWalk(!walk);
@@ -373,10 +373,10 @@ Votre `alert` devrait ressembler à ceci :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TrafficLight() {
-  const [walk, setWalk] = useState(true);
+  const [walk, setWalk] = utiliserEtat(true);
 
   function handleClick() {
     setWalk(!walk);

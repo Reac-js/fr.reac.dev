@@ -30,7 +30,7 @@ Pour afficher un indicateur de progression, utilisez le [composant natif`<progre
 
 #### Props {/*props*/}
 
-`<progress>` prend en charge toutes les [props communes aux éléments](/reference/react-dom/components/common#props).
+`<progress>` prend en charge toutes les [props communes aux éléments](/reference/Réac-dom/Composants/common#props).
 
 En complément, `<progress>` prend en charge les props suivantes :
 

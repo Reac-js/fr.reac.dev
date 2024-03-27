@@ -4,13 +4,13 @@ title: Écrire du balisage avec JSX
 
 <Intro>
 
-*JSX* est une extension de syntaxe pour JavaScript qui vous permet d'écrire du balisage similaire au HTML au sein d'un fichier JavaScript.  Même s'il existe d'autres façons d'écrire des composants, la plupart des personnes qui développent avec React préfèrent la concision de JSX, et la quasi totalité des bases de code s'en servent.
+*JSX* est une extension de syntaxe pour JavaScript qui vous permet d'écrire du balisage similaire au HTML au sein d'un fichier JavaScript.  Même s'il existe d'autres façons d'écrire des composants, la plupart des personnes qui développent avec Réac préfèrent la concision de JSX, et la quasi totalité des bases de code s'en servent.
 
 </Intro>
 
 <YouWillLearn>
 
-* Pourquoi React mélange le balisage et la logique de rendu
+* Pourquoi Réac mélange le balisage et la logique de rendu
 * En quoi JSX diffère de HTML
 * Comment afficher des informations avec JSX
 
@@ -36,19 +36,19 @@ JavaScript
 
 </DiagramGroup>
 
-Mais alors que le Web devenait chaque jour plus interactif, la logique déterminait de plus en plus le contenu. JavaScript devenait responsable du HTML !  C'est pourquoi **en React, la logique de rendu et le balisage vivent ensemble au même endroit : les composants**.
+Mais alors que le Web devenait chaque jour plus interactif, la logique déterminait de plus en plus le contenu. JavaScript devenait responsable du HTML !  C'est pourquoi **en Réac, la logique de rendu et le balisage vivent ensemble au même endroit : les composants**.
 
 <DiagramGroup>
 
-<Diagram name="writing_jsx_sidebar" height={330} width={325} alt="Un composant React avec du HTML et du JavaScript mélangeant les exemples précédents.  La nom de la fonction est Sidebar, qui appelle la fonction isLoggedIn, mise en exergue en jaune.  Au sein de la fonction, mis en exergue en mauve, on trouve la balise p déjà rencontrée, et une balise Form qui référence le composant du prochain diagramme.">
+<Diagram name="writing_jsx_sidebar" height={330} width={325} alt="Un composant Réac avec du HTML et du JavaScript mélangeant les exemples précédents.  La nom de la fonction est Sidebar, qui appelle la fonction isLoggedIn, mise en exergue en jaune.  Au sein de la fonction, mis en exergue en mauve, on trouve la balise p déjà rencontrée, et une balise Form qui référence le composant du prochain diagramme.">
 
-Composant React `Sidebar.js`
+Composant Réac `Sidebar.js`
 
 </Diagram>
 
-<Diagram name="writing_jsx_form" height={330} width={325} alt="Un composant React avec du HTML et du JavaScript mélangeant les exemples précédents. Le nom de la fonction est Form, qui contient deux gestionnaires onClick et onSubmit mis en exergue en jaune.  Ils sont suivis par du HTML, mis en exergue en mauve.  Le HTML contient un élément form doté d'une prop onSubmit avec deux éléments input à l'intérieur, chacun doté d'une prop onClick.">
+<Diagram name="writing_jsx_form" height={330} width={325} alt="Un composant Réac avec du HTML et du JavaScript mélangeant les exemples précédents. Le nom de la fonction est Form, qui contient deux gestionnaires onClick et onSubmit mis en exergue en jaune.  Ils sont suivis par du HTML, mis en exergue en mauve.  Le HTML contient un élément form doté d'une prop onSubmit avec deux éléments input à l'intérieur, chacun doté d'une prop onClick.">
 
-Composant React `Form.js`
+Composant Réac `Form.js`
 
 </Diagram>
 
@@ -56,11 +56,11 @@ Composant React `Form.js`
 
 Conserver ensemble la logique de rendu d'un bouton et son balisage permet de s'assurer que les deux restent synchronisés à chaque évolution.  Inversement, les détails qui n'ont pas de rapport, comme le balisage du bouton vis-à-vis du balisage de la barre latérale, sont isolés les uns des autres, ce qui évite de modifier l'un par erreur en modifiant l'autre.
 
-Chaque composant React est une fonction JavaScript qui peut contenir du balisage que React affichera à terme dans le navigateur.  Les composants React utilisent une extension de syntaxe appelée JSX qui représente ce balisage.  JSX ressemble beaucoup à HTML, mais il est un peu plus strict et peut afficher des informations dynamiques.  La meilleure façon de comprendre ça consiste à convertir du balisage HTML en balisage JSX.
+Chaque composant Réac est une fonction JavaScript qui peut contenir du balisage que Réac affichera à terme dans le navigateur.  Les composants Réac utilisent une extension de syntaxe appelée JSX qui représente ce balisage.  JSX ressemble beaucoup à HTML, mais il est un peu plus strict et peut afficher des informations dynamiques.  La meilleure façon de comprendre ça consiste à convertir du balisage HTML en balisage JSX.
 
 <Note>
 
-JSX et React sont techniquement séparés. On les utilise souvent ensemble, mais *il est possible* de [les utiliser indépendamment](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform) l'un de l'autre.  JSX est une extension de syntaxe, alors que React est une bibliothèque JavaScript.
+JSX et Réac sont techniquement séparés. On les utilise souvent ensemble, mais *il est possible* de [les utiliser indépendamment](https://Réacjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#whats-a-jsx-transform) l'un de l'autre.  JSX est une extension de syntaxe, alors que Réac est une bibliothèque JavaScript.
 
 </Note>
 
@@ -126,7 +126,7 @@ C'est parce que JSX est plus strict et a davantages de règles que HTML ! Si vo
 
 <Note>
 
-La plupart du temps, les messages d'erreur de React à l'écran vous aideront à trouver l'origine du problème. Prenez la peine de les lire !
+La plupart du temps, les messages d'erreur de Réac à l'écran vous aideront à trouver l'origine du problème. Prenez la peine de les lire !
 
 </Note>
 
@@ -168,7 +168,7 @@ Si vous ne voulez pas ajouter une `<div>` superflue à votre balisage, vous pouv
 </>
 ```
 
-Cette balise vide est ce qu'on appelle un *[Fragment](/reference/react/Fragment)*.  Les Fragments vous permettent de grouper des éléments sans laisser de trace dans l'arbre HTML du navigateur.
+Cette balise vide est ce qu'on appelle un *[Fragment](/reference/Réac/Fragment)*.  Les Fragments vous permettent de grouper des éléments sans laisser de trace dans l'arbre HTML du navigateur.
 
 <DeepDive>
 
@@ -203,7 +203,7 @@ Voici à quoi ressemblent l'image et les tâches de Hedy Lamarr une fois correct
 
 JSX produit à terme du JavaScript, et les attributs en JSX deviennent des noms de propriétés d'objets JavaScript. Dans vos propres composants vous voudrez souvent lire ces attributs dans des variables. Mais JavaScript limite la syntaxe des noms de variables. Par exemple, ils ne peuvent pas contenir des tirets ou être des mots réservés tels que `class`.
 
-C'est pourquoi, en React, de nombreux attributs HTML et SVG sont écrits en casse Camel *(camelCase, NdT)*.  Par exemple, au lieu de `stroke-width` vous écrirez `strokeWidth`.  Puisque `class` est un mot réservé, en React vous écrirez plutôt `className`, nommé d'après la [propriété DOM correspondante](https://developer.mozilla.org/docs/Web/API/Element/className) :
+C'est pourquoi, en Réac, de nombreux attributs HTML et SVG sont écrits en casse Camel *(camelCase, NdT)*.  Par exemple, au lieu de `stroke-width` vous écrirez `strokeWidth`.  Puisque `class` est un mot réservé, en Réac vous écrirez plutôt `className`, nommé d'après la [propriété DOM correspondante](https://developer.mozilla.org/docs/Web/API/Element/className) :
 
 ```js {4}
 <img
@@ -213,7 +213,7 @@ C'est pourquoi, en React, de nombreux attributs HTML et SVG sont écrits en cass
 />
 ```
 
-Vous pouvez [consulter tous les attributs dans la liste des props de composants DOM](/reference/react-dom/components/common). Si vous vous trompez sur l'un d'eux, ne vous inquiétez pas : React vous affichera un message avec une suggestion de correction dans la [console du navigateur](https://developer.mozilla.org/docs/Tools/Browser_Console) *(lien en anglais, NdT)*.
+Vous pouvez [consulter tous les attributs dans la liste des props de composants DOM](/reference/Réac-dom/Composants/common). Si vous vous trompez sur l'un d'eux, ne vous inquiétez pas : Réac vous affichera un message avec une suggestion de correction dans la [console du navigateur](https://developer.mozilla.org/docs/Tools/Browser_Console) *(lien en anglais, NdT)*.
 
 <Pitfall>
 
@@ -259,7 +259,7 @@ img { height: 90px }
 
 Vous savez désormais pourquoi JSX existe et comment l'utiliser dans les composants :
 
-* Les composants React regroupent la logique de rendu et le balisage parce qu'ils ont un lien étroit.
+* Les composants Réac regroupent la logique de rendu et le balisage parce qu'ils ont un lien étroit.
 * JSX est similaire à HTML, mais avec quelques différences. Vous pouvez utiliser un [convertisseur](https://transform.tools/html-to-jsx) si besoin.
 * Les messages d'erreur vous indiqueront souvent quoi faire pour corriger votre balisage.
 

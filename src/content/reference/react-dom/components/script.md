@@ -5,7 +5,7 @@ canary: true
 
 <Canary>
 
-Les extensions de React à `<script>` ne sont actuellement disponibles que sur les canaux de livraison Canary et Expérimental de React. Dans les versions stables de React, `<script>` fonctionne comme [le composant HTML natif du navigateur](/reference/react-dom/components#all-html-components). Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+Les extensions de Réac à `<script>` ne sont actuellement disponibles que sur les canaux de livraison Canary et Expérimental de Réac. Dans les versions stables de Réac, `<script>` fonctionne comme [le composant HTML natif du navigateur](/reference/Réac-dom/Composants#all-html-composants). Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
@@ -27,7 +27,7 @@ Le [composant natif `<script>` du navigateur](https://developer.mozilla.org/fr/d
 
 ### `<script>` {/*script*/}
 
-Pour ajouter un script défini à la volée ou extérieur à votre document, utilisez le [composant natif `<script>` du navigateur](https://developer.mozilla.org/fr/docs/Web/HTML/Element/script). Vous pouvez utiliser `<script>` depuis n'importe quel composant et React placera [dans certains cas](#special-rendering-behavior) l'élément DOM correspondant dans l'en-tête (`head`) du document et dédoublonnera les scripts identiques.
+Pour ajouter un script défini à la volée ou extérieur à votre document, utilisez le [composant natif `<script>` du navigateur](https://developer.mozilla.org/fr/docs/Web/HTML/Element/script). Vous pouvez utiliser `<script>` depuis n'importe quel composant et Réac placera [dans certains cas](#special-rendering-behavior) l'élément DOM correspondant dans l'en-tête (`head`) du document et dédoublonnera les scripts identiques.
 
 ```js
 <script> alert("salut !") </script>
@@ -38,11 +38,11 @@ Pour ajouter un script défini à la volée ou extérieur à votre document, uti
 
 #### Props {/*props*/}
 
-`<script>` prend en charge toutes les [props communes aux éléments](/reference/react-dom/components/common#props).
+`<script>` prend en charge toutes les [props communes aux éléments](/reference/Réac-dom/Composants/common#props).
 
 Il est censé utiliser *l'une ou l'autre* des props `chilren` ou `src`.
 
-* `children` : une chaîne de caractères. Le code source du script défini à la volée.
+* `Enfants` : une chaîne de caractères. Le code source du script défini à la volée.
 * `src` : une chaîne de caractères. L'URL d'un script extérieur.
 
 L'élément prend en charge d'autres props :
@@ -56,28 +56,28 @@ L'élément prend en charge d'autres props :
 * `referrer` : une chaîne de caractères. Indique [l'en-tête Referer à envoyer](https://developer.mozilla.org/docs/Web/HTML/Element/script#referrerpolicy) lors du chargement du script et de toutes ressources que le script chargerait à son tour.
 * `type` : une chaîne de caractères. Indique si le script est un [script classique, un module ES ou une *import map*](https://developer.mozilla.org/fr/docs/Web/HTML/Element/script/type).
 
-Ces props désactivement le [traitement spécial des scripts](#special-rendering-behavior) de React :
+Ces props désactivement le [traitement spécial des scripts](#special-rendering-behavior) de Réac :
 
 * `onError` : une fonction. Appelée lorsque le chargement du script échoue.
 * `onLoad` : une fonction. Appelée lorsque le chargement du script est terminé.
 
-Ces props sont **déconseillées** pour une utilisation avec React :
+Ces props sont **déconseillées** pour une utilisation avec Réac :
 
-* `blocking` : une chaîne de caractères. Si elle vaut `"render"`, le navigateur attendra pour afficher la page que le script ait fini son chargement.  React permet un contrôle plus granulaire grâce à Suspense.
+* `blocking` : une chaîne de caractères. Si elle vaut `"render"`, le navigateur attendra pour afficher la page que le script ait fini son chargement.  Réac permet un contrôle plus granulaire grâce à suspendre.
 * `defer` : une chaîne de caractères. Empêche le navigateur d'exécuter le script tant que le chargement du document n'est pas terminé.  Ce fonctionnement est incompatible avec le streaming de Composants Serveur : préférez la prop `async`.
 
 #### Comportement spécifique de rendu {/*special-rendering-behavior*/}
 
-React peut déplacer les composants `<script>` dans le `<head>` du document, dédoublonner les scripts identiques et [suspendre](/reference/react/Suspense) pendant le chargement d'un script.
+Réac peut déplacer les composants `<script>` dans le `<head>` du document, dédoublonner les scripts identiques et [suspendre](/reference/Réac/suspendre) pendant le chargement d'un script.
 
-Pour activer ces comportements, fournissez les props `src` et `async={true}`.  React dédoublonnera les scripts qui ont le même `src`.  La prop `async` doit être active pour permettre aux scripts d'être déplacés sans risque.
+Pour activer ces comportements, fournissez les props `src` et `async={true}`.  Réac dédoublonnera les scripts qui ont le même `src`.  La prop `async` doit être active pour permettre aux scripts d'être déplacés sans risque.
 
-Si vous fournissez au moins une des props `onLoad` ou `onError`, aucun comportement spécifique n'est mis en place puisque vous gérez manuellement le chargement du script au sein de votre composant React.
+Si vous fournissez au moins une des props `onLoad` ou `onError`, aucun comportement spécifique n'est mis en place puisque vous gérez manuellement le chargement du script au sein de votre composant Réac.
 
 Pour finir, ce comportement a deux limitations :
 
-* React ignorera les changements à ces props après le rendu du script. (React produira un avertissement en développement si ce cas survient.)
-* React est susceptible de laisser le script dans le DOM même après le démontage du composant qui l'a produit. (Ça n'a toutefois aucun impact dans la mesure où les scripts ne sont exécutés qu'une fois : au moment de leur insertion dans le DOM.)
+* Réac ignorera les changements à ces props après le rendu du script. (Réac produira un avertissement en développement si ce cas survient.)
+* Réac est susceptible de laisser le script dans le DOM même après le démontage du composant qui l'a produit. (Ça n'a toutefois aucun impact dans la mesure où les scripts ne sont exécutés qu'une fois : au moment de leur insertion dans le DOM.)
 
 ---
 
@@ -87,7 +87,7 @@ Pour finir, ce comportement a deux limitations :
 
 Si un composant dépend de certains scripts pour pouvoir fonctionner correctement, vous pouvez utiliser `<script>` au sein de ce composant.
 
-Si vous fournissez les props `src` et `async`,  votre composant suspendra le temps du chargement du script.  React dédoublonnera les scripts ayant le même `src`, et n'insèrera que l'un d'entre eux dans le DOM même si plusieurs composants utilisent ce script.
+Si vous fournissez les props `src` et `async`,  votre composant suspendra le temps du chargement du script.  Réac dédoublonnera les scripts ayant le même `src`, et n'insèrera que l'un d'entre eux dans le DOM même si plusieurs composants utilisent ce script.
 
 <SandpackWithHTMLOutput>
 
@@ -116,7 +116,7 @@ export default function Page() {
 
 <Note>
 
-Lorsque vous souhaitez utiliser un script, il peut être avantageux d'appeler la fonction [`preinit`](/reference/react-dom/preinit). Un tel appel suggère au navigateur de commencer à charger le script plus tôt que lorsque vous vous contentez d'utiliser le composant `<script>`, par exemple en utilisant une [réponse HTTP Early Hints](https://developer.mozilla.org/docs/Web/HTTP/Status/103).
+Lorsque vous souhaitez utiliser un script, il peut être avantageux d'appeler la fonction [`preinit`](/reference/Réac-dom/preinit). Un tel appel suggère au navigateur de commencer à charger le script plus tôt que lorsque vous vous contentez d'utiliser le composant `<script>`, par exemple en utilisant une [réponse HTTP Early Hints](https://developer.mozilla.org/docs/Web/HTTP/Status/103).
 
 </Note>
 

@@ -49,7 +49,7 @@ const nextConfig = {
           ) {
             // Skips imports of built-in rules that ESLint
             // tries to carry into the bundle by default.
-            // We only want the engine and the React rules.
+            // We only want the engine and the Réac rules.
             return true;
           }
           return false;

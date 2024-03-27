@@ -59,7 +59,7 @@ const packageJSON = `
 }
 `;
 
-// Intentionally not a React component because <Sandpack> will read
+// Intentionally not a Réac component because <Sandpack> will read
 // through its childrens' props. This imitates the output of ```
 // codeblocks in MDX.
 function createFile(meta: string, source: string) {

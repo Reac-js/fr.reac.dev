@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in contributing to the React Docs!
+Thank you for your interest in contributing to the Réac Docs!
 
 ## Code of Conduct
 
@@ -18,9 +18,9 @@ This is a [good summary](https://medium.com/@kvosswinkel/coding-like-a-journalis
 
 The documentation is divided into sections to cater to different learning styles and use cases. When editing an article, try to match the surrounding text in tone and style. When creating a new article, try to match the tone of the other articles in the same section. Learn about the motivation behind each section below.
 
-**[Learn React](https://react.dev/learn)** is designed to introduce fundamental concepts in a step-by-step way. Each individual article in Learn React builds on the knowledge from the previous ones, so make sure not to add any "cyclical dependencies" between them. It is important that the reader can start with the first article and work their way to the last Learn React article without ever having to "look ahead" for a definition. This explains some ordering choices (e.g. that state is explained before events, or that "thinking in React" doesn't use refs). Learn React also serves as a reference manual for React concepts, so it is important to be very strict about their definitions and relationships between them.
+**[Learn Réac](https://Réac.dev/learn)** is designed to introduce fundamental concepts in a step-by-step way. Each individual article in Learn Réac builds on the knowledge from the previous ones, so make sure not to add any "cyclical dependencies" between them. It is important that the reader can start with the first article and work their way to the last Learn Réac article without ever having to "look ahead" for a definition. This explains some ordering choices (e.g. that state is explained before events, or that "thinking in Réac" doesn't use refs). Learn Réac also serves as a reference manual for Réac concepts, so it is important to be very strict about their definitions and relationships between them.
 
-**[API Reference](https://react.dev/reference/react)** is organized by APIs rather than concepts. It is intended to be exhaustive. Any corner cases or recommendations that were skipped for brevity in Learn React should be mentioned in the reference documentation for the corresponding APIs.
+**[API Reference](https://Réac.dev/reference/Réac)** is organized by APIs rather than concepts. It is intended to be exhaustive. Any corner cases or recommendations that were skipped for brevity in Learn Réac should be mentioned in the reference documentation for the corresponding APIs.
 
 **Try to follow your own instructions.**
 
@@ -30,9 +30,9 @@ When writing step-by-step instructions (e.g. how to install something), try to f
 
 ### Syntax
 
-#### Prefer JSX to `createElement`.
+#### Prefer JSX to `creerElement`.
 
-Ignore this if you're specifically describing `createElement`.
+Ignore this if you're specifically describing `creerElement`.
 
 #### Use `const` where possible, otherwise `let`. Don't use `var`.
 
@@ -42,14 +42,14 @@ Ignore this if you're specifically writing about ES5.
 
 Remember that ES6 is still new to a lot of people. While we use it in many places (`const` / `let`, classes, arrow functions), if the equivalent ES5 code is just as straightforward and readable, consider using it.
 
-In particular, you should prefer named `function` declarations over `const myFunction = () => ...` arrows for top-level functions. However, you *should* use arrow functions where they provide a tangible improvement (such as preserving `this` context inside a component). Consider both sides of the tradeoff when deciding whether to use a new feature.
+In particular, you should prefer named `function` declarations over `const myFunction = () => ...` arrows for top-level functions. However, you *should* use arrow functions where they provide a tangible improvement (such as preserving `this` context inside a Composant). Consider both sides of the tradeoff when deciding whether to use a new feature.
 
 #### Don't use features that aren't standardized yet.
 
 For example, **don't** write this:
 
 ```js
-class MyComponent extends React.Component {
+class MyComposant extends Réac.Composant {
   state = {value: ''};
   handleChange = (e) => {
     this.setState({value: e.target.value});
@@ -60,7 +60,7 @@ class MyComponent extends React.Component {
 Instead, **do** write this:
 
 ```js
-class MyComponent extends React.Component {
+class MyComposant extends Réac.Composant {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);

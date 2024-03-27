@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-La fonction `preinit` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de React. Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+La fonction `preinit` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de Réac. Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
 <Note>
 
-[Les frameworks basés sur React](/learn/start-a-new-react-project) s'occupent fréquemment pour vous du chargement des ressources, de sorte que vous n'aurez peut-être pas besoin d'appeler ces API vous-même.  Consultez la documentation de votre framework pour en savoir plus à ce sujet.
+[Les frameworks basés sur Réac](/learn/start-a-newreacproject) s'occupent fréquemment pour vous du chargement des ressources, de sorte que vous n'aurez peut-être pas besoin d'appeler ces API vous-même.  Consultez la documentation de votre framework pour en savoir plus à ce sujet.
 
 </Note>
 
@@ -33,10 +33,10 @@ preinit("https://example.com/script.js", { as: "script" });
 
 ### `preinit(href, options)` {/*preinit*/}
 
-Pour préinitialiser un script ou une feuille de styles, appelez la fonction `preinit` de `react-dom`.
+Pour préinitialiser un script ou une feuille de styles, appelez la fonction `preinit` de `Réac-dom`.
 
 ```js
-import { preinit } from 'react-dom';
+import { preinit } from 'Réac-dom';
 
 function AppRoot() {
   preinit("https://example.com/script.js", { as: "script" });
@@ -54,7 +54,7 @@ La fonction `preinit` suggère au navigateur de commencer à télécharger puis 
 * `href` : une chaîne de caractères. L'URL de la ressource que vous souhaitez télécharger et évaluer.
 * `options` : un objet. Il contient les propriétés suivantes :
   *  `as` : une chaîne de caractères obligatoire. Le type de la ressource. Les valeurs autorisées sont `script` et `style`.
-  * `precedence` : une chaîne de caractères. Indique à React où placer le nœud DOM `<style>` par rapport aux autres présents dans le `<head>` du document, ce qui détermine quelle feuille de styles a priorité sur quelle autre. La valeur peut être (par ordre de précédence) `"reset"`, `"low"`, `"medium"` ou `"high"`.
+  * `precedence` : une chaîne de caractères. Indique à Réac où placer le nœud DOM `<style>` par rapport aux autres présents dans le `<head>` du document, ce qui détermine quelle feuille de styles a priorité sur quelle autre. La valeur peut être (par ordre de précédence) `"reset"`, `"low"`, `"medium"` ou `"high"`.
   * `crossOrigin` : une chaîne de caractères. La [politique CORS](https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/crossorigin) à utiliser. Les valeurs possibles sont `anonymous` et `use-credentials`.
   * `integrity` : une chaîne de caractères. Une empreinte cryptographique de la ressource afin de [vérifier son authenticité](https://developer.mozilla.org/fr/docs/Web/Security/Subresource_Integrity).
   * `nonce` : une chaîne de caractères. Un [nonce cryptographique autorisant la ressource](https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/nonce) dans le cadre d'une Politique de Sécurité de Contenu (CSP) stricte.
@@ -83,7 +83,7 @@ Appelez `preinit` lors du rendu d'un composant si vous savez que ses enfants aur
 #### Préinitialiser un script extérieur {/*preiniting-an-external-script*/}
 
 ```js
-import { preinit } from 'react-dom';
+import { preinit } from 'Réac-dom';
 
 function AppRoot() {
   preinit("https://example.com/script.js", { as: "script" });
@@ -91,14 +91,14 @@ function AppRoot() {
 }
 ```
 
-Si vous souhaitez que le navigateur télécharge mais n'évalue pas la ressource immédiatement, utilisez plutôt [`preload`](/reference/react-dom/preload). Si vous souhaitez charger et évaluer un module ESM, utilisez [`preinitModule`](/reference/react-dom/preinitModule).
+Si vous souhaitez que le navigateur télécharge mais n'évalue pas la ressource immédiatement, utilisez plutôt [`preload`](/reference/Réac-dom/preload). Si vous souhaitez charger et évaluer un module ESM, utilisez [`preinitModule`](/reference/Réac-dom/preinitModule).
 
 <Solution />
 
 #### Préinitialiser une feuille de styles {/*preiniting-a-stylesheet*/}
 
 ```js
-import { preinit } from 'react-dom';
+import { preinit } from 'Réac-dom';
 
 function AppRoot() {
   preinit("https://example.com/style.css", {as: "style", precedence: "medium"});
@@ -108,7 +108,7 @@ function AppRoot() {
 
 L'option `precedence`, qui est ici obligatoire, vous permet de contrôler l'ordre des feuilles de styles dans le document. Les feuilles de styles avec une précédence plus élevée peuvent surcharger celles de précédence inférieure.
 
-Si vous souhaitez que le navigateur télécharge mais n'insère pas la feuille de styles immédiatement, utilisez plutôt [`preload`](/reference/react-dom/preload).
+Si vous souhaitez que le navigateur télécharge mais n'insère pas la feuille de styles immédiatement, utilisez plutôt [`preload`](/reference/Réac-dom/preload).
 
 <Solution />
 
@@ -119,7 +119,7 @@ Si vous souhaitez que le navigateur télécharge mais n'insère pas la feuille d
 Appelez `preinit` depuis un gestionnaire d'événement avant de passer à une page ou un état qui auront besoin de ressources extérieures.  Ça permet de déclencher le processus plus tôt que si vous l'appeliez au sein de la nouvelle page ou suite au nouvel état.
 
 ```js
-import { preinit } from 'react-dom';
+import { preinit } from 'Réac-dom';
 
 function CallToAction() {
   const onClick = () => {

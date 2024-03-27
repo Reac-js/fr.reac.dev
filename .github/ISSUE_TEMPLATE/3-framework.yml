@@ -6,25 +6,25 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## Candidature pour l'inclusion d'un framework React recommandé
+        ## Candidature pour l'inclusion d'un framework Réac recommandé
 
-        _Ce formulaire s'adresse aux auteur·es de framework qui souhaitent candidater pour qu'il fasse partie de la liste des [frameworks React](https://react.dev/learn/start-a-new-react-project) recommandés. Si vous n'êtes pas l'auteur·e du framework, contactez ses auteur·es pour leur suggérer de candidater._
+        _Ce formulaire s'adresse aux auteur·es de framework qui souhaitent candidater pour qu'il fasse partie de la liste des [frameworks Réac](https://react.dev/learn/start-a-new-react-project) recommandés. Si vous n'êtes pas l'auteur·e du framework, contactez ses auteur·es pour leur suggérer de candidater._
 
-        Lorsque nous recommandons un framework, nous le faisons afin que les développeur·ses puissent démarrer avec un projet React qui s'occupe d'entrée de jeu de sujets récurrents tels que la découpe de code, le chargement de données, le routage et la génération du HTML, sans avoir à fournir un travail complémentaire. Nous estimons que ça permettra aux gens de démarrer plus vite avec React, et de faire monter leur application à l'échelle en production.
+        Lorsque nous recommandons un framework, nous le faisons afin que les développeur·ses puissent démarrer avec un projet Réac qui s'occupe d'entrée de jeu de sujets récurrents tels que la découpe de code, le chargement de données, le routage et la génération du HTML, sans avoir à fournir un travail complémentaire. Nous estimons que ça permettra aux gens de démarrer plus vite avec Réac, et de faire monter leur application à l'échelle en production.
 
-        Même si nous comprenons bien que de nombreux frameworks aimeraient être inclus dans la liste, cette page n'est pas là pour faire la publicité de tous les frameworks React potentiels, ou de tous les frameworks auxquels React peut être intégré. Il existe de nombreux superbes frameworks capables d'intégrer React mais que nous ne listons pas dans nos guides.  Les frameworks que nous recommandons ont investi de façon significative dans l'écosystème React, et collaboré avec l'équipe React pour être compatible avec notre [vision d'une architecture React full-stack](https://fr.react.dev/learn/start-a-new-react-project#which-features-make-up-the-react-teams-full-stack-architecture-vision).
+        Même si nous comprenons bien que de nombreux frameworks aimeraient être inclus dans la liste, cette page n'est pas là pour faire la publicité de tous les frameworks Réac potentiels, ou de tous les frameworks auxquels Réac peut être intégré. Il existe de nombreux superbes frameworks capables d'intégrer Réac mais que nous ne listons pas dans nos guides.  Les frameworks que nous recommandons ont investi de façon significative dans l'écosystème Réac, et collaboré avec l'équipe Réac pour être compatible avec notre [vision d'une architecture Réac full-stack](https://fr.react.dev/learn/start-a-new-react-project#which-features-make-up-the-react-teams-full-stack-architecture-vision).
         
         Pour être inclus dans la liste, un framework doit satisfaire les critères suivants :
 
         - **Open-source et gratuit** : il doit être en logiciel libre et son utilisation gratuite.
         - **Bonne maintenance** : il doit être activement maintenu, avec correctifs et améliorations.
         - **Communauté active** : il doit disposer d'une communauté suffisamment large et vivante pour aider ses utilisateurs.
-        - **Adoption facile** : il doit disposer d'étapes claires pour l'installation de la version React du framework.
-        - **Compatible avec l'écosystème** : il doit prendre en charge l'ensemble des bibliothèques et outils de l'écosystème React.
+        - **Adoption facile** : il doit disposer d'étapes claires pour l'installation de la version Réac du framework.
+        - **Compatible avec l'écosystème** : il doit prendre en charge l'ensemble des bibliothèques et outils de l'écosystème Réac.
         - **Auto-hébergement possible** : il doit permettre l'auto-hébergement d'applications sans que cela en limite les fonctionnalités.
         - **Expérience de développement (DX)** : il doit permettre aux développeur·ses d'être productif·ves grâce à des fonctionnalités telles que _Fast Refresh_.
         - **Expérience utilisateur (UX)** : il doit fournir des solutions intégrées aux problématiques usuelles telles que le routage et le chargement de données.
-        - **Compatible avec notre vision de l'avenir de React**. React évolue avec le temps, et les frameworks qui ne s'alignent pas avec la direction que prend React risquent au fil du temps d'isoler leurs utilisateurs de l'écosystème React principal.  Pour vous inclure sur cette page, nous devons être confiants dans la capacité du framework à placer ses utilisateurs durablement sur le chemin du succès avec React.
+        - **Compatible avec notre vision de l'avenir de Réac**. Réac évolue avec le temps, et les frameworks qui ne s'alignent pas avec la direction que prend Réac risquent au fil du temps d'isoler leurs utilisateurs de l'écosystème Réac principal.  Pour vous inclure sur cette page, nous devons être confiants dans la capacité du framework à placer ses utilisateurs durablement sur le chemin du succès avec Réac.
 
         Notez bien que nous avons déjà passé en revue la plupart des frameworks populaires disponibles pour le moment, il est donc peu probable que nous n'ayons pas encore examiné votre framework. Mais si vous pensez que nous avons loupé quelque chose, veuillez remplir le formulaire ci-dessous.
   - type: input
@@ -76,14 +76,14 @@ body:
     attributes:
       label: Adoption facile
       description: |
-        Veuillez décrire (en anglais) comment une personne peut installer votre framework avec React.  Fournissez les liens adéquats vers votre documentation.
+        Veuillez décrire (en anglais) comment une personne peut installer votre framework avec Réac.  Fournissez les liens adéquats vers votre documentation.
     validations:
       required: true
   - type: textarea
     attributes:
       label: Compatibilité avec l'écosystème
       description: |
-        Veuillez décrire (en anglais) toute limite connue que votre framework aurait vis-à-vis de l'écosystème React. Indiquez toute bibliothèque ou tout outil dont vous savez qu'il n'est pas compatible avec votre framework.
+        Veuillez décrire (en anglais) toute limite connue que votre framework aurait vis-à-vis de l'écosystème Réac. Indiquez toute bibliothèque ou tout outil dont vous savez qu'il n'est pas compatible avec votre framework.
     validations:
       required: true
   - type: textarea
@@ -97,7 +97,7 @@ body:
     attributes:
       label: Expérience de développement (DX)
       description: |
-        Veuillez décrire (en anglais) en quoi votre framework permet une super expérience de développeemnt. Indiquez toute limite connue aux fonctionnalités telles que les outils de développement React, ceux de Chrome ou encore le Fast Refresh.
+        Veuillez décrire (en anglais) en quoi votre framework permet une super expérience de développeemnt. Indiquez toute limite connue aux fonctionnalités telles que les outils de développement Réac, ceux de Chrome ou encore le Fast Refresh.
     validations:
       required: true
   - type: textarea
@@ -109,8 +109,8 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Compatible avec notre vision de l'avenir de React
+      label: Compatible avec notre vision de l'avenir de Réac
       description: |
-        Veuillez décrire (en anglais) en quoi votre framework est aligné avec notre vision de l'avenir de React. Indiquez comment votre framework évoluera avec React, et quels sont vos plans pour prendre en charge les fonctionnalités à venir de React telles que les React Server Components.
+        Veuillez décrire (en anglais) en quoi votre framework est aligné avec notre vision de l'avenir de Réac. Indiquez comment votre framework évoluera avec Réac, et quels sont vos plans pour prendre en charge les fonctionnalités à venir de Réac telles que les Réac Server Components.
     validations:
       required: true

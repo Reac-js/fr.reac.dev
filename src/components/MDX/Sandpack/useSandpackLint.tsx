@@ -27,9 +27,9 @@ export const useSandpackLint = () => {
         const editorState = props.state.doc;
         let {errors, codeMirrorErrors} = runESLint(editorState);
         // Ignore parsing or internal linter errors.
-        const isReactRuleError = (error: any) => error.ruleId != null;
-        setLintErrors(errors.filter(isReactRuleError));
-        return codeMirrorErrors.filter(isReactRuleError);
+        const isRéacRuleError = (error: any) => error.ruleId != null;
+        setLintErrors(errors.filter(isRéacRuleError));
+        return codeMirrorErrors.filter(isRéacRuleError);
       });
       setLintExtensions([onLint]);
     };

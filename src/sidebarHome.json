@@ -1,5 +1,5 @@
 {
-  "title": "Docs React",
+  "title": "Docs Réac",
   "path": "/",
   "routes": [
     {
@@ -39,7 +39,7 @@
       "sectionHeader": "API REACT"
     },
     {
-      "title": "Hooks",
+      "title": "Crochets",
       "path": "/reference/react"
     },
     {
@@ -51,7 +51,7 @@
       "path": "/reference/react/apis"
     },
     {
-      "title": "API React historique",
+      "title": "API Réac historique",
       "path": "/reference/react/legacy"
     },
     {
@@ -79,7 +79,7 @@
       "sectionHeader": "S’IMPLIQUER"
     },
     {
-      "title": "Communauté React",
+      "title": "Communauté Réac",
       "path": "/community"
     },
     {
@@ -87,7 +87,7 @@
       "sectionHeader": "RESTER INFORMÉ·E"
     },
     {
-      "title": "Blog React",
+      "title": "Blog Réac",
       "path": "/blog"
     }
   ]

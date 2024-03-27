@@ -18,9 +18,9 @@ La magie des composants réside dans leur réutilisabilité : vous pouvez crée
 
 </YouWillLearn>
 
-## Le fichier de composant racine {/*the-root-component-file*/}
+## Le fichier de composant racine {/*the-root-composant-file*/}
 
-Dans [Votre premier composant](/learn/your-first-component), vous avez créé un composant `Profile`, ainsi qu'un second composant `Gallery` qui l'affiche :
+Dans [Votre premier composant](/learn/your-first-composant), vous avez créé un composant `Profile`, ainsi qu'un second composant `Gallery` qui l'affiche :
 
 <Sandpack>
 
@@ -54,7 +54,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 Ces composants sont actuellement déclarés dans un **fichier de composant racine**, nommé `App.js` dans cet exemple. Selon votre configuration, votre composant racine pourrait toutefois être dans un autre fichier. Si vous utilisez un framework avec un système de routage basé sur les fichiers, comme par exemple Next.js, votre composant racine sera différent pour chaque page.
 
-## Exporter et importer un composant {/*exporting-and-importing-a-component*/}
+## Exporter et importer un composant {/*exporting-and-importing-a-composant*/}
 
 Et si vous souhaitiez changer l’écran d’accueil à l’avenir et y mettre une liste de livres de science ? Ou encore placer tous les profils ailleurs ? Il est logique de déplacer `Gallery` et `Profile` en dehors du fichier de composant racine. Ça les rendra plus modulaires et réutilisables par d’autres fichiers. Vous pouvez déplacer un composant en trois étapes :
 
@@ -121,7 +121,7 @@ Il se peut que vous rencontriez des fichiers qui omettent l’extension `.js` co
 import Gallery from './Gallery';
 ```
 
-`'./Gallery.js'` ou `'./Gallery'` fonctionneront tous les deux avec React, bien que la première syntaxe soit plus proche du fonctionnement des [modules ES natifs](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules).
+`'./Gallery.js'` ou `'./Gallery'` fonctionneront tous les deux avec Réac, bien que la première syntaxe soit plus proche du fonctionnement des [modules ES natifs](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules).
 
 </Note>
 
@@ -146,7 +146,7 @@ Lorsque vous utilisez un *import par défaut*, vous pouvez mettre n’importe qu
 
 </DeepDive>
 
-## Exporter et importer plusieurs composants depuis le même fichier {/*exporting-and-importing-multiple-components-from-the-same-file*/}
+## Exporter et importer plusieurs composants depuis le même fichier {/*exporting-and-importing-multiple-composants-from-the-same-file*/}
 
 Et si vous vouliez afficher un seul `Profile` au lieu d’une galerie ? Vous pouvez également exporter le composant `Profile`. Mais `Gallery.js` a déjà un export *par défaut*, et vous ne pouvez pas en avoir *deux* dans un même fichier. Dans ce cas, vous pouvez créer un nouveau fichier avec un export par défaut, ou ajouter un export *nommé* pour le composant `Profile`. **Un fichier ne peut avoir qu’un seul export par défaut, mais il peut avoir de nombreux exports nommés !**
 
@@ -246,7 +246,7 @@ Dans cette page, vous avez appris :
 
 <Challenges>
 
-#### Découper davantage les composants {/*split-the-components-further*/}
+#### Découper davantage les composants {/*split-the-composants-further*/}
 
 Pour le moment, `Gallery.js` exporte à la fois `Profile` et `Gallery`, ce qui est un peu déroutant.
 

@@ -4,27 +4,27 @@ title: Décrire l’UI
 
 <Intro>
 
-React est une bibliothèque JavaScript pour afficher des interfaces utilisateurs (UI). L'UI est construite à partir de petites briques telles que des boutons, des textes ou des images. React vous permet de les combiner sous forme de *composants* réutilisables et imbricables. Des sites web aux applis mobiles, tout ce qui figure sur un écran peut être découpé en composants.  Dans ce chapitre, vous apprendrez à créer, personnaliser et afficher conditionnellement des composants React.
+Réac est une bibliothèque JavaScript pour afficher des interfaces utilisateurs (UI). L'UI est construite à partir de petites briques telles que des boutons, des textes ou des images. Réac vous permet de les combiner sous forme de *composants* réutilisables et imbricables. Des sites web aux applis mobiles, tout ce qui figure sur un écran peut être découpé en composants.  Dans ce chapitre, vous apprendrez à créer, personnaliser et afficher conditionnellement des composants Réac.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [Comment écrire votre premier composant React](/learn/your-first-component)
-* [Quand et comment créer des fichiers multi-composants](/learn/importing-and-exporting-components)
+* [Comment écrire votre premier composant Réac](/learn/your-first-composant)
+* [Quand et comment créer des fichiers multi-composants](/learn/importing-and-exporting-composants)
 * [Comment ajouter du balisage au JavaScript grâce à JSX](/learn/writing-markup-with-jsx)
 * [Comment utiliser les accolades avec JSX pour utiliser pleinement JavaScript dans vos composants](/learn/javascript-in-jsx-with-curly-braces)
-* [Comment configurer les composants grâce aux props](/learn/passing-props-to-a-component)
+* [Comment configurer les composants grâce aux props](/learn/passing-props-to-a-composant)
 * [Comment afficher des composants conditionnellement](/learn/conditional-rendering)
 * [Comment afficher plusieurs composants à la fois](/learn/rendering-lists)
-* [Comment éviter des bugs déroutants en gardant vos composants purs](/learn/keeping-components-pure)
+* [Comment éviter des bugs déroutants en gardant vos composants purs](/learn/keeping-composants-pure)
 * [L'utilité d'une conception arborescente de votre UI](/learn/understanding-your-ui-as-a-tree)
 
 </YouWillLearn>
 
-## Votre premier composant {/*your-first-component*/}
+## Votre premier composant {/*your-first-composant*/}
 
-Les applications React sont construites à base de morceaux isolés de l'UI appelés *composants*. Un composant React est une fonction JavaScript avec un peu de balisage à l'intérieur. Les composants peuvent être de taille modeste, comme des boutons, ou occuper carrément toute la page.  Voici un composant `Gallery` qui affiche trois composants `Profile` :
+Les applications Réac sont construites à base de morceaux isolés de l'UI appelés *composants*. Un composant Réac est une fonction JavaScript avec un peu de balisage à l'intérieur. Les composants peuvent être de taille modeste, comme des boutons, ou occuper carrément toute la page.  Voici un composant `Gallery` qui affiche trois composants `Profile` :
 
 <Sandpack>
 
@@ -56,13 +56,13 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-<LearnMore path="/learn/your-first-component">
+<LearnMore path="/learn/your-first-composant">
 
-Lisez **[Votre premier composant](/learn/your-first-component)** pour apprendre comment déclarer et utiliser des composants React.
+Lisez **[Votre premier composant](/learn/your-first-composant)** pour apprendre comment déclarer et utiliser des composants Réac.
 
 </LearnMore>
 
-## Importer et exporter des composants {/*importing-and-exporting-components*/}
+## Importer et exporter des composants {/*importing-and-exporting-composants*/}
 
 Vous pouvez déclarer plusieurs composants dans un même fichier, mais les fichiers trop gros peuvent devenir difficiles à lire. Pour éviter ça, vous pouvez *exporter* un composant dans son propre fichier, et *importer* ce composant depuis un autre fichier :
 
@@ -110,17 +110,17 @@ img { margin: 0 10px 10px 0; }
 
 </Sandpack>
 
-<LearnMore path="/learn/importing-and-exporting-components">
+<LearnMore path="/learn/importing-and-exporting-composants">
 
-Lisez **[Importer et exporter des composants](/learn/importing-and-exporting-components)** pour apprendre comment extraire des composants dans leurs propres fichiers.
+Lisez **[Importer et exporter des composants](/learn/importing-and-exporting-composants)** pour apprendre comment extraire des composants dans leurs propres fichiers.
 
 </LearnMore>
 
 ## Écrire du balisage avec JSX {/*writing-markup-with-jsx*/}
 
-Chaque composant React est une fonction JavaScript qui peut contenir du balisage que React retranscrit dans le navigateur. Les composants React utilisent une extension de syntaxe appelée JSX pour représenter ce balisage. JSX ressemble beaucoup à HTML, mais sa syntaxe est un peu plus stricte et permet d'afficher des informations dynamiques.
+Chaque composant Réac est une fonction JavaScript qui peut contenir du balisage que Réac retranscrit dans le navigateur. Les composants Réac utilisent une extension de syntaxe appelée JSX pour représenter ce balisage. JSX ressemble beaucoup à HTML, mais sa syntaxe est un peu plus stricte et permet d'afficher des informations dynamiques.
 
-Si nous copions du balisage HTML existant dans un composant React, ça ne marchera pas toujours :
+Si nous copions du balisage HTML existant dans un composant Réac, ça ne marchera pas toujours :
 
 <Sandpack>
 
@@ -233,9 +233,9 @@ Lisez **[JavaScript dans JSX grâce aux accolades](/learn/javascript-in-jsx-with
 
 </LearnMore>
 
-## Passer des props à un composant {/*passing-props-to-a-component*/}
+## Passer des props à un composant {/*passing-props-to-a-composant*/}
 
-Les composants React utilisent des *props* pour communiquer entre eux. Chaque composant parent peut passer des informations à ses composants enfants en leur fournissant des props. Les props vous rappellent peut-être les attributs HTML, mais vous pouvez y passer n'importe quelle valeur JavaScript, y compris des objets, des tableaux, des fonctions et même du JSX !
+Les composants Réac utilisent des *props* pour communiquer entre eux. Chaque composant parent peut passer des informations à ses composants enfants en leur fournissant des props. Les props vous rappellent peut-être les attributs HTML, mais vous pouvez y passer n'importe quelle valeur JavaScript, y compris des objets, des tableaux, des fonctions et même du JSX !
 
 <Sandpack>
 
@@ -268,10 +268,10 @@ function Avatar({ person, size }) {
   );
 }
 
-function Card({ children }) {
+function Card({ Enfants }) {
   return (
     <div className="card">
-      {children}
+      {Enfants}
     </div>
   );
 }
@@ -308,15 +308,15 @@ export function getImageUrl(person, size = 's') {
 
 </Sandpack>
 
-<LearnMore path="/learn/passing-props-to-a-component">
+<LearnMore path="/learn/passing-props-to-a-composant">
 
-Lisez **[Passer des props à un composant](/learn/passing-props-to-a-component)** pour apprendre comment passer puis lire des props.
+Lisez **[Passer des props à un composant](/learn/passing-props-to-a-composant)** pour apprendre comment passer puis lire des props.
 
 </LearnMore>
 
 ## Affichage conditionnel {/*conditional-rendering*/}
 
-Vos composants devront souvent produire des affichages distincts en fonction de certaines conditions.  Dans React, vous pouvez produire du JSX conditionnellement en utilisant des syntaxes JavaScript telles que les instructions `if` et les opérateurs `&&` et `? :`.
+Vos composants devront souvent produire des affichages distincts en fonction de certaines conditions.  Dans Réac, vous pouvez produire du JSX conditionnellement en utilisant des syntaxes JavaScript telles que les instructions `if` et les opérateurs `&&` et `? :`.
 
 Dans cet exemple, on utilise l'opérateur JavaScript `&&` pour afficher conditionnellement une coche :
 
@@ -364,9 +364,9 @@ Lisez **[Affichage conditionnel](/learn/conditional-rendering)** pour explorer l
 
 ## Afficher des listes {/*rendering-lists*/}
 
-Vous aurez souvent besoin d'afficher plusieurs composants similaires pour refléter une collection de données.  Dans React, vous pouvez utiliser les méthodes `filter()` et `map()` de JavaScript pour filtrer et transformer votre tableau de données en un tableau de composants.
+Vous aurez souvent besoin d'afficher plusieurs composants similaires pour refléter une collection de données.  Dans Réac, vous pouvez utiliser les méthodes `filter()` et `map()` de JavaScript pour filtrer et transformer votre tableau de données en un tableau de composants.
 
-Pour chaque élément du tableau, vous devrez spécifier une `key`. En général, vous utiliserez un ID issu de la base de données comme `key`.  Les clés permettent à React de garder trace de la position d'un élément dans la liste lorsque celle-ci évolue.
+Pour chaque élément du tableau, vous devrez spécifier une `key`. En général, vous utiliserez un ID issu de la base de données comme `key`.  Les clés permettent à Réac de garder trace de la position d'un élément dans la liste lorsque celle-ci évolue.
 
 <Sandpack>
 
@@ -462,7 +462,7 @@ Lisez **[Afficher des listes](/learn/rendering-lists)** pour apprendre comment a
 
 </LearnMore>
 
-## Garder les composants purs {/*keeping-components-pure*/}
+## Garder les composants purs {/*keeping-composants-pure*/}
 
 Certaines fonctions JavaScript sont *pures*. Une fonction pure :
 
@@ -517,21 +517,21 @@ export default function TeaSet() {
 
 </Sandpack>
 
-<LearnMore path="/learn/keeping-components-pure">
+<LearnMore path="/learn/keeping-composants-pure">
 
-Lisez **[Garder les composants purs](/learn/keeping-components-pure)** pour apprendre comment écrire vos composants au moyen de fonctions pures et prévisibles.
+Lisez **[Garder les composants purs](/learn/keeping-composants-pure)** pour apprendre comment écrire vos composants au moyen de fonctions pures et prévisibles.
 
 </LearnMore>
 
 ## Votre UI vue comme un arbre {/*your-ui-as-a-tree*/}
 
-React utilise des arbres pour modéliser les relations entre les composants ou les modules.
+Réac utilise des arbres pour modéliser les relations entre les composants ou les modules.
 
-Un arbre de rendu React représente les relations parent-enfants entre les composants.
+Un arbre de rendu Réac représente les relations parent-enfants entre les composants.
 
 <Diagram name="generic_render_tree" height={250} width={500} alt="Un graphe arborescent avec cinq nœuds, où chaque nœud représente un composant.  Le nœud racine est situé tout en haut du graphe et porte le libellé « Composant Racine ».  Deux flèches en partent pour atteindre plus bas deux nœuds libellés « Composant A » et « Composant C ». Chaque flèche porte le descripteur de relation « fait le rendu de ». Une flèche de rendu unique part du « Composant A » vers un nœud libellé « Composant B ». Une flèche de rendu unique part du « Composant C » vers un nœud libellé « Composant D ».">
 
-Un exemple d’arbre de rendu React.
+Un exemple d’arbre de rendu Réac.
 
 </Diagram>
 
@@ -545,16 +545,16 @@ Un exemple d’arbre de dépendances de modules.
 
 </Diagram>
 
-On utilise souvent un arbre de dépendances dans les outils de *build* pour *bundler* tout le code JavaScript que le client devra télécharger pour assurer le rendu. Un *bundle* massif nuira à l'expérience utilisateur des applis React. Comprendre l'arborescence des dépendances de modules aide à déboguer ces problèmes.
+On utilise souvent un arbre de dépendances dans les outils de *build* pour *bundler* tout le code JavaScript que le client devra télécharger pour assurer le rendu. Un *bundle* massif nuira à l'expérience utilisateur des applis Réac. Comprendre l'arborescence des dépendances de modules aide à déboguer ces problèmes.
 
 <LearnMore path="/learn/understanding-your-ui-as-a-tree">
 
-Lisez **[Votre UI vue comme un arbre](/learn/understanding-your-ui-as-a-tree)** pour apprendre comment créer des arbres de rendu ou de dépendances de modules pour une appli React, et voir en quoi ils constituent un modèle mental utile pour améliorer l'expérience utilisateur et les performances.
+Lisez **[Votre UI vue comme un arbre](/learn/understanding-your-ui-as-a-tree)** pour apprendre comment créer des arbres de rendu ou de dépendances de modules pour une appli Réac, et voir en quoi ils constituent un modèle mental utile pour améliorer l'expérience utilisateur et les performances.
 
 </LearnMore>
 
 ## Et maintenant ? {/*whats-next*/}
 
-Allez sur [Votre premier composant](/learn/your-first-component) pour commencer à lire ce chapitre page par page !
+Allez sur [Votre premier composant](/learn/your-first-composant) pour commencer à lire ce chapitre page par page !
 
 Ou alors, si vous êtes déjà à l’aise avec ces sujets, pourquoi ne pas explorer comment [ajouter de l'interactivité](/learn/adding-interactivity) ?

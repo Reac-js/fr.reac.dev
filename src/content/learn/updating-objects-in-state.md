@@ -4,13 +4,13 @@ title: Mettre à jour les objets d’un état
 
 <Intro>
 
-Un état peut contenir n'importe quel type de valeur JavaScript, y compris des objets. Cependant, vous ne devez pas changer directement les objets que vous stockez dans l’état React. Au lieu de ça, lorsque vous souhaitez mettre à jour un objet, vous devez en créer un nouveau (ou faire une copie de l’existant), puis mettre à jour l’état pour utiliser cette copie.
+Un état peut contenir n'importe quel type de valeur JavaScript, y compris des objets. Cependant, vous ne devez pas changer directement les objets que vous stockez dans l’état Réac. Au lieu de ça, lorsque vous souhaitez mettre à jour un objet, vous devez en créer un nouveau (ou faire une copie de l’existant), puis mettre à jour l’état pour utiliser cette copie.
 
 </Intro>
 
 <YouWillLearn>
 
-- Comment mettre à jour correctement un objet dans l’état de React
+- Comment mettre à jour correctement un objet dans l’état de Réac
 - Comment mettre à jour un objet imbriqué sans le modifier
 - Ce qu'est l’immutabilité, et comment la préserver
 - Comment rendre la copie d’objet moins répétitive avec Immer
@@ -22,7 +22,7 @@ Un état peut contenir n'importe quel type de valeur JavaScript, y compris des o
 Vous pouvez stocker n’importe quel type de valeur JavaScript dans l’état.
 
 ```js
-const [x, setX] = useState(0);
+const [x, setX] = utiliserEtat(0);
 ```
 
 Jusqu’à présent, vous avez travaillé avec des nombres, des chaînes de caractères et des booléens. Ces types de valeurs JavaScript sont « immuables », c’est-à-dire qu’ils ne peuvent pas être modifiés ou sont en « lecture seule ». Vous pouvez déclencher un nouveau rendu pour *remplacer* une valeur :
@@ -36,7 +36,7 @@ L’état `x` est passé de `0` à `5`, mais le *nombre `0` lui-même* n’a pas
 À présent, considérons un objet dans l’état :
 
 ```js
-const [position, setPosition] = useState({ x: 0, y: 0 });
+const [position, setPosition] = utiliserEtat({ x: 0, y: 0 });
 ```
 
 Techniquement, il est possible de modifier le contenu de *l’objet lui-même*. **C’est ce qu’on appelle une mutation :**
@@ -45,7 +45,7 @@ Techniquement, il est possible de modifier le contenu de *l’objet lui-même*. 
 position.x = 5;
 ```
 
-Cependant, bien que des objets dans un état React soient techniquement modifiables, vous devez les traiter *comme s’ils étaient immuables* — au même titre que les nombres, les booléens et les chaînes de caractères. Au lieu de les modifier, vous devriez toujours les remplacer.
+Cependant, bien que des objets dans un état Réac soient techniquement modifiables, vous devez les traiter *comme s’ils étaient immuables* — au même titre que les nombres, les booléens et les chaînes de caractères. Au lieu de les modifier, vous devriez toujours les remplacer.
 
 ## Traiter l’état comme en lecture seule {/*treat-state-as-read-only*/}
 
@@ -56,9 +56,9 @@ Cet exemple utilise un objet dans l’état pour représenter la position actuel
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 export default function MovingDot() {
-  const [position, setPosition] = useState({
+  const [position, setPosition] = utiliserEtat({
     x: 0,
     y: 0
   });
@@ -103,7 +103,7 @@ onPointerMove={e => {
 }}
 ```
 
-Ce code modifie l’objet affecté à `position` lors du [rendu précédent](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time). Mais faute d'utiliser la fonction de mise à jour de l’état, React ne se rend pas compte que l’objet a changé. Par conséquent, React ne réagit pas. Ce serait comme essayer de changer une commande après avoir déjà mangé le repas. Bien que la mutation de l’état puisse fonctionner dans certains cas, nous la déconseillons. Vous devriez considérer la valeur de l’état que vous lisez lors d’un rendu comme étant en lecture seule.
+Ce code modifie l’objet affecté à `position` lors du [rendu précédent](/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time). Mais faute d'utiliser la fonction de mise à jour de l’état, Réac ne se rend pas compte que l’objet a changé. Par conséquent, Réac ne réagit pas. Ce serait comme essayer de changer une commande après avoir déjà mangé le repas. Bien que la mutation de l’état puisse fonctionner dans certains cas, nous la déconseillons. Vous devriez considérer la valeur de l’état que vous lisez lors d’un rendu comme étant en lecture seule.
 
 Pour effectivement [déclencher un nouveau rendu](/learn/state-as-a-snapshot#setting-state-triggers-renders) dans cet exemple, **créez un nouvel objet et passez-le à la fonction de mise à jour de l’état :**
 
@@ -116,7 +116,7 @@ onPointerMove={e => {
 }}
 ```
 
-Avec `setPosition`, vous indiquez à React :
+Avec `setPosition`, vous indiquez à Réac :
 
 - Remplace `position` par ce nouvel objet
 - Et refais le rendu ce composant
@@ -126,9 +126,9 @@ Voyez comme le point rouge suit désormais votre pointeur lorsque vous le touche
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 export default function MovingDot() {
-  const [position, setPosition] = useState({
+  const [position, setPosition] = utiliserEtat({
     x: 0,
     y: 0
   });
@@ -195,7 +195,7 @@ setPosition({
 });
 ```
 
-La mutation pose problème uniquement lorsque vous modifiez des objets *existants* qui se trouvent déjà dans l’état. Modifier un objet que vous venez de créer est acceptable car *aucun autre code ne le référence encore*. Le modifier ne risque pas d’affecter accidentellement quelque chose qui en dépend. C’est ce qu’on appelle une « mutation locale ». Vous pouvez même effectuer une mutation locale [pendant le rendu](/learn/keeping-components-pure#local-mutation-your-components-little-secret). C’est très pratique et tout à fait acceptable !
+La mutation pose problème uniquement lorsque vous modifiez des objets *existants* qui se trouvent déjà dans l’état. Modifier un objet que vous venez de créer est acceptable car *aucun autre code ne le référence encore*. Le modifier ne risque pas d’affecter accidentellement quelque chose qui en dépend. C’est ce qu’on appelle une « mutation locale ». Vous pouvez même effectuer une mutation locale [pendant le rendu](/learn/keeping-composants-pure#local-mutation-your-composants-little-secret). C’est très pratique et tout à fait acceptable !
 
 </DeepDive>
 
@@ -208,10 +208,10 @@ Ces champs de saisie ne fonctionnent pas car les gestionnaires `onChange` modifi
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [person, setPerson] = useState({
+  const [person, setPerson] = utiliserEtat({
     firstName: 'Barbara',
     lastName: 'Hepworth',
     email: 'bhepworth@sculpture.com'
@@ -301,10 +301,10 @@ Remarquez que vous n’avez pas déclaré une variable d’état distincte pour 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [person, setPerson] = useState({
+  const [person, setPerson] = utiliserEtat({
     firstName: 'Barbara',
     lastName: 'Hepworth',
     email: 'bhepworth@sculpture.com'
@@ -382,10 +382,10 @@ Vous pouvez également utiliser les crochets `[` et `]` à l’intérieur de la 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [person, setPerson] = useState({
+  const [person, setPerson] = utiliserEtat({
     firstName: 'Barbara',
     lastName: 'Hepworth',
     email: 'bhepworth@sculpture.com'
@@ -450,7 +450,7 @@ Ici, `e.target.name` fait référence à la propriété `name` de l’élément 
 Considérons une structure d’objet imbriquée comme celle-ci :
 
 ```js
-const [person, setPerson] = useState({
+const [person, setPerson] = utiliserEtat({
   name: 'Niki de Saint Phalle',
   artwork: {
     title: 'Blue Nana',
@@ -466,7 +466,7 @@ Si vous souhaitez mettre à jour `person.artwork.city`, c'est facile avec une mu
 person.artwork.city = 'New Delhi';
 ```
 
-Mais avec React, l’état doit être traité comme immuable ! Pour modifier `city`, vous devez d’abord produire le nouvel objet `artwork` (pré-rempli avec les données de l’objet précédent), puis produire le nouvel objet `person` qui pointe vers le nouvel `artwork` :
+Mais avec Réac, l’état doit être traité comme immuable ! Pour modifier `city`, vous devez d’abord produire le nouvel objet `artwork` (pré-rempli avec les données de l’objet précédent), puis produire le nouvel objet `person` qui pointe vers le nouvel `artwork` :
 
 ```js
 const nextArtwork = { ...person.artwork, city: 'New Delhi' };
@@ -491,10 +491,10 @@ setPerson({
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [person, setPerson] = useState({
+  const [person, setPerson] = utiliserEtat({
     name: 'Niki de Saint Phalle',
     artwork: {
       title: 'Blue Nana',
@@ -673,7 +673,7 @@ Le `draft` fourni par Immer est un type spécial d’objet JavaScript, appelé [
 Pour essayer Immer :
 
 1. Exécutez `npm install use-immer` pour ajouter Immer en tant que dépendance
-2. Remplacez alors `import { useState } from 'react'` par `import { useImmer } from 'use-immer'`.
+2. Remplacez alors `import { utiliserEtat } from 'Réac'` par `import { useImmer } from 'use-immer'`.
 
 Voici l’exemple ci-dessus converti en Immer :
 
@@ -766,16 +766,16 @@ export default function Form() {
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -788,27 +788,27 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-Remarquez à quel point les gestionnaires d’événements sont devenus plus concis. Vous pouvez mélanger et combiner `useState` et `useImmer` dans un seul composant autant que vous le souhaitez. Immer est un excellent moyen de garder les gestionnaires de mise à jour concis, surtout s’il y a des niveaux d’imbrication dans votre état, et que la copie des objets conduit à un code répétitif.
+Remarquez à quel point les gestionnaires d’événements sont devenus plus concis. Vous pouvez mélanger et combiner `utiliserEtat` et `useImmer` dans un seul composant autant que vous le souhaitez. Immer est un excellent moyen de garder les gestionnaires de mise à jour concis, surtout s’il y a des niveaux d’imbrication dans votre état, et que la copie des objets conduit à un code répétitif.
 
 <DeepDive>
 
-#### Pourquoi déconseiller la mutation d’état dans React ? {/*why-is-mutating-state-not-recommended-in-react*/}
+#### Pourquoi déconseiller la mutation d’état dans Réac ? {/*why-is-mutating-state-not-recommended-in-réac*/}
 
 Il y a plusieurs raisons :
 
 - **Débogage :** si vous utilisez `console.log` et que vous ne modifiez pas l’état, vos anciens logs ne seront pas écrasés par les changements d’état plus récents. Vous pouvez donc voir clairement comment l’état a changé entre les rendus.
-- **Optimisations :** les [stratégies d’optimisation](/reference/react/memo) courantes de React reposent sur la possibilité de sauter des étapes si les propriétés ou l’état précédents sont identiques aux suivants. Si vous ne modifiez jamais l’état, vérifier s’il y a eu des changements peut être très rapide. Si `prevObj === obj`, vous pouvez être certain·e qu’aucun changement n’a pu se produire à l’intérieur de celui-ci.
-- **Nouvelles fonctionnalités :** les nouvelles fonctionnalités de React que nous développons reposent sur le fait que l’état est [traité comme un instantané](/learn/state-as-a-snapshot). Si vous modifiez des versions précédentes de l’état, ça peut vous empêcher d’utiliser les nouvelles fonctionnalités.
+- **Optimisations :** les [stratégies d’optimisation](/reference/Réac/memoire) courantes de Réac reposent sur la possibilité de sauter des étapes si les propriétés ou l’état précédents sont identiques aux suivants. Si vous ne modifiez jamais l’état, vérifier s’il y a eu des changements peut être très rapide. Si `prevObj === obj`, vous pouvez être certain·e qu’aucun changement n’a pu se produire à l’intérieur de celui-ci.
+- **Nouvelles fonctionnalités :** les nouvelles fonctionnalités de Réac que nous développons reposent sur le fait que l’état est [traité comme un instantané](/learn/state-as-a-snapshot). Si vous modifiez des versions précédentes de l’état, ça peut vous empêcher d’utiliser les nouvelles fonctionnalités.
 - **Changements de besoin :** certaines fonctionnalités d’application, comme l’implémentation d’actions pour annuler/rétablir, l’affichage d’un historique des modifications ou la possibilité de réinitialiser un formulaire à des valeurs antérieures, sont plus faciles à réaliser lorsque rien n’est modifié. Ceci est dû au fait que vous pouvez conserver en mémoire des copies passées de l’état et les réutiliser lorsque c’est pertinent. Si vous adoptez une approche modifiante dès le départ, il peut être difficile d’ajouter ultérieurement ce type de fonctionnalités.
-- **Implémentation simplifiée :** puisque React ne repose pas sur la mutation, il n’a pas besoin de faire quoi que ce soit de spécial avec vos objets. Il n’a pas besoin de trafiquer leurs propriétés, de toujours les envelopper dans des proxies ou de réaliser d’autres actions à l’initialisation, comme le font de nombreuses solutions « réactives ». C’est également la raison pour laquelle React vous permet de mettre n’importe quel objet dans l’état, quelle que soit sa taille, sans que ça cause des problèmes de performances ou d’exactitude.
+- **Implémentation simplifiée :** puisque Réac ne repose pas sur la mutation, il n’a pas besoin de faire quoi que ce soit de spécial avec vos objets. Il n’a pas besoin de trafiquer leurs propriétés, de toujours les envelopper dans des proxies ou de réaliser d’autres actions à l’initialisation, comme le font de nombreuses solutions « réactives ». C’est également la raison pour laquelle Réac vous permet de mettre n’importe quel objet dans l’état, quelle que soit sa taille, sans que ça cause des problèmes de performances ou d’exactitude.
 
-En pratique, vous pouvez souvent « vous en sortir » en modifiant directement l’état dans React, mais nous vous conseillons fortement de ne pas le faire afin de pouvoir utiliser les nouvelles fonctionnalités de React développées dans cette optique. Les futurs contributeurs, et peut-être vous-même, vous en seront reconnaissants !
+En pratique, vous pouvez souvent « vous en sortir » en modifiant directement l’état dans Réac, mais nous vous conseillons fortement de ne pas le faire afin de pouvoir utiliser les nouvelles fonctionnalités de Réac développées dans cette optique. Les futurs contributeurs, et peut-être vous-même, vous en seront reconnaissants !
 
 </DeepDive>
 
 <Recap>
 
-- Traitez tous les états dans React comme étant immuables.
+- Traitez tous les états dans Réac comme étant immuables.
 - Lorsque vous stockez des objets dans l’état, les modifier ne déclenchera pas de rendus et modifiera l’état dans les « instantanés » issus de rendus précédents.
 - Au lieu de modifier un objet, créez une *nouvelle* version de celui-ci et déclenchez un nouveau rendu en définissant l’état sur cette nouvelle version.
 - Vous pouvez utiliser la syntaxe de *spread* d’objet `{...obj, something: 'newValue'}` pour créer des copies d’objets existants.
@@ -829,10 +829,10 @@ Votre tâche consiste à corriger tous ces bugs. En les corrigeant, expliquez po
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Scoreboard() {
-  const [player, setPlayer] = useState({
+  const [player, setPlayer] = utiliserEtat({
     firstName: 'Ranjani',
     lastName: 'Shettar',
     score: 10,
@@ -897,10 +897,10 @@ Voici une version avec les deux bugs corrigés :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Scoreboard() {
-  const [player, setPlayer] = useState({
+  const [player, setPlayer] = utiliserEtat({
     firstName: 'Ranjani',
     lastName: 'Shettar',
     score: 10,
@@ -962,7 +962,7 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 </Sandpack>
 
-Le problème avec `handlePlusClick`, c'était qu’elle modifiait l’objet `player`. Par conséquent, React ne savait pas qu’il devait effectuer un nouveau rendu et ne mettait pas à jour le score à l’écran. C’est pourquoi, lorsque vous avez modifié le prénom, l’état a été mis à jour, déclenchant un nouveau rendu qui a *aussi* mis à jour le score à l’écran.
+Le problème avec `handlePlusClick`, c'était qu’elle modifiait l’objet `player`. Par conséquent, Réac ne savait pas qu’il devait effectuer un nouveau rendu et ne mettait pas à jour le score à l’écran. C’est pourquoi, lorsque vous avez modifié le prénom, l’état a été mis à jour, déclenchant un nouveau rendu qui a *aussi* mis à jour le score à l’écran.
 
 Le problème avec `handleLastNameChange` était qu’elle ne copiait pas les champs existants de `...player` dans le nouvel objet. C’est pourquoi le score était perdu après avoir modifié le nom de famille.
 
@@ -985,7 +985,7 @@ S’il y a un changement inattendu, il y a une mutation. Trouvez la mutation dan
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Background from './Background.js';
 import Box from './Box.js';
 
@@ -995,7 +995,7 @@ const initialPosition = {
 };
 
 export default function Canvas() {
-  const [shape, setShape] = useState({
+  const [shape, setShape] = utiliserEtat({
     color: 'orange',
     position: initialPosition
   });
@@ -1038,10 +1038,10 @@ export default function Canvas() {
 ```
 
 ```js src/Box.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Box({
-  children,
+  Enfants,
   color,
   position,
   onMove
@@ -1049,7 +1049,7 @@ export default function Box({
   const [
     lastCoordinates,
     setLastCoordinates
-  ] = useState(null);
+  ] = utiliserEtat(null);
 
   function handlePointerDown(e) {
     e.target.setPointerCapture(e.pointerId);
@@ -1095,7 +1095,7 @@ export default function Box({
           ${position.y}px
         )`,
       }}
-    >{children}</div>
+    >{Enfants}</div>
   );
 }
 ```
@@ -1135,7 +1135,7 @@ La solution consiste à retirer la mutation de `handleMove` et à utiliser la sy
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Background from './Background.js';
 import Box from './Box.js';
 
@@ -1145,7 +1145,7 @@ const initialPosition = {
 };
 
 export default function Canvas() {
-  const [shape, setShape] = useState({
+  const [shape, setShape] = utiliserEtat({
     color: 'orange',
     position: initialPosition
   });
@@ -1193,10 +1193,10 @@ export default function Canvas() {
 ```
 
 ```js src/Box.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Box({
-  children,
+  Enfants,
   color,
   position,
   onMove
@@ -1204,7 +1204,7 @@ export default function Box({
   const [
     lastCoordinates,
     setLastCoordinates
-  ] = useState(null);
+  ] = utiliserEtat(null);
 
   function handlePointerDown(e) {
     e.target.setPointerCapture(e.pointerId);
@@ -1250,7 +1250,7 @@ export default function Box({
           ${position.y}px
         )`,
       }}
-    >{children}</div>
+    >{Enfants}</div>
   );
 }
 ```
@@ -1290,7 +1290,7 @@ Il s’agit du même exemple défectueux que dans l’exercice précédent. Cett
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useImmer } from 'use-immer';
 import Background from './Background.js';
 import Box from './Box.js';
@@ -1301,7 +1301,7 @@ const initialPosition = {
 };
 
 export default function Canvas() {
-  const [shape, setShape] = useState({
+  const [shape, setShape] = utiliserEtat({
     color: 'orange',
     position: initialPosition
   });
@@ -1344,10 +1344,10 @@ export default function Canvas() {
 ```
 
 ```js src/Box.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Box({
-  children,
+  Enfants,
   color,
   position,
   onMove
@@ -1355,7 +1355,7 @@ export default function Box({
   const [
     lastCoordinates,
     setLastCoordinates
-  ] = useState(null);
+  ] = utiliserEtat(null);
 
   function handlePointerDown(e) {
     e.target.setPointerCapture(e.pointerId);
@@ -1401,7 +1401,7 @@ export default function Box({
           ${position.y}px
         )`,
       }}
-    >{children}</div>
+    >{Enfants}</div>
   );
 }
 ```
@@ -1434,16 +1434,16 @@ select { margin-bottom: 10px; }
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -1511,10 +1511,10 @@ export default function Canvas() {
 ```
 
 ```js src/Box.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Box({
-  children,
+  Enfants,
   color,
   position,
   onMove
@@ -1522,7 +1522,7 @@ export default function Box({
   const [
     lastCoordinates,
     setLastCoordinates
-  ] = useState(null);
+  ] = utiliserEtat(null);
 
   function handlePointerDown(e) {
     e.target.setPointerCapture(e.pointerId);
@@ -1568,7 +1568,7 @@ export default function Box({
           ${position.y}px
         )`,
       }}
-    >{children}</div>
+    >{Enfants}</div>
   );
 }
 ```
@@ -1601,16 +1601,16 @@ select { margin-bottom: 10px; }
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```

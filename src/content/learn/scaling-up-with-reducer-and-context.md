@@ -23,12 +23,12 @@ Dans cet exemple provenant de [l'introduction aux réducteurs](/learn/extracting
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(
+  const [tasks, dispatch] = utiliserReducteur(
     tasksReducer,
     initialTasks
   );
@@ -106,10 +106,10 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTask({ onAddTask }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input
@@ -127,7 +127,7 @@ export default function AddTask({ onAddTask }) {
 ```
 
 ```js src/TaskList.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   tasks,
@@ -150,7 +150,7 @@ export default function TaskList({
 }
 
 function Task({ task, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -207,7 +207,7 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-Un réducteur permet de garder les gestionnaires d'événements concis. Vous pouvez cependant rencontrer une autre difficulté à mesure que votre appli grandit. **Pour le moment, l'état `tasks` et le fonction `dispatch` ne sont disponibles qu'au niveau du composant racine `TaskApp`.** Pour que les autres composants puissent lire ou modifier la liste de tâches, vous devez explicitement [transmettre](/learn/passing-props-to-a-component) *via* les props l'état courant et les gestionnaires d'événements qui le modifient.
+Un réducteur permet de garder les gestionnaires d'événements concis. Vous pouvez cependant rencontrer une autre difficulté à mesure que votre appli grandit. **Pour le moment, l'état `tasks` et le fonction `dispatch` ne sont disponibles qu'au niveau du composant racine `TaskApp`.** Pour que les autres composants puissent lire ou modifier la liste de tâches, vous devez explicitement [transmettre](/learn/passing-props-to-a-composant) *via* les props l'état courant et les gestionnaires d'événements qui le modifient.
 
 Par exemple, `TaskApp` passe une liste de tâches et les gestionnaires d'événements à `TaskList` :
 
@@ -241,10 +241,10 @@ Voici comment vous pouvez combiner un réducteur avec un contexte :
 
 ### Étape 1 : créer le contexte {/*step-1-create-the-context*/}
 
-Le Hook `useReducer` renvoie les `tasks` courantes, ainsi que la fonction `dispatch` qui vous permet de les mettre à jour :
+Le Hook `utiliserReducteur` renvoie les `tasks` courantes, ainsi que la fonction `dispatch` qui vous permet de les mettre à jour :
 
 ```js
-const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+const [tasks, dispatch] = utiliserReducteur(tasksReducer, initialTasks);
 ```
 
 Pour les passer à travers l'arbre, vous aller [créer](/learn/passing-data-deeply-with-context#step-2-use-the-context) deux contextes distincts :
@@ -257,12 +257,12 @@ Exportez-les à partir d'un fichier dédié de façon à pouvoir les importer ul
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(
+  const [tasks, dispatch] = utiliserReducteur(
     tasksReducer,
     initialTasks
   );
@@ -340,17 +340,17 @@ const initialTasks = [
 ```
 
 ```js src/TasksContext.js active
-import { createContext } from 'react';
+import { creerContexte } from 'Réac';
 
-export const TasksContext = createContext(null);
-export const TasksDispatchContext = createContext(null);
+export const TasksContext = creerContexte(null);
+export const TasksDispatchContext = creerContexte(null);
 ```
 
 ```js src/AddTask.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTask({ onAddTask }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input
@@ -368,7 +368,7 @@ export default function AddTask({ onAddTask }) {
 ```
 
 ```js src/TaskList.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   tasks,
@@ -391,7 +391,7 @@ export default function TaskList({
 }
 
 function Task({ task, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -452,13 +452,13 @@ Ici, vous passez `null` comme valeur par défaut aux deux contextes. Les valeurs
 
 ### Étape 2 : placer l'état et le *dispatch* dans le contexte {/*step-2-put-state-and-dispatch-into-context*/}
 
-Vous pouvez maintenant importer les deux contextes dans votre composant `TaskApp`. Prenez les `tasks` et `dispatch` renvoyées par le `useReducer()` et [fournissez-les](/learn/passing-data-deeply-with-context#step-3-provide-the-context) à l'arbre entier en dessous :
+Vous pouvez maintenant importer les deux contextes dans votre composant `TaskApp`. Prenez les `tasks` et `dispatch` renvoyées par le `utiliserReducteur()` et [fournissez-les](/learn/passing-data-deeply-with-context#step-3-provide-the-context) à l'arbre entier en dessous :
 
 ```js {4,7-8}
 import { TasksContext, TasksDispatchContext } from './TasksContext.js';
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+  const [tasks, dispatch] = utiliserReducteur(tasksReducer, initialTasks);
   // ...
   return (
     <TasksContext.Provider value={tasks}>
@@ -475,13 +475,13 @@ Pour l'instant, vous passez l'information à la fois par les props et dans le co
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 import { TasksContext, TasksDispatchContext } from './TasksContext.js';
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(
+  const [tasks, dispatch] = utiliserReducteur(
     tasksReducer,
     initialTasks
   );
@@ -561,17 +561,17 @@ const initialTasks = [
 ```
 
 ```js src/TasksContext.js
-import { createContext } from 'react';
+import { creerContexte } from 'Réac';
 
-export const TasksContext = createContext(null);
-export const TasksDispatchContext = createContext(null);
+export const TasksContext = creerContexte(null);
+export const TasksDispatchContext = creerContexte(null);
 ```
 
 ```js src/AddTask.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTask({ onAddTask }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input
@@ -589,7 +589,7 @@ export default function AddTask({ onAddTask }) {
 ```
 
 ```js src/TaskList.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   tasks,
@@ -612,7 +612,7 @@ export default function TaskList({
 }
 
 function Task({ task, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -689,7 +689,7 @@ Au lieu de ça, un composant qui a besoin de la liste de tâches peut la lire de
 
 ```js {2}
 export default function TaskList() {
-  const tasks = useContext(TasksContext);
+  const tasks = utiliserContexte(TasksContext);
   // ...
 ```
 
@@ -697,8 +697,8 @@ Pour mettre à jour la liste de tâches, un composant peut lire la fonction `dis
 
 ```js {3,9-13}
 export default function AddTask() {
-  const [text, setText] = useState('');
-  const dispatch = useContext(TasksDispatchContext);
+  const [text, setText] = utiliserEtat('');
+  const dispatch = utiliserContexte(TasksDispatchContext);
   // ...
   return (
     // ...
@@ -718,13 +718,13 @@ export default function AddTask() {
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 import { TasksContext, TasksDispatchContext } from './TasksContext.js';
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(
+  const [tasks, dispatch] = utiliserReducteur(
     tasksReducer,
     initialTasks
   );
@@ -775,19 +775,19 @@ const initialTasks = [
 ```
 
 ```js src/TasksContext.js
-import { createContext } from 'react';
+import { creerContexte } from 'Réac';
 
-export const TasksContext = createContext(null);
-export const TasksDispatchContext = createContext(null);
+export const TasksContext = creerContexte(null);
+export const TasksDispatchContext = creerContexte(null);
 ```
 
 ```js src/AddTask.js
-import { useState, useContext } from 'react';
+import { utiliserEtat, utiliserContexte } from 'Réac';
 import { TasksDispatchContext } from './TasksContext.js';
 
 export default function AddTask() {
-  const [text, setText] = useState('');
-  const dispatch = useContext(TasksDispatchContext);
+  const [text, setText] = utiliserEtat('');
+  const dispatch = utiliserContexte(TasksDispatchContext);
   return (
     <>
       <input
@@ -811,11 +811,11 @@ let nextId = 3;
 ```
 
 ```js src/TaskList.js active
-import { useState, useContext } from 'react';
+import { utiliserEtat, utiliserContexte } from 'Réac';
 import { TasksContext, TasksDispatchContext } from './TasksContext.js';
 
 export default function TaskList() {
-  const tasks = useContext(TasksContext);
+  const tasks = utiliserContexte(TasksContext);
   return (
     <ul>
       {tasks.map(task => (
@@ -828,8 +828,8 @@ export default function TaskList() {
 }
 
 function Task({ task }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const dispatch = useContext(TasksDispatchContext);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
+  const dispatch = utiliserContexte(TasksDispatchContext);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -897,33 +897,33 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-**L'état « vit » toujours dans le composant de haut-niveau `TaskApp`, où il reste géré avec `useReducer`.** Toutefois, ses `tasks` et `dispatch` sont désormais accessibles à chaque composant plus bas dans l'arbre, en important et utilisant ces contextes.
+**L'état « vit » toujours dans le composant de haut-niveau `TaskApp`, où il reste géré avec `utiliserReducteur`.** Toutefois, ses `tasks` et `dispatch` sont désormais accessibles à chaque composant plus bas dans l'arbre, en important et utilisant ces contextes.
 
 ## Déplacer toute cette plomberie dans un seul fichier {/*moving-all-wiring-into-a-single-file*/}
 
 Ça n'a rien d'obligatoire, mais vous pouvez encore alléger les composants en déplaçant le réducteur et le contexte dans un unique fichier distinct. Pour le moment, `TasksContext.js` ne contient que les deux déclarations de contexte :
 
 ```js
-import { createContext } from 'react';
+import { creerContexte } from 'Réac';
 
-export const TasksContext = createContext(null);
-export const TasksDispatchContext = createContext(null);
+export const TasksContext = creerContexte(null);
+export const TasksDispatchContext = creerContexte(null);
 ```
 
 Ce fichier va très vite grandir ! Vous allez déplacer le réducteur dans ce fichier. Ensuite, vous allez y déclarer un nouveau composant `TasksProvider`. Ce composant va relier toutes les pièces du puzzle :
 
 1. Il gérera l'état avec un réducteur.
 2. Il fournira les deux contextes aux composants en dessous.
-3. Il [prendra les `children` en tant que props](/learn/passing-props-to-a-component#passing-jsx-as-children) afin que vous puissiez lui donner du JSX.
+3. Il [prendra les `Enfants` en tant que props](/learn/passing-props-to-a-composant#passing-jsx-as-enfants) afin que vous puissiez lui donner du JSX.
 
 ```js
-export function TasksProvider({ children }) {
-  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+export function TasksProvider({ Enfants }) {
+  const [tasks, dispatch] = utiliserReducteur(tasksReducer, initialTasks);
 
   return (
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
-        {children}
+        {Enfants}
       </TasksDispatchContext.Provider>
     </TasksContext.Provider>
   );
@@ -951,13 +951,13 @@ export default function TaskApp() {
 ```
 
 ```js src/TasksContext.js
-import { createContext, useReducer } from 'react';
+import { creerContexte, utiliserReducteur } from 'Réac';
 
-export const TasksContext = createContext(null);
-export const TasksDispatchContext = createContext(null);
+export const TasksContext = creerContexte(null);
+export const TasksDispatchContext = creerContexte(null);
 
-export function TasksProvider({ children }) {
-  const [tasks, dispatch] = useReducer(
+export function TasksProvider({ Enfants }) {
+  const [tasks, dispatch] = utiliserReducteur(
     tasksReducer,
     initialTasks
   );
@@ -965,7 +965,7 @@ export function TasksProvider({ children }) {
   return (
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
-        {children}
+        {Enfants}
       </TasksDispatchContext.Provider>
     </TasksContext.Provider>
   );
@@ -1006,12 +1006,12 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js
-import { useState, useContext } from 'react';
+import { utiliserEtat, utiliserContexte } from 'Réac';
 import { TasksDispatchContext } from './TasksContext.js';
 
 export default function AddTask() {
-  const [text, setText] = useState('');
-  const dispatch = useContext(TasksDispatchContext);
+  const [text, setText] = utiliserEtat('');
+  const dispatch = utiliserContexte(TasksDispatchContext);
   return (
     <>
       <input
@@ -1035,11 +1035,11 @@ let nextId = 3;
 ```
 
 ```js src/TaskList.js
-import { useState, useContext } from 'react';
+import { utiliserEtat, utiliserContexte } from 'Réac';
 import { TasksContext, TasksDispatchContext } from './TasksContext.js';
 
 export default function TaskList() {
-  const tasks = useContext(TasksContext);
+  const tasks = utiliserContexte(TasksContext);
   return (
     <ul>
       {tasks.map(task => (
@@ -1052,8 +1052,8 @@ export default function TaskList() {
 }
 
 function Task({ task }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const dispatch = useContext(TasksDispatchContext);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
+  const dispatch = utiliserContexte(TasksDispatchContext);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -1125,11 +1125,11 @@ Vous pouvez également exporter des fonctions qui _utilisent_ le contexte de `Ta
 
 ```js
 export function useTasks() {
-  return useContext(TasksContext);
+  return utiliserContexte(TasksContext);
 }
 
 export function useTasksDispatch() {
-  return useContext(TasksDispatchContext);
+  return utiliserContexte(TasksDispatchContext);
 }
 ```
 
@@ -1161,14 +1161,14 @@ export default function TaskApp() {
 ```
 
 ```js src/TasksContext.js
-import { createContext, useContext, useReducer } from 'react';
+import { creerContexte, utiliserContexte, utiliserReducteur } from 'Réac';
 
-const TasksContext = createContext(null);
+const TasksContext = creerContexte(null);
 
-const TasksDispatchContext = createContext(null);
+const TasksDispatchContext = creerContexte(null);
 
-export function TasksProvider({ children }) {
-  const [tasks, dispatch] = useReducer(
+export function TasksProvider({ Enfants }) {
+  const [tasks, dispatch] = utiliserReducteur(
     tasksReducer,
     initialTasks
   );
@@ -1176,18 +1176,18 @@ export function TasksProvider({ children }) {
   return (
     <TasksContext.Provider value={tasks}>
       <TasksDispatchContext.Provider value={dispatch}>
-        {children}
+        {Enfants}
       </TasksDispatchContext.Provider>
     </TasksContext.Provider>
   );
 }
 
 export function useTasks() {
-  return useContext(TasksContext);
+  return utiliserContexte(TasksContext);
 }
 
 export function useTasksDispatch() {
-  return useContext(TasksDispatchContext);
+  return utiliserContexte(TasksDispatchContext);
 }
 
 function tasksReducer(tasks, action) {
@@ -1225,11 +1225,11 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useTasksDispatch } from './TasksContext.js';
 
 export default function AddTask() {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   const dispatch = useTasksDispatch();
   return (
     <>
@@ -1254,7 +1254,7 @@ let nextId = 3;
 ```
 
 ```js src/TaskList.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useTasks, useTasksDispatch } from './TasksContext.js';
 
 export default function TaskList() {
@@ -1271,7 +1271,7 @@ export default function TaskList() {
 }
 
 function Task({ task }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   const dispatch = useTasksDispatch();
   let taskContent;
   if (isEditing) {
@@ -1344,11 +1344,11 @@ Vous pouvez voir le `TasksProvider` comme une partie de l'écran qui sait commen
 
 <Note>
 
-Les fonctions comme `useTasks` et `useTasksDispatch` sont ce qu'on appelle des *[Hooks personnalisés](/learn/reusing-logic-with-custom-hooks)*. Votre fonction est considérée comme un Hook personnalisé si son nom commence par `use`. Vous pouvez alors utiliser d'autres Hooks comme `useContext` à l'intérieur.
+Les fonctions comme `useTasks` et `useTasksDispatch` sont ce qu'on appelle des *[Crochets personnalisés](/learn/reusing-logic-with-custom-hooks)*. Votre fonction est considérée comme un Hook personnalisé si son nom commence par `use`. Vous pouvez alors utiliser d'autres Crochets comme `utiliserContexte` à l'intérieur.
 
 </Note>
 
-Au fur et à mesure que votre appli grandit, il se peut que vous ayez de nombreuses paires contexte-réducteur comme celle-ci. C'est un moyen puissant de faire grandir votre appli et de [faire remonter l'état](/learn/sharing-state-between-components) sans trop d'efforts chaque fois que vous avez besoin d'accéder aux données au plus profond de l'arbre.
+Au fur et à mesure que votre appli grandit, il se peut que vous ayez de nombreuses paires contexte-réducteur comme celle-ci. C'est un moyen puissant de faire grandir votre appli et de [faire remonter l'état](/learn/sharing-state-between-composants) sans trop d'efforts chaque fois que vous avez besoin d'accéder aux données au plus profond de l'arbre.
 
 <Recap>
 
@@ -1359,7 +1359,7 @@ Au fur et à mesure que votre appli grandit, il se peut que vous ayez de nombreu
   3. Utilisez l'un ou l'autre des contextes pour les composants qui ont besoin de les lire.
 - Vous avez la possibilité d'alléger les composants en déplaçant toute la plomberie dans un seul fichier.
   - Vous pouvez exporter un composant tel que `TasksProvider` qui fournit le contexte.
-  - Vous pouvez également exporter des Hooks personnalisés tels que `useTasks` et `useTasksDispatch` pour lire vos contextes spécifiques.
+  - Vous pouvez également exporter des Crochets personnalisés tels que `useTasks` et `useTasksDispatch` pour lire vos contextes spécifiques.
 - Vous pouvez disposer de nombreuses paires contexte-réducteur comme ça dans votre appli.
 
 </Recap>

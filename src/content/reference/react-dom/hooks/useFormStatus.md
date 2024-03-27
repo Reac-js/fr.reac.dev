@@ -5,7 +5,7 @@ canary: true
 
 <Canary>
 
-Le Hook `useFormStatus` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de React. Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+Le Hook `useFormStatus` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de Réac. Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
@@ -30,7 +30,7 @@ const { pending, data, method, action } = useFormStatus();
 Le Hook `useFormStatus` vous fournit des informations d'état sur le dernier envoi de formulaire parent.
 
 ```js {5},[[1, 6, "status.pending"]]
-import { useFormStatus } from "react-dom";
+import { useFormStatus } from "Réac-dom";
 import action from './actions';
 
 function Submit() {
@@ -88,7 +88,7 @@ Nous utilisons ci-dessous la propriété `pending` pour indiquer que le formulai
 <Sandpack>
 
 ```js src/App.js
-import { useFormStatus } from "react-dom";
+import { useFormStatus } from "Réac-dom";
 import { submitForm } from "./actions.js";
 
 function Submit() {
@@ -122,9 +122,9 @@ export async function submitForm(query) {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
-    "react-scripts": "^5.0.0"
+    "Réac": "canary",
+    "Réac-dom": "canary",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}
@@ -134,7 +134,7 @@ export async function submitForm(query) {
 
 <Pitfall>
 
-#### `useFormStatus` ne renverra pas d'information d'état pour un `<form>` situé dans le même composant. {/*useformstatus-will-not-return-status-information-for-a-form-rendered-in-the-same-component*/}
+#### `useFormStatus` ne renverra pas d'information d'état pour un `<form>` situé dans le même composant. {/*useformstatus-will-not-return-status-information-for-a-form-rendered-in-the-same-composant*/}
 
 Le Hook `useFormStatus` ne renvoie que les informations d'état du `<form>` parent, et non celles d'un `<form>` placé dans le rendu du composant appelant le Hook ou dans ses composants enfants.
 
@@ -179,8 +179,8 @@ Dans l'exemple ci-dessous, nous avons un formulaire permettant à l'utilisateur 
 <Sandpack>
 
 ```js src/UsernameForm.js active
-import {useState, useMemo, useRef} from 'react';
-import {useFormStatus} from 'react-dom';
+import {utiliserEtat, utiliserMemoire, utiliserReference} from 'Réac';
+import {useFormStatus} from 'Réac-dom';
 
 export default function UsernameForm() {
   const {pending, data} = useFormStatus();
@@ -202,10 +202,10 @@ export default function UsernameForm() {
 ```js src/App.js
 import UsernameForm from './UsernameForm';
 import { submitForm } from "./actions.js";
-import { useRef } from 'react';
+import { utiliserReference } from 'Réac';
 
 export default function App() {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
   return (
     <form ref={ref} action={async (formData) => {
       await submitForm(formData);
@@ -240,9 +240,9 @@ button {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
-    "react-scripts": "^5.0.0"
+    "Réac": "canary",
+    "Réac-dom": "canary",
+    "Réac-scripts": "^5.0.0"
   },
   "main": "/index.js",
   "devDependencies": {}
@@ -260,4 +260,4 @@ button {
 
 Si le composant qui appelle `useFormStatus` n'est pas imbriqué dans un `<form>`, `status.pending` vaudra toujours `false`. Vérifiez que `useFormStatus` est appelé depuis un composant qui figure à l'intérieur d'un élément `<form>`.
 
-`useFormStatus` ne surveillera pas l'état d'un `<form>` situé dans le rendu du même composant. Consultez le [Piège](#useformstatus-will-not-return-status-information-for-a-form-rendered-in-the-same-component) pour en savoir plus.
+`useFormStatus` ne surveillera pas l'état d'un `<form>` situé dans le rendu du même composant. Consultez le [Piège](#useformstatus-will-not-return-status-information-for-a-form-rendered-in-the-same-composant) pour en savoir plus.

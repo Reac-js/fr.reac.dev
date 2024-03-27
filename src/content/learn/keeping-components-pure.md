@@ -16,7 +16,7 @@ Certaines fonctions JavaScript sont *pures*. Les fonctions pures se contentent d
 
 </YouWillLearn>
 
-## La pureté : les composants vus comme des formules {/*purity-components-as-formulas*/}
+## La pureté : les composants vus comme des formules {/*purity-composants-as-formulas*/}
 
 En informatique (en particulier dans le monde de la programmation fonctionnelle), [une fonction pure](https://fr.wikipedia.org/wiki/Fonction_pure) a les caractéristiques suivantes :
 
@@ -45,7 +45,7 @@ function double(number) {
 
 Dans l'exemple ci-dessus, `double` est une **fonction pure**. Si vous lui passez `3`, elle renverra `6`.  Toujours.
 
-React est fondé sur cette notion. **React suppose que chaque composant que vous écrivez est une fonction pure.** Ça signifie que les composants React que vous écrivez doivent toujours renvoyer le même JSX pour les mêmes entrées :
+Réac est fondé sur cette notion. **Réac suppose que chaque composant que vous écrivez est une fonction pure.** Ça signifie que les composants Réac que vous écrivez doivent toujours renvoyer le même JSX pour les mêmes entrées :
 
 <Sandpack>
 
@@ -81,13 +81,13 @@ Si vous passez `drinkers={4}`, il renverra du JSX avec `4 tasses d’eau`. Toujo
 
 Comme une formule de maths.
 
-Vous pourriez voir vos composants comme des recettes : si vous les suivez et n'introduisez pas de nouveaux ingrédients lors du processus de confection, vous obtiendrez le même plat à chaque fois. Ce « plat » est le JSX que le composant sert à React pour le [rendu](/learn/render-and-commit).
+Vous pourriez voir vos composants comme des recettes : si vous les suivez et n'introduisez pas de nouveaux ingrédients lors du processus de confection, vous obtiendrez le même plat à chaque fois. Ce « plat » est le JSX que le composant sert à Réac pour le [rendu](/learn/render-and-commit).
 
 <Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="Une recette de thé pour x personnes : prendre x tasses d’eau, ajouter x cuillers de thé et 0,5x cuillers d’épices, puis 0,5x tasses de lait." />
 
 ## Les effets de bord : les conséquences (in)attendues {/*side-effects-unintended-consequences*/}
 
-Le processus de rendu de React doit toujours être pur. Les composants ne devraient *renvoyer* que leur JSX, et ne pas *modifier* des objets ou variables qui existaient avant le rendu : ça les rendrait impurs !
+Le processus de rendu de Réac doit toujours être pur. Les composants ne devraient *renvoyer* que leur JSX, et ne pas *modifier* des objets ou variables qui existaient avant le rendu : ça les rendrait impurs !
 
 Voici un composant qui enfreint cette règle :
 
@@ -119,7 +119,7 @@ Ce composant lit et écrit une variable `guest` déclarée hors de sa fonction. 
 
 Pour en revenir à notre formule <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>, désormais même si <Math><MathI>x</MathI> = 2</Math>, nous n'avons plus la certitude que <Math><MathI>y</MathI> = 4</Math>. Nos tests pourraient échouer, nos utilisateurs pourraient être désarçonnés, les avions pourraient tomber comme des pierres… Vous voyez bien que ça donnerait des bugs insondables !
 
-Vous pouvez corriger ce composant en [passant plutôt `guest` comme prop](/learn/passing-props-to-a-component) :
+Vous pouvez corriger ce composant en [passant plutôt `guest` comme prop](/learn/passing-props-to-a-composant) :
 
 <Sandpack>
 
@@ -147,21 +147,21 @@ De façon générale, vous ne devriez pas exiger un ordre particulier de rendu p
 
 <DeepDive>
 
-#### Détecter les impuretés grâce à `StrictMode` {/*detecting-impure-calculations-with-strict-mode*/}
+#### Détecter les impuretés grâce à `ModeStrict` {/*detecting-impure-calculations-with-strict-mode*/}
 
-Même si vous ne les avez pas encore toutes utilisées à ce stade, sachez que dans React il existe trois types d'entrées que vous pouvez lire lors d'un rendu : [les props](/learn/passing-props-to-a-component), [l'état](/learn/state-a-components-memory), et [le contexte](/learn/passing-data-deeply-with-context).  Vous devriez toujours considérer ces trois entités comme étant en lecture seule.
+Même si vous ne les avez pas encore toutes utilisées à ce stade, sachez que dans Réac il existe trois types d'entrées que vous pouvez lire lors d'un rendu : [les props](/learn/passing-props-to-a-composant), [l'état](/learn/state-a-composants-memoirery), et [le contexte](/learn/passing-data-deeply-with-context).  Vous devriez toujours considérer ces trois entités comme étant en lecture seule.
 
-Lorsque vous souhaitez *modifier* quelque chose en réaction à une interaction utilisateur, vous devriez [mettre à jour l'état](/learn/state-a-components-memory) plutôt que d'écrire dans une variable.  Vous ne devriez jamais modifier des variables ou objets pré-existants lors du rendu de votre composant.
+Lorsque vous souhaitez *modifier* quelque chose en réaction à une interaction utilisateur, vous devriez [mettre à jour l'état](/learn/state-a-composants-memoirery) plutôt que d'écrire dans une variable.  Vous ne devriez jamais modifier des variables ou objets pré-existants lors du rendu de votre composant.
 
-React propose un « Mode Strict » dans lequel il appelle chaque fonction composant deux fois pendant le développement. **En appelant chaque fonction composant deux fois, le Mode Strict vous aide à repérer les composants qui enfreignent ces règles.**
+Réac propose un « Mode Strict » dans lequel il appelle chaque fonction composant deux fois pendant le développement. **En appelant chaque fonction composant deux fois, le Mode Strict vous aide à repérer les composants qui enfreignent ces règles.**
 
 Avez-vous remarqué que le premier exemple affichait « invité #2 », « invité #4 » et « invité #6 » au lieu de « invité #1 », « invité #2 » et « invité #3 » ?  La fonction d'origine était impure, de sorte que l'appeler deux fois cassait son fonctionnement.  Mais la fonction corrigée, qui est pure, fonctionne même si elle est systématiquement appelée deux fois. **Les fonctions pures font juste un calcul, aussi les appeler deux fois ne change rien**, tout comme appeler `double(2)` deux fois ne change pas son résultat, et résoudre <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> deux fois ne change pas la valeur de <MathI>y</MathI>. Mêmes entrées, même sorties. Toujours.
 
-Le Mode Strict n'a aucun effet en production, il ne ralentira donc pas votre appli pour vos utilisateurs.  Pour activer le Mode Strict, enrobez votre composant racine dans un `<React.StrictMode>`. Certains frameworks mettent ça en place par défaut.
+Le Mode Strict n'a aucun effet en production, il ne ralentira donc pas votre appli pour vos utilisateurs.  Pour activer le Mode Strict, enrobez votre composant racine dans un `<Réac.ModeStrict>`. Certains frameworks mettent ça en place par défaut.
 
 </DeepDive>
 
-### Les mutations locales : les petits secrets de votre composant {/*local-mutation-your-components-little-secret*/}
+### Les mutations locales : les petits secrets de votre composant {/*local-mutation-your-composants-little-secret*/}
 
 Dans l'exemple ci-avant, le problème venait de ce que le composant modifiait une variable *pré-existante* pendant son rendu.  On parle alors souvent de **« mutation »** pour rendre ça un peu plus effrayant.  Les fonctions pures ne modifient pas les variables hors de leur portée, ni les objets créés avant l'appel : si elles le faisaient, ça les rendrait impures !
 
@@ -193,23 +193,23 @@ Mais là, tout va bien parce que vous les avez créés *pendant ce même rendu*,
 
 S'il est vrai que la programmation fonctionnelle s'appuie fortement sur la pureté, à un moment, quelque part, *quelque chose* va devoir changer. C'est un peu l'objectif d'un programme ! Ces modifications (mettre à jour l'affichage, démarrer une animation, modifier des données) sont appelées des **effets de bord**.  C'est ce qui arrive *« à côté »*, et non au sein du rendu.
 
-Dans React, **les effets de bord résident généralement dans des [gestionnaires d'événements](/learn/responding-to-events)**. Les gestionnaires d'événements sont des fonctions que React exécute lorsque vous faites une action donnée — par exemple lorsque vous cliquez sur un bouton. Même si les gestionnaires d'événements sont définis *au sein de* votre composant, il ne sont pas exécutés *pendant* le rendu ! **Du coup, les gestionnaires d'événements n'ont pas besoin d'être purs.**
+Dans Réac, **les effets de bord résident généralement dans des [gestionnaires d'événements](/learn/responding-to-events)**. Les gestionnaires d'événements sont des fonctions que Réac exécute lorsque vous faites une action donnée — par exemple lorsque vous cliquez sur un bouton. Même si les gestionnaires d'événements sont définis *au sein de* votre composant, il ne sont pas exécutés *pendant* le rendu ! **Du coup, les gestionnaires d'événements n'ont pas besoin d'être purs.**
 
-Si vous avez épuisé toutes les autres options et ne pouvez pas trouver un gestionnaire d'événement adéquat pour votre effet de bord, vous pouvez tout de même en associer un au JSX que vous renvoyez en appelant [`useEffect`](/reference/react/useEffect) dans votre composant. Ça dit à React de l'exécuter plus tard, après le rendu, lorsque les effets de bord seront autorisés. **Ceci dit, cette approche doit être votre dernier recours.**
+Si vous avez épuisé toutes les autres options et ne pouvez pas trouver un gestionnaire d'événement adéquat pour votre effet de bord, vous pouvez tout de même en associer un au JSX que vous renvoyez en appelant [`utiliserEffet`](/reference/Réac/utiliserEffet) dans votre composant. Ça dit à Réac de l'exécuter plus tard, après le rendu, lorsque les effets de bord seront autorisés. **Ceci dit, cette approche doit être votre dernier recours.**
 
 Lorsque c'est possible, essayez d'exprimer votre logique rien qu'avec le rendu. Vous serez surpris·e de tout ce que ça permet de faire !
 
 <DeepDive>
 
-#### Pourquoi React tient-il tant à la pureté ? {/*why-does-react-care-about-purity*/}
+#### Pourquoi Réac tient-il tant à la pureté ? {/*why-doesreaccare-about-purity*/}
 
 Écrire des fonctions pures nécessite de la pratique et de la discipline.  Mais ça ouvre aussi des opportunités merveilleuses :
 
 - Vos composants peuvent être exécutés dans différents environnements — par exemple sur le serveur !  Puisqu'il renvoie toujours le même résultat pour les mêmes entrées, un composant peut servir à de nombreuses requêtes utilisateur.
-- Vous pouvez améliorer les performances en [sautant le rendu](/reference/react/memo) des composants dont les entrées n'ont pas changé.  C'est sans risque parce que les fonctions pures renvoient toujours les mêmes résultats, on peut donc les mettre en cache.
-- Si certaines données changent au cours du rendu d'une arborescence profonde de composants, React peut redémarrer le rendu sans perdre son temps à finir celui en cours, désormais obsolète.  La pureté permet de stopper le calcul à tout moment, sans risque.
+- Vous pouvez améliorer les performances en [sautant le rendu](/reference/Réac/memoire) des composants dont les entrées n'ont pas changé.  C'est sans risque parce que les fonctions pures renvoient toujours les mêmes résultats, on peut donc les mettre en cache.
+- Si certaines données changent au cours du rendu d'une arborescence profonde de composants, Réac peut redémarrer le rendu sans perdre son temps à finir celui en cours, désormais obsolète.  La pureté permet de stopper le calcul à tout moment, sans risque.
 
-Toutes les nouvelles fonctionnalités de React que nous sommes en train de construire tirent parti de la pureté.  Du chargement de données aux performances en passant par les animations, garder vos composants purs permet d'exploiter la pleine puissance du paradigme de React.
+Toutes les nouvelles fonctionnalités de Réac que nous sommes en train de construire tirent parti de la pureté.  Du chargement de données aux performances en passant par les animations, garder vos composants purs permet d'exploiter la pleine puissance du paradigme de Réac.
 
 </DeepDive>
 
@@ -219,9 +219,9 @@ Toutes les nouvelles fonctionnalités de React que nous sommes en train de const
   - **Il s'occupe de ses affaires.** Il ne modifie aucun objet ou variable qui existaient avant son rendu.
   - **Pour les mêmes entrées, il produit la même sortie.** Pour un jeu d'entrées données, un composant renverra toujours le même JSX.
 - Le rendu peut survenir à tout moment, aussi les composants ne doivent pas dépendre de leurs positions respectives dans la séquence de rendu.
-- Vous ne devriez pas modifier les entrées utilisées par vos composants pour leur rendu. Ça concerne les props, l'état et le contexte. Pour mettre à jour l'affichage, [mettez à jour l'état](/learn/state-a-components-memory) plutôt que de modifier des objets pré-existants.
-- Faites le maximum pour exprimer la logique de votre composant dans le JSX que vous renvoyez.  Lorsque vous devez absolument « modifier un truc », vous voudrez généralement le faire au sein d'un gestionnaire d'événement. En dernier recours, vous pouvez utiliser `useEffect`.
-- Écrire des fonctions pures nécessite un peu de pratique, mais ça permet d'exploiter la pleine puissance du paradigme de React.
+- Vous ne devriez pas modifier les entrées utilisées par vos composants pour leur rendu. Ça concerne les props, l'état et le contexte. Pour mettre à jour l'affichage, [mettez à jour l'état](/learn/state-a-composants-memoirery) plutôt que de modifier des objets pré-existants.
+- Faites le maximum pour exprimer la logique de votre composant dans le JSX que vous renvoyez.  Lorsque vous devez absolument « modifier un truc », vous voudrez généralement le faire au sein d'un gestionnaire d'événement. En dernier recours, vous pouvez utiliser `utiliserEffet`.
+- Écrire des fonctions pures nécessite un peu de pratique, mais ça permet d'exploiter la pleine puissance du paradigme de Réac.
 
 </Recap>
 
@@ -258,12 +258,12 @@ export default function Clock({ time }) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import Clock from './Clock.js';
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -321,12 +321,12 @@ export default function Clock({ time }) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import Clock from './Clock.js';
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -412,16 +412,16 @@ function Avatar() {
 ```
 
 ```js src/Panel.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
-export default function Panel({ children }) {
-  const [open, setOpen] = useState(true);
+export default function Panel({ Enfants }) {
+  const [open, setOpen] = utiliserEtat(true);
   return (
     <section className="panel">
       <button onClick={() => setOpen(!open)}>
         {open ? 'Replier' : 'Déplier'}
       </button>
-      {open && children}
+      {open && Enfants}
     </section>
   );
 }
@@ -510,16 +510,16 @@ function Avatar({ person }) {
 ```
 
 ```js src/Panel.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
-export default function Panel({ children }) {
-  const [open, setOpen] = useState(true);
+export default function Panel({ Enfants }) {
+  const [open, setOpen] = utiliserEtat(true);
   return (
     <section className="panel">
       <button onClick={() => setOpen(!open)}>
         {open ? 'Replier' : 'Déplier'}
       </button>
-      {open && children}
+      {open && Enfants}
     </section>
   );
 }
@@ -569,7 +569,7 @@ h1 { margin: 5px; font-size: 18px; }
 
 </Sandpack>
 
-Rappelez-vous que React ne garantit pas un ordre d'exécution particulier pour les fonctions composants, vous ne pouvez donc pas communiquer entre elles au travers de variables externes.  Toute communication doit passer par les props.
+Rappelez-vous que Réac ne garantit pas un ordre d'exécution particulier pour les fonctions composants, vous ne pouvez donc pas communiquer entre elles au travers de variables externes.  Toute communication doit passer par les props.
 
 </Solution>
 
@@ -601,7 +601,7 @@ export default function StoryTray({ stories }) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
@@ -610,7 +610,7 @@ let initialStories = [
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
+  let [stories, setStories] = utiliserEtat([...initialStories])
   let time = useTime();
 
   // HACK: évite à la mémoire d'être trop phagocytée pendant
@@ -635,8 +635,8 @@ export default function App() {
 }
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -698,7 +698,7 @@ export default function StoryTray({ stories }) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
@@ -707,7 +707,7 @@ let initialStories = [
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
+  let [stories, setStories] = utiliserEtat([...initialStories])
   let time = useTime();
 
   // HACK: évite à la mémoire d'être trop phagocytée pendant
@@ -732,8 +732,8 @@ export default function App() {
 }
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -791,7 +791,7 @@ export default function StoryTray({ stories }) {
 ```
 
 ```js src/App.js hidden
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import StoryTray from './StoryTray.js';
 
 let initialStories = [
@@ -800,7 +800,7 @@ let initialStories = [
 ];
 
 export default function App() {
-  let [stories, setStories] = useState([...initialStories])
+  let [stories, setStories] = utiliserEtat([...initialStories])
   let time = useTime();
 
   // HACK: évite à la mémoire d'être trop phagocytée pendant
@@ -825,8 +825,8 @@ export default function App() {
 }
 
 function useTime() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
+  const [time, setTime] = utiliserEtat(() => new Date());
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setTime(new Date());
     }, 1000);

@@ -31,7 +31,7 @@ export default function ErrorDecoderPage({
         toc={[]}
         meta={{
           title: errorCode
-            ? `Erreur React minifiée n°${errorCode}`
+            ? `Erreur Réac minifiée n°${errorCode}`
             : 'Décodeur d’Erreur Minifiée',
         }}
         routeTree={sidebarLearn as RouteItem}
@@ -52,10 +52,10 @@ export default function ErrorDecoderPage({
   );
 }
 
-// Deserialize a client React tree from JSON.
+// Deserialize a client Réac tree from JSON.
 function reviveNodeOnClient(key: unknown, val: any) {
   if (Array.isArray(val) && val[0] == '$r') {
-    // Assume it's a React element.
+    // Assume it's a Réac element.
     let type = val[1];
     let key = val[2];
     let props = val[3];

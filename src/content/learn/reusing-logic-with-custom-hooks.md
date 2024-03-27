@@ -1,23 +1,23 @@
 ---
-title: 'Réutiliser de la logique grâce aux Hooks personnalisés'
+title: 'Réutiliser de la logique grâce aux Crochets personnalisés'
 ---
 
 <Intro>
 
-React fournit plusieurs Hooks tels que `useState`, `useContext` et `useEffect`. Parfois, vous aimeriez qu’il y ait un Hook pour un besoin plus précis : par exemple pour récupérer des données, savoir si un utilisateur est en ligne ou encore se connecter à un salon de discussion. Vous ne trouverez peut-être pas ces Hooks dans React, mais vous pouvez créer vos propres Hooks pour les besoins de votre application.
+Réac fournit plusieurs Crochets tels que `utiliserEtat`, `utiliserContexte` et `utiliserEffet`. Parfois, vous aimeriez qu’il y ait un Hook pour un besoin plus précis : par exemple pour récupérer des données, savoir si un utilisateur est en ligne ou encore se connecter à un salon de discussion. Vous ne trouverez peut-être pas ces Crochets dans Réac, mais vous pouvez créer vos propres Crochets pour les besoins de votre application.
 
 </Intro>
 
 <YouWillLearn>
 
-- Ce que sont les Hooks personnalisés et comment écrire les vôtres
+- Ce que sont les Crochets personnalisés et comment écrire les vôtres
 - Comment réutiliser de la logique entre composants
-- Comment nommer et structurer vos Hooks personnalisés
-- Quand et pourquoi extraire des Hooks personnalisés
+- Comment nommer et structurer vos Crochets personnalisés
+- Quand et pourquoi extraire des Crochets personnalisés
 
 </YouWillLearn>
 
-## Hooks personnalisés : partager de la logique entre composants {/*custom-hooks-sharing-logic-between-components*/}
+## Crochets personnalisés : partager de la logique entre composants {/*custom-hooks-sharing-logic-between-composants*/}
 
 Imaginez que vous développiez une appli qui repose massivement sur le réseau (comme c’est le cas de la plupart des applis). Vous souhaitez avertir l’utilisateur si sa connexion réseau est brutalement interrompue pendant qu’il utilisait son appli. Comment vous y prendriez-vous ? Il semble que vous ayez besoin de deux choses dans votre composant :
 
@@ -29,11 +29,11 @@ Imaginez que vous développiez une appli qui repose massivement sur le réseau (
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function StatusBar() {
-  const [isOnline, setIsOnline] = useState(true);
-  useEffect(() => {
+  const [isOnline, setIsOnline] = utiliserEtat(true);
+  utiliserEffet(() => {
     function handleOnline() {
       setIsOnline(true);
     }
@@ -63,11 +63,11 @@ Pour commencer, vous pouvez copier-coller l’état `isOnline` et l’effet dans
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function SaveButton() {
-  const [isOnline, setIsOnline] = useState(true);
-  useEffect(() => {
+  const [isOnline, setIsOnline] = utiliserEtat(true);
+  utiliserEffet(() => {
     function handleOnline() {
       setIsOnline(true);
     }
@@ -100,9 +100,9 @@ Vérifiez que le bouton changera d’apparence si vous débranchez le réseau.
 
 Ces deux composants fonctionnent bien, mais la duplication de la logique entre eux est regrettable. Il semble que même s’ils ont un *aspect visuel* différent, ils réutilisent la même logique.
 
-### Extraire votre Hook personnalisé d’un composant {/*extracting-your-own-custom-hook-from-a-component*/}
+### Extraire votre Hook personnalisé d’un composant {/*extracting-your-own-custom-hook-from-a-composant*/}
 
-Imaginez un instant que, comme pour [`useState`](/reference/react/useState) et [`useEffect`](/reference/react/useEffect), il existe un Hook prédéfini `useOnlineStatus`. Ces deux composants pourraient alors être simplifiés et vous pourriez supprimer la duplication entre eux :
+Imaginez un instant que, comme pour [`utiliserEtat`](/reference/Réac/utiliserEtat) et [`utiliserEffet`](/reference/Réac/utiliserEffet), il existe un Hook prédéfini `useOnlineStatus`. Ces deux composants pourraient alors être simplifiés et vous pourriez supprimer la duplication entre eux :
 
 ```js {2,7}
 function StatusBar() {
@@ -129,8 +129,8 @@ Même si un tel Hook intégré n’existe pas, vous pouvez l’écrire vous-mêm
 
 ```js {2-16}
 function useOnlineStatus() {
-  const [isOnline, setIsOnline] = useState(true);
-  useEffect(() => {
+  const [isOnline, setIsOnline] = utiliserEtat(true);
+  utiliserEffet(() => {
     function handleOnline() {
       setIsOnline(true);
     }
@@ -185,11 +185,11 @@ export default function App() {
 ```
 
 ```js src/useOnlineStatus.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function useOnlineStatus() {
-  const [isOnline, setIsOnline] = useState(true);
-  useEffect(() => {
+  const [isOnline, setIsOnline] = utiliserEtat(true);
+  utiliserEffet(() => {
     function handleOnline() {
       setIsOnline(true);
     }
@@ -213,22 +213,22 @@ Vérifiez que l’activation et la désactivation du réseau mettent à jour les
 
 Désormais, vos composants n’ont plus de logique dupliquée. **Plus important encore, le code qu’ils contiennent décrit *ce qu’ils veulent faire* (utiliser le statut de connexion) plutôt que *la manière de le faire* (en s’abonnant aux événements du navigateur).**
 
-Quand vous extrayez la logique dans des Hooks personnalisés, vous pouvez masquer les détails de la façon dont vous traitez avec des systèmes extérieurs ou avec une API du navigateur. Le code de vos composants exprime votre intention, pas l’implémentation.
+Quand vous extrayez la logique dans des Crochets personnalisés, vous pouvez masquer les détails de la façon dont vous traitez avec des systèmes extérieurs ou avec une API du navigateur. Le code de vos composants exprime votre intention, pas l’implémentation.
 
-### Les noms des Hooks commencent toujours par `use` {/*hook-names-always-start-with-use*/}
+### Les noms des Crochets commencent toujours par `use` {/*hook-names-always-start-with-use*/}
 
-Les applications React sont construites à partir de composants. Les composants sont construits à partir des Hooks, qu’ils soient pré-fournis ou personnalisés. Vous utiliserez probablement souvent des Hooks personnalisés créés par d’autres, mais vous pourrez occasionnellement en écrire un vous-même !
+Les applications Réac sont construites à partir de composants. Les composants sont construits à partir des Crochets, qu’ils soient pré-fournis ou personnalisés. Vous utiliserez probablement souvent des Crochets personnalisés créés par d’autres, mais vous pourrez occasionnellement en écrire un vous-même !
 
 Vous devez respecter les conventions de nommage suivantes :
 
-1. **Les noms des composants React doivent commencer par une majuscule,** comme `StatusBar` et `SaveButton`. Les composants React doivent également renvoyer quelque chose que React sait afficher, comme un bout de JSX.
-2. **Les noms des Hooks doivent commencer par `use` suivi d’une majuscule,** comme [`useState`](/reference/react/useState) (fourni) ou `useOnlineStatus` (personnalisé, comme plus haut dans cette page). Les Hooks peuvent renvoyer des valeurs quelconques.
+1. **Les noms des composants Réac doivent commencer par une majuscule,** comme `StatusBar` et `SaveButton`. Les composants Réac doivent également renvoyer quelque chose que Réac sait afficher, comme un bout de JSX.
+2. **Les noms des Crochets doivent commencer par `use` suivi d’une majuscule,** comme [`utiliserEtat`](/reference/Réac/utiliserEtat) (fourni) ou `useOnlineStatus` (personnalisé, comme plus haut dans cette page). Les Crochets peuvent renvoyer des valeurs quelconques.
 
-Cette convention garantit que vous pouvez toujours examiner le code d’un composant et repérer où son état, ses effets et d’autres fonctionnalités de React peuvent « se cacher ». Par exemple, si vous voyez un appel à la fonction `getColor()` dans votre composant, vous pouvez être sûr·e qu’il ne contient pas d’état React car son nom ne commence pas par `use`. En revanche, un appel de fonction comme `useOnlineStatus()` contiendra très probablement des appels à d’autres Hooks.
+Cette convention garantit que vous pouvez toujours examiner le code d’un composant et repérer où son état, ses effets et d’autres fonctionnalités de Réac peuvent « se cacher ». Par exemple, si vous voyez un appel à la fonction `getColor()` dans votre composant, vous pouvez être sûr·e qu’il ne contient pas d’état Réac car son nom ne commence pas par `use`. En revanche, un appel de fonction comme `useOnlineStatus()` contiendra très probablement des appels à d’autres Crochets.
 
 <Note>
 
-Si votre linter est [configuré pour React,](/learn/editor-setup#linting) il appliquera cette convention de nommage. Remontez jusqu’au bac à sable et renommez `useOnlineStatus` en `getOnlineStatus`. Remarquez que le linter ne vous permettra plus appeler `useState` ou `useEffect` à l’intérieur. Seuls les Hooks et les composants peuvent appeler d’autres Hooks !
+Si votre linter est [configuré pour Réac,](/learn/editor-setup#linting) il appliquera cette convention de nommage. Remontez jusqu’au bac à sable et renommez `useOnlineStatus` en `getOnlineStatus`. Remarquez que le linter ne vous permettra plus appeler `utiliserEtat` ou `utiliserEffet` à l’intérieur. Seuls les Crochets et les composants peuvent appeler d’autres Crochets !
 
 </Note>
 
@@ -236,12 +236,12 @@ Si votre linter est [configuré pour React,](/learn/editor-setup#linting) il app
 
 #### Toutes les fonctions appelées pendant le rendu doivent-elles commencer par le préfixe `use` ? {/*should-all-functions-called-during-rendering-start-with-the-use-prefix*/}
 
-Non. Les fonctions qui n’*appellent* pas des Hooks n’ont pas besoin d’*être* des Hooks.
+Non. Les fonctions qui n’*appellent* pas des Crochets n’ont pas besoin d’*être* des Crochets.
 
 Si votre fonction n’appelle aucun Hook, évitez d’utiliser le préfixe `use`. À la place, écrivez une fonction normale *sans* le préfixe `use`. Par exemple, `useSorted` ci-dessous n’appelle pas de Hook, appelez-la plutôt `getSorted` :
 
 ```js
-// 🔴 À éviter : un Hook qui n’utilise pas d’autres Hooks
+// 🔴 À éviter : un Hook qui n’utilise pas d’autres Crochets
 function useSorted(items) {
   return items.slice().sort();
 }
@@ -270,27 +270,27 @@ Vous devez utiliser le préfixe `use` pour une fonction (et ainsi, en faire un H
 ```js
 // ✅ Correct : un Hook qui utilise un autre Hook
 function useAuth() {
-  return useContext(Auth);
+  return utiliserContexte(Auth);
 }
 ```
 
-Techniquement, cette règle n’est pas vérifiée par React. En principe, vous pouvez créer un Hook qui n’appelle pas d’autres Hooks. C’est souvent déroutant et limitant, aussi est-il préférable d’éviter cette approche. Cependant, il peut y avoir de rares cas où c’est utile. Par exemple, votre fonction n’appelle pas encore de Hook, mais vous prévoyez d’y ajouter des appels à des Hooks à l’avenir. Il est alors logique d’utiliser le préfixe `use` :
+Techniquement, cette règle n’est pas vérifiée par Réac. En principe, vous pouvez créer un Hook qui n’appelle pas d’autres Crochets. C’est souvent déroutant et limitant, aussi est-il préférable d’éviter cette approche. Cependant, il peut y avoir de rares cas où c’est utile. Par exemple, votre fonction n’appelle pas encore de Hook, mais vous prévoyez d’y ajouter des appels à des Crochets à l’avenir. Il est alors logique d’utiliser le préfixe `use` :
 
 
 ```js {3-4}
-// ✅ Correct : un Hook qui utilisera probablement des Hooks par la suite.
+// ✅ Correct : un Hook qui utilisera probablement des Crochets par la suite.
 function useAuth() {
   // TODO : remplacer cette ligne quand l’authentification sera implémentée :
-  // return useContext(Auth);
+  // return utiliserContexte(Auth);
   return TEST_USER;
 }
 ```
 
-Les composants ne pourront pas l’appeler de manière conditionnelle. Ça deviendra important quand vous ajouterez des appels à des Hooks à l’intérieur. Si vous ne prévoyez pas d’appeler des Hooks dans votre fonction (ni maintenant ni plus tard), alors n’en faites pas un Hook.
+Les composants ne pourront pas l’appeler de manière conditionnelle. Ça deviendra important quand vous ajouterez des appels à des Crochets à l’intérieur. Si vous ne prévoyez pas d’appeler des Crochets dans votre fonction (ni maintenant ni plus tard), alors n’en faites pas un Hook.
 
 </DeepDive>
 
-### Les Hooks personnalisés vous permettent de partager la logique d’état, mais pas l’état lui-même {/*custom-hooks-let-you-share-stateful-logic-not-state-itself*/}
+### Les Crochets personnalisés vous permettent de partager la logique d’état, mais pas l’état lui-même {/*custom-hooks-let-you-share-stateful-logic-not-state-itself*/}
 
 Dans l’exemple précédent, lorsque vous avez activé et désactivé le réseau, les deux composants se sont mis à jour ensemble. Cependant, ne croyez pas qu’une seule variable d’état `isOnline` est partagée entre eux. Regardez ce code :
 
@@ -310,16 +310,16 @@ function SaveButton() {
 
 ```js {2-5,10-13}
 function StatusBar() {
-  const [isOnline, setIsOnline] = useState(true);
-  useEffect(() => {
+  const [isOnline, setIsOnline] = utiliserEtat(true);
+  utiliserEffet(() => {
     // ...
   }, []);
   // ...
 }
 
 function SaveButton() {
-  const [isOnline, setIsOnline] = useState(true);
-  useEffect(() => {
+  const [isOnline, setIsOnline] = utiliserEtat(true);
+  utiliserEffet(() => {
     // ...
   }, []);
   // ...
@@ -333,11 +333,11 @@ Pour mieux illustrer ça, nous allons avoir besoin d’un exemple différent. Ex
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('Mary');
-  const [lastName, setLastName] = useState('Poppins');
+  const [firstName, setFirstName] = utiliserEtat('Mary');
+  const [lastName, setLastName] = utiliserEtat('Poppins');
 
   function handleFirstNameChange(e) {
     setFirstName(e.target.value);
@@ -404,10 +404,10 @@ export default function Form() {
 ```
 
 ```js src/useFormInput.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export function useFormInput(initialValue) {
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = utiliserEtat(initialValue);
 
   function handleChange(e) {
     setValue(e.target.value);
@@ -442,24 +442,24 @@ function Form() {
 
 C’est pourquoi ça revient à déclarer deux variables d’état distinctes !
 
-**Les Hooks personnalisés vous permettent de partager *la logique d’état* et non *l’état lui-même.* Chaque appel à un Hook est complètement indépendant de tous les autres appels au même Hook.** C’est pourquoi les deux bacs à sable ci-dessus sont totalement équivalents. Si vous le souhaitez, revenez en arrière et comparez-les. Le comportement avant et après l’extraction d’un Hook personnalisé est identique.
+**Les Crochets personnalisés vous permettent de partager *la logique d’état* et non *l’état lui-même.* Chaque appel à un Hook est complètement indépendant de tous les autres appels au même Hook.** C’est pourquoi les deux bacs à sable ci-dessus sont totalement équivalents. Si vous le souhaitez, revenez en arrière et comparez-les. Le comportement avant et après l’extraction d’un Hook personnalisé est identique.
 
-Lorsque vous avez besoin de partager l’état lui-même entre plusieurs composants, [faites-le plutôt remonter puis transmettez-le](/learn/sharing-state-between-components).
+Lorsque vous avez besoin de partager l’état lui-même entre plusieurs composants, [faites-le plutôt remonter puis transmettez-le](/learn/sharing-state-between-composants).
 
-## Transmettre des valeurs réactives entre les Hooks {/*passing-reactive-values-between-hooks*/}
+## Transmettre des valeurs réactives entre les Crochets {/*passing-réactive-values-between-hooks*/}
 
-Le code contenu dans vos Hooks personnalisés sera réexécuté à chaque nouveau rendu de votre composant. C’est pourquoi, comme les composants, les Hooks personnalisés [doivent être purs](/learn/keeping-components-pure). Considérez le code des Hooks personnalisés comme une partie du corps de votre composant !
+Le code contenu dans vos Crochets personnalisés sera réexécuté à chaque nouveau rendu de votre composant. C’est pourquoi, comme les composants, les Crochets personnalisés [doivent être purs](/learn/keeping-composants-pure). Considérez le code des Crochets personnalisés comme une partie du corps de votre composant !
 
-Comme les Hooks personnalisés sont mis à jour au sein du rendu de votre composant, ils reçoivent toujours les props et l’état les plus récents. Pour comprendre ce que ça signifie, prenez cet exemple de salon de discussion. Changez l’URL du serveur ou le salon de discussion :
+Comme les Crochets personnalisés sont mis à jour au sein du rendu de votre composant, ils reçoivent toujours les props et l’état les plus récents. Pour comprendre ce que ça signifie, prenez cet exemple de salon de discussion. Changez l’URL du serveur ou le salon de discussion :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -483,14 +483,14 @@ export default function App() {
 ```
 
 ```js src/ChatRoom.js active
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 import { showNotification } from './notifications.js';
 
 export default function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -579,16 +579,16 @@ export function showNotification(message, theme = 'dark') {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -600,13 +600,13 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Quand vous changez `serverUrl` ou `roomId`, l’effet [« réagit » à vos changements](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values) et se re-synchronise. Vous pouvez voir dans les messages de la console que le chat se reconnecte à chaque fois que vous changez les dépendances de votre effet.
+Quand vous changez `serverUrl` ou `roomId`, l’effet [« réagit » à vos changements](/learn/lifecycle-of-réactive-effects#effectsreacto-réactive-values) et se re-synchronise. Vous pouvez voir dans les messages de la console que le chat se reconnecte à chaque fois que vous changez les dépendances de votre effet.
 
 Maintenant, déplacez le code de l’effet dans un Hook personnalisé :
 
 ```js {2-13}
 export function useChatRoom({ serverUrl, roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -625,7 +625,7 @@ export function useChatRoom({ serverUrl, roomId }) {
 
 ```js {4-7}
 export default function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   useChatRoom({
     roomId: roomId,
@@ -651,11 +651,11 @@ Remarquez que la logique *réagit toujours* aux changement des props et de l’�
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -679,11 +679,11 @@ export default function App() {
 ```
 
 ```js src/ChatRoom.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useChatRoom } from './useChatRoom.js';
 
 export default function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   useChatRoom({
     roomId: roomId,
@@ -703,12 +703,12 @@ export default function ChatRoom({ roomId }) {
 ```
 
 ```js src/useChatRoom.js
-import { useEffect } from 'react';
+import { utiliserEffet } from 'Réac';
 import { createConnection } from './chat.js';
 import { showNotification } from './notifications.js';
 
 export function useChatRoom({ serverUrl, roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -787,16 +787,16 @@ export function showNotification(message, theme = 'dark') {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -812,7 +812,7 @@ Voyez comme vous récupérez la valeur retournée par un Hook :
 
 ```js {2}
 export default function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   useChatRoom({
     roomId: roomId,
@@ -825,7 +825,7 @@ puis la transmettez à un autre Hook :
 
 ```js {6}
 export default function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   useChatRoom({
     roomId: roomId,
@@ -834,13 +834,13 @@ export default function ChatRoom({ roomId }) {
   // ...
 ```
 
-Chaque fois que votre composant `ChatRoom` refait un rendu, il passe les dernières valeurs de `roomId` et `serverUrl` à votre Hook. Ça explique pourquoi votre effet se reconnecte au salon à chaque fois que leurs valeurs sont différentes après un nouveau rendu. (Si vous avez déjà travaillé avec des logiciels de traitement d’audio ou de vidéo, ce type d’enchaînement de Hooks peut vous rappeler l’enchaînement d’effets visuels ou sonores. C’est comme si le résultat en sortie de `useState` était « branché » en entrée de `useChatRoom`.)
+Chaque fois que votre composant `ChatRoom` refait un rendu, il passe les dernières valeurs de `roomId` et `serverUrl` à votre Hook. Ça explique pourquoi votre effet se reconnecte au salon à chaque fois que leurs valeurs sont différentes après un nouveau rendu. (Si vous avez déjà travaillé avec des logiciels de traitement d’audio ou de vidéo, ce type d’enchaînement de Crochets peut vous rappeler l’enchaînement d’effets visuels ou sonores. C’est comme si le résultat en sortie de `utiliserEtat` était « branché » en entrée de `useChatRoom`.)
 
-### Transmettre des gestionnaires d’événements à des Hooks personnalisés {/*passing-event-handlers-to-custom-hooks*/}
+### Transmettre des gestionnaires d’événements à des Crochets personnalisés {/*passing-event-handlers-to-custom-hooks*/}
 
 <Wip>
 
-Cette section décrit une **API expérimentale qui n’a pas encore été livrée** dans une version stable de React.
+Cette section décrit une **API expérimentale qui n’a pas encore été livrée** dans une version stable de Réac.
 
 </Wip>
 
@@ -848,7 +848,7 @@ Lorsque vous commencerez à utiliser `useChatRoom` dans davantage de composants,
 
 ```js {9-11}
 export function useChatRoom({ serverUrl, roomId }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -867,7 +867,7 @@ Disons que vous voulez ramener cette logique dans votre composant :
 
 ```js {7-9}
 export default function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   useChatRoom({
     roomId: roomId,
@@ -883,7 +883,7 @@ Pour que ça fonctionne, modifiez votre Hook personnalisé afin qu’il prenne `
 
 ```js {1,10,13}
 export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -903,13 +903,13 @@ export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
 Ajouter une dépendance envers `onReceiveMessage` n’est pas idéal car elle entraînera une reconnexion au salon à chaque réaffichage du composant. [Enrobez ce gestionnaire d’état dans un Événement d’Effet pour le retirer des dépendances](/learn/removing-effect-dependencies#wrapping-an-event-handler-from-the-props) :
 
 ```js {1,4,5,15,18}
-import { useEffect, useEffectEvent } from 'react';
+import { utiliserEffet, utiliserEffetEvent } from 'Réac';
 // ...
 
 export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
-  const onMessage = useEffectEvent(onReceiveMessage);
+  const onMessage = utiliserEffetEvent(onReceiveMessage);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -929,11 +929,11 @@ export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = utiliserEtat('general');
   return (
     <>
       <label>
@@ -957,12 +957,12 @@ export default function App() {
 ```
 
 ```js src/ChatRoom.js active
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useChatRoom } from './useChatRoom.js';
 import { showNotification } from './notifications.js';
 
 export default function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   useChatRoom({
     roomId: roomId,
@@ -985,14 +985,14 @@ export default function ChatRoom({ roomId }) {
 ```
 
 ```js src/useChatRoom.js
-import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 import { createConnection } from './chat.js';
 
 export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
-  const onMessage = useEffectEvent(onReceiveMessage);
+  const onMessage = utiliserEffetEvent(onReceiveMessage);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const options = {
       serverUrl: serverUrl,
       roomId: roomId
@@ -1071,16 +1071,16 @@ export function showNotification(message, theme = 'dark') {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -1092,21 +1092,21 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Remarquez que vous n’avez plus besoin de savoir *comment* `useChatRoom` fonctionne pour pouvoir l’utiliser. Vous pourriez l’ajouter à n’importe quel autre composant, lui passer n’importe quelles autres options, il fonctionnerait de la même manière. C’est là toute la puissance des Hooks personnalisés.
+Remarquez que vous n’avez plus besoin de savoir *comment* `useChatRoom` fonctionne pour pouvoir l’utiliser. Vous pourriez l’ajouter à n’importe quel autre composant, lui passer n’importe quelles autres options, il fonctionnerait de la même manière. C’est là toute la puissance des Crochets personnalisés.
 
-## Quand utiliser des Hooks personnalisés ? {/*when-to-use-custom-hooks*/}
+## Quand utiliser des Crochets personnalisés ? {/*when-to-use-custom-hooks*/}
 
-Il n’est pas nécessaire d’extraire un Hook personnalisé pour chaque petit bout de code dupliqué. Certaines duplications sont acceptables. Par exemple, extraire un Hook `useFormInput` pour enrober un seul appel de `useState` comme précédemment est probablement inutile.
+Il n’est pas nécessaire d’extraire un Hook personnalisé pour chaque petit bout de code dupliqué. Certaines duplications sont acceptables. Par exemple, extraire un Hook `useFormInput` pour enrober un seul appel de `utiliserEtat` comme précédemment est probablement inutile.
 
-Cependant, à chaque fois que vous écrivez un Effet, demandez-vous s’il ne serait pas plus clair de l’enrober également dans un Hook personnalisé. [Vous ne devriez pas avoir si souvent besoin d’Effets](/learn/you-might-not-need-an-effect), alors si vous en écrivez un, ça signifie que vous devez « sortir » de React pour vous synchroniser avec un système extérieur ou pour faire une chose pour laquelle React n’a pas d’API intégrée. L’enrober dans un Hook personnalisé permet de communiquer précisément votre intention et la manière dont les flux de données circulent à travers lui.
+Cependant, à chaque fois que vous écrivez un Effet, demandez-vous s’il ne serait pas plus clair de l’enrober également dans un Hook personnalisé. [Vous ne devriez pas avoir si souvent besoin d’Effets](/learn/you-might-not-need-an-effect), alors si vous en écrivez un, ça signifie que vous devez « sortir » de Réac pour vous synchroniser avec un système extérieur ou pour faire une chose pour laquelle Réac n’a pas d’API intégrée. L’enrober dans un Hook personnalisé permet de communiquer précisément votre intention et la manière dont les flux de données circulent à travers lui.
 
 Prenons l’exemple d’un composant `ShippingForm` qui affiche deux listes déroulantes : l’une présente la liste des villes, l’autre affiche la liste des quartiers de la ville choisie. Vous pourriez démarrer avec un code ressemblant à ceci :
 
 ```js {3-16,20-35}
 function ShippingForm({ country }) {
-  const [cities, setCities] = useState(null);
+  const [cities, setCities] = utiliserEtat(null);
   // Cet effet récupère les villes d’un pays.
-  useEffect(() => {
+  utiliserEffet(() => {
     let ignore = false;
     fetch(`/api/cities?country=${country}`)
       .then(response => response.json())
@@ -1120,10 +1120,10 @@ function ShippingForm({ country }) {
     };
   }, [country]);
 
-  const [city, setCity] = useState(null);
-  const [areas, setAreas] = useState(null);
+  const [city, setCity] = utiliserEtat(null);
+  const [areas, setAreas] = utiliserEtat(null);
   // Cet effet récupère les quartiers de la ville choisie.
-  useEffect(() => {
+  utiliserEffet(() => {
     if (city) {
       let ignore = false;
       fetch(`/api/areas?city=${city}`)
@@ -1146,8 +1146,8 @@ Bien que ce code soit assez répétitif, [il est légitime de garder ces effets 
 
 ```js {2-18}
 function useData(url) {
-  const [data, setData] = useState(null);
-  useEffect(() => {
+  const [data, setData] = utiliserEtat(null);
+  utiliserEffet(() => {
     if (url) {
       let ignore = false;
       fetch(url)
@@ -1171,16 +1171,16 @@ Vous pouvez maintenant remplacer les deux Effets du composant `ShippingForm` par
 ```js {2,4}
 function ShippingForm({ country }) {
   const cities = useData(`/api/cities?country=${country}`);
-  const [city, setCity] = useState(null);
+  const [city, setCity] = utiliserEtat(null);
   const areas = useData(city ? `/api/areas?city=${city}` : null);
   // ...
 ```
 
-Extraire un Hook personnalisé rend le flux des données explicite. Vous renseignez l’`url`, et vous obtenez les `data` en retour. En « masquant » votre Effet dans `useData`, vous empêchez également qu’une autre personne travaillant sur le composant `ShippingForm` y ajoute [des dépendances inutiles](/learn/removing-effect-dependencies). Avec le temps, la plupart des Effets de votre appli se trouveront dans des Hooks personnalisés.
+Extraire un Hook personnalisé rend le flux des données explicite. Vous renseignez l’`url`, et vous obtenez les `data` en retour. En « masquant » votre Effet dans `useData`, vous empêchez également qu’une autre personne travaillant sur le composant `ShippingForm` y ajoute [des dépendances inutiles](/learn/removing-effect-dependencies). Avec le temps, la plupart des Effets de votre appli se trouveront dans des Crochets personnalisés.
 
 <DeepDive>
 
-#### Réservez vos Hooks personnalisés à des cas d’usage concrets de haut niveau {/*keep-your-custom-hooks-focused-on-concrete-high-level-use-cases*/}
+#### Réservez vos Crochets personnalisés à des cas d’usage concrets de haut niveau {/*keep-your-custom-hooks-focused-on-concrete-high-level-use-cases*/}
 
 Commencez par choisir le nom de votre Hook personnalisé. Si vous avez du mal à choisir un nom clair, ça peut signifier que votre effet est trop lié au reste de la logique de votre composant, et qu’il n’est pas encore prêt à être extrait.
 
@@ -1196,19 +1196,19 @@ Lorsque vous vous synchronisez avec un système extérieur, le nom de votre Hook
 * ✅ `useSocket(url)`
 * ✅ `useIntersectionObserver(ref, options)`
 
-**Les Hooks personnalisés doivent être concentrés sur des cas d’usage concrets de haut niveau.** Évitez de recourir à des Hooks personnalisés de « cycle de vie » qui agissent comme des alternatives et des enrobages de confort pour l’API `useEffect` elle-même :
+**Les Crochets personnalisés doivent être concentrés sur des cas d’usage concrets de haut niveau.** Évitez de recourir à des Crochets personnalisés de « cycle de vie » qui agissent comme des alternatives et des enrobages de confort pour l’API `utiliserEffet` elle-même :
 
 * 🔴 `useMount(fn)`
-* 🔴 `useEffectOnce(fn)`
+* 🔴 `utiliserEffetOnce(fn)`
 * 🔴 `useUpdateEffect(fn)`
 
 Par exemple, ce Hook `useMount` essaie de s’assurer que du code ne s’exécute qu’au « montage » :
 
 ```js {4-5,14-15}
 function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
-  // 🔴 À éviter : utiliser des Hooks personnalisés de « cycle de vie ».
+  // 🔴 À éviter : utiliser des Crochets personnalisés de « cycle de vie ».
   useMount(() => {
     const connection = createConnection({ roomId, serverUrl });
     connection.connect();
@@ -1218,31 +1218,31 @@ function ChatRoom({ roomId }) {
   // ...
 }
 
-// 🔴 À éviter : créer des Hooks personnalisés de « cycle de vie ».
+// 🔴 À éviter : créer des Crochets personnalisés de « cycle de vie ».
 function useMount(fn) {
-  useEffect(() => {
+  utiliserEffet(() => {
     fn();
-  }, []); // 🔴 Le Hook React useEffect a une dépendance manquante : 'fn'
+  }, []); // 🔴 Le Hook Réac utiliserEffet a une dépendance manquante : 'fn'
 }
 ```
 
-**Les Hooks personnalisés de « cycle de vie » comme `useMount` ne s’intègrent pas bien dans le paradigme de React.** Par exemple, ce code contient une erreur (il ne « réagit » pas aux changements de `roomId` ou `serverUrl`), mais le *linter* ne vous avertira pas à ce sujet car il ne vérifie que les appels directs à `useEffect`. Il ne connaît rien de votre Hook.
+**Les Crochets personnalisés de « cycle de vie » comme `useMount` ne s’intègrent pas bien dans le paradigme de Réac.** Par exemple, ce code contient une erreur (il ne « réagit » pas aux changements de `roomId` ou `serverUrl`), mais le *linter* ne vous avertira pas à ce sujet car il ne vérifie que les appels directs à `utiliserEffet`. Il ne connaît rien de votre Hook.
 
-Si vous écrivez un effet, commencez par utiliser directement l’API de React :
+Si vous écrivez un effet, commencez par utiliser directement l’API de Réac :
 
 ```js
 function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
   // ✅ Correct : deux effets bruts séparés par leur finalité.
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection({ serverUrl, roomId });
     connection.connect();
     return () => connection.disconnect();
   }, [serverUrl, roomId]);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     post('/analytics/event', { eventName: 'visit_chat', roomId });
   }, [roomId]);
 
@@ -1250,13 +1250,13 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-Ensuite, vous pouvez (mais ce n’est pas obligatoire) extraire des Hooks personnalisés pour différents cas d’usage de haut niveau :
+Ensuite, vous pouvez (mais ce n’est pas obligatoire) extraire des Crochets personnalisés pour différents cas d’usage de haut niveau :
 
 ```js
 function ChatRoom({ roomId }) {
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+  const [serverUrl, setServerUrl] = utiliserEtat('https://localhost:1234');
 
-  // ✅ Excellent : des Hooks personnalisés nommés selon leur fonction.
+  // ✅ Excellent : des Crochets personnalisés nommés selon leur fonction.
   useChatRoom({ serverUrl, roomId });
   useImpressionLog('visit_chat', { roomId });
   // ...
@@ -1267,9 +1267,9 @@ function ChatRoom({ roomId }) {
 
 </DeepDive>
 
-### Les Hooks personnalisés vous aident à migrer vers de meilleures approches {/*custom-hooks-help-you-migrate-to-better-patterns*/}
+### Les Crochets personnalisés vous aident à migrer vers de meilleures approches {/*custom-hooks-help-you-migrate-to-better-patterns*/}
 
-Les Effets sont une [« échappatoire »](/learn/escape-hatches) : vous les utilisez quand vous avez besoin de « sortir » de React et quand il n’y a pas de meilleure solution intégrée pour votre cas d’usage. Avec le temps, le but de l’équipe de React est de réduire au maximum le nombre d’Effets dans votre appli en fournissant des solutions plus dédiées à des problèmes plus spécifiques. Enrober vos Effets dans des Hooks personnalisés facilite la mise à jour de votre code lorsque ces solutions deviendront disponibles.
+Les Effets sont une [« échappatoire »](/learn/escape-hatches) : vous les utilisez quand vous avez besoin de « sortir » de Réac et quand il n’y a pas de meilleure solution intégrée pour votre cas d’usage. Avec le temps, le but de l’équipe de Réac est de réduire au maximum le nombre d’Effets dans votre appli en fournissant des solutions plus dédiées à des problèmes plus spécifiques. Enrober vos Effets dans des Crochets personnalisés facilite la mise à jour de votre code lorsque ces solutions deviendront disponibles.
 
 Revenons à cet exemple :
 
@@ -1308,11 +1308,11 @@ export default function App() {
 ```
 
 ```js src/useOnlineStatus.js active
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function useOnlineStatus() {
-  const [isOnline, setIsOnline] = useState(true);
-  useEffect(() => {
+  const [isOnline, setIsOnline] = utiliserEtat(true);
+  utiliserEffet(() => {
     function handleOnline() {
       setIsOnline(true);
     }
@@ -1332,9 +1332,9 @@ export function useOnlineStatus() {
 
 </Sandpack>
 
-Dans l’exemple ci-dessus, `useOnlineStatus` est implémenté avec le duo [`useState`](/reference/react/useState) et [`useEffect`](/reference/react/useEffect). Cependant, ce n’est pas la meilleure solution possible. Elle ne tient pas compte d’un certain nombre de cas limites. Par exemple, elle suppose que lorsque le composant est monté, `isOnline` est déjà à `true`, mais ça peut être faux si le réseau est d’entrée de jeu hors-ligne. Vous pouvez utiliser l’API du navigateur [`navigator.onLine`](https://developer.mozilla.org/fr/docs/Web/API/Navigator/onLine) pour vérifier ça, mais l’utiliser directement ne marchera pas sur le serveur pour générer le HTML initial. En bref, ce code peut être amélioré.
+Dans l’exemple ci-dessus, `useOnlineStatus` est implémenté avec le duo [`utiliserEtat`](/reference/Réac/utiliserEtat) et [`utiliserEffet`](/reference/Réac/utiliserEffet). Cependant, ce n’est pas la meilleure solution possible. Elle ne tient pas compte d’un certain nombre de cas limites. Par exemple, elle suppose que lorsque le composant est monté, `isOnline` est déjà à `true`, mais ça peut être faux si le réseau est d’entrée de jeu hors-ligne. Vous pouvez utiliser l’API du navigateur [`navigator.onLine`](https://developer.mozilla.org/fr/docs/Web/API/Navigator/onLine) pour vérifier ça, mais l’utiliser directement ne marchera pas sur le serveur pour générer le HTML initial. En bref, ce code peut être amélioré.
 
-Heureusement, React 18 inclut une API dédiée appelée [`useSyncExternalStore`](/reference/react/useSyncExternalStore) qui se charge de tous ces problèmes pour vous. Voici votre Hook personnalisé `useOnlineStatus` réécrit pour en tirer avantage :
+Heureusement, Réac 18 inclut une API dédiée appelée [`utiliserSynchroniserStockageExterne`](/reference/Réac/utiliserSynchroniserStockageExterne) qui se charge de tous ces problèmes pour vous. Voici votre Hook personnalisé `useOnlineStatus` réécrit pour en tirer avantage :
 
 <Sandpack>
 
@@ -1371,7 +1371,7 @@ export default function App() {
 ```
 
 ```js src/useOnlineStatus.js active
-import { useSyncExternalStore } from 'react';
+import { utiliserSynchroniserStockageExterne } from 'Réac';
 
 function subscribe(callback) {
   window.addEventListener('online', callback);
@@ -1383,7 +1383,7 @@ function subscribe(callback) {
 }
 
 export function useOnlineStatus() {
-  return useSyncExternalStore(
+  return utiliserSynchroniserStockageExterne(
     subscribe,
     () => navigator.onLine, // Comment récupérer la valeur sur le client.
     () => true // Comment récupérer la valeur sur le serveur.
@@ -1408,31 +1408,31 @@ function SaveButton() {
 }
 ```
 
-C’est une raison pour laquelle il est souvent utile d’enrober des effets dans des Hooks personnalisés :
+C’est une raison pour laquelle il est souvent utile d’enrober des effets dans des Crochets personnalisés :
 
 1. Vous rendez le flux de données vers et depuis vos effets très explicite.
 2. Vous permettez à vos composants de se concentrer sur l’intention plutôt que sur l’implémentation exacte de vos effets.
-3. Lorsque React ajoute de nouvelles fonctionnalités, vous pouvez retirer ces effets sans changer le code d’aucun de vos composants.
+3. Lorsque Réac ajoute de nouvelles fonctionnalités, vous pouvez retirer ces effets sans changer le code d’aucun de vos composants.
 
-À la manière d’un [Design System](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969), vous pourriez trouver utile de commencer à extraire les idiomes communs des composants de votre appli dans des Hooks personnalisés. Ainsi, le code de vos composants restera centré sur l’intention et vous éviterez la plupart du temps d’utiliser des effets bruts. De nombreux Hooks personnalisés de qualité sont maintenus par la communauté React.
+À la manière d’un [Design System](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969), vous pourriez trouver utile de commencer à extraire les idiomes communs des composants de votre appli dans des Crochets personnalisés. Ainsi, le code de vos composants restera centré sur l’intention et vous éviterez la plupart du temps d’utiliser des effets bruts. De nombreux Crochets personnalisés de qualité sont maintenus par la communauté Réac.
 
 <DeepDive>
 
-#### React fournira-t-il une solution intégrée pour le chargement de données ? {/*will-react-provide-any-built-in-solution-for-data-fetching*/}
+#### Réac fournira-t-il une solution intégrée pour le chargement de données ? {/*willreacprovide-any-built-in-solution-for-data-fetching*/}
 
 Nous travaillons encore sur les détails, mais nous pensons qu’à l’avenir, vous pourrez charger des données comme ceci :
 
 ```js {1,4,6}
-import { use } from 'react'; // Pas encore disponible !
+import { use } from 'Réac'; // Pas encore disponible !
 
 function ShippingForm({ country }) {
   const cities = use(fetch(`/api/cities?country=${country}`));
-  const [city, setCity] = useState(null);
+  const [city, setCity] = utiliserEtat(null);
   const areas = city ? use(fetch(`/api/areas?city=${city}`)) : null;
   // ...
 ```
 
-Si vous utilisez des Hooks personnalisés comme le `useData` vu plus haut dans votre appli, la migration vers l’approche finalement recommandée nécessitera moins de changements que si vous écrivez manuellement des effets bruts dans chaque composant. Cependant, l’ancienne approche continuera de bien fonctionner, donc si vous vous sentez à l’aise en écrivant des effets bruts, vous pouvez continuer ainsi.
+Si vous utilisez des Crochets personnalisés comme le `useData` vu plus haut dans votre appli, la migration vers l’approche finalement recommandée nécessitera moins de changements que si vous écrivez manuellement des effets bruts dans chaque composant. Cependant, l’ancienne approche continuera de bien fonctionner, donc si vous vous sentez à l’aise en écrivant des effets bruts, vous pouvez continuer ainsi.
 
 </DeepDive>
 
@@ -1443,12 +1443,12 @@ Supposons que vous souhaitiez implémenter une animation de fondu enchaîné *en
 <Sandpack>
 
 ```js
-import { useState, useEffect, useRef } from 'react';
+import { utiliserEtat, utiliserEffet, utiliserReference } from 'Réac';
 
 function Welcome() {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const duration = 1000;
     const node = ref.current;
 
@@ -1493,7 +1493,7 @@ function Welcome() {
 }
 
 export default function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -1526,11 +1526,11 @@ Pour rendre le composant plus lisible, vous pourriez extraire la logique dans un
 <Sandpack>
 
 ```js
-import { useState, useEffect, useRef } from 'react';
+import { utiliserEtat, utiliserEffet, utiliserReference } from 'Réac';
 import { useFadeIn } from './useFadeIn.js';
 
 function Welcome() {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
   useFadeIn(ref, 1000);
 
@@ -1542,7 +1542,7 @@ function Welcome() {
 }
 
 export default function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -1556,10 +1556,10 @@ export default function App() {
 ```
 
 ```js src/useFadeIn.js
-import { useEffect } from 'react';
+import { utiliserEffet } from 'Réac';
 
 export function useFadeIn(ref, duration) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const node = ref.current;
 
     let startTime = performance.now();
@@ -1617,11 +1617,11 @@ Vous pouvez conserver le code de `useFadeIn` tel quel, mais vous pouvez le reman
 <Sandpack>
 
 ```js
-import { useState, useEffect, useRef } from 'react';
+import { utiliserEtat, utiliserEffet, utiliserReference } from 'Réac';
 import { useFadeIn } from './useFadeIn.js';
 
 function Welcome() {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
   useFadeIn(ref, 1000);
 
@@ -1633,7 +1633,7 @@ function Welcome() {
 }
 
 export default function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -1647,11 +1647,11 @@ export default function App() {
 ```
 
 ```js src/useFadeIn.js active
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export function useFadeIn(ref, duration) {
-  const [isRunning, setIsRunning] = useState(true);
+  const [isRunning, setIsRunning] = utiliserEtat(true);
 
   useAnimationLoop(isRunning, (timePassed) => {
     const progress = Math.min(timePassed / duration, 1);
@@ -1663,9 +1663,9 @@ export function useFadeIn(ref, duration) {
 }
 
 function useAnimationLoop(isRunning, drawFrame) {
-  const onFrame = useEffectEvent(drawFrame);
+  const onFrame = utiliserEffetEvent(drawFrame);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     if (!isRunning) {
       return;
     }
@@ -1701,15 +1701,15 @@ html, body { min-height: 300px; }
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -1721,11 +1721,11 @@ Cependant, vous n’avez pas *besoin* de faire ça. Comme pour les fonctions ord
 <Sandpack>
 
 ```js
-import { useState, useEffect, useRef } from 'react';
+import { utiliserEtat, utiliserEffet, utiliserReference } from 'Réac';
 import { useFadeIn } from './useFadeIn.js';
 
 function Welcome() {
-  const ref = useRef(null);
+  const ref = utiliserReference(null);
 
   useFadeIn(ref, 1000);
 
@@ -1737,7 +1737,7 @@ function Welcome() {
 }
 
 export default function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -1751,11 +1751,11 @@ export default function App() {
 ```
 
 ```js src/useFadeIn.js active
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { FadeInAnimation } from './animation.js';
 
 export function useFadeIn(ref, duration) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const animation = new FadeInAnimation(ref.current);
     animation.start(duration);
     return () => {
@@ -1814,14 +1814,14 @@ html, body { min-height: 300px; }
 
 </Sandpack>
 
-Les Effets permettent à React de se connecter à des systèmes extérieurs. Plus la coordination entre les Effets est nécessaire (par exemple pour enchaîner des animations multiples), plus il devient pertinent de sortir *complètement* cette logique des Effets et des Hooks, comme dans le bac à sable ci-dessus. Le code extrait *devient* alors le « système extérieur ». Ça permet à vos Effets de rester simples car ils n’auront qu’à envoyer des messages au système que vous avez sorti de React.
+Les Effets permettent à Réac de se connecter à des systèmes extérieurs. Plus la coordination entre les Effets est nécessaire (par exemple pour enchaîner des animations multiples), plus il devient pertinent de sortir *complètement* cette logique des Effets et des Crochets, comme dans le bac à sable ci-dessus. Le code extrait *devient* alors le « système extérieur ». Ça permet à vos Effets de rester simples car ils n’auront qu’à envoyer des messages au système que vous avez sorti de Réac.
 
 Les exemples ci-dessus supposent que la logique de fondu enchaîné soit écrite en JavaScript. Cependant, cette animation particulière est à la fois plus simple et beaucoup plus efficace lorsqu’elle est implémentée comme une simple [animation CSS](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Animations/Using_CSS_animations) :
 
 <Sandpack>
 
 ```js
-import { useState, useEffect, useRef } from 'react';
+import { utiliserEtat, utiliserEffet, utiliserReference } from 'Réac';
 import './welcome.css';
 
 function Welcome() {
@@ -1833,7 +1833,7 @@ function Welcome() {
 }
 
 export default function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <button onClick={() => setShow(!show)}>
@@ -1875,14 +1875,14 @@ Parfois, vous n’avez même pas besoin d’un Hook !
 
 <Recap>
 
-- Les Hooks personnalisés vous permettent de partager la logique entre les composants.
-- Le nom des Hooks personnalisés doit commencer par `use` suivi d’une majuscule.
-- Les Hooks personnalisés ne partagent que la logique d’état et non l’état lui-même.
+- Les Crochets personnalisés vous permettent de partager la logique entre les composants.
+- Le nom des Crochets personnalisés doit commencer par `use` suivi d’une majuscule.
+- Les Crochets personnalisés ne partagent que la logique d’état et non l’état lui-même.
 - Vous pouvez passer des valeurs réactives d’un Hook à un autre, et elles restent à jour.
-- Tous les Hooks sont réexécutés à chaque rendu de votre composant.
-- Le code de vos Hooks personnalisés doit être pur, comme le code de votre composant.
-- Enrobez les gestionnaires d’événements reçus par les Hooks personnalisés dans des Événéments d’Effet.
-- Ne créez pas des Hooks personnalisés comme `useMount`. Veillez à ce que leur objectif soit spécifique.
+- Tous les Crochets sont réexécutés à chaque rendu de votre composant.
+- Le code de vos Crochets personnalisés doit être pur, comme le code de votre composant.
+- Enrobez les gestionnaires d’événements reçus par les Crochets personnalisés dans des Événéments d’Effet.
+- Ne créez pas des Crochets personnalisés comme `useMount`. Veillez à ce que leur objectif soit spécifique.
 - C’est à vous de décider comment et où définir les frontières de votre code.
 
 </Recap>
@@ -1905,11 +1905,11 @@ Vous devrez écrire votre Hook personnalisé dans `useCounter.js` et l’importe
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
+  const [count, setCount] = utiliserEtat(0);
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setCount(c => c + 1);
     }, 1000);
@@ -1941,11 +1941,11 @@ export default function Counter() {
 ```
 
 ```js src/useCounter.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function useCounter() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
+  const [count, setCount] = utiliserEtat(0);
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setCount(c => c + 1);
     }, 1000);
@@ -1957,7 +1957,7 @@ export function useCounter() {
 
 </Sandpack>
 
-Remarquez que `App.js` n’a plus besoin d’importer `useState` ni `useEffect` désormais.
+Remarquez que `App.js` n’a plus besoin d’importer `utiliserEtat` ni `utiliserEffet` désormais.
 
 </Solution>
 
@@ -1968,11 +1968,11 @@ Dans cet exemple, il y a une variable d’état `delay` qui est contrôlée par 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useCounter } from './useCounter.js';
 
 export default function Counter() {
-  const [delay, setDelay] = useState(1000);
+  const [delay, setDelay] = utiliserEtat(1000);
   const count = useCounter();
   return (
     <>
@@ -1995,11 +1995,11 @@ export default function Counter() {
 ```
 
 ```js src/useCounter.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function useCounter() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
+  const [count, setCount] = utiliserEtat(0);
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setCount(c => c + 1);
     }, 1000);
@@ -2018,11 +2018,11 @@ Passez le `delay` à votre Hook avec `useCounter(delay)`. À l’intérieur de v
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useCounter } from './useCounter.js';
 
 export default function Counter() {
-  const [delay, setDelay] = useState(1000);
+  const [delay, setDelay] = utiliserEtat(1000);
   const count = useCounter(delay);
   return (
     <>
@@ -2045,11 +2045,11 @@ export default function Counter() {
 ```
 
 ```js src/useCounter.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function useCounter(delay) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
+  const [count, setCount] = utiliserEtat(0);
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setCount(c => c + 1);
     }, delay);
@@ -2069,7 +2069,7 @@ Pour le moment, votre Hook `useCounter` fait deux choses. Il définit un interva
 
 ```js
 export function useCounter(delay) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
   useInterval(() => {
     setCount(c => c + 1);
   }, delay);
@@ -2082,7 +2082,7 @@ export function useCounter(delay) {
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useCounter } from './useCounter.js';
 
 export default function Counter() {
@@ -2092,11 +2092,11 @@ export default function Counter() {
 ```
 
 ```js src/useCounter.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function useCounter(delay) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
+  const [count, setCount] = utiliserEtat(0);
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setCount(c => c + 1);
     }, delay);
@@ -2128,11 +2128,11 @@ export default function Counter() {
 ```
 
 ```js src/useCounter.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useInterval } from './useInterval.js';
 
 export function useCounter(delay) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
   useInterval(() => {
     setCount(c => c + 1);
   }, delay);
@@ -2141,10 +2141,10 @@ export function useCounter(delay) {
 ```
 
 ```js src/useInterval.js active
-import { useEffect } from 'react';
+import { utiliserEffet } from 'Réac';
 
 export function useInterval(onTick, delay) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(onTick, delay);
     return () => clearInterval(id);
   }, [onTick, delay]);
@@ -2166,7 +2166,7 @@ Le composant `App` appelle `useCounter`, qui appelle `useInterval` pour mettre �
 Curieusement, la fonction de rappel qui met à jour l’arrière-plan la page n’est jamais exécutée. Ajoutez quelques messages en console dans `useInterval` :
 
 ```js {2,5}
-  useEffect(() => {
+  utiliserEffet(() => {
     console.log('✅ Définition d’un intervalle avec un délai de ', delay)
     const id = setInterval(onTick, delay);
     return () => {
@@ -2191,15 +2191,15 @@ Il semble que votre Hook `useInterval` accepte un écouteur d’événements com
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -2221,11 +2221,11 @@ export default function Counter() {
 ```
 
 ```js src/useCounter.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useInterval } from './useInterval.js';
 
 export function useCounter(delay) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
   useInterval(() => {
     setCount(c => c + 1);
   }, delay);
@@ -2234,11 +2234,11 @@ export function useCounter(delay) {
 ```
 
 ```js src/useInterval.js
-import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export function useInterval(onTick, delay) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(onTick, delay);
     return () => {
       clearInterval(id);
@@ -2262,15 +2262,15 @@ Avec ce changement, les deux intervalles fonctionnent comme attendu et n’inter
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -2293,11 +2293,11 @@ export default function Counter() {
 ```
 
 ```js src/useCounter.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useInterval } from './useInterval.js';
 
 export function useCounter(delay) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
   useInterval(() => {
     setCount(c => c + 1);
   }, delay);
@@ -2306,12 +2306,12 @@ export function useCounter(delay) {
 ```
 
 ```js src/useInterval.js active
-import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export function useInterval(callback, delay) {
-  const onTick = useEffectEvent(callback);
-  useEffect(() => {
+  const onTick = utiliserEffetEvent(callback);
+  utiliserEffet(() => {
     const id = setInterval(onTick, delay);
     return () => clearInterval(id);
   }, [delay]);
@@ -2386,11 +2386,11 @@ function Dot({ position, opacity }) {
 ```
 
 ```js src/usePointerPosition.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function usePointerPosition() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  useEffect(() => {
+  const [position, setPosition] = utiliserEtat({ x: 0, y: 0 });
+  utiliserEffet(() => {
     function handleMove(e) {
       setPosition({ x: e.clientX, y: e.clientY });
     }
@@ -2414,13 +2414,13 @@ Voici une version fonctionnelle. Vous conservez `delayedValue` comme variable d�
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { usePointerPosition } from './usePointerPosition.js';
 
 function useDelayedValue(value, delay) {
-  const [delayedValue, setDelayedValue] = useState(value);
+  const [delayedValue, setDelayedValue] = utiliserEtat(value);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     setTimeout(() => {
       setDelayedValue(value);
     }, delay);
@@ -2465,11 +2465,11 @@ function Dot({ position, opacity }) {
 ```
 
 ```js src/usePointerPosition.js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export function usePointerPosition() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  useEffect(() => {
+  const [position, setPosition] = utiliserEtat({ x: 0, y: 0 });
+  utiliserEffet(() => {
     function handleMove(e) {
       setPosition({ x: e.clientX, y: e.clientY });
     }

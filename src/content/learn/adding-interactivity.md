@@ -4,15 +4,15 @@ title: Ajouter de l’interactivité
 
 <Intro>
 
-Certaines choses à l’écran se mettent à jour en réponse aux actions de l’utilisateur. Par exemple, en cliquant sur une galerie d’images, l’image active change. En React, les données qui changent au fil du temps sont appelées *état*. Vous pouvez ajouter un état à n'importe quel composant et le mettre à jour quand nécessaire. Dans ce chapitre, vous apprendrez à écrire des composants qui gèrent des interactions, mettent à jour leur état et ajustent leur affichage au fil du temps.
+Certaines choses à l’écran se mettent à jour en réponse aux actions de l’utilisateur. Par exemple, en cliquant sur une galerie d’images, l’image active change. En Réac, les données qui changent au fil du temps sont appelées *état*. Vous pouvez ajouter un état à n'importe quel composant et le mettre à jour quand nécessaire. Dans ce chapitre, vous apprendrez à écrire des composants qui gèrent des interactions, mettent à jour leur état et ajustent leur affichage au fil du temps.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
 * [Comment gérer les événements initiés par l’utilisateur](/learn/responding-to-events)
-* [Comment faire en sorte que les composants « se souviennent » des informations grâce aux états](/learn/state-a-components-memory)
-* [Comment React met à jour l’interface utilisateur (UI) en deux phases](/learn/render-and-commit)
+* [Comment faire en sorte que les composants « se souviennent » des informations grâce aux états](/learn/state-a-composants-memoirery)
+* [Comment Réac met à jour l’interface utilisateur (UI) en deux phases](/learn/render-and-commit)
 * [Pourquoi l’état ne se met pas à jour immédiatement après sa modification](/learn/state-as-a-snapshot)
 * [Comment cumuler plusieurs mises à jour d’un même état](/learn/queueing-a-series-of-state-updates)
 * [Comment mettre à jour un objet dans l’état](/learn/updating-objects-in-state)
@@ -22,7 +22,7 @@ Certaines choses à l’écran se mettent à jour en réponse aux actions de l�
 
 ## Réagir aux événements {/*responding-to-events*/}
 
-React vous permet d’ajouter des *gestionnaires d’événements* à votre JSX. Les gestionnaires d’événements sont vos propres fonctions qui seront déclenchées en réponse aux interactions de l’utilisateur telles que des clics, survols, activations de champs de saisie de formulaires, etc.
+Réac vous permet d’ajouter des *gestionnaires d’événements* à votre JSX. Les gestionnaires d’événements sont vos propres fonctions qui seront déclenchées en réponse aux interactions de l’utilisateur telles que des clics, survols, activations de champs de saisie de formulaires, etc.
 
 Les composants natifs tels que `<button>` ne prennent en charge que les événements natifs du navigateur tels que `onClick`. Cependant, vous pouvez également créer vos propres composants et donner à leurs props de gestionnaires d’événements des noms spécifiques à l’application, selon vos besoins.
 
@@ -51,10 +51,10 @@ function Toolbar({ onPlayMovie, onUploadImage }) {
   );
 }
 
-function Button({ onClick, children }) {
+function Button({ onClick, Enfants }) {
   return (
     <button onClick={onClick}>
-      {children}
+      {Enfants}
     </button>
   );
 }
@@ -72,15 +72,15 @@ Lisez **[Réagir aux événements](/learn/responding-to-events)** pour apprendre
 
 </LearnMore>
 
-## L’état : la mémoire d’un composant {/*state-a-components-memory*/}
+## L’état : la mémoire d’un composant {/*state-a-composants-memoirery*/}
 
-Les composants ont souvent besoin de modifier ce qui est affiché à l’écran en réponse à une interaction. Par exemple, saisir du texte dans un formulaire devrait mettre à jour le champ de saisie, cliquer sur « suivant » dans un carrousel d’images devrait changer l’image affichée, cliquer sur « acheter » ajoute un produit au panier d’achats. Les composants ont besoin de « se souvenir » de certaines choses : la valeur saisie, l’image active, le panier d’achats. En React, ce type de mémoire spécifique au composant est appelé *état*.
+Les composants ont souvent besoin de modifier ce qui est affiché à l’écran en réponse à une interaction. Par exemple, saisir du texte dans un formulaire devrait mettre à jour le champ de saisie, cliquer sur « suivant » dans un carrousel d’images devrait changer l’image affichée, cliquer sur « acheter » ajoute un produit au panier d’achats. Les composants ont besoin de « se souvenir » de certaines choses : la valeur saisie, l’image active, le panier d’achats. En Réac, ce type de mémoire spécifique au composant est appelé *état*.
 
-Vous pouvez ajouter un état à un composant avec un Hook [`useState`](/reference/react/useState). Les *Hooks* sont des fonctions spéciales qui permettent à vos composants d’utiliser des fonctionnalités de React (l’état en est une). Le Hook `useState` vous permet de déclarer une variable d’état. Il prend l’état initial en argument et renvoie une paire de valeurs : l’état actuel et une fonction qui vous permet de le modifier.
+Vous pouvez ajouter un état à un composant avec un Hook [`utiliserEtat`](/reference/Réac/utiliserEtat). Les *Crochets* sont des fonctions spéciales qui permettent à vos composants d’utiliser des fonctionnalités de Réac (l’état en est une). Le Hook `utiliserEtat` vous permet de déclarer une variable d’état. Il prend l’état initial en argument et renvoie une paire de valeurs : l’état actuel et une fonction qui vous permet de le modifier.
 
 ```js
-const [index, setIndex] = useState(0);
-const [showMore, setShowMore] = useState(false);
+const [index, setIndex] = utiliserEtat(0);
+const [showMore, setShowMore] = utiliserEtat(false);
 ```
 
 Voici comment une galerie d’images utilise et met à jour l’état lors d’un clic :
@@ -88,12 +88,12 @@ Voici comment une galerie d’images utilise et met à jour l’état lors d’u
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+  const [index, setIndex] = utiliserEtat(0);
+  const [showMore, setShowMore] = utiliserEtat(false);
   const hasNext = index < sculptureList.length - 1;
 
   function handleNextClick() {
@@ -227,26 +227,26 @@ button {
 
 </Sandpack>
 
-<LearnMore path="/learn/state-a-components-memory">
+<LearnMore path="/learn/state-a-composants-memoirery">
 
-Lisez **[L’état : la mémoire d’un composant](/learn/state-a-components-memory)** pour apprendre comment mémoriser une valeur et la mettre à jour lors d’une interaction.
+Lisez **[L’état : la mémoire d’un composant](/learn/state-a-composants-memoirery)** pour apprendre comment mémoriser une valeur et la mettre à jour lors d’une interaction.
 
 </LearnMore>
 
 ## Rendu et Commit {/*render-and-commit*/}
 
-Avant que vos composants ne soient affichés à l’écran, React doit effectuer leur rendu. Comprendre les étapes de ce processus vous aidera à réfléchir à l’exécution de votre code et à expliquer son comportement.
+Avant que vos composants ne soient affichés à l’écran, Réac doit effectuer leur rendu. Comprendre les étapes de ce processus vous aidera à réfléchir à l’exécution de votre code et à expliquer son comportement.
 
-Imaginez que vos composants soient des cuisiniers dans un restaurant, assemblant des plats savoureux à partir d’ingrédients. Dans ce scénario, React est le serveur qui prend les commandes des clients et leur apporte leurs plats. Ce processus de demande et de service de l’UI comporte trois étapes :
+Imaginez que vos composants soient des cuisiniers dans un restaurant, assemblant des plats savoureux à partir d’ingrédients. Dans ce scénario, Réac est le serveur qui prend les commandes des clients et leur apporte leurs plats. Ce processus de demande et de service de l’UI comporte trois étapes :
 
 1. **Déclencher** un rendu (envoyer la commande du client à la cuisine)
 2. **Faire le rendu** du composant (préparer la commande en cuisine)
 3. **Mettre à jour** le DOM (phase de Commit ;  revient à déposer la commande sur la table du client)
 
 <IllustrationBlock sequential>
-  <Illustration caption="Déclencher" alt="React agit comme un serveur dans un restaurant, qui récupère les commandes des utilisateurs et les transmet à la cuisine des composants." src="/images/docs/illustrations/i_render-and-commit1.png" />
-  <Illustration caption="Faire le rendu" alt="Le chef Card fournit à React un nouveau composant Card." src="/images/docs/illustrations/i_render-and-commit2.png" />
-  <Illustration caption="Mettre à jour (Commit)" alt="React dépose le Card sur la table de l’utilisateur." src="/images/docs/illustrations/i_render-and-commit3.png" />
+  <Illustration caption="Déclencher" alt="Réac agit comme un serveur dans un restaurant, qui récupère les commandes des utilisateurs et les transmet à la cuisine des composants." src="/images/docs/illustrations/i_render-and-commit1.png" />
+  <Illustration caption="Faire le rendu" alt="Le chef Card fournit à Réac un nouveau composant Card." src="/images/docs/illustrations/i_render-and-commit2.png" />
+  <Illustration caption="Mettre à jour (Commit)" alt="Réac dépose le Card sur la table de l’utilisateur." src="/images/docs/illustrations/i_render-and-commit3.png" />
 </IllustrationBlock>
 
 <LearnMore path="/learn/render-and-commit">
@@ -257,7 +257,7 @@ Lisez **[Rendu et Commit](/learn/render-and-commit)** pour apprendre sur le cycl
 
 ## L’état est un instantané {/*state-as-a-snapshot*/}
 
-Contrairement aux variables JavaScript classiques, une variable d’état dans React se comporte davantage comme une photo instantanée. Lui affecter une nouvelle valeur ne change pas la variable d’état que vous avez déjà, mais déclenche plutôt un nouveau rendu. Ça peut surprendre au début !
+Contrairement aux variables JavaScript classiques, une variable d’état dans Réac se comporte davantage comme une photo instantanée. Lui affecter une nouvelle valeur ne change pas la variable d’état que vous avez déjà, mais déclenche plutôt un nouveau rendu. Ça peut surprendre au début !
 
 ```js
 console.log(count);  // 0
@@ -270,11 +270,11 @@ Ce comportement vous aide à éviter des bugs subtils. Voici une petite appli de
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [to, setTo] = useState('Alice');
-  const [message, setMessage] = useState('Hello');
+  const [to, setTo] = utiliserEtat('Alice');
+  const [message, setMessage] = utiliserEtat('Hello');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -324,10 +324,10 @@ Ce composant comporte un bug : cliquer sur « +3 » n'incrémente le score qu
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = utiliserEtat(0);
 
   function increment() {
     setScore(score + 1);
@@ -370,10 +370,10 @@ Vous pouvez corriger ça en passant une *fonction de mise à jour* lorsque vous 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Counter() {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = utiliserEtat(0);
 
   function increment() {
     setScore(s => s + 1);
@@ -407,17 +407,17 @@ Lisez **[Cumuler les série de mises à jour d’un même état](/learn/queueing
 
 ## Mettre à jour les objets d’un état {/*updating-objects-in-state*/}
 
-Un état peut contenir n'importe quel type de valeur JavaScript, y compris des objets. Cependant, vous ne devez pas changer directement les objets et les tableaux que vous stockez dans l’état React. Au lieu de cela, lorsque vous voulez mettre à jour un objet ou un tableau, vous devez en créer un nouveau (ou faire une copie de l’existant), puis mettre à jour l’état pour utiliser cette copie.
+Un état peut contenir n'importe quel type de valeur JavaScript, y compris des objets. Cependant, vous ne devez pas changer directement les objets et les tableaux que vous stockez dans l’état Réac. Au lieu de cela, lorsque vous voulez mettre à jour un objet ou un tableau, vous devez en créer un nouveau (ou faire une copie de l’existant), puis mettre à jour l’état pour utiliser cette copie.
 
 Généralement, vous utiliserez la syntaxe de *spread* `...` pour copier les objets et les tableaux que vous souhaitez modifier. Par exemple, la mise à jour d’un objet imbriqué pourrait ressembler à ceci :
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [person, setPerson] = useState({
+  const [person, setPerson] = utiliserEtat({
     name: 'Niki de Saint Phalle',
     artwork: {
       title: 'Blue Nana',
@@ -608,16 +608,16 @@ export default function Form() {
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
@@ -643,7 +643,7 @@ Les tableaux sont un autre type d’objet modifiable en JavaScript que vous pouv
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 const initialList = [
   { id: 0, title: 'Big Bellies', seen: false },
@@ -652,7 +652,7 @@ const initialList = [
 ];
 
 export default function BucketList() {
-  const [list, setList] = useState(
+  const [list, setList] = utiliserEtat(
     initialList
   );
 
@@ -709,7 +709,7 @@ Si la copie de tableaux dans le code devient fastidieuse, vous pouvez utiliser u
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import { useImmer } from 'use-immer';
 
 const initialList = [
@@ -770,16 +770,16 @@ function ItemList({ artworks, onToggle }) {
 {
   "dependencies": {
     "immer": "1.7.3",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "use-immer": "0.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```

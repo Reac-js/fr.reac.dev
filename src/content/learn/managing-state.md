@@ -11,9 +11,9 @@ Dans ce chapitre, vous apprendrez à bien structurer votre état, à garder une 
 
 <YouWillLearn isChapter={true}>
 
-* [Comment modéliser les changements d’interface en tant que changements d'état](/learn/reacting-to-input-with-state)
+* [Comment modéliser les changements d’interface en tant que changements d'état](/learn/réacing-to-input-with-state)
 * [Comment bien structurer l’état](/learn/choosing-the-state-structure)
-* [Comment « faire remonter l'état » pour le partager entre les composants](/learn/sharing-state-between-components)
+* [Comment « faire remonter l'état » pour le partager entre les composants](/learn/sharing-state-between-composants)
 * [Comment contrôler si l'état est préservé ou réinitialisé](/learn/preserving-and-resetting-state)
 * [Comment consolider une logique d'état complexe dans une fonction](/learn/extracting-state-logic-into-a-reducer)
 * [Comment transmettre l’information sans « faire percoler les props »](/learn/passing-data-deeply-with-context)
@@ -21,21 +21,21 @@ Dans ce chapitre, vous apprendrez à bien structurer votre état, à garder une 
 
 </YouWillLearn>
 
-## Réagir à la saisie avec un état {/*reacting-to-input-with-state*/}
+## Réagir à la saisie avec un état {/*réacing-to-input-with-state*/}
 
-Avec React, vous ne modifierez pas l’interface utilisateur directement à partir du code. Par exemple, vous n'écrirez pas de commandes telles que « désactive le bouton », « active le bouton », « affiche le message de réussite », etc. Au lieu de ça, vous décrirez l’interface utilisateur que vous souhaitez voir apparaître pour les différents états visuels de votre composant (« état initial », « état de saisie », « état de réussite »), puis vous déclencherez les changements d'état en réponse aux interactions de l’utilisateur. Ça ressemble à la façon dont les designers réfléchissent à l’interface utilisateur.
+Avec Réac, vous ne modifierez pas l’interface utilisateur directement à partir du code. Par exemple, vous n'écrirez pas de commandes telles que « désactive le bouton », « active le bouton », « affiche le message de réussite », etc. Au lieu de ça, vous décrirez l’interface utilisateur que vous souhaitez voir apparaître pour les différents états visuels de votre composant (« état initial », « état de saisie », « état de réussite »), puis vous déclencherez les changements d'état en réponse aux interactions de l’utilisateur. Ça ressemble à la façon dont les designers réfléchissent à l’interface utilisateur.
 
-Voici un formulaire de quiz construit avec React. Voyez comment il utilise la variable d'état `status` pour déterminer s'il faut activer ou désactiver le bouton d’envoi, et s'il faut plutôt afficher le message de réussite.
+Voici un formulaire de quiz construit avec Réac. Voyez comment il utilise la variable d'état `status` pour déterminer s'il faut activer ou désactiver le bouton d’envoi, et s'il faut plutôt afficher le message de réussite.
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [answer, setAnswer] = useState('');
-  const [error, setError] = useState(null);
-  const [status, setStatus] = useState('typing');
+  const [answer, setAnswer] = utiliserEtat('');
+  const [error, setError] = utiliserEtat(null);
+  const [status, setStatus] = utiliserEtat('typing');
 
   if (status === 'success') {
     return <h1>C’est exact !</h1>
@@ -107,9 +107,9 @@ function submitForm(answer) {
 
 </Sandpack>
 
-<LearnMore path="/learn/reacting-to-input-with-state">
+<LearnMore path="/learn/réacing-to-input-with-state">
 
-Lisez **[Réagir à la saisie avec un état](/learn/reacting-to-input-with-state)** pour apprendre à aborder les interactions dans une optique d’état.
+Lisez **[Réagir à la saisie avec un état](/learn/réacing-to-input-with-state)** pour apprendre à aborder les interactions dans une optique d’état.
 
 </LearnMore>
 
@@ -123,12 +123,12 @@ Par exemple, ce formulaire a une variable d'état `fullName` **redondante** :
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [fullName, setFullName] = useState('');
+  const [firstName, setFirstName] = utiliserEtat('');
+  const [lastName, setLastName] = utiliserEtat('');
+  const [fullName, setFullName] = utiliserEtat('');
 
   function handleFirstNameChange(e) {
     setFirstName(e.target.value);
@@ -176,11 +176,11 @@ Vous pouvez la retirer et simplifier le code en calculant `fullName` à l’affi
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = utiliserEtat('');
+  const [lastName, setLastName] = utiliserEtat('');
 
   const fullName = firstName + ' ' + lastName;
 
@@ -223,7 +223,7 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-Ce changement peut sembler mineur, mais de nombreux bugs dans les applis React se corrigent ainsi.
+Ce changement peut sembler mineur, mais de nombreux bugs dans les applis Réac se corrigent ainsi.
 
 <LearnMore path="/learn/choosing-the-state-structure">
 
@@ -231,19 +231,19 @@ Lisez **[Choisir la structure de l'état](/learn/choosing-the-state-structure)**
 
 </LearnMore>
 
-## Partager l'état entre des composants {/*sharing-state-between-components*/}
+## Partager l'état entre des composants {/*sharing-state-between-composants*/}
 
-Parfois, vous souhaitez que l’état de deux composants change toujours en même temps. Pour cela, retirez l’état des deux composants, déplacez-le vers leur ancêtre commun le plus proche, puis transmettez-leur par l’intermédiaire des props. C’est ce qu’on appelle « faire remonter l’état », et c’est l’une des choses que vous ferez le plus souvent en écrivant du code React.
+Parfois, vous souhaitez que l’état de deux composants change toujours en même temps. Pour cela, retirez l’état des deux composants, déplacez-le vers leur ancêtre commun le plus proche, puis transmettez-leur par l’intermédiaire des props. C’est ce qu’on appelle « faire remonter l’état », et c’est l’une des choses que vous ferez le plus souvent en écrivant du code Réac.
 
 Dans l’exemple qui suit, seul un panneau devrait être actif à tout moment. Pour ce faire, au lieu de conserver l'état actif au sein de chaque panneau, le composant parent conserve l'état et spécifie les props de ses enfants.
 
 <Sandpack>
 
 ```js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Accordion() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = utiliserEtat(0);
   return (
     <>
       <h2>Almaty, Kazakhstan</h2>
@@ -267,7 +267,7 @@ export default function Accordion() {
 
 function Panel({
   title,
-  children,
+  Enfants,
   isActive,
   onShow
 }) {
@@ -275,7 +275,7 @@ function Panel({
     <section className="panel">
       <h3>{title}</h3>
       {isActive ? (
-        <p>{children}</p>
+        <p>{Enfants}</p>
       ) : (
         <button onClick={onShow}>
           Afficher
@@ -296,27 +296,27 @@ h3, p { margin: 5px 0px; }
 
 </Sandpack>
 
-<LearnMore path="/learn/sharing-state-between-components">
+<LearnMore path="/learn/sharing-state-between-composants">
 
-Lisez **[Partager l’état entre des composants](/learn/sharing-state-between-components)** pour apprendre comment faire remonter l’état et garder des composants synchronisés.
+Lisez **[Partager l’état entre des composants](/learn/sharing-state-between-composants)** pour apprendre comment faire remonter l’état et garder des composants synchronisés.
 
 </LearnMore>
 
 ## Préserver et réinitialiser l'état {/*preserving-and-resetting-state*/}
 
-Lorsque vous rafraîchissez un composant, React doit décider quelles parties de l’arbre doivent être conservées (et mises à jour), et quelles parties doivent être supprimées ou recréées à partir de zéro. Dans la plupart des cas, le comportement automatique de React fonctionne assez bien. Par défaut, React préserve les parties de l’arbre qui « correspondent » avec l’arbre de composants du rendu précédent.
+Lorsque vous rafraîchissez un composant, Réac doit décider quelles parties de l’arbre doivent être conservées (et mises à jour), et quelles parties doivent être supprimées ou recréées à partir de zéro. Dans la plupart des cas, le comportement automatique de Réac fonctionne assez bien. Par défaut, Réac préserve les parties de l’arbre qui « correspondent » avec l’arbre de composants du rendu précédent.
 
 Cependant, il arrive que ce ne soit pas ce que vous souhaitez. Dans cette appli de discussion, le fait de taper un message puis de changer de destinataire ne réinitialise pas la saisie. L’utilisateur risque ainsi d’envoyer accidentellement un message à la mauvaise personne :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 
 export default function Messenger() {
-  const [to, setTo] = useState(contacts[0]);
+  const [to, setTo] = utiliserEtat(contacts[0]);
   return (
     <div>
       <ContactList
@@ -361,10 +361,10 @@ export default function ContactList({
 ```
 
 ```js src/Chat.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({ contact }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <section className="chat">
       <textarea
@@ -401,17 +401,17 @@ textarea {
 
 </Sandpack>
 
-React vous permet d’outrepasser le comportement par défaut, et de *forcer* un composant à réinitialiser son état en lui passant une `key` différente, comme `<Chat key={email} />`. Ça dit à React que si le destinataire est différent, alors le composant `Chat` est considéré comme *différent* et doit être recréé à partir de zéro avec les nouvelles données (et l’interface utilisateur, par exemple les champs de saisie). À présent, passer d’un destinataire à l’autre réinitialise le champ de saisie, même si vous affichez le même composant.
+Réac vous permet d’outrepasser le comportement par défaut, et de *forcer* un composant à réinitialiser son état en lui passant une `key` différente, comme `<Chat key={email} />`. Ça dit à Réac que si le destinataire est différent, alors le composant `Chat` est considéré comme *différent* et doit être recréé à partir de zéro avec les nouvelles données (et l’interface utilisateur, par exemple les champs de saisie). À présent, passer d’un destinataire à l’autre réinitialise le champ de saisie, même si vous affichez le même composant.
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 
 export default function Messenger() {
-  const [to, setTo] = useState(contacts[0]);
+  const [to, setTo] = utiliserEtat(contacts[0]);
   return (
     <div>
       <ContactList
@@ -456,10 +456,10 @@ export default function ContactList({
 ```
 
 ```js src/Chat.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function Chat({ contact }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <section className="chat">
       <textarea
@@ -509,12 +509,12 @@ Les composants comportant de nombreuses mises à jour d'état réparties entre d
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { utiliserReducteur } from 'Réac';
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useReducer(
+  const [tasks, dispatch] = utiliserReducteur(
     tasksReducer,
     initialTasks
   );
@@ -592,10 +592,10 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function AddTask({ onAddTask }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   return (
     <>
       <input
@@ -613,7 +613,7 @@ export default function AddTask({ onAddTask }) {
 ```
 
 ```js src/TaskList.js hidden
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 export default function TaskList({
   tasks,
@@ -636,7 +636,7 @@ export default function TaskList({
 }
 
 function Task({ task, onChange, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   let taskContent;
   if (isEditing) {
     taskContent = (
@@ -737,15 +737,15 @@ export default function Page() {
 ```
 
 ```js src/Section.js
-import { useContext } from 'react';
+import { utiliserContexte } from 'Réac';
 import { LevelContext } from './LevelContext.js';
 
-export default function Section({ children }) {
-  const level = useContext(LevelContext);
+export default function Section({ Enfants }) {
+  const level = utiliserContexte(LevelContext);
   return (
     <section className="section">
       <LevelContext.Provider value={level + 1}>
-        {children}
+        {Enfants}
       </LevelContext.Provider>
     </section>
   );
@@ -753,26 +753,26 @@ export default function Section({ children }) {
 ```
 
 ```js src/Heading.js
-import { useContext } from 'react';
+import { utiliserContexte } from 'Réac';
 import { LevelContext } from './LevelContext.js';
 
-export default function Heading({ children }) {
-  const level = useContext(LevelContext);
+export default function Heading({ Enfants }) {
+  const level = utiliserContexte(LevelContext);
   switch (level) {
     case 0:
       throw Error("Un en-tête doit être à l’intérieur d’une section !");
     case 1:
-      return <h1>{children}</h1>;
+      return <h1>{Enfants}</h1>;
     case 2:
-      return <h2>{children}</h2>;
+      return <h2>{Enfants}</h2>;
     case 3:
-      return <h3>{children}</h3>;
+      return <h3>{Enfants}</h3>;
     case 4:
-      return <h4>{children}</h4>;
+      return <h4>{Enfants}</h4>;
     case 5:
-      return <h5>{children}</h5>;
+      return <h5>{Enfants}</h5>;
     case 6:
-      return <h6>{children}</h6>;
+      return <h6>{Enfants}</h6>;
     default:
       throw Error('Niveau inconnu : ' + level);
   }
@@ -780,9 +780,9 @@ export default function Heading({ children }) {
 ```
 
 ```js src/LevelContext.js
-import { createContext } from 'react';
+import { creerContexte } from 'Réac';
 
-export const LevelContext = createContext(0);
+export const LevelContext = creerContexte(0);
 ```
 
 ```css
@@ -827,13 +827,13 @@ export default function TaskApp() {
 ```
 
 ```js src/TasksContext.js
-import { createContext, useContext, useReducer } from 'react';
+import { creerContexte, utiliserContexte, utiliserReducteur } from 'Réac';
 
-const TasksContext = createContext(null);
-const TasksDispatchContext = createContext(null);
+const TasksContext = creerContexte(null);
+const TasksDispatchContext = creerContexte(null);
 
-export function TasksProvider({ children }) {
-  const [tasks, dispatch] = useReducer(
+export function TasksProvider({ Enfants }) {
+  const [tasks, dispatch] = utiliserReducteur(
     tasksReducer,
     initialTasks
   );
@@ -843,18 +843,18 @@ export function TasksProvider({ children }) {
       <TasksDispatchContext.Provider
         value={dispatch}
       >
-        {children}
+        {Enfants}
       </TasksDispatchContext.Provider>
     </TasksContext.Provider>
   );
 }
 
 export function useTasks() {
-  return useContext(TasksContext);
+  return utiliserContexte(TasksContext);
 }
 
 export function useTasksDispatch() {
-  return useContext(TasksDispatchContext);
+  return utiliserContexte(TasksDispatchContext);
 }
 
 function tasksReducer(tasks, action) {
@@ -892,11 +892,11 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js
-import { useState, useContext } from 'react';
+import { utiliserEtat, utiliserContexte } from 'Réac';
 import { useTasksDispatch } from './TasksContext.js';
 
 export default function AddTask({ onAddTask }) {
-  const [text, setText] = useState('');
+  const [text, setText] = utiliserEtat('');
   const dispatch = useTasksDispatch();
   return (
     <>
@@ -921,7 +921,7 @@ let nextId = 3;
 ```
 
 ```js src/TaskList.js
-import { useState, useContext } from 'react';
+import { utiliserEtat, utiliserContexte } from 'Réac';
 import { useTasks, useTasksDispatch } from './TasksContext.js';
 
 export default function TaskList() {
@@ -938,7 +938,7 @@ export default function TaskList() {
 }
 
 function Task({ task }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = utiliserEtat(false);
   const dispatch = useTasksDispatch();
   let taskContent;
   if (isEditing) {
@@ -1015,6 +1015,6 @@ Lisez **[Mise à l'échelle en combinant réducteur et contexte](/learn/scaling-
 
 ## Et maintenant ? {/*whats-next*/}
 
-Allez sur [Réagir à la saisie avec un état](/learn/reacting-to-input-with-state) pour commencer à lire ce chapitre page par page !
+Allez sur [Réagir à la saisie avec un état](/learn/réacing-to-input-with-state) pour commencer à lire ce chapitre page par page !
 
 Ou alors, si vous êtes déjà à l’aise avec ces sujets, pourquoi ne pas explorer les [échappatoires](/learn/escape-hatches)?

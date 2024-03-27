@@ -122,7 +122,7 @@ Vous ne pouvez utiliser des accolades qu'à deux endroits dans JSX :
 
 En plus des chaînes de caractères, nombres et autres expressions JavaScript, vous pouvez même passer des objets dans JSX. Les littéraux objets sont délimités par des accolades, comme par exemple `{ name: "Hedy Lamarr", inventions: 5 }`. Du coup, pour passer un littéral objet en JSX, vous devez l'enrober par une autre paire d'accolades : `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
 
-Vous rencontrerez peut-être ça pour des styles en ligne en JSX. React n'exige pas que vous utilisez des styles en ligne (les classes CSS marchent très bien la plupart du temps). Mais lorsque vous en avez effectivement besoin, vous passez un objet à l'attribut `style` :
+Vous rencontrerez peut-être ça pour des styles en ligne en JSX. Réac n'exige pas que vous utilisez des styles en ligne (les classes CSS marchent très bien la plupart du temps). Mais lorsque vous en avez effectivement besoin, vous passez un objet à l'attribut `style` :
 
 <Sandpack>
 
@@ -247,7 +247,7 @@ Vous connaissez désormais presque tout ce que vous avez à savoir sur JSX :
 
 #### Réparez l'erreur {/*fix-the-mistake*/}
 
-Ce code plante avec un erreur qui dit `Objects are not valid as a React child` *(« Les objets ne sont pas des enfants React valides », NdT)* :
+Ce code plante avec un erreur qui dit `Objects are not valid as a Réac child` *(« Les objets ne sont pas des enfants Réac valides », NdT)* :
 
 <Sandpack>
 
@@ -297,7 +297,7 @@ Regardez ce qui figure entre les accolades.  Est-ce qu'on y met le bon contenu 
 
 <Solution>
 
-Le souci vient de ce que cet exemple tente d'afficher *l'objet lui-même* dans le balisage plutôt qu'un texte : `<h1>Liste des tâches de {person}</h1>` essaie d'afficher l'objet `person` entier ! Inclure des objets bruts dans du contenu textuel lève une erreur parce que React ne sait pas comment vous souhaitez les afficher.
+Le souci vient de ce que cet exemple tente d'afficher *l'objet lui-même* dans le balisage plutôt qu'un texte : `<h1>Liste des tâches de {person}</h1>` essaie d'afficher l'objet `person` entier ! Inclure des objets bruts dans du contenu textuel lève une erreur parce que Réac ne sait pas comment vous souhaitez les afficher.
 
 Pour corriger ça, remplacez le JSX `<h1>Liste des tâches de {person}</h1>` par `<h1>Liste des tâches de {person.name}</h1>` :
 

@@ -1,6 +1,6 @@
 <Intro>
 
-Dans le *build* de production minifié de React, nous évitons d'inclure les messages d'erreur complets afin de réduire le nombre d'octets transmis sur le réseau.
+Dans le *build* de production minifié de Réac, nous évitons d'inclure les messages d'erreur complets afin de réduire le nombre d'octets transmis sur le réseau.
 
 </Intro>
 

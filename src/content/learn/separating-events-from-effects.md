@@ -35,7 +35,7 @@ Du point de vue de l’utilisateur, l’envoi d’un message doit se faire *parc
 
 ```js {4-6}
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
   // ...
   function handleSendClick() {
     sendMessage(message);
@@ -61,7 +61,7 @@ La *raison* pour laquelle ce code s'exécute n’est pas liée à une interactio
 ```js {3-9}
 function ChatRoom({ roomId }) {
   // ...
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => {
@@ -72,20 +72,20 @@ function ChatRoom({ roomId }) {
 }
 ```
 
-Avec ce code, vous garantissez qu’il y a toujours une connexion active avec le serveur sélectionné, *indépendamment* des interactions de l’utilisateur. Que l’utilisateur ait ouvert votre appli, sélectionné un autre salon ou navigué vers un autre écran avant d’en revenir, votre Effet garantit que le composant *reste synchronisé* avec le salon actuellement sélectionné, et [se reconnectera chaque fois que nécessaire](/learn/lifecycle-of-reactive-effects#why-synchronization-may-need-to-happen-more-than-once).
+Avec ce code, vous garantissez qu’il y a toujours une connexion active avec le serveur sélectionné, *indépendamment* des interactions de l’utilisateur. Que l’utilisateur ait ouvert votre appli, sélectionné un autre salon ou navigué vers un autre écran avant d’en revenir, votre Effet garantit que le composant *reste synchronisé* avec le salon actuellement sélectionné, et [se reconnectera chaque fois que nécessaire](/learn/lifecycle-of-réactive-effects#why-synchronization-may-need-to-happen-more-than-once).
 
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection, sendMessage } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => connection.disconnect();
@@ -105,8 +105,8 @@ function ChatRoom({ roomId }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
-  const [show, setShow] = useState(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [show, setShow] = utiliserEtat(false);
   return (
     <>
       <label>
@@ -154,7 +154,7 @@ input, select { margin-right: 20px; }
 
 </Sandpack>
 
-## Valeurs réactives et logique réactive {/*reactive-values-and-reactive-logic*/}
+## Valeurs réactives et logique réactive {/*réacive-values-and-réactive-logic*/}
 
 Intuitivement, vous pourriez penser que les gestionnaires d’événements sont toujours déclenchés « manuellement », par exemple en cliquant sur un bouton. Les Effets, quant à eux, sont « automatiques » : ils sont exécutés et réexécutés aussi souvent que nécessaire pour rester synchronisés.
 
@@ -166,7 +166,7 @@ Les props, l’état et les variables déclarés au sein de votre composant sont
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId }) {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = utiliserEtat('');
 
   // ...
 }
@@ -175,11 +175,11 @@ function ChatRoom({ roomId }) {
 Les valeurs réactives comme celles-ci peuvent changer à la suite d’un nouveau rendu. Par exemple, l’utilisateur peut éditer le `message` ou choisir un `roomId` différent depuis une liste déroulante. Les gestionnaires d’événements et les Effets réagissent différemment à ces changements :
 
 - **La logique au sein des gestionnaires d’événements *n’est pas réactive*.** Elle ne s’exécutera pas à nouveau à moins que l’utilisateur ne répète l'interaction (par exemple un clic).  Les gestionnaires d'événements peuvent lire les valeurs réactives sans « réagir » à leurs modifications.
-- **La logique au sein des Effets est *réactive*.** Si votre Effet lit une valeur réactive, [vous devez la spécifier en tant que dépendance](/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values). Par la suite, si un nouveau rendu entraîne un changement de cette valeur, React réexécutera la logique de votre Effet avec la nouvelle valeur.
+- **La logique au sein des Effets est *réactive*.** Si votre Effet lit une valeur réactive, [vous devez la spécifier en tant que dépendance](/learn/lifecycle-of-réactive-effects#effectsreacto-réactive-values). Par la suite, si un nouveau rendu entraîne un changement de cette valeur, Réac réexécutera la logique de votre Effet avec la nouvelle valeur.
 
 Reprenons l’exemple précédent pour illustrer cette différence.
 
-### La logique à l’intérieur des gestionnaires d’événements n’est pas réactive {/*logic-inside-event-handlers-is-not-reactive*/}
+### La logique à l’intérieur des gestionnaires d’événements n’est pas réactive {/*logic-inside-event-handlers-is-not-réactive*/}
 
 Regardez cette ligne de code. Cette logique doit-elle être réactive ou non ?
 
@@ -199,7 +199,7 @@ Du point de vue de l’utilisateur, **un changement de `message` ne signifie _pa
 
 Les gestionnaires d’événements ne sont pas réactifs, de sorte que `sendMessage(message)` ne sera exécuté que lorsque l’utilisateur cliquera sur le bouton Envoyer.
 
-### La logique à l’intérieur des Effets est réactive {/*logic-inside-effects-is-reactive*/}
+### La logique à l’intérieur des Effets est réactive {/*logic-inside-effects-is-réactive*/}
 
 Maintenant, revenons à ces lignes :
 
@@ -213,7 +213,7 @@ Maintenant, revenons à ces lignes :
 Du point de vue de l’utilisateur, **un changement de `roomId` *signifie bien* qu’il veut se connecter à un salon différent**. En d’autres termes, la logique de connexion à un salon doit être réactive. Vous *voulez* que ces lignes de code « suivent » la <CodeStep step={2}>valeur réactive</CodeStep>, et s’exécutent à nouveau si la valeur change. C’est pourquoi elle a sa place dans un Effet :
 
 ```js {2-3}
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
     return () => {
@@ -224,7 +224,7 @@ Du point de vue de l’utilisateur, **un changement de `roomId` *signifie bien* 
 
 Les Effets sont réactifs, donc `createConnection(serverUrl, roomId)` et `connection.connect()` s’exécuteront pour chaque changement de valeur de `roomId`. Votre Effet garde la connexion au chat synchronisée avec le salon actuellement sélectionné.
 
-## Extraire la logique non réactive des Effets {/*extracting-non-reactive-logic-out-of-effects*/}
+## Extraire la logique non réactive des Effets {/*extracting-non-réactive-logic-out-of-effects*/}
 
 Les choses deviennent tout de suite plus compliquées lorsque vous souhaitez mélanger une logique réactive avec une logique non réactive.
 
@@ -232,7 +232,7 @@ Par exemple, imaginez que vous souhaitiez afficher une notification quand l’ut
 
 ```js {1,4-6}
 function ChatRoom({ roomId, theme }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       showNotification('Connecté·e !', theme);
@@ -241,11 +241,11 @@ function ChatRoom({ roomId, theme }) {
     // ...
 ```
 
-Cependant, `theme` est une valeur réactive (elle peut changer à la suite d’un nouveau rendu), et [chaque valeur réactive lue par un Effet doit être déclarée dans ses dépendances](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency). Vous devez maintenant spécifier `theme` comme une dépendance de votre Effet :
+Cependant, `theme` est une valeur réactive (elle peut changer à la suite d’un nouveau rendu), et [chaque valeur réactive lue par un Effet doit être déclarée dans ses dépendances](/learn/lifecycle-of-réactive-effects#Réac-verifies-that-you-specified-every-réactive-value-as-a-dependency). Vous devez maintenant spécifier `theme` comme une dépendance de votre Effet :
 
 ```js {5,11}
 function ChatRoom({ roomId, theme }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       showNotification('Connecté·e !', theme);
@@ -265,29 +265,29 @@ Jouez avec cet exemple et voyez si vous identifiez un problème d’expérience 
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest",
-    "react-scripts": "latest",
+    "Réac": "latest",
+    "Réac-dom": "latest",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       showNotification('Connecté·e !', theme);
@@ -300,8 +300,8 @@ function ChatRoom({ roomId, theme }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
-  const [isDark, setIsDark] = useState(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isDark, setIsDark] = utiliserEtat(false);
   return (
     <>
       <label>
@@ -402,17 +402,17 @@ Vous devez trouver une façon de séparer cette logique non réactive de l’Eff
 
 <Wip>
 
-Cette section décrit une **API expérimentale : elle n’a donc pas encore été livrée** dans une version stable de React.
+Cette section décrit une **API expérimentale : elle n’a donc pas encore été livrée** dans une version stable de Réac.
 
 </Wip>
 
-Utilisez un Hook spécial appelé [`useEffectEvent`](/reference/react/experimental_useEffectEvent) pour extraire cette logique non réactive de votre Effet :
+Utilisez un Hook spécial appelé [`utiliserEffetEvent`](/reference/Réac/experimental_utiliserEffetEvent) pour extraire cette logique non réactive de votre Effet :
 
 ```js {1,4-6}
-import { useEffect, useEffectEvent } from 'react';
+import { utiliserEffet, utiliserEffetEvent } from 'Réac';
 
 function ChatRoom({ roomId, theme }) {
-  const onConnected = useEffectEvent(() => {
+  const onConnected = utiliserEffetEvent(() => {
     showNotification('Connecté·e !', theme);
   });
   // ...
@@ -424,11 +424,11 @@ Vous pouvez désormais appeler l’Événement d’Effet `onConnected` depuis vo
 
 ```js {2-4,9,13}
 function ChatRoom({ roomId, theme }) {
-  const onConnected = useEffectEvent(() => {
+  const onConnected = utiliserEffetEvent(() => {
     showNotification('Connecté·e !', theme);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       onConnected();
@@ -448,34 +448,34 @@ Vérifiez que le nouveau comportement fonctionne comme attendu :
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
-  const onConnected = useEffectEvent(() => {
+  const onConnected = utiliserEffetEvent(() => {
     showNotification('Connecté·e !', theme);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       onConnected();
@@ -488,8 +488,8 @@ function ChatRoom({ roomId, theme }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
-  const [isDark, setIsDark] = useState(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isDark, setIsDark] = utiliserEtat(false);
   return (
     <>
       <label>
@@ -580,7 +580,7 @@ Vous pouvez considérer les Événements d’Effets comme étant très similaire
 
 <Wip>
 
-Cette section décrit une **API expérimentale : elle n’a donc pas encore été livrée** dans une version stable de React.
+Cette section décrit une **API expérimentale : elle n’a donc pas encore été livrée** dans une version stable de Réac.
 
 </Wip>
 
@@ -590,7 +590,7 @@ Par exemple, disons que vous avec un Effet qui enregistre les visites de la page
 
 ```js
 function Page() {
-  useEffect(() => {
+  utiliserEffet(() => {
     logVisit();
   }, []);
   // ...
@@ -601,9 +601,9 @@ Plus tard, vous ajoutez plusieurs routes à votre site. Votre composant `Page` r
 
 ```js {1,3}
 function Page({ url }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     logVisit(url);
-  }, []); // 🔴 Le Hook React useEffect a une dépendance manquante : 'url'.
+  }, []); // 🔴 Le Hook Réac utiliserEffet a une dépendance manquante : 'url'.
   // ...
 }
 ```
@@ -612,7 +612,7 @@ Réfléchissez à ce que vous voulez que le code fasse. Vous *souhaitez* enregis
 
 ```js {4}
 function Page({ url }) {
-  useEffect(() => {
+  utiliserEffet(() => {
     logVisit(url);
   }, [url]); // ✅ Toutes les dépendances sont déclarées
   // ...
@@ -623,12 +623,12 @@ Supposons maintenant que vous vouliez inclure le nombre d’articles du panier d
 
 ```js {2-3,6}
 function Page({ url }) {
-  const { items } = useContext(ShoppingCartContext);
+  const { items } = utiliserContexte(ShoppingCartContext);
   const numberOfItems = items.length;
 
-  useEffect(() => {
+  utiliserEffet(() => {
     logVisit(url, numberOfItems);
-  }, [url]); // 🔴 Le Hook React useEffect a une dépendance manquante : 'numberOfItems'
+  }, [url]); // 🔴 Le Hook Réac utiliserEffet a une dépendance manquante : 'numberOfItems'
   // ...
 }
 ```
@@ -639,14 +639,14 @@ Séparez le code en deux parties :
 
 ```js {5-7,10}
 function Page({ url }) {
-  const { items } = useContext(ShoppingCartContext);
+  const { items } = utiliserContexte(ShoppingCartContext);
   const numberOfItems = items.length;
 
-  const onVisit = useEffectEvent(visitedUrl => {
+  const onVisit = utiliserEffetEvent(visitedUrl => {
     logVisit(visitedUrl, numberOfItems);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     onVisit(url);
   }, [url]); // ✅ Toutes les dépendances sont déclarées
   // ...
@@ -664,11 +664,11 @@ Par conséquent, vous appellerez `logVisit` pour chaque changement d’`url` et 
 Vous vous demandez peut-être si vous pouvez appeler `onVisit()` sans paramètres, pour ensuite lire l’`url` à l’intérieur :
 
 ```js {2,6}
-  const onVisit = useEffectEvent(() => {
+  const onVisit = utiliserEffetEvent(() => {
     logVisit(url, numberOfItems);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     onVisit();
   }, [url]);
 ```
@@ -676,11 +676,11 @@ Vous vous demandez peut-être si vous pouvez appeler `onVisit()` sans paramètre
 Ça fonctionnerait, mais il est préférable de passer cette `url` explicitement à l’Événement d’Effet. **En passant `url` comme paramètre à votre Événement d’Effet, vous dites que la visite d’une page avec une `url` différente constitue un « événement » d’un point de vue de l’utilisateur.** Le `visitedUrl` fait *partie* de l’« événement » qui s’est produit :
 
 ```js {1-2,6}
-  const onVisit = useEffectEvent(visitedUrl => {
+  const onVisit = utiliserEffetEvent(visitedUrl => {
     logVisit(visitedUrl, numberOfItems);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     onVisit(url);
   }, [url]);
 ```
@@ -690,11 +690,11 @@ Puisque votre Événement d’Effet « demande » explicitement le `visitedUrl
 C’est particulièrement critique si votre Effet contient de la logique asynchrone :
 
 ```js {6,8}
-  const onVisit = useEffectEvent(visitedUrl => {
+  const onVisit = utiliserEffetEvent(visitedUrl => {
     logVisit(visitedUrl, numberOfItems);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     setTimeout(() => {
       onVisit(url);
     }, 5000); // On retarde l’enregistrement des visites
@@ -713,21 +713,21 @@ Dans les bases de code existantes, vous risquer de tomber sur des désactivation
 
 ```js {7-9}
 function Page({ url }) {
-  const { items } = useContext(ShoppingCartContext);
+  const { items } = utiliserContexte(ShoppingCartContext);
   const numberOfItems = items.length;
 
-  useEffect(() => {
+  utiliserEffet(() => {
     logVisit(url, numberOfItems);
     // 🔴 Évitez de mettre le *linter* en sourdine comme ça :
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line Réac-hooks/exhaustive-deps
   }, [url]);
   // ...
 }
 ```
 
-Dès que `useEffectEvent` sera devenu une partie stable de React, nous recommanderons de **ne jamais réduire le *linter* au silence**.
+Dès que `utiliserEffetEvent` sera devenu une partie stable de Réac, nous recommanderons de **ne jamais réduire le *linter* au silence**.
 
-Désactiver localement cette règle du *linter* présente un inconvénient majeur : vous empêchez désormais React de vous avertir quand votre Effet doit « réagir » à une nouvelle dépendance réactive que vous avez introduite dans votre code. Dans l’exemple précédent, vous avez ajouté `url` aux dépendances *parce que* React vous l’a rappelé. Vous n’aurez plus de tels rappels pour vos prochaines modifications de cet Effet si vous désactivez le *linter*. Ça entraîne des bugs.
+Désactiver localement cette règle du *linter* présente un inconvénient majeur : vous empêchez désormais Réac de vous avertir quand votre Effet doit « réagir » à une nouvelle dépendance réactive que vous avez introduite dans votre code. Dans l’exemple précédent, vous avez ajouté `url` aux dépendances *parce que* Réac vous l’a rappelé. Vous n’aurez plus de tels rappels pour vos prochaines modifications de cet Effet si vous désactivez le *linter*. Ça entraîne des bugs.
 
 Voici un exemple d’un bug déroutant causé par un *linter* en sourdine. Dans cet exemple la fonction `handleMove` est supposée lire la valeur actuelle de la variable d’état `canMove` afin de décider si le point doit suivre le curseur. Cependant, `canMove` est toujours à `true` à l’intérieur de `handleMove`.
 
@@ -736,11 +736,11 @@ Voyez-vous pourquoi ?
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function App() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [canMove, setCanMove] = useState(true);
+  const [position, setPosition] = utiliserEtat({ x: 0, y: 0 });
+  const [canMove, setCanMove] = utiliserEtat(true);
 
   function handleMove(e) {
     if (canMove) {
@@ -748,10 +748,10 @@ export default function App() {
     }
   }
 
-  useEffect(() => {
+  utiliserEffet(() => {
     window.addEventListener('pointermove', handleMove);
     return () => window.removeEventListener('pointermove', handleMove);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line Réac-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -792,45 +792,45 @@ body {
 
 Le problème avec ce code vient de la mise en sourdine du *linter* de dépendances. Si vous lui redonnez la parole, vous constaterez que cet Effet doit dépendre de la fonction `handleMove`. C’est logique : `handleMove` est déclarée au sein du composant, ce qui en fait une valeur réactive. Toute valeur réactive doit être spécifiée en tant que dépendance, sans quoi elle pourrait devenir obsolète par la suite !
 
-L’auteur du code d’origine a « menti » à React en disant que l’Effet ne dépend (`[]`) d’aucune valeur réactive. C'est pourquoi React n’a pas resynchronisé l’Effet après que `canMove` a changé (et `handleMove` avec elle). React n’ayant pas resynchronisé l’Effet, la fonction `handleMove` attachée en tant qu’écouteur d'événement est celle créée au moment du rendu initial. À l'époque `canMove` valait `true`, c’est pourquoi la fonction `handleMove` du rendu initial verra toujours cette valeur-ci.
+L’auteur du code d’origine a « menti » à Réac en disant que l’Effet ne dépend (`[]`) d’aucune valeur réactive. C'est pourquoi Réac n’a pas resynchronisé l’Effet après que `canMove` a changé (et `handleMove` avec elle). Réac n’ayant pas resynchronisé l’Effet, la fonction `handleMove` attachée en tant qu’écouteur d'événement est celle créée au moment du rendu initial. À l'époque `canMove` valait `true`, c’est pourquoi la fonction `handleMove` du rendu initial verra toujours cette valeur-ci.
 
 **Si vous écoutez toujours le *linter*, vous n'aurez jamais de problèmes de valeurs obsolètes.**
 
-Avec `useEffectEvent`, il est inutile de « mentir » au *linter* et le code fonctionne comme prévu :
+Avec `utiliserEffetEvent`, il est inutile de « mentir » au *linter* et le code fonctionne comme prévu :
 
 <Sandpack>
 
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export default function App() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [canMove, setCanMove] = useState(true);
+  const [position, setPosition] = utiliserEtat({ x: 0, y: 0 });
+  const [canMove, setCanMove] = utiliserEtat(true);
 
-  const onMove = useEffectEvent(e => {
+  const onMove = utiliserEffetEvent(e => {
     if (canMove) {
       setPosition({ x: e.clientX, y: e.clientY });
     }
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     window.addEventListener('pointermove', onMove);
     return () => window.removeEventListener('pointermove', onMove);
   }, []);
@@ -870,7 +870,7 @@ body {
 
 </Sandpack>
 
-Ça ne signifie pas que `useEffectEvent` soit *toujours* la solution adaptée. Dans le bac à sable ci-dessus, vous ne vouliez pas que le code de l’Effet soit réactif par rapport à `canMove`. C’est pourquoi il était logique d’extraire un Événement d’Effet.
+Ça ne signifie pas que `utiliserEffetEvent` soit *toujours* la solution adaptée. Dans le bac à sable ci-dessus, vous ne vouliez pas que le code de l’Effet soit réactif par rapport à `canMove`. C’est pourquoi il était logique d’extraire un Événement d’Effet.
 
 Lisez [Alléger les dépendances des Effets](/learn/removing-effect-dependencies) pour explorer d’autres alternatives correctes à la mise en sourdine du *linter*.
 
@@ -880,22 +880,22 @@ Lisez [Alléger les dépendances des Effets](/learn/removing-effect-dependencies
 
 <Wip>
 
-Cette section décrit une **API expérimentale : elle n'a donc pas encore été livrée** dans une version stable de React.
+Cette section décrit une **API expérimentale : elle n'a donc pas encore été livrée** dans une version stable de Réac.
 
 </Wip>
 
 Les Événements d’Effets sont très limités dans leur utilisation :
 
 * **Ne les appelez qu’à l’intérieur des Effets.**
-* **Ne les transmettez jamais à d’autres composants ou Hooks.**
+* **Ne les transmettez jamais à d’autres composants ou Crochets.**
 
 Par exemple, ne déclarez pas et ne transmettez pas un Événement d’Effet ainsi :
 
 ```js {4-6,8}
 function Timer() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
 
-  const onTick = useEffectEvent(() => {
+  const onTick = utiliserEffetEvent(() => {
     setCount(count + 1);
   });
 
@@ -905,7 +905,7 @@ function Timer() {
 }
 
 function useTimer(callback, delay) {
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(() => {
       callback();
     }, delay);
@@ -920,7 +920,7 @@ Au lieu de ça, déclarez toujours les Événements d’Effets juste à côté d
 
 ```js {10-12,16,21}
 function Timer() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = utiliserEtat(0);
   useTimer(() => {
     setCount(count + 1);
   }, 1000);
@@ -928,11 +928,11 @@ function Timer() {
 }
 
 function useTimer(callback, delay) {
-  const onTick = useEffectEvent(() => {
+  const onTick = utiliserEffetEvent(() => {
     callback();
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(() => {
       onTick(); // ✅ Correct : appelé uniquement à l’intérieur d’un Effet
     }, delay);
@@ -953,7 +953,7 @@ Les Événements d’Effets sont des « parties » non réactives du code de v
 - La logique contenue dans les Effets est réactive.
 - Vous pouvez déplacer de la logique non réactive des Effets vers des Événements d’Effets.
 - N'appelez des Événements d’Effets qu’à l’intérieur des Effets.
-- Ne transmettez pas les Événements d’Effets à d’autres composants ou Hooks.
+- Ne transmettez pas les Événements d’Effets à d’autres composants ou Crochets.
 
 </Recap>
 
@@ -974,20 +974,20 @@ Pour corriger ce code, il suffit de suivre les règles.
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
-  const [increment, setIncrement] = useState(1);
+  const [count, setCount] = utiliserEtat(0);
+  const [increment, setIncrement] = utiliserEtat(1);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setCount(c => c + increment);
     }, 1000);
     return () => {
       clearInterval(id);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line Réac-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -1022,18 +1022,18 @@ button { margin: 10px; }
 
 Comme d’habitude, quand vous cherchez des bugs dans des Effets, commencez par chercher si le *linter* a été mis en sourdine quelque part.
 
-Si vous enlevez le commentaire avec la directive de mise en sourdine, React vous dira que le code de cet Effet dépend de `increment`, mais vous avez « menti » à React en affirmant que cet Effet ne dépendait d’aucune valeur réactive (`[]`). Ajoutez `increment` dans le tableau des dépendances :
+Si vous enlevez le commentaire avec la directive de mise en sourdine, Réac vous dira que le code de cet Effet dépend de `increment`, mais vous avez « menti » à Réac en affirmant que cet Effet ne dépendait d’aucune valeur réactive (`[]`). Ajoutez `increment` dans le tableau des dépendances :
 
 <Sandpack>
 
 ```js
-import { useState, useEffect } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
-  const [increment, setIncrement] = useState(1);
+  const [count, setCount] = utiliserEtat(0);
+  const [increment, setIncrement] = utiliserEtat(1);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setCount(c => c + increment);
     }, 1000);
@@ -1070,7 +1070,7 @@ button { margin: 10px; }
 
 </Sandpack>
 
-À présent, quand `increment` changera, React resynchronisera votre Effet, ce qui redémarrera l’intervalle.
+À présent, quand `increment` changera, Réac resynchronisera votre Effet, ce qui redémarrera l’intervalle.
 
 </Solution>
 
@@ -1091,28 +1091,28 @@ Il semble que l’Effet qui met en place le minuteur « réagisse » à la val
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
-  const [increment, setIncrement] = useState(1);
+  const [count, setCount] = utiliserEtat(0);
+  const [increment, setIncrement] = utiliserEtat(1);
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(() => {
       setCount(c => c + increment);
     }, 1000);
@@ -1160,32 +1160,32 @@ Pour résoudre ce problème, extrayez un Événement d’Effet `onTick` de votre
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
-  const [increment, setIncrement] = useState(1);
+  const [count, setCount] = utiliserEtat(0);
+  const [increment, setIncrement] = utiliserEtat(1);
 
-  const onTick = useEffectEvent(() => {
+  const onTick = utiliserEffetEvent(() => {
     setCount(c => c + increment);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(() => {
       onTick();
     }, 1000);
@@ -1242,39 +1242,39 @@ Le code à l’intérieur des Événements d’Effets n’est pas réactif. Exis
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
-  const [increment, setIncrement] = useState(1);
-  const [delay, setDelay] = useState(100);
+  const [count, setCount] = utiliserEtat(0);
+  const [increment, setIncrement] = utiliserEtat(1);
+  const [delay, setDelay] = utiliserEtat(100);
 
-  const onTick = useEffectEvent(() => {
+  const onTick = utiliserEffetEvent(() => {
     setCount(c => c + increment);
   });
 
-  const onMount = useEffectEvent(() => {
+  const onMount = utiliserEffetEvent(() => {
     return setInterval(() => {
       onTick();
     }, delay);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = onMount();
     return () => {
       clearInterval(id);
@@ -1329,33 +1329,33 @@ Le problème avec l’exemple ci-dessus, c'est qu’il a extrait un Événement 
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 
 export default function Timer() {
-  const [count, setCount] = useState(0);
-  const [increment, setIncrement] = useState(1);
-  const [delay, setDelay] = useState(100);
+  const [count, setCount] = utiliserEtat(0);
+  const [increment, setIncrement] = utiliserEtat(1);
+  const [delay, setDelay] = utiliserEtat(100);
 
-  const onTick = useEffectEvent(() => {
+  const onTick = utiliserEffetEvent(() => {
     setCount(c => c + increment);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const id = setInterval(() => {
       onTick();
     }, delay);
@@ -1427,34 +1427,34 @@ Votre Effet sait à quel salon il est connecté. Y a-t-il des informations que v
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
-  const onConnected = useEffectEvent(() => {
+  const onConnected = utiliserEffetEvent(() => {
     showNotification('Bievenue dans le salon ' + roomId, theme);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       setTimeout(() => {
@@ -1469,8 +1469,8 @@ function ChatRoom({ roomId, theme }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
-  const [isDark, setIsDark] = useState(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isDark, setIsDark] = utiliserEtat(false);
   return (
     <>
       <label>
@@ -1568,34 +1568,34 @@ Pour résoudre ce problème, au lieu de lire la *dernière* valeur de `roomId` d
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
-  const onConnected = useEffectEvent(connectedRoomId => {
+  const onConnected = utiliserEffetEvent(connectedRoomId => {
     showNotification('Bienvenue dans le salon ' + connectedRoomId, theme);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.on('connected', () => {
       setTimeout(() => {
@@ -1610,8 +1610,8 @@ function ChatRoom({ roomId, theme }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
-  const [isDark, setIsDark] = useState(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isDark, setIsDark] = utiliserEtat(false);
   return (
     <>
       <label>
@@ -1705,34 +1705,34 @@ Pour résoudre le défi supplémentaire, enregistrez l’ID du timer de notifica
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
+    "Réac": "experimental",
+    "Réac-dom": "experimental",
+    "Réac-scripts": "latest",
     "toastify-js": "1.12.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "Réac-scripts start",
+    "build": "Réac-scripts build",
+    "test": "Réac-scripts test --env=jsdom",
+    "eject": "Réac-scripts eject"
   }
 }
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { utiliserEtat, utiliserEffet } from 'Réac';
+import { experimental_utiliserEffetEvent as utiliserEffetEvent } from 'Réac';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
 const serverUrl = 'https://localhost:1234';
 
 function ChatRoom({ roomId, theme }) {
-  const onConnected = useEffectEvent(connectedRoomId => {
+  const onConnected = utiliserEffetEvent(connectedRoomId => {
     showNotification('Bienvenue dans le salon ' + connectedRoomId, theme);
   });
 
-  useEffect(() => {
+  utiliserEffet(() => {
     const connection = createConnection(serverUrl, roomId);
     let notificationTimeoutId;
     connection.on('connected', () => {
@@ -1753,8 +1753,8 @@ function ChatRoom({ roomId, theme }) {
 }
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
-  const [isDark, setIsDark] = useState(false);
+  const [roomId, setRoomId] = utiliserEtat('general');
+  const [isDark, setIsDark] = utiliserEtat(false);
   return (
     <>
       <label>

@@ -1,27 +1,27 @@
 ---
-title: "Hooks fournis par React DOM"
+title: "Crochets fournis par Réac DOM"
 ---
 
 <Intro>
 
-Le module `react-dom` contient les Hooks qui ne sont pris en charge que dans des applications web (qui ne tournent que dans un environnement DOM navigateur). Ces Hooks ne sont pas pris en charge dans des environnements hors-navigateur tels que les applications iOS, Android ou Windows. Si vous cherchez les Hooks pris en charge dans les navigateurs *et les autres environnements*, consultez la [page des Hooks React](/reference/react). La page où vous vous trouvez liste quant à elle tous les Hooks du module `react-dom`.
+Le module `Réac-dom` contient les Crochets qui ne sont pris en charge que dans des applications web (qui ne tournent que dans un environnement DOM navigateur). Ces Crochets ne sont pas pris en charge dans des environnements hors-navigateur tels que les applications iOS, Android ou Windows. Si vous cherchez les Crochets pris en charge dans les navigateurs *et les autres environnements*, consultez la [page des Crochets Réac](/reference/Réac). La page où vous vous trouvez liste quant à elle tous les Crochets du module `Réac-dom`.
 
 </Intro>
 
 ---
 
-## Hooks de formulaires {/*form-hooks*/}
+## Crochets de formulaires {/*form-hooks*/}
 
 <Canary>
 
-Les Hooks de formulaires ne sont actuellement disponibles que sur les canaux de livraison Canary et Expérimental de React. Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+Les Crochets de formulaires ne sont actuellement disponibles que sur les canaux de livraison Canary et Expérimental de Réac. Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
-Les *formulaires* vous permettent de créer des contrôles interactifs pour envoyer des informations.  Pour gérer les formulaires dans vos composants, utilisez l'un des Hooks suivants :
+Les *formulaires* vous permettent de créer des contrôles interactifs pour envoyer des informations.  Pour gérer les formulaires dans vos composants, utilisez l'un des Crochets suivants :
 
-* [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) vous permet de mettre à jour l'UI sur base de l'état d'un formulaire.
-* [`useFormState`](/reference/react-dom/hooks/useFormState) vous permet de gérer l'état au sein d'un formulaire.
+* [`useFormStatus`](/reference/Réac-dom/hooks/useFormStatus) vous permet de mettre à jour l'UI sur base de l'état d'un formulaire.
+* [`useFormState`](/reference/Réac-dom/hooks/useFormState) vous permet de gérer l'état au sein d'un formulaire.
 
 ```js
 function Form({ action }) {

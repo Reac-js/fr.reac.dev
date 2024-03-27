@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-La fonction `preloadModule` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de React. Apprenez-en davantage sur [les canaux de livraison React](/community/versioning-policy#all-release-channels).
+La fonction `preloadModule` n'est actuellement disponible que sur les canaux de livraison Canary et Expérimental de Réac. Apprenez-en davantage sur [les canaux de livraison Réac](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
 <Note>
 
-[Les frameworks basés sur React](/learn/start-a-new-react-project) s'occupent fréquemment pour vous du chargement des ressources, de sorte que vous n'aurez peut-être pas besoin d'appeler ces API vous-même.  Consultez la documentation de votre framework pour en savoir plus à ce sujet.
+[Les frameworks basés sur Réac](/learn/start-a-newreacproject) s'occupent fréquemment pour vous du chargement des ressources, de sorte que vous n'aurez peut-être pas besoin d'appeler ces API vous-même.  Consultez la documentation de votre framework pour en savoir plus à ce sujet.
 
 </Note>
 
@@ -33,10 +33,10 @@ preloadModule("https://example.com/module.js", { as: "script" });
 
 ### `preloadModule(href, options)` {/*preloadmodule*/}
 
-Pour précharger un module ESM, appelez la fonction `preloadModule` de `react-dom`.
+Pour précharger un module ESM, appelez la fonction `preloadModule` de `Réac-dom`.
 
 ```js
-import { preloadModule } from 'react-dom';
+import { preloadModule } from 'Réac-dom';
 
 function AppRoot() {
   preloadModule("https://example.com/module.js", { as: "script" });
@@ -77,7 +77,7 @@ La fonction `preloadModule` suggère au navigateur de commencer à télécharger
 Appelez `preloadModule` lors du rendu d'un composant si vous savez que ses enfants auront besoin de charger un module spécifique.
 
 ```js
-import { preloadModule } from 'react-dom';
+import { preloadModule } from 'Réac-dom';
 
 function AppRoot() {
   preloadModule("https://example.com/module.js", { as: "script" });
@@ -85,14 +85,14 @@ function AppRoot() {
 }
 ```
 
-Si vous souhaitez que le navigateur évalue le module immédiatement après chargement (plutôt que simplement le charger), utilisez plutôt [`preinitModule`](/reference/react-dom/preinitModule). Si vous souhaitez charger un script qui n'est pas un module ESM, utilisez [`preload`](/reference/react-dom/preload).
+Si vous souhaitez que le navigateur évalue le module immédiatement après chargement (plutôt que simplement le charger), utilisez plutôt [`preinitModule`](/reference/Réac-dom/preinitModule). Si vous souhaitez charger un script qui n'est pas un module ESM, utilisez [`preload`](/reference/Réac-dom/preload).
 
 ### Précharger dans un gestionnaire d'événement {/*preloading-in-an-event-handler*/}
 
 Appelez `preloadModule` depuis un gestionnaire d'événement avant de passer à une page ou un état qui auront besoin du module.  Ça permet de déclencher le processus plus tôt que si vous l'appeliez au sein de la nouvelle page ou suite au nouvel état.
 
 ```js
-import { preloadModule } from 'react-dom';
+import { preloadModule } from 'Réac-dom';
 
 function CallToAction() {
   const onClick = () => {

@@ -69,7 +69,7 @@ export function DownloadButton({
 }
 </script>
 <script type="text/babel" data-type="module">
-import React, { StrictMode } from 'react';
+import Réac, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 ${code.replace('export default ', 'let App = ')}

@@ -4,7 +4,7 @@ title: 'Tutoriel : Tic-Tac-Toe'
 
 <Intro>
 
-Dans ce tutoriel, vous allez construire un petit jeu de tic-tac-toe.  Ce tutoriel ne requiert aucune connaissance préalable de React. Les techniques que vous apprendrez dans ce tutoriel sont fondamentales pour construire n'importe quelle appli React : bien les comprendre vous donnera une compréhension profonde de React.
+Dans ce tutoriel, vous allez construire un petit jeu de tic-tac-toe.  Ce tutoriel ne requiert aucune connaissance préalable de Réac. Les techniques que vous apprendrez dans ce tutoriel sont fondamentales pour construire n'importe quelle appli Réac : bien les comprendre vous donnera une compréhension profonde de Réac.
 
 </Intro>
 
@@ -17,13 +17,13 @@ Ce tutoriel est conçu pour les personnes qui préfèrent **apprendre en faisant
 Ce tutoriel est découpé en plusieurs sections :
 
 - [Se préparer au tutoriel](#setup-for-the-tutorial) vous donnera **un point de départ** pour le tutoriel.
-- [Survol](#overview) vous apprendra **les fondamentaux** de React : composants, props et état.
-- [Finaliser le jeu](#completing-the-game) vous apprendra **les techniques les plus courantes** du développement React.
-- [Voyager dans le temps](#adding-time-travel) vous donnera **une meilleure perception** des avantages uniques de React.
+- [Survol](#overview) vous apprendra **les fondamentaux** de Réac : composants, props et état.
+- [Finaliser le jeu](#completing-the-game) vous apprendra **les techniques les plus courantes** du développement Réac.
+- [Voyager dans le temps](#adding-time-travel) vous donnera **une meilleure perception** des avantages uniques de Réac.
 
 ### Qu'allez-vous construire ? {/*what-are-you-building*/}
 
-Dans ce tutoriel, vous allez construire un jeu de tic-tac-toe interactif avec React.
+Dans ce tutoriel, vous allez construire un jeu de tic-tac-toe interactif avec Réac.
 
 *(Le tic-tac-toe est souvent appelé par amalgame « morpion » en français ; les deux termes existent, mais le morpion n'est pas limité à 3 × 3 cases, NdT.)*
 
@@ -32,7 +32,7 @@ Vous pouvez voir ci-dessous à quoi ça ressemblera une fois terminé :
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -87,8 +87,8 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = utiliserEtat(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
@@ -196,7 +196,7 @@ body {
 
 </Sandpack>
 
-Si le code vous paraît incompréhensible, ou si des éléments de syntaxe vous semblent étranges, ne vous inquiétez pas ! L'objectif de ce tutoriel, c'est justement de vous aider à comprendre React et sa syntaxe.
+Si le code vous paraît incompréhensible, ou si des éléments de syntaxe vous semblent étranges, ne vous inquiétez pas ! L'objectif de ce tutoriel, c'est justement de vous aider à comprendre Réac et sa syntaxe.
 
 Nous vous conseillons de manipuler le jeu de tic-tac-toe ci-dessus avant de continuer ce tutoriel.  Une des fonctionnalités que vous pourrez remarquer, c'est la liste numérotée des coups à droite du plateau de jeu.  Elle vous donne un historique de tous les coups joués lors de la partie, mise à jour au fil du temps.
 
@@ -277,13 +277,13 @@ Si vous êtes bloqué·e, ne vous laissez pas décourager ! Suivez ce tutoriel 
 
 ## Survol {/*overview*/}
 
-À présent que vous êtes prêt·e, attaquons un survol de React !
+À présent que vous êtes prêt·e, attaquons un survol de Réac !
 
 ### Examiner le code de démarrage {/*inspecting-the-starter-code*/}
 
 Dans CodeSandbox vous trouverez trois sections principales :
 
-![CodeSandbox avec le code de démarrage](../images/tutorial/react-starter-code-codesandbox.png)
+![CodeSandbox avec le code de démarrage](../images/tutorial/Réac-starter-code-codesandbox.png)
 
 1. La section _Files_ contient une liste des fichiers du projet tels que `App.js`, `index.js`, `styles.css` et un dossier nommé `public`
 2. Le _code editor_ affiche le code source du fichier sélectionné
@@ -305,7 +305,7 @@ Jetons maintenant un coup d'œil au code de démarrage.
 
 #### `App.js` {/*appjs*/}
 
-Le code dans `App.js` crée un _composant_. Dans React, un composant est un bout de code réutilisable qui représente une partie de l'interface utilisateur (UI, pour *User Interface*).  Les composants sont utilisés pour afficher, gérer et mettre à jour des éléments d'UI dans votre application.  Examinons ce composant ligne par ligne pour voir ce qui s'y passe :
+Le code dans `App.js` crée un _composant_. Dans Réac, un composant est un bout de code réutilisable qui représente une partie de l'interface utilisateur (UI, pour *User Interface*).  Les composants sont utilisés pour afficher, gérer et mettre à jour des éléments d'UI dans votre application.  Examinons ce composant ligne par ligne pour voir ce qui s'y passe :
 
 ```js {1}
 export default function Square() {
@@ -325,15 +325,15 @@ La deuxième ligne renvoie un bouton. Le mot-clé JavaScript `return` indique qu
 
 #### `styles.css` {/*stylescss*/}
 
-Cliquez sur le fichier nommé `styles.css` dans la section _Files_ de CodeSandbox.  Ce fichier définit les styles de votre appli React. Les deux premiers _sélecteurs CSS_ (`*` et `body`) définissent le style de larges pans de votre appli, tandis que le sélecteur `.square` définit le style de tout composant dont la propriété `className` vaudra `square`. Dans votre code, ça correspondrait au bouton de votre composant `Square` dans le fichier `App.js`.
+Cliquez sur le fichier nommé `styles.css` dans la section _Files_ de CodeSandbox.  Ce fichier définit les styles de votre appli Réac. Les deux premiers _sélecteurs CSS_ (`*` et `body`) définissent le style de larges pans de votre appli, tandis que le sélecteur `.square` définit le style de tout composant dont la propriété `className` vaudra `square`. Dans votre code, ça correspondrait au bouton de votre composant `Square` dans le fichier `App.js`.
 
 #### `index.js` {/*indexjs*/}
 
 Cliquez sur le fichier nommé `index.js` dans la section _Files_ de CodeSandbox. Vous ne modifierez pas ce fichier pendant ce tutoriel, mais il est la passerelle entre le composant que vous avez créé dans le fichier `App.js` et le navigateur web.
 
 ```jsx
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { ModeStrict } from 'Réac';
+import { createRoot } from 'Réac-dom/client';
 import './styles.css';
 
 import App from './App';
@@ -341,8 +341,8 @@ import App from './App';
 
 Les lignes 1 à 5 rassemblent toutes les pièces du puzzle :
 
-* React
-* La bibliothèque React qui parle aux navigateurs web (React DOM)
+* Réac
+* La bibliothèque Réac qui parle aux navigateurs web (Réac DOM)
 * Les styles de vos composants
 * Le composant que vous avez créé dans `App.js`.
 
@@ -370,7 +370,7 @@ export default function Square() {
 
 *(« Des éléments JSX adjacents doivent être enrobés par une balise englobante. Vouliez-vous utiliser un Fragment JSX `<>...</>` ? », NdT.)*
 
-Les composants React doivent ne renvoyer qu'un unique élément JSX, et non plusieurs éléments JSX adjacents, comme nos deux boutons. Pour corriger ça, vous pouvez utiliser des *Fragments* (`<>` et `</>`) pour enrober plusieurs éléments JSX adjacents, comme ceci :
+Les composants Réac doivent ne renvoyer qu'un unique élément JSX, et non plusieurs éléments JSX adjacents, comme nos deux boutons. Pour corriger ça, vous pouvez utiliser des *Fragments* (`<>` et `</>`) pour enrober plusieurs éléments JSX adjacents, comme ceci :
 
 ```js {3-6}
 export default function Square() {
@@ -514,7 +514,7 @@ Psssst… Ça fait un paquet de saisie de code ! N'hésitez pas à copier-colle
 
 ### Fournir des données avec les props {/*passing-data-through-props*/}
 
-Pour l'étape suivante, vous allez vouloir changer la valeur d'un carré de vide à « X » lorsque l'utilisateur clique sur le carré.  Vu comme vous avez construit votre tableau jusqu'ici, il vous faudrait copier-coller le code qui met à jour un carré neuf fois (une fois par carré) !  Plutôt que de le copier-coller, l'architecture de composants de React vous permet de créer un composant réutilisable pour éviter du code dupliqué mal fichu.
+Pour l'étape suivante, vous allez vouloir changer la valeur d'un carré de vide à « X » lorsque l'utilisateur clique sur le carré.  Vu comme vous avez construit votre tableau jusqu'ici, il vous faudrait copier-coller le code qui met à jour un carré neuf fois (une fois par carré) !  Plutôt que de le copier-coller, l'architecture de composants de Réac vous permet de créer un composant réutilisable pour éviter du code dupliqué mal fichu.
 
 Pour commencer, copiez la ligne qui définit votre premier carré (`<button className="square">1</button>`) depuis votre composant `Board` vers un nouveau composant `Square` :
 
@@ -706,7 +706,7 @@ body {
 
 </Sandpack>
 
-### Rendre le composant interactif {/*making-an-interactive-component*/}
+### Rendre le composant interactif {/*making-an-interactive-composant*/}
 
 Faisons en sorte que le composant `Square` se remplisse d'un `X` lorsqu'on clique dessus.
 
@@ -739,21 +739,21 @@ Si vous suivez ce tutoriel dans votre environnement de développement local, vou
 
 Vous souhaitez maintenant que le composant `Square` « se souvienne » qu'on lui a cliqué dessus, et se remplisse alors avec la marque « X ».  Pour « se souvenir » de choses, les composants utilisent *l'état*.
 
-React fournit une fonction spéciale appelée `useState` que vous pouvez appeler depuis votre composant pour qu'il « se souvienne » de choses.  Stockons donc la valeur actuelle de `Square` dans un état, et modifions-la quand on clique sur le `Square`.
+Réac fournit une fonction spéciale appelée `utiliserEtat` que vous pouvez appeler depuis votre composant pour qu'il « se souvienne » de choses.  Stockons donc la valeur actuelle de `Square` dans un état, et modifions-la quand on clique sur le `Square`.
 
-Importez `useState` au début du fichier. Retirez la prop `value` du composant `Square`.  Remplacez-la par une nouvelle ligne au début de la fonction `Square` qui appelle `useState`.  Faites-lui renvoyer une variable d'état appelée `value` :
+Importez `utiliserEtat` au début du fichier. Retirez la prop `value` du composant `Square`.  Remplacez-la par une nouvelle ligne au début de la fonction `Square` qui appelle `utiliserEtat`.  Faites-lui renvoyer une variable d'état appelée `value` :
 
 ```js {1,3,4}
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square() {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = utiliserEtat(null);
 
   function handleClick() {
     //...
 ```
 
-`value` stocke la valeur et `setValue` est une fonction qu'on peut utiliser pour modifier la valeur. Le `null` passé à `useState` est utilisé comme valeur initiale de la variable d'état, de sorte que `value` démarre ici à `null`.
+`value` stocke la valeur et `setValue` est une fonction qu'on peut utiliser pour modifier la valeur. Le `null` passé à `utiliserEtat` est utilisé comme valeur initiale de la variable d'état, de sorte que `value` démarre ici à `null`.
 
 Puisque le composant `Square` n'accepte plus de props, vous pouvez retirer les props `value` des neuf composants `Square` créés dans le composant `Board` :
 
@@ -786,7 +786,7 @@ Modifiez maintenant `Square` pour afficher un « X » quand on clique dessus. 
 
 ```js {5}
 function Square() {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = utiliserEtat(null);
 
   function handleClick() {
     setValue('X');
@@ -803,21 +803,21 @@ function Square() {
 }
 ```
 
-En appelant la fonction `set` depuis un gestionnaire `onClick`, vous demandez à React d'afficher à nouveau ce `Square` chaque fois qu'on clique sur le `<button>`.  Après la mise à jour, la `value` dans ce `Square` sera `'X'`, et vous verrez donc un « X » sur le plateau de jeu.  Cliquez sur n'importe quel carré, et un « X » y apparaîtra :
+En appelant la fonction `set` depuis un gestionnaire `onClick`, vous demandez à Réac d'afficher à nouveau ce `Square` chaque fois qu'on clique sur le `<button>`.  Après la mise à jour, la `value` dans ce `Square` sera `'X'`, et vous verrez donc un « X » sur le plateau de jeu.  Cliquez sur n'importe quel carré, et un « X » y apparaîtra :
 
 ![Ajouts de X sur le plateau de jeu](../images/tutorial/tictac-adding-x-s.gif)
 
-Chaque `Square` a son propre état : la `value` stockée par chaque `Square` est totalement indépendante des autres. Lorsque vous appelez la fonction `set` dans un composant, React met automatiquement à jour ses composants enfants aussi.
+Chaque `Square` a son propre état : la `value` stockée par chaque `Square` est totalement indépendante des autres. Lorsque vous appelez la fonction `set` dans un composant, Réac met automatiquement à jour ses composants enfants aussi.
 
 Après que vous aurez fait les modifications ci-dessus, votre code devrait ressembler à ceci :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square() {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = utiliserEtat(null);
 
   function handleClick() {
     setValue('X');
@@ -903,19 +903,19 @@ body {
 
 </Sandpack>
 
-### Outils de développement React {/*react-developer-tools*/}
+### Outils de développement Réac {/*réac-developer-tools*/}
 
-Les outils de développement React *(React DevTools, NdT)* vous permettent d'examiner les props et l'état de vos composants React. Vous les trouverez dans l'onglet *React DevTools* en bas de la section _Browser_ de CodeSandbox :
+Les outils de développement Réac *(Réac DevTools, NdT)* vous permettent d'examiner les props et l'état de vos composants Réac. Vous les trouverez dans l'onglet *Réac DevTools* en bas de la section _Browser_ de CodeSandbox :
 
-![Les React DevTools dans CodeSandbox](../images/tutorial/codesandbox-devtools.png)
+![Les Réac DevTools dans CodeSandbox](../images/tutorial/codesandbox-devtools.png)
 
-Pour examiner un composant spécifique à l'écran, utilisez le bouton en haut à gauche des outils de développement React :
+Pour examiner un composant spécifique à l'écran, utilisez le bouton en haut à gauche des outils de développement Réac :
 
-![Sélection de composants sur la page dans les outils de développement React](../images/tutorial/devtools-select.gif)
+![Sélection de composants sur la page dans les outils de développement Réac](../images/tutorial/devtools-select.gif)
 
 <Note>
 
-Pour le développement local, les outils de développement React sont disponibles sous forme d'extension navigateur pour [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) et [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil). Installez-les, après quoi l'onglet *Composants* apparaîtra dans les outils de développement de votre navigateur sur les sites utilisant React.
+Pour le développement local, les outils de développement Réac sont disponibles sous forme d'extension navigateur pour [Chrome](https://chrome.google.com/webstore/detail/Réac-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/Réac-devtools/) et [Edge](https://microsoftedge.microsoft.com/addons/detail/Réac-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil). Installez-les, après quoi l'onglet *Composants* apparaîtra dans les outils de développement de votre navigateur sur les sites utilisant Réac.
 
 </Note>
 
@@ -927,25 +927,25 @@ Pour le développement local, les outils de développement React sont disponible
 
 Actuellement, chaque composant `Square` maintient une partie de l'état du jeu.  Pour déterminer si quelqu'un a gagné la partie de tic-tac-toe, le `Board` doit donc se débrouiller pour connaître l'état de chacun des 9 composants `Square`.
 
-Comment vous y prendriez-vous ? Vous pourriez d'abord penser que le `Board` a besoin de « demander » à chaque `Square` quel est son état interne.  Même si une telle approche est techniquement possible en React, nous la déconseillons car elle engendre du code difficile à comprendre, difficile à remanier et fortement sujet aux bugs.  La meilleure approche consiste plutôt à stocker l'état du jeu dans le composant parent `Board`, plutôt qu'éparpillé dans chaque `Square`. Le composant `Board` peut dire à chaque `Square` quoi afficher en lui passant une prop, comme vous l'aviez fait en passant un nombre à chaque `Square`.
+Comment vous y prendriez-vous ? Vous pourriez d'abord penser que le `Board` a besoin de « demander » à chaque `Square` quel est son état interne.  Même si une telle approche est techniquement possible en Réac, nous la déconseillons car elle engendre du code difficile à comprendre, difficile à remanier et fortement sujet aux bugs.  La meilleure approche consiste plutôt à stocker l'état du jeu dans le composant parent `Board`, plutôt qu'éparpillé dans chaque `Square`. Le composant `Board` peut dire à chaque `Square` quoi afficher en lui passant une prop, comme vous l'aviez fait en passant un nombre à chaque `Square`.
 
 **Pour récupérer des données depuis de multiples enfants, ou pour que deux composants enfants communiquent l'un avec l'autre, déclarez plutôt leur état partagé dans leur composant parent. Le composant parent peut transmettre cet état à ses enfants *via* les props. Ça permet de garder les enfants synchronisés entre eux, ainsi qu'avec leur parent.**
 
-Faire remonter l'état dans un composant parent est une pratique courante lors de la refonte du code des composants React.
+Faire remonter l'état dans un composant parent est une pratique courante lors de la refonte du code des composants Réac.
 
 Tirons parti de cette opportunité pour essayer ça. Modifiez le composant `Board` pour qu'il déclare une variable d'état nommée `squares` qui contient par défaut un tableau de 9 `null` correspondant aux neuf cases :
 
 ```js {3}
 // ...
 export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
   return (
     // ...
   );
 }
 ```
 
-`Array(9).fill(null)` crée un tableau de neuf éléments puis les définit tous à `null`.  L'appel `useState()` qui l'enrobe déclare une variable d'état `squares` qui vaut initialement ce tableau. Chaque entrée du tableau correspond à la valeur d'une case. Lorsque vous remplirez le plateau par la suite, le tableau aura une valeur ressemblant davantage à ceci :
+`Array(9).fill(null)` crée un tableau de neuf éléments puis les définit tous à `null`.  L'appel `utiliserEtat()` qui l'enrobe déclare une variable d'état `squares` qui vaut initialement ce tableau. Chaque entrée du tableau correspond à la valeur d'une case. Lorsque vous remplirez le plateau par la suite, le tableau aura une valeur ressemblant davantage à ceci :
 
 ```jsx
 ['O', null, 'X', 'X', 'X', 'O', 'O', null, null]
@@ -955,7 +955,7 @@ Le composant `Board` doit maintenant passer la prop `value` à chaque `Square` q
 
 ```js {6-8,11-13,16-18}
 export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
   return (
     <>
       <div className="board-row">
@@ -995,14 +995,14 @@ Et votre code devrait ressembler à ceci :
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({ value }) {
   return <button className="square">{value}</button>;
 }
 
 export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
   return (
     <>
       <div className="board-row">
@@ -1104,7 +1104,7 @@ Vous allez maintenant connecter la prop `onSquareClick` à une fonction du compo
 
 ```js {7}
 export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
 
   return (
     <>
@@ -1119,7 +1119,7 @@ Pour finir, vous définirez la fonction `handleClick` au sein du composant `Boar
 
 ```js {4-8}
 export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
 
   function handleClick() {
     const nextSquares = squares.slice();
@@ -1135,7 +1135,7 @@ export default function Board() {
 
 La fonction `handleClick` crée une copie du tableau `squares` (`nextSquares`) grâce à la méthode de tableau JavaScript `slice()`. Ensuite, `handleClick` met à jour le tableau `nextSquares` pour ajouter un `X` à la première case (index `[0]`).
 
-On appelle alors la fonction `setSquares` pour avertir React que l'état du composant a changé. Ça déclenchera un nouvel affichage des composants qui utilisent l'état `squares` (donc `Board`), ainsi que de tous leurs composants enfants (les composants `Square` qui constituent le plateau).
+On appelle alors la fonction `setSquares` pour avertir Réac que l'état du composant a changé. Ça déclenchera un nouvel affichage des composants qui utilisent l'état `squares` (donc `Board`), ainsi que de tous leurs composants enfants (les composants `Square` qui constituent le plateau).
 
 <Note>
 
@@ -1147,7 +1147,7 @@ Vous pouvez désormais ajouter des X au plateau… mais seulement dans la case e
 
 ```js {4,6}
 export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
 
   function handleClick(i) {
     const nextSquares = squares.slice();
@@ -1171,11 +1171,11 @@ Voici pourquoi ça ne marchera pas : l'appel `handleClick(0)` fera partie du re
 
 <ConsoleBlock level="error">
 
-Too many re-renders. React limits the number of renders to prevent an infinite loop.
+Too many re-renders. Réac limits the number of renders to prevent an infinite loop.
 
 </ConsoleBlock>
 
-*(« Trop de rendus successifs. React limite le nombre de rendus pour éviter des boucles infinies », NdT)*
+*(« Trop de rendus successifs. Réac limite le nombre de rendus pour éviter des boucles infinies », NdT)*
 
 Pourquoi n'avions-nous pas ce problème plus tôt ?
 
@@ -1237,7 +1237,7 @@ Voici à quoi votre code devrait ressembler :
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -1248,7 +1248,7 @@ function Square({ value, onSquareClick }) {
 }
 
 export default function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
 
   function handleClick(i) {
     const nextSquares = squares.slice();
@@ -1337,7 +1337,7 @@ Au final l'utilisateur voit que la case supérieure gauche a changé après qu'i
 
 <Note>
 
-L'attribut `onClick` de l'élément DOM `<button>` a un sens particulier pour React, parce qu'il s'agit d'un composant natif du navigateur. Pour des composants personnalisés comme `Square`, vous pouvez nommer vos props comme bon vous semble. Vous pourriez donner n'importe quel nom à la prop `onSquareClick` de `Square` ou à la fonction `handleClick` de `Board`, le code continuerait à fonctionner. Dans React, la convention de nommage consiste à utiliser `onSomething` pour les props qui représentent des événements et `handleSomething` pour les fonctions qui gèrent ces événements.
+L'attribut `onClick` de l'élément DOM `<button>` a un sens particulier pour Réac, parce qu'il s'agit d'un composant natif du navigateur. Pour des composants personnalisés comme `Square`, vous pouvez nommer vos props comme bon vous semble. Vous pourriez donner n'importe quel nom à la prop `onSquareClick` de `Square` ou à la fonction `handleClick` de `Board`, le code continuerait à fonctionner. Dans Réac, la convention de nommage consiste à utiliser `onSomething` pour les props qui représentent des événements et `handleSomething` pour les fonctions qui gèrent ces événements.
 
 </Note>
 
@@ -1365,7 +1365,7 @@ Le résultat final est le même (c'est-à-dire, les données ont changé), mais 
 
 L'immutabilité facilite l'implémentation de fonctionnalités complexes. Plus tard dans ce tutoriel, vous implémenterez une fonctionnalité de « voyage dans le temps » qui vous permettra de consulter l'historique du jeu et de « revenir » à des coups passés.  Ce type de fonction n'est pas spécifique aux jeux — la capacité à défaire et refaire des actions est un besoin courant dans les applis. En évitant de modifier les données directement, il devient aisé de conserver leurs versions précédentes intactes pour les réutiliser ultérieurement.
 
-L'immutabilité présente un autre avantage. Par défaut, tous les composants enfants refont automatiquement leur rendu lorsque l'état du composant parent change.  Ça inclut les composants enfants qui ne sont en pratique pas concernés par le changement. Même si le nouveau rendu n'est en soi pas perceptible par l'utilisateur (vous ne devriez pas activement chercher à l'éviter !), vous pourriez souhaiter sauter le rendu d'une partie de l'arborescence qui n'est clairement pas concernée pour des raisons de performances. L'immutabilité permet aux composants de comparer leurs données à un coût quasiment nul, pour détecter un changement.  Vous pourrez en apprendre davantage sur la façon dont React choisit de refaire ou non le rendu d'un composant dans [la référence de l'API `memo`](/reference/react/memo).
+L'immutabilité présente un autre avantage. Par défaut, tous les composants enfants refont automatiquement leur rendu lorsque l'état du composant parent change.  Ça inclut les composants enfants qui ne sont en pratique pas concernés par le changement. Même si le nouveau rendu n'est en soi pas perceptible par l'utilisateur (vous ne devriez pas activement chercher à l'éviter !), vous pourriez souhaiter sauter le rendu d'une partie de l'arborescence qui n'est clairement pas concernée pour des raisons de performances. L'immutabilité permet aux composants de comparer leurs données à un coût quasiment nul, pour détecter un changement.  Vous pourrez en apprendre davantage sur la façon dont Réac choisit de refaire ou non le rendu d'un composant dans [la référence de l'API `memoire`](/reference/Réac/memoire).
 
 ### Jouer par tours {/*taking-turns*/}
 
@@ -1375,8 +1375,8 @@ Vous allez définir le premier marqueur comme un « X » par défaut. Gardons 
 
 ```js {2}
 function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
 
   // ...
 }
@@ -1386,8 +1386,8 @@ Chaque fois qu'une personne jouera son tour, `xIsNext` (un booléen) sera bascul
 
 ```js {7,8,9,10,11,13}
 export default function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
 
   function handleClick(i) {
     const nextSquares = squares.slice();
@@ -1431,7 +1431,7 @@ Désormais, vous ne pouvez plus ajouter des `X` ou des `O` que sur les cases vid
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({value, onSquareClick}) {
   return (
@@ -1442,8 +1442,8 @@ function Square({value, onSquareClick}) {
 }
 
 export default function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
 
   function handleClick(i) {
     if (squares[i]) {
@@ -1530,7 +1530,7 @@ body {
 
 ### Déclarer la victoire {/*declaring-a-winner*/}
 
-Maintenant que les joueurs peuvent participer tour à tour, vous allez vouloir déterminer à quel moment la partie est gagnée, ou s'il n'y a plus de tour à jouer.  Pour cela, ajoutez une petite fonction utilitaire nommée `calculateWinner` qui prend un tableau des 9 cases, vérifie s'il y a victoire et renvoie `'X'`, `'O'` ou `null` selon le cas.  Ne vous préocuppez pas trop du code de `calculateWinner`, il n'a rien de spécifique à React :
+Maintenant que les joueurs peuvent participer tour à tour, vous allez vouloir déterminer à quel moment la partie est gagnée, ou s'il n'y a plus de tour à jouer.  Pour cela, ajoutez une petite fonction utilitaire nommée `calculateWinner` qui prend un tableau des 9 cases, vérifie s'il y a victoire et renvoie `'X'`, `'O'` ou `null` selon le cas.  Ne vous préocuppez pas trop du code de `calculateWinner`, il n'a rien de spécifique à Réac :
 
 ```js src/App.js
 export default function Board() {
@@ -1598,12 +1598,12 @@ export default function Board() {
 }
 ```
 
-Félicitations ! Vous avez désormais un jeu fonctionnel de tic-tac-toe. Et vous avez appris les bases de React au passage. Finalement, _c'est à vous_ que revient réellement la victoire sur ce coup.  Voici à quoi devrait ressembler votre code :
+Félicitations ! Vous avez désormais un jeu fonctionnel de tic-tac-toe. Et vous avez appris les bases de Réac au passage. Finalement, _c'est à vous_ que revient réellement la victoire sur ce coup.  Voici à quoi devrait ressembler votre code :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({value, onSquareClick}) {
   return (
@@ -1614,8 +1614,8 @@ function Square({value, onSquareClick}) {
 }
 
 export default function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [squares, setSquares] = utiliserEtat(Array(9).fill(null));
 
   function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
@@ -1786,19 +1786,19 @@ Ajoutez des états au composant `Game` pour garder trace du prochain tour et de 
 
 ```js {2-3}
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
   // ...
 ```
 
 Remarquez que `[Array(9).fill(null)]` est un tableau avec un unique élément, lequel est lui-même un tableau de 9 `null`.
 
-Pour afficher les cases du coup actuel, lisez le dernier tableau de cases stocké dans `history`. Vous n'avez pas besoin d'un `useState` pour ça : vous avez déjà assez d'informations pour le calculer lors du rendu.
+Pour afficher les cases du coup actuel, lisez le dernier tableau de cases stocké dans `history`. Vous n'avez pas besoin d'un `utiliserEtat` pour ça : vous avez déjà assez d'informations pour le calculer lors du rendu.
 
 ```js {4}
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
   const currentSquares = history[history.length - 1];
   // ...
 ```
@@ -1807,8 +1807,8 @@ Ensuite, créez une fonction `handlePlay` au sein du composant `Game` qui sera a
 
 ```js {6-8,13}
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
   const currentSquares = history[history.length - 1];
 
   function handlePlay(nextSquares) {
@@ -1824,7 +1824,7 @@ export default function Game() {
 }
 ```
 
-Faisons en sorte que le composant `Board` soit pleinement contrôlé par les props qu'il reçoit. Modifiez le composant `Board` pour qu'il accepte trois propriétés : `xIsNext`, `squares`, et la nouvelle fonction `onPlay` que `Board` pourra appeler pour mettre à jour le tableau des cases lorsqu'un joueur joue un coup. Ensuite, retirez les deux premières lignes de la fonction `Board`, qui appelaient `useState` :
+Faisons en sorte que le composant `Board` soit pleinement contrôlé par les props qu'il reçoit. Modifiez le composant `Board` pour qu'il accepte trois propriétés : `xIsNext`, `squares`, et la nouvelle fonction `onPlay` que `Board` pourra appeler pour mettre à jour le tableau des cases lorsqu'un joueur joue un coup. Ensuite, retirez les deux premières lignes de la fonction `Board`, qui appelaient `utiliserEtat` :
 
 ```js {1}
 function Board({ xIsNext, squares, onPlay }) {
@@ -1881,7 +1881,7 @@ Par exemple, si `history` vaut `[[null,null,null], ["X",null,null]]` et `nextSqu
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -1936,8 +1936,8 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
   const currentSquares = history[history.length - 1];
 
   function handlePlay(nextSquares) {
@@ -2029,20 +2029,20 @@ body {
 
 Puisque vous enregistrez l'historique de la partie de tic-tac-toe, vous pouvez maintenant afficher au joueur une liste des coups passés.
 
-Les éléments React tels que `<button>` sont des objets JavaScript bruts ; vous pouvez les passer où bon vous semble dans votre application. Pour afficher une liste d'éléments dans React, vous pouvez utiliser un tableau d'éléments React.
+Les éléments Réac tels que `<button>` sont des objets JavaScript bruts ; vous pouvez les passer où bon vous semble dans votre application. Pour afficher une liste d'éléments dans Réac, vous pouvez utiliser un tableau d'éléments Réac.
 
-Vous avez déjà dans votre état un tableau `history` des coups, il vous faut donc le transformer en un tableau d'éléments React.  En JavaScript, transformer un tableau en un autre se fait généralement avec la [méthode `map` des tableaux](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map) :
+Vous avez déjà dans votre état un tableau `history` des coups, il vous faut donc le transformer en un tableau d'éléments Réac.  En JavaScript, transformer un tableau en un autre se fait généralement avec la [méthode `map` des tableaux](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map) :
 
 ```jsx
 [1, 2, 3].map((x) => x * 2) // [2, 4, 6]
 ```
 
-Utilisez `map` pour transformer votre `history` de coups en éléments React représentant des boutons à l'écran, et affichez une liste de boutons pour « revenir » à des coups passés. Faisons un `map` sur `history` dans le composant `Game` :
+Utilisez `map` pour transformer votre `history` de coups en éléments Réac représentant des boutons à l'écran, et affichez une liste de boutons pour « revenir » à des coups passés. Faisons un `map` sur `history` dans le composant `Game` :
 
 ```js {11-13,15-27,35}
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
   const currentSquares = history[history.length - 1];
 
   function handlePlay(nextSquares) {
@@ -2096,7 +2096,7 @@ Vous la corrigerez dans la prochaine section.
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -2151,8 +2151,8 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
   const currentSquares = history[history.length - 1];
 
   function handlePlay(nextSquares) {
@@ -2267,7 +2267,7 @@ Pour le moment, vous devriez voir une liste des coups passés de la partie, ains
 
 ### Choisir une clé {/*picking-a-key*/}
 
-Lorsque vous affichez une liste, React stocke quelques informations sur chaque élément de liste affiché. Lorsque vous mettez la liste à jour, React a besoin de déterminer ce qui a changé. Vous pourriez avoir ajouté, retiré, réordonné ou mis à jour les éléments de la liste.
+Lorsque vous affichez une liste, Réac stocke quelques informations sur chaque élément de liste affiché. Lorsque vous mettez la liste à jour, Réac a besoin de déterminer ce qui a changé. Vous pourriez avoir ajouté, retiré, réordonné ou mis à jour les éléments de la liste.
 
 Imaginez une transition depuis…
 
@@ -2284,7 +2284,7 @@ Imaginez une transition depuis…
 <li>Alexa : 5 tâches restantes</li>
 ```
 
-En plus des mises à jour de compteurs, un humain qui lirait ça dirait sans doute que vous avez inversé l'ordre d'Alexa et Ben, et inséré Claudia entre Alexa et Ben.  Seulement voilà, React n'est qu'un programme informatique et ne cherche pas à deviner quelle était votre intention, vous avez donc besoin de spécifier une propriété de _clé_ pour chaque élément de la liste afin de les différencier les uns des autres. Si vos données proviennent d'une base de données, les ID en base d'Alexa, Ben et Claudia pourraient être utilisés comme clés :
+En plus des mises à jour de compteurs, un humain qui lirait ça dirait sans doute que vous avez inversé l'ordre d'Alexa et Ben, et inséré Claudia entre Alexa et Ben.  Seulement voilà, Réac n'est qu'un programme informatique et ne cherche pas à deviner quelle était votre intention, vous avez donc besoin de spécifier une propriété de _clé_ pour chaque élément de la liste afin de les différencier les uns des autres. Si vos données proviennent d'une base de données, les ID en base d'Alexa, Ben et Claudia pourraient être utilisés comme clés :
 
 ```js {1}
 <li key={user.id}>
@@ -2292,15 +2292,15 @@ En plus des mises à jour de compteurs, un humain qui lirait ça dirait sans dou
 </li>
 ```
 
-Quand votre liste est ré-affichée, React prend la clé de chaque élément de liste et recherche l'élément de la liste précédente avec la même clé. S'il ne le trouve pas, React crée un composant. Si la liste à jour n'a pas une clé qui existait auparavant, React détruit l'ancien composant correspondant. Si deux clés correspondent, le composant correspondant est déplacé si besoin.
+Quand votre liste est ré-affichée, Réac prend la clé de chaque élément de liste et recherche l'élément de la liste précédente avec la même clé. S'il ne le trouve pas, Réac crée un composant. Si la liste à jour n'a pas une clé qui existait auparavant, Réac détruit l'ancien composant correspondant. Si deux clés correspondent, le composant correspondant est déplacé si besoin.
 
-Les clés informent React sur l'identité de chaque composant, ce qui lui permet de maintenir l'état d'un rendu à l'autre. Si la clé d'un composant change, il sera détruit puis recréé avec un état réinitialisé.
+Les clés informent Réac sur l'identité de chaque composant, ce qui lui permet de maintenir l'état d'un rendu à l'autre. Si la clé d'un composant change, il sera détruit puis recréé avec un état réinitialisé.
 
-`key` est une propriété spéciale réservée par React. Lorsqu'un élément est créé, React extrait la propriété `key` et la stocke directement dans l'élément renvoyé. Même si `key` semble être passé comme une prop, React l'utilise automatiquement pour déterminer quel composant mettre à jour. Un composant n'a aucun moyen de demander la `key` que son parent a spécifié.
+`key` est une propriété spéciale réservée par Réac. Lorsqu'un élément est créé, Réac extrait la propriété `key` et la stocke directement dans l'élément renvoyé. Même si `key` semble être passé comme une prop, Réac l'utilise automatiquement pour déterminer quel composant mettre à jour. Un composant n'a aucun moyen de demander la `key` que son parent a spécifié.
 
 **Nous vous conseillons fortement d'affecter des clés appropriées dès que vous construisez des listes dynamiques.**  Si vous n'en avez pas, envisagez de restructurer vos données pour qu'elles en comportent.
 
-Si aucune clé n'est spécifiée, React signalera une erreur et utilisera par défaut l'index dans le tableau comme clé. Recourir à l'index en tant que clé pose problème dès que vous essayez de réordonner la liste ou d'y insérer ou retirer des éléments.  Passer explicitement `key={i}` réduit certes l'erreur au silence, mais ne résout en rien le problème sous-jacent, c'est donc une approche généralement déconseillée.
+Si aucune clé n'est spécifiée, Réac signalera une erreur et utilisera par défaut l'index dans le tableau comme clé. Recourir à l'index en tant que clé pose problème dès que vous essayez de réordonner la liste ou d'y insérer ou retirer des éléments.  Passer explicitement `key={i}` réduit certes l'erreur au silence, mais ne résout en rien le problème sous-jacent, c'est donc une approche généralement déconseillée.
 
 Les clés n'ont pas besoin d'être uniques au global ; elles doivent juste être uniques au sein de la liste concernée.
 
@@ -2308,7 +2308,7 @@ Les clés n'ont pas besoin d'être uniques au global ; elles doivent juste êtr
 
 Dans l'historique de la partie de tic-tac-toe, chaque coup passé a un ID unique qui lui est associé : c'est le numéro séquentiel du coup. Les coups ne peuvent jamais être réordonnées, modifiés ou insérés (ailleurs qu'à la fin), il est donc raisonnable d'utiliser l'index du coup comme clé.
 
-Dans la fonction `Game`, vous pouvez ajouter la clé avec `<li key={move}>`, et si vous rechargez le jeu affiché, l'erreur de clé de React devrait disparaître :
+Dans la fonction `Game`, vous pouvez ajouter la clé avec `<li key={move}>`, et si vous rechargez le jeu affiché, l'erreur de clé de Réac devrait disparaître :
 
 ```js {4}
 const moves = history.map((squares, move) => {
@@ -2324,7 +2324,7 @@ const moves = history.map((squares, move) => {
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -2379,8 +2379,8 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
   const currentSquares = history[history.length - 1];
 
   function handlePlay(nextSquares) {
@@ -2492,9 +2492,9 @@ Avant de pouvoir implémenter `jumpTo`, il faut que le composant `Game` détermi
 
 ```js {4}
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = utiliserEtat(0);
   const currentSquares = history[history.length - 1];
   //...
 }
@@ -2531,9 +2531,9 @@ Pour finir, il faut modifier le composant `Game` pour afficher le coup actuellem
 
 ```js {5}
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = utiliserEtat(0);
   const currentSquares = history[currentMove];
 
   // ...
@@ -2545,7 +2545,7 @@ Si vous cliquez sur n'importe quelle étape de l'historique de la partie, le pla
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({value, onSquareClick}) {
   return (
@@ -2600,9 +2600,9 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+  const [xIsNext, setXIsNext] = utiliserEtat(true);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = utiliserEtat(0);
   const currentSquares = history[currentMove];
 
   function handlePlay(nextSquares) {
@@ -2719,8 +2719,8 @@ Il n'y a dès lors aucune raison de stocker les deux informations dans l'état. 
 
 ```js {4,11,15}
 export default function Game() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = utiliserEtat(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
@@ -2748,14 +2748,14 @@ Félicitations ! Vous avez créé un jeu de tic-tac-toe qui :
 - stocke l'historique des coups au fil de la progression,
 - permet aux joueurs de revoir l'historique de la partie en affichant les plateaux de chaque coup.
 
-Beau boulot ! Nous espérons que vous avez désormais l'impression de raisonnablement comprendre comment fonctionne React.
+Beau boulot ! Nous espérons que vous avez désormais l'impression de raisonnablement comprendre comment fonctionne Réac.
 
 Le résultat final est ici :
 
 <Sandpack>
 
 ```js src/App.js
-import { useState } from 'react';
+import { utiliserEtat } from 'Réac';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -2810,8 +2810,8 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
+  const [history, setHistory] = utiliserEtat([Array(9).fill(null)]);
+  const [currentMove, setCurrentMove] = utiliserEtat(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
@@ -2919,7 +2919,7 @@ body {
 
 </Sandpack>
 
-Si vous avez un peu plus de temps ou souhaitez pratiquer vos compétences React toutes fraîches, voici quelques idées d'améliorations que vous pourriez apporter à ce jeu de tic-tac-toe, par ordre croissant de difficulté :
+Si vous avez un peu plus de temps ou souhaitez pratiquer vos compétences Réac toutes fraîches, voici quelques idées d'améliorations que vous pourriez apporter à ce jeu de tic-tac-toe, par ordre croissant de difficulté :
 
 1. Pour le coup actuel uniquement, affichez « Vous êtes au coup #… » plutôt qu'un bouton.
 2. Remaniez `Board` pour qu'il utilise deux boucles au lieu de coder les rangées et cases du plateau en dur.
@@ -2927,4 +2927,4 @@ Si vous avez un peu plus de temps ou souhaitez pratiquer vos compétences React 
 4. Lorsqu'un joueur gagne, mettez en exergue les trois cases qui constituent sa victoire (et si personne ne gagne, affichez un message indiquant un match nul).
 5. Affichez l'emplacement de chaque coup (ligne, colonne) dans l'historique des coups joués.
 
-Au cours de ce tutoriel, vous avez abordé des concepts React tels que les éléments, les composants, les props et l'état. À présent que vous avez pu les voir en action dans le cadre de la construction de ce jeu, allez donc lire [Penser en React](/learn/thinking-in-react) pour explorer ces mêmes concepts dans le cadre de la construction de l'UI d'une appli.
+Au cours de ce tutoriel, vous avez abordé des concepts Réac tels que les éléments, les composants, les props et l'état. À présent que vous avez pu les voir en action dans le cadre de la construction de ce jeu, allez donc lire [Penser en Réac](/learn/thinking-in-Réac) pour explorer ces mêmes concepts dans le cadre de la construction de l'UI d'une appli.
