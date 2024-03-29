@@ -2,7 +2,8 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
-import {Html, Head, Main, NextScript} from 'next/document';
+import {Analytics} from '@vercel/analytics/react';
+import {Head, Html, Main, NextScript} from 'next/document';
 import {siteConfig} from '../siteConfig';
 
 const MyDocument = () => {
@@ -72,6 +73,7 @@ const MyDocument = () => {
         />
         <Main />
         <NextScript />
+        <Analytics />
       </body>
     </Html>
   );
